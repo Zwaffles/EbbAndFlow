@@ -22,17 +22,22 @@ public class ActionBarManager : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
         }
-        
+        //actionBarButtons = GetComponentsInChildren<ActionBarButton>();
     }
 
     private void InitializeActionBar()
     {
         ActionBarButton[] buttons = GetComponentsInChildren<ActionBarButton>();
+        //actionBarButtons = buttons;
+        foreach (ActionBarButton button in buttons)
+        {
+            //actionBarButtons.Add(button)
+        }
     }
 
     private void Start()
     {
-        SetCurrentActionBar(currentActionBar);
+        //SetCurrentActionBar(currentActionBar);
     }
 
     public void SetCurrentActionBar(ActionBar actionBar)

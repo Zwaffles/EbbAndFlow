@@ -44,3 +44,6 @@ TagManager:
   - name: Tower
     uniqueID: 1567923401
     locked: 0
+  - name: Foreground
+    uniqueID: 2757653177
+    locked: 0
