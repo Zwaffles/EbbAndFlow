@@ -16,6 +16,6 @@ public abstract class Action: ScriptableObject
 
     public virtual void UseAction()
     {
-
+        Debug.Log("Action Used!");
     }
 }

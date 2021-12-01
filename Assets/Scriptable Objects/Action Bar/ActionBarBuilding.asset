@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ActionBarBuilding
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 563d0fc047e250840829b3cc5dadc522, type: 2}
-  - {fileID: 11400000, guid: 563d0fc047e250840829b3cc5dadc522, type: 2}
+  - {fileID: 11400000, guid: e697bc5e2ef8ec64e97e82a70e8f3b07, type: 2}
+  - {fileID: 11400000, guid: e5f635e520de3d942819f9d1175c7c26, type: 2}
+  - {fileID: 11400000, guid: 7f1b9e0c5379b6e4da7c30ce5698e3e9, type: 2}

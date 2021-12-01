@@ -2607,6 +2607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55520c35f1d59f847bde63e66c1f5446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionBarButtons: []
+  currentActionBar: {fileID: 11400000, guid: cb4a258cdf826374986eb9a2346d11a7, type: 2}
 --- !u!114 &622409625
 MonoBehaviour:
   m_ObjectHideFlags: 0
