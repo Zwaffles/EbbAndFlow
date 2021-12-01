@@ -15,7 +15,7 @@ public static class Utilities
         return new Vector2Int((int)vector.x, (int)vector.y);
     }
 
-    public static TextMeshPro CreateWorldText(Transform parent, string name, string text, Vector3 localPosition, Vector2 textAreaSize, int fontSize, Color color, TextAnchor textAnchor, TextAlignmentOptions textAlignment, int sortingOrder)
+    public static TextMeshPro CreateWorldText(Transform parent, string name, string text, Vector3 localPosition, Vector2 textAreaSize, int fontSize, Color color = default, string sortingLayer = "Default", int sortingOrder = 0, TextAnchor textAnchor = TextAnchor.MiddleCenter, TextAlignmentOptions textAlignment = TextAlignmentOptions.Center)
     {
         GameObject textObject = new GameObject(name, typeof(TextMeshPro));
         textObject.transform.SetParent(parent, false);
@@ -27,6 +27,7 @@ public static class Utilities
         textMesh.text = text;
         textMesh.fontSize = fontSize;
         textMesh.color = color;
+        textMesh.GetComponent<MeshRenderer>().sortingLayerName = "Foreground";
         textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
         return textMesh;
     }
