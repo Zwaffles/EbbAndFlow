@@ -54,6 +54,18 @@ public class TowerTargeting : MonoBehaviour
             return goList;
         }
 
+
+
+        List<GameObject> removeNullList = new List<GameObject>();
+        for(int i = 0; i < goList.Count; i++)
+        {
+            if(goList[i] != null) 
+            {
+                removeNullList.Add(goList[i]);
+            }
+        }
+        goList = removeNullList;
+
         //sorts game object list by distance
         Vector3 position = transform.position;
         goList = goList.OrderBy(go => Vector3.Distance(go.transform.position, position)).ToList<GameObject>();
