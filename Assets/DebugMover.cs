@@ -13,7 +13,7 @@ public class DebugMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AstarPath.active.Scan();
+
     }
 
 
