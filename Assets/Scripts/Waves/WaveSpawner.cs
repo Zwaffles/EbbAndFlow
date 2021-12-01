@@ -5,9 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 
 public class WaveSpawner : MonoBehaviour
-{    
+{
+    //Waves
     [SerializeField] List<WaveConfigSO> waves;
     [SerializeField] float timeBetweenWaves = 15f;
+    [HideInInspector] public List<GameObject> currentWaveEnemies;
+    Coroutine spawnWaveCoroutine = null;
+    float waveSpawnCounter;
+    int waveIndex = -1;
+    bool spawning;
+    bool spawnerActive = true;
 
     [Header("Path")]
     [SerializeField] Transform startPosition;
@@ -16,20 +23,23 @@ public class WaveSpawner : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI currentWaveText;
     [SerializeField] TextMeshProUGUI waveTimerText;
-    [SerializeField] Button skipWaveButton;
+    [SerializeField] Button skipWaveButton;    
 
-    [HideInInspector] public List<GameObject> currentWaveEnemies;
+    //Currency
+    bool hasRecievedCurrency;
+    PlayerCurrency playerCurrency;
 
-    float waveSpawnCounter;
-    int waveIndex = -1;
-    bool spawning;
-    bool spawnerActive = true;
+    EnemyHealth enemyHealth;
 
-    Coroutine spawnWaveCoroutine = null;
+
+    private void Awake()
+    {
+        playerCurrency = FindObjectOfType<PlayerCurrency>();
+    }
 
     void Update()
-    {       
-        SpawnWaves(); 
+    {     
+        SpawnWaves();
         currentWaveText.text = ("Wave: " + (waveIndex + 1) + "/5"); //Sets current wave              
     }
 
@@ -48,14 +58,20 @@ public class WaveSpawner : MonoBehaviour
             {
                 waveTimerText.gameObject.SetActive(true);
                 skipWaveButton.gameObject.SetActive(true);
-                waveSpawnCounter -= Time.deltaTime;
+                waveSpawnCounter -= Time.deltaTime; //Starts countdown to next wave
                 waveTimerText.text = ("Next Wave: " + (waveSpawnCounter.ToString("F0")));
+
+                if (!hasRecievedCurrency) //Adds currency at the start of each "Build Phase"
+                {
+                    hasRecievedCurrency = true;
+                    playerCurrency.AddPlayerNormalCurrency(GetCurrentWave().WaveNormalCurrencyReward);
+                }
             }
         }
     }
 
     IEnumerator SpawnNextWave()
-    {        
+    {
         waveIndex++;
         FinalWaveCheck();
         if (waveIndex > waves.Count - 1)
@@ -70,6 +86,7 @@ public class WaveSpawner : MonoBehaviour
             currentWaveEnemies.Add(enemyInstance);
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }
+        hasRecievedCurrency = false;
         waveSpawnCounter = timeBetweenWaves;
         spawning = false;
     }
