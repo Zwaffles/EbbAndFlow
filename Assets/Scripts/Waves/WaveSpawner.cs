@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI currentWaveText;
     [SerializeField] TextMeshProUGUI waveTimerText;
-    [SerializeField] Button skipWaveButton;    
+    [SerializeField] Button skipWaveButton;
 
     //Currency
     bool hasRecievedCurrency;
@@ -38,7 +38,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void Update()
-    {     
+    {
         SpawnWaves();
         currentWaveText.text = ("Wave: " + (waveIndex + 1) + "/5"); //Sets current wave              
     }
