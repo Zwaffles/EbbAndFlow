@@ -6,6 +6,9 @@ public class AttackTower : Tower
 {
     TowerTargetingZweifel towerTargeting;
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] float damage = 3f;
+
+    private Transform target;
 
     private void Awake()
     {
@@ -23,6 +26,7 @@ public class AttackTower : Tower
         cooldown -= Time.deltaTime;
 
         if (towerTargeting.AcquireTarget() == null) { return; }
+        target = towerTargeting.AcquireTarget().transform;
         if (cooldown <= 0)
         {
             Shoot();
@@ -32,6 +36,13 @@ public class AttackTower : Tower
     void Shoot()
     {
         cooldown = fireRate;
-        Instantiate(projectilePrefab, turret.position, turret.rotation);
+        GameObject projectileGO = (GameObject)Instantiate(projectilePrefab, turret.position, turret.rotation);
+        Projectile projectile = projectileGO.GetComponent<Projectile>();
+
+        if(projectile != null)
+        {
+            projectile.SetDamage(damage);
+            projectile.Seek(target);
+        }
     }
 }
