@@ -16,21 +16,18 @@ public class TowerTargeting : MonoBehaviour
     void Start()
     {
         rangeCollider = GetComponent<CircleCollider2D>();
-        
-        //currentlyTargeted = new GameObject[numberOfTargets];
     }
 
     void Update()
     {
         rangeCollider.radius = towerRange;
-        currentlyTargeted.Clear();
-        currentlyTargeted.AddRange(FindClosestEnemies(enemiesWithinRange, numberOfTargets));
+        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, numberOfTargets);
     }
 
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        // Add Enemy to ArrayList
+        // Add Enemy to List
         if(other.gameObject.CompareTag("Enemy"))
         {
             enemiesWithinRange.Add(other.gameObject);
@@ -39,7 +36,7 @@ public class TowerTargeting : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other) 
     {
-        // Remove Enemy from ArrayList
+        // Remove Enemy from List
         if(other.gameObject.CompareTag("Enemy"))
         {
             enemiesWithinRange.Remove(other.gameObject);
@@ -47,7 +44,7 @@ public class TowerTargeting : MonoBehaviour
     }
 
     // Returns list of GameObjects sorted by distance
-    public List<GameObject> FindClosestEnemies(List<GameObject> list, int numOfObjects)
+    public List<GameObject> FindClosestObjectsInList(List<GameObject> list, int numOfObjects)
     {
         List<GameObject> goList = list;
 
@@ -74,24 +71,3 @@ public class TowerTargeting : MonoBehaviour
         return sortedObjects;
     }
 }
-
-/*
-// Returns closest GameObject in ArrayList
-    public GameObject FindClosestEnemy(List<GameObject> list)
-    {
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
-        foreach (GameObject go in list)
-        {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
-            {
-                closest = go;
-                distance = curDistance;
-            }
-        }
-        return closest;
-    }
-    */
