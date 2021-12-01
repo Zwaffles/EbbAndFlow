@@ -8,7 +8,6 @@ public class Pathfinder : MonoBehaviour
     Transform endPosition;
     WaveSpawner waveSpawner;
 
-
     void Update()
     {
         FollowPath();
