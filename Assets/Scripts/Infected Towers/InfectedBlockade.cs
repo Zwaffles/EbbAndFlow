@@ -3,31 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InfectedBlockade : MonoBehaviour
-{
-    [SerializeField] List<GameObject> enemies;
-    WaveSpawner waveSpawner;    
+{    
+    [SerializeField] int infectionScore = 0;
+    [SerializeField] int maxInfectionScore = 10;   
+    [SerializeField] List<BlockadeInfectionStage> infectionStages = new List<BlockadeInfectionStage>();
+    BlockadeInfectionStage currentInfectionStage;
+    WaveSpawner waveSpawner;
     bool hasAddedEnemies;
-    public int infectionScore = 4;    
-      
+
+
+
     public void IncreaseEnemiesInWave()
-    {        
-        if (!hasAddedEnemies && infectionScore > 0)
+    {
+        if (infectionScore < maxInfectionScore)
+        {
+            infectionScore += 1;
+        }
+
+        if (!hasAddedEnemies)
         {
             hasAddedEnemies = true;
+            UpdateInfectionStage();
             AddEnemy();
         }
-        infectionScore -= 1;
     }
 
     void AddEnemy()
     {
         waveSpawner = FindObjectOfType<WaveSpawner>();
-        foreach (GameObject enemy in enemies)
+        if (currentInfectionStage != null)
         {
-            //waveSpawner.currentWaveEnemies.Add(enemy);
-            waveSpawner.AddAdditionalEnemy(enemy);
+            for (int i = 0; i < currentInfectionStage.EnemyAmountToSpawn; i++)
+            {
+                waveSpawner.AddAdditionalEnemy(currentInfectionStage.EnemyToSpawn);
+            }
         }
         hasAddedEnemies = false;
         Debug.Log(hasAddedEnemies);
+    }
+
+    void UpdateInfectionStage()
+    {
+        foreach (BlockadeInfectionStage infectionStage in infectionStages)
+        {
+            if (infectionScore >= infectionStage.InfectionScoreTrigger)
+            {
+                currentInfectionStage = infectionStage;
+            }
+        }
     }
 }
