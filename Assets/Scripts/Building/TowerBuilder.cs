@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TowerBuilder : MonoBehaviour
 {
-
-    [SerializeField] private GameObject towerPrefab;
+    public GameObject towerPrefab;
 
     public void PlaceTower()
     {

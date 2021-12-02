@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] float timeBetweenWaves = 15f;
     [HideInInspector] public List<GameObject> currentWaveEnemies;
     Coroutine spawnWaveCoroutine = null;
-    float waveSpawnCounter;
+    float waveSpawnCounter = 60f;
     int waveIndex = -1;
     bool spawning;
     bool spawnerActive = true;
@@ -62,7 +62,7 @@ public class WaveSpawner : MonoBehaviour
                 waveSpawnCounter -= Time.deltaTime; //Starts countdown to next wave
                 waveTimerText.text = ("Next Wave: " + (waveSpawnCounter.ToString("F0")));
 
-                if (!hasRecievedCurrency) //Adds currency at the start of each "Build Phase"
+                if (!hasRecievedCurrency && waveIndex >= 0) //Adds currency at the start of each "Build Phase"
                 {
                     hasRecievedCurrency = true;
                     playerCurrency.AddPlayerNormalCurrency(GetCurrentWave().WaveNormalCurrencyReward);

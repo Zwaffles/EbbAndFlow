@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,9 @@ public class BuildingManager : MonoBehaviour
     private bool placingTower;
 
     BuildingGrid buildingGrid;
-   
+
+    [SerializeField] private List<GameObject> towerPrefabs = new List<GameObject>();
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -45,6 +48,19 @@ public class BuildingManager : MonoBehaviour
         buildMarkerSprite = buildMarker.GetComponent<SpriteRenderer>();
         buildingGrid = GetComponent<BuildingGrid>();
         buildingGrid.BuildGrid();
+        foreach(TowerBuilder _towerBuilder in FindObjectsOfType<TowerBuilder>())
+        {
+            towerPrefabs.Add(_towerBuilder.towerPrefab);
+        }
+        towerPrefabs.Reverse();
+    }
+
+    void OnGUI()
+    {
+        if (Event.current.isKey && Event.current.type == EventType.KeyDown)
+        {
+            HotkeyManager((int)Event.current.keyCode - 48);
+        }
     }
 
     private void Update()
@@ -52,6 +68,7 @@ public class BuildingManager : MonoBehaviour
         BuildMarker();
         PlacingTower();
     }
+
     private void PlacingTower()
     {
         if (placingTower)
@@ -89,7 +106,12 @@ public class BuildingManager : MonoBehaviour
         if (placingTower)
         {
             buildMarkerSprite.enabled = true;
-            buildMarker.transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+            if (buildMarker.transform.position != buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition()))
+            {
+                buildMarker.transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+                var graphToScan = AstarPath.active.data.graphs[1];
+                AstarPath.active.Scan(graphToScan);
+            }
         }
         else
         {
@@ -99,7 +121,7 @@ public class BuildingManager : MonoBehaviour
 
     private void BuildTower()
     {
-        if (CanBuildTowerCheck())
+        if (CanBuildTowerCheck() && CheatDetection.Instance.CheckForObstacles())
         {
             buildMarker.GetComponent<SpriteRenderer>().color = canBuildColor;
 
@@ -112,6 +134,8 @@ public class BuildingManager : MonoBehaviour
                 towerToBuild.transform.position = gridWorldPosition;
                 placingTower = false;
                 towerToBuild = null;
+                var graphToScan = AstarPath.active.data.gridGraph;
+                AstarPath.active.Scan(graphToScan);
             }
         }
         else
@@ -146,6 +170,14 @@ public class BuildingManager : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void HotkeyManager(int key)
+    {
+        if(key > 0 && key <= towerPrefabs.Count)
+        {
+            PlaceTower(towerPrefabs[key - 1]);
         }
     }
 }
