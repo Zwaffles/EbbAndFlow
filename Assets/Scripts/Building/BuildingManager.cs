@@ -131,7 +131,7 @@ public class BuildingManager : MonoBehaviour
 
     private void Cancel()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButton(1))
         {
             CancelPlacement();
         }

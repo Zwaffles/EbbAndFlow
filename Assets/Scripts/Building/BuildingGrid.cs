@@ -18,9 +18,11 @@ public class BuildingGrid : MonoBehaviour
 
     private int[,] gridArray;
     private TextMeshPro[,] debugTextArray;
+    private float cellRadius;
 
     public void BuildGrid()
     {
+        cellRadius = cellSize / 2;
         gridArray = new int[width, height];
         debugTextArray = new TextMeshPro[width, height];
 
@@ -31,7 +33,7 @@ public class BuildingGrid : MonoBehaviour
                 if (drawGridValue)
                 {
                     string name = "(" + x + "," + y + ")";
-                    debugTextArray[x,y] = Utilities.CreateWorldText(gridValueParent, name, gridArray[x, y].ToString(), GetWorldPosition(x, y) + new Vector2(cellSize,cellSize) * 0.5f, new Vector2(cellSize, cellSize), 2, Color.white, TextAnchor.MiddleCenter, TMPro.TextAlignmentOptions.Center, 0);
+                    debugTextArray[x,y] = Utilities.CreateWorldText(gridValueParent, name, gridArray[x, y].ToString(), GetWorldPosition(x, y) + new Vector2(cellRadius, cellRadius), new Vector2(cellSize, cellSize), 2, Color.white, "Foreground");
                 }
                 if (drawGridLines)
                 {
@@ -63,8 +65,8 @@ public class BuildingGrid : MonoBehaviour
     public Vector3 RoundToGridPosition(Vector2 worldPosition)
     {
         Vector3 gridWorldPosition = new Vector3(0, 0, 0);
-        gridWorldPosition.x = Mathf.FloorToInt((worldPosition).x / cellSize) + cellSize * 0.5f;
-        gridWorldPosition.y = Mathf.FloorToInt((worldPosition).y / cellSize) + cellSize * 0.5f;
+        gridWorldPosition.x = Mathf.FloorToInt((worldPosition).x / cellSize) + cellRadius;
+        gridWorldPosition.y = Mathf.FloorToInt((worldPosition).y / cellSize) + cellRadius;
         return gridWorldPosition;
     }
 
