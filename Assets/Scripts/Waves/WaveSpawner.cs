@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Pathfinding;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class WaveSpawner : MonoBehaviour
         foreach (GameObject enemy in GetCurrentWave().Enemies)
         {
             GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
-            enemyInstance.GetComponent<Pathfinder>().Initialize(endPosition, this);
+            enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
             currentWaveEnemies.Add(enemyInstance);
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }

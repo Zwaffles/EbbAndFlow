@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class Enemy : MonoBehaviour
     private float currentHealth;
     [SerializeField] private float dmgMultiplier = 1f;
     private Image healthBar;
+    private WaveSpawner waveSpawner;
+
+    private void Awake()
+    {
+        waveSpawner = FindObjectOfType<WaveSpawner>();
+    }
 
     void Start()
     {
@@ -22,9 +29,19 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0) 
         {
             currentHealth = 0;
+            waveSpawner.currentWaveEnemies.Remove(gameObject);
             Destroy(gameObject); 
         }
         healthBar.fillAmount = currentHealth / enemyHealth;
+    }
+
+    private void Update()
+    {
+        if (GetComponent<AIPath>().reachedEndOfPath)
+        {
+            waveSpawner.currentWaveEnemies.Remove(gameObject);
+            Destroy(gameObject);
+        }
     }
 
 }
