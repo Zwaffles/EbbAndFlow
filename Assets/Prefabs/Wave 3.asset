@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Wave 3
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 7229656533388541386, guid: d12522b30ebb0d94d96ed1fd2fadf724, type: 3}
-  - {fileID: 7229656533388541386, guid: d12522b30ebb0d94d96ed1fd2fadf724, type: 3}
-  - {fileID: 7229656533388541386, guid: d12522b30ebb0d94d96ed1fd2fadf724, type: 3}
-  - {fileID: 7229656533388541386, guid: d12522b30ebb0d94d96ed1fd2fadf724, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
   enemySpawnInterval: 0.5
+  waveNormalCurrencyReward: 50

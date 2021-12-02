@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Enemy
   - Tower
-  - 
+  - Marker
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1372353357
+    locked: 0
+  - name: Infection
+    uniqueID: 993490585
+    locked: 0
+  - name: Tower
+    uniqueID: 1567923401
+    locked: 0
+  - name: Foreground
+    uniqueID: 2757653177
     locked: 0
