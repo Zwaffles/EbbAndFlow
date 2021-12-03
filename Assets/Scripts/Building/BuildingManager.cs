@@ -144,6 +144,12 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
+    public void RemoveTower(GameObject tower)
+    {
+        buildingGrid.SetValue(tower.transform.position, 0);
+        Destroy(tower);
+    }
+
     private void CancelPlacement()
     {
         placingTower = false;
