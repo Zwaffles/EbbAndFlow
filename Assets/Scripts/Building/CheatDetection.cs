@@ -19,6 +19,8 @@ public class CheatDetection : MonoBehaviour
     //GraphMask mask2;
 
     NNConstraint buildingConstraint = new NNConstraint();
+    GraphNode spawnPointNode;
+    GraphNode goalNode;
 
     //GraphUpdateObject guo = new GraphUpdateObject();
 
@@ -51,34 +53,33 @@ public class CheatDetection : MonoBehaviour
         //node2 = AstarPath.active.GetNearest(GetComponent<AIDestinationSetter>().target.position, buildingConstraint).node;
     }
 
-//    private void Start()
-//    {
-        
-//    }
+    private void Start()
+    {
+        spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
+        goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
+    }
 
-//    void OnPathCalculated(Path path)
-//    {
+    //    void OnPathCalculated(Path path)
+    //    {
 
-//        if (path.error)
-//        {
-//            Debug.Log("ahhh!!");
-//            return;
-//        }
+    //        if (path.error)
+    //        {
+    //            Debug.Log("ahhh!!");
+    //            return;
+    //        }
 
-//        float pathLength = path.GetTotalLength();
-//}
+    //        float pathLength = path.GetTotalLength();
+    //}
 
-//    private void Update()
-//    {
-//        GetComponent<AIPath>().SearchPath();
-//        Debug.Log(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, node1, node2, false));
-//    }
+    //    private void Update()
+    //    {
+    //        GetComponent<AIPath>().SearchPath();
+    //        Debug.Log(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, node1, node2, false));
+    //    }
 
     public bool CheckForObstacles()
     {
         var guo = new GraphUpdateObject(GetComponent<Collider2D>().bounds);
-        var spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-        var goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
 
         if(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false))
         {
