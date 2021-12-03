@@ -136,12 +136,19 @@ public class BuildingManager : MonoBehaviour
                 towerToBuild = null;
                 var graphToScan = AstarPath.active.data.gridGraph;
                 AstarPath.active.Scan(graphToScan);
+                SelectionManager.Instance.UnselectTower();
             }
         }
         else
         {
             buildMarker.GetComponent<SpriteRenderer>().color = cantBuildColor;
         }
+    }
+
+    public void RemoveTower(GameObject tower)
+    {
+        buildingGrid.SetValue(tower.transform.position, 0);
+        Destroy(tower);
     }
 
     private void CancelPlacement()
