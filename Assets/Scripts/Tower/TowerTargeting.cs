@@ -5,17 +5,17 @@ using System.Linq;
 
 public class TowerTargeting : MonoBehaviour
 {
+    [SerializeField] CircleCollider2D rangeCollider;
     //placeholder, replace with inherited tower range
     [SerializeField] float towerRange = 5f;
     [SerializeField] int numberOfTargets = 2;
 
     private List<GameObject> currentlyTargeted = new List<GameObject>();
-    private CircleCollider2D rangeCollider;
     private List<GameObject> enemiesWithinRange = new List<GameObject>();
 
     void Start()
     {
-        rangeCollider = GetComponent<CircleCollider2D>();
+
     }
 
     void Update()
@@ -53,6 +53,18 @@ public class TowerTargeting : MonoBehaviour
         {
             return goList;
         }
+
+
+
+        List<GameObject> removeNullList = new List<GameObject>();
+        for(int i = 0; i < goList.Count; i++)
+        {
+            if(goList[i] != null) 
+            {
+                removeNullList.Add(goList[i]);
+            }
+        }
+        goList = removeNullList;
 
         //sorts game object list by distance
         Vector3 position = transform.position;

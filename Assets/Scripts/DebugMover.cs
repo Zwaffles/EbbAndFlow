@@ -15,26 +15,4 @@ public class DebugMover : MonoBehaviour
     {
 
     }
-
-
-
-
-
-    public class Tower : ScriptableObject
-    {
-
-        public int cost;     
-    }
-
-    [CreateAssetMenu(menuName = "Tower/RangedTower")]
-    public class RangedTower : Tower
-    {
-        public float range;
-    }
-
-    [CreateAssetMenu(menuName = "Tower/Blockade")]
-    public class Blockade : Tower
-    {
-
-    }
 }
