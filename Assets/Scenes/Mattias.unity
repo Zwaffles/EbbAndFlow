@@ -8165,7 +8165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 2
   height: 12
-  shapeResolution: 12
+  shapeResolution: 13
   spreadLength: 2
   spreadDuration: 5
   edgeSpeedFalloff: 0.5
