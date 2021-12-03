@@ -49,7 +49,7 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         SpawnWaves();
-        currentWaveText.text = ("Wave: " + (waveIndex + 1) + "/5"); //Sets current wave              
+        currentWaveText.text = ("Wave: " + (waveIndex + 1) + "/" + waves.Count.ToString());            
     }
 
     void SpawnWaves()
