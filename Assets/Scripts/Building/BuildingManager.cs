@@ -106,12 +106,9 @@ public class BuildingManager : MonoBehaviour
         if (placingTower)
         {
             buildMarkerSprite.enabled = true;
-            if (buildMarker.transform.position != buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition()))
-            {
-                buildMarker.transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
-                var graphToScan = AstarPath.active.data.graphs[1];
-                AstarPath.active.Scan(graphToScan);
-            }
+            buildMarker.transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+            var graphToScan = AstarPath.active.data.graphs;
+            AstarPath.active.Scan(graphToScan);
         }
         else
         {
@@ -121,7 +118,7 @@ public class BuildingManager : MonoBehaviour
 
     private void BuildTower()
     {
-        if (CanBuildTowerCheck() && CheatDetection.Instance.CheckForObstacles())
+        if (CanBuildTowerCheck() && CheatDetection.Instance.CheckForObstacles() && GameManager.Instance.CanBuy(towerToBuild.GetComponent<Tower>().baseCost))
         {
             buildMarker.GetComponent<SpriteRenderer>().color = canBuildColor;
 
@@ -129,6 +126,8 @@ public class BuildingManager : MonoBehaviour
             {
                 buildingGrid.SetValue(Utilities.GetMouseWorldPosition(), 1);
                 towerToBuild.GetComponent<SpriteRenderer>().color = Color.white;
+                towerToBuild.GetComponent<Collider2D>().enabled = true;
+                GameManager.Instance.GetComponent<PlayerCurrency>().RemovePlayerNormalCurrency(towerToBuild.GetComponent<Tower>().baseCost);
                 Vector3 gridWorldPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 towerToBuild.GetComponent<SpriteRenderer>().sortingOrder = 0;
                 towerToBuild.transform.position = gridWorldPosition;

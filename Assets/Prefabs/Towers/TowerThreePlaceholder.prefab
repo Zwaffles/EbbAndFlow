@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5497370564854134494}
   - component: {fileID: 1222695776167444525}
   - component: {fileID: 5265967801884705538}
+  - component: {fileID: 4406029569491953853}
   m_Layer: 7
   m_Name: TowerThreePlaceholder
   m_TagString: Untagged
@@ -90,7 +91,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153379723041246168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -99,3 +100,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4406029569491953853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153379723041246168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0573559002be8ac4e8455d48006a1549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 0}
+  fireRate: 1
+  baseCost: 100
