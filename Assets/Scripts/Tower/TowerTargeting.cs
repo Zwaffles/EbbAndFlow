@@ -21,9 +21,12 @@ public class TowerTargeting : MonoBehaviour
     void Update()
     {
         rangeCollider.radius = towerRange;
-        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, numberOfTargets);
     }
 
+    private void OnTriggerStay2D(Collider2D other) 
+    {
+        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, numberOfTargets);
+    }
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -47,7 +50,7 @@ public class TowerTargeting : MonoBehaviour
     public List<GameObject> FindClosestObjectsInList(List<GameObject> list, int numOfObjects)
     {
         //returns if no object is in list
-        if(list.Count == 0)
+        if(list.Count < 1)
         {
             return list;
         }
