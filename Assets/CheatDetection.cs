@@ -3,16 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Pathfinding;
+using UnityEngine.Tilemaps;
 
 public class CheatDetection : MonoBehaviour
 {
     public static CheatDetection Instance { get { return instance; } }
     private static CheatDetection instance;
 
-    AIPath path;
+    [SerializeField] Transform spawnPoint;
+    [SerializeField] Transform goalPoint;
 
-    GraphNode node1;
-    GraphNode node2;
+    //GraphNode node1;
+    //GraphNode node2;
+    GraphMask mask1;
+    //GraphMask mask2;
+
+    NNConstraint buildingConstraint = new NNConstraint();
+
+    //GraphUpdateObject guo = new GraphUpdateObject();
+
+    //Seeker seeker;
+
+    //private float remainingDistance;
 
     private void Awake()
     {
@@ -25,21 +37,50 @@ public class CheatDetection : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
         }
-        NNConstraint buildingConstraint = new NNConstraint();
-        buildingConstraint.graphMask = 0 | 1;
 
-        node1 = AstarPath.active.GetNearest(transform.position, buildingConstraint).node;
-        node2 = AstarPath.active.GetNearest(GetComponent<AIDestinationSetter>().target.position, buildingConstraint).node;
+        //seeker = GetComponent<Seeker>();
+
+        mask1 = GraphMask.FromGraphName("Detection Graph");
+
+        buildingConstraint = NNConstraint.Default;
+        buildingConstraint.graphMask = mask1;
+
+        //var guo = new GraphUpdateObject(FindObjectOfType<TilemapCollider2D>().bounds);
+
+        //node1 = AstarPath.active.GetNearest(transform.position, buildingConstraint).node;
+        //node2 = AstarPath.active.GetNearest(GetComponent<AIDestinationSetter>().target.position, buildingConstraint).node;
     }
 
-    private void Update()
-    {
-        Debug.Log("is path possible? " + PathUtilities.IsPathPossible(node1, node2));
-    }
+//    private void Start()
+//    {
+        
+//    }
+
+//    void OnPathCalculated(Path path)
+//    {
+
+//        if (path.error)
+//        {
+//            Debug.Log("ahhh!!");
+//            return;
+//        }
+
+//        float pathLength = path.GetTotalLength();
+//}
+
+//    private void Update()
+//    {
+//        GetComponent<AIPath>().SearchPath();
+//        Debug.Log(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, node1, node2, false));
+//    }
 
     public bool CheckForObstacles()
     {
-        if (PathUtilities.IsPathPossible(node1, node2))
+        var guo = new GraphUpdateObject(GetComponent<Collider2D>().bounds);
+        var spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
+        var goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
+
+        if(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false))
         {
             return true;
         }

@@ -8,7 +8,7 @@ using TMPro;
 public class PlayerCurrency : MonoBehaviour
 {
     [Header("Currency")]
-    [SerializeField] int playerNormalCurrency = 50;
+    public int playerNormalCurrency = 50;
     [SerializeField] int playerInfectedCurrency = 0;
 
     [Header("UI")]
