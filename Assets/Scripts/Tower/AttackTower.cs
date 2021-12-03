@@ -25,12 +25,12 @@ public class AttackTower : Tower
     void Update()
     {
         cooldown -= Time.deltaTime;
-
-        if (towerTargeting.AcquireTarget() == null) { return; }
         if (cooldown <= 0)
         {
             for (int i = 0; i < numberOfTargets; i++)
             {
+                if(towerTargeting.AcquireTarget().Count - 1 < i) { return; }
+                if(towerTargeting.AcquireTarget()[i] == null) { return; }
                 target = towerTargeting.AcquireTarget()[i].transform;
                 Shoot();        
             }

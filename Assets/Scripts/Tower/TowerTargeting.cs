@@ -20,7 +20,6 @@ public class TowerTargeting : MonoBehaviour
     void Update()
     {
         rangeCollider.radius = towerRange;
-        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, GetComponent<AttackTower>().numberOfTargets);
     }
 
 
@@ -40,6 +39,11 @@ public class TowerTargeting : MonoBehaviour
         {
             enemiesWithinRange.Remove(other.gameObject);
         }
+    }
+
+    public void OnChildTriggerStay2D(Collider2D other)
+    {
+        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, GetComponent<AttackTower>().numberOfTargets);
     }
 
     // Returns list of GameObjects sorted by distance
