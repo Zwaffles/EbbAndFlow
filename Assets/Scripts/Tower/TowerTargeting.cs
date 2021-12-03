@@ -8,7 +8,6 @@ public class TowerTargeting : MonoBehaviour
     [SerializeField] CircleCollider2D rangeCollider;
     //placeholder, replace with inherited tower range
     [SerializeField] float towerRange = 5f;
-    [SerializeField] int numberOfTargets = 2;
 
     private List<GameObject> currentlyTargeted = new List<GameObject>();
     private List<GameObject> enemiesWithinRange = new List<GameObject>();
@@ -21,11 +20,11 @@ public class TowerTargeting : MonoBehaviour
     void Update()
     {
         rangeCollider.radius = towerRange;
-        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, numberOfTargets);
+        currentlyTargeted = FindClosestObjectsInList(enemiesWithinRange, GetComponent<AttackTower>().numberOfTargets);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    public void OnChildTriggerEnter2D(Collider2D other) 
     {
         // Add Enemy to List
         if(other.gameObject.CompareTag("Enemy"))
@@ -34,7 +33,7 @@ public class TowerTargeting : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) 
+    public void OnChildTriggerExit2D(Collider2D other) 
     {
         // Remove Enemy from List
         if(other.gameObject.CompareTag("Enemy"))
@@ -81,5 +80,10 @@ public class TowerTargeting : MonoBehaviour
         }
 
         return sortedObjects;
+    }
+
+    public List<GameObject> AcquireTarget()
+    {
+        return currentlyTargeted;
     }
 }

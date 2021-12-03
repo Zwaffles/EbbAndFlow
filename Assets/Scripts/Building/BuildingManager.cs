@@ -127,6 +127,7 @@ public class BuildingManager : MonoBehaviour
                 buildingGrid.SetValue(Utilities.GetMouseWorldPosition(), 1);
                 towerToBuild.GetComponent<SpriteRenderer>().color = Color.white;
                 towerToBuild.GetComponent<Collider2D>().enabled = true;
+                towerToBuild.GetComponent<Tower>().enabled = true;
                 GameManager.Instance.GetComponent<PlayerCurrency>().RemovePlayerNormalCurrency(towerToBuild.GetComponent<Tower>().baseCost);
                 Vector3 gridWorldPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 towerToBuild.GetComponent<SpriteRenderer>().sortingOrder = 0;

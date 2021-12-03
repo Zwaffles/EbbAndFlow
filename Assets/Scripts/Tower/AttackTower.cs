@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AttackTower : Tower
 {
-    TowerTargetingZweifel towerTargeting;
+    TowerTargeting towerTargeting;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float damage = 3f;
+    public int numberOfTargets = 2;
 
     private Transform target;
 
@@ -18,7 +19,7 @@ public class AttackTower : Tower
     void Start()
     {
         turret = this.transform;
-        towerTargeting = GetComponent<TowerTargetingZweifel>();
+        towerTargeting = GetComponent<TowerTargeting>();
     }
 
     void Update()
@@ -26,10 +27,13 @@ public class AttackTower : Tower
         cooldown -= Time.deltaTime;
 
         if (towerTargeting.AcquireTarget() == null) { return; }
-        target = towerTargeting.AcquireTarget().transform;
         if (cooldown <= 0)
         {
-            Shoot();
+            for (int i = 0; i < numberOfTargets; i++)
+            {
+                target = towerTargeting.AcquireTarget()[i].transform;
+                Shoot();        
+            }
         }
     }
 

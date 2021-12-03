@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 325901458233729537}
   - component: {fileID: 6285389534871322752}
+  - component: {fileID: 7798256591496790835}
   m_Layer: 9
   m_Name: Range
   m_TagString: Untagged
@@ -47,6 +48,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7798256591496790835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244676718534397790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b66fe7f2b39464490d01aaf54b1ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5397961501414708609
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,21 +148,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5397961501414708612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397961501414708609}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0573559002be8ac4e8455d48006a1549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 0}
-  fireRate: 1
-  baseCost: 100
 --- !u!114 &5397961501414708615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5397961501414708609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b6363fad6ef2aa41b539801f1894666, type: 3}
   m_Name: 
@@ -170,14 +168,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5397961501414708609}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dd1989cfee06804588c6b743cd85312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rangeCollider: {fileID: 6285389534871322752}
   towerRange: 5
-  numberOfTargets: 2
 --- !u!114 &5397961501414708614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5397961501414708609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
   m_Name: 
@@ -194,7 +191,8 @@ MonoBehaviour:
   fireRate: 1
   baseCost: 100
   projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
-  damage: 3
+  damage: 1
+  numberOfTargets: 5
 --- !u!95 &5397961501414708617
 Animator:
   serializedVersion: 3
