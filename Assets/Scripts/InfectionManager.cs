@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -9,17 +10,41 @@ public class InfectionManager : MonoBehaviour
     private static InfectionManager instance;
     
     //[SerializeField] private List<InfectionCyst> infectionCysts = new List<InfectionCyst>();
-    [Range(4,50)]
-    [SerializeField] private int shapeResolution = 4;
+    
+    [Header("Infection Size")]
     [SerializeField] private float width = 2;
     [SerializeField] private float height = 12;
+    [Range(2, 50)]
+    [SerializeField] private int shapeResolution = 13;
 
-    private SpriteShapeController spriteShapeController;
+    [Header("Infection Spread")]
+    [Range(0.0f, 5.0f)]
+    [SerializeField] private float spreadLength = 2.0f;
+    [Range(0.0f, 10.0f)]
+    [SerializeField] private float spreadDuration = 5.0f;
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float edgeSpeedFalloff = 0.5f;
+    [Range(0.0f, 10.0f)]
+    [SerializeField] private float edgePositionFalloff = 5.0f;
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float curveRoundness = 1.0f;
+    [Range(0.0f, 5.0f)]
+    [SerializeField] private float randomOffset = 1.0f;
+
+    [Header("Debug")]
+    [SerializeField] private bool drawPoints;
+
+    private List<InfectionPoint> infectionPoints = new List<InfectionPoint>();
+    
     private Spline spline;
-
-    private float minY;
-    private float maxY;
+    private Vector3 centerPosition;
+    private float horizontalTargetPosition; 
+    private float spreadLerpTime;
     private float spacing;
+    private float minX;
+    private bool spreadingInfection;
+
+    public bool SpreadingInfection { get { return spreadingInfection; } }
 
     private void Awake()
     {
@@ -36,8 +61,21 @@ public class InfectionManager : MonoBehaviour
 
     private void Start()
     {
-        spriteShapeController = GetComponentInChildren<SpriteShapeController>();
-        spline = spriteShapeController.spline;
+        InitializeSpriteShape();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Spread();
+        }
+    }
+
+    private void InitializeSpriteShape()
+    {
+        spline = GetComponentInChildren<SpriteShapeController>().spline;
+        horizontalTargetPosition = width * 0.5f;
 
         /* Bottom Left */
         spline.SetPosition(0, new Vector3(-width * 0.5f, -height * 0.5f, 0));
@@ -48,28 +86,114 @@ public class InfectionManager : MonoBehaviour
         /* Bottom Right */
         spline.SetPosition(3, new Vector3(width * 0.5f, -height * 0.5f, 0));
 
-        minY = spline.GetPosition(0).y;
-        maxY = spline.GetPosition(1).y;
+        minX = spline.GetPosition(0).x;
+        int pointsToAdd = shapeResolution - 2;
+        spacing = height / (shapeResolution - 1);
+        centerPosition = spline.GetPosition(3) + new Vector3(0, height * 0.5f);
 
-        spacing = (maxY - minY) / shapeResolution -1;
+        /* Bottom Point */
+        infectionPoints.Add(new InfectionPoint(3 + pointsToAdd, spline.GetPosition(3)));
 
-        spline.InsertPointAt(3, spline.GetPosition(2) + new Vector3(0, -spacing));
-        for (int y = 0; y < shapeResolution; y++)
+        /* Middle Points */
+        for (int y = 0; y < pointsToAdd; y++)
         {
-            //spline.InsertPointAt(3 + i, spline.GetPosition(2) + new Vector3(0, -spacing));
+            Vector3 pointPosition = spline.GetPosition(2) + (new Vector3(0, -spacing * (pointsToAdd - y)));
+            pointPosition = OffsetPosition(pointPosition);
+            spline.InsertPointAt(3, pointPosition);
+            infectionPoints.Add(new InfectionPoint(2 + pointsToAdd - y, spline.GetPosition(3)));
+            SetPointTangents(3);
         }
 
-        for (int i = 0; i < spline.GetPointCount(); i++)
+        /* Top Point */
+        infectionPoints.Add(new InfectionPoint(2, spline.GetPosition(2)));
+
+        /* Sort List by Index */
+        infectionPoints = infectionPoints.OrderBy(infectionPoint => infectionPoint.index).ToList();
+
+        /* Create TextMesh for each point for debugging */
+        if (drawPoints)
         {
-            
-            Utilities.CreateWorldText(transform, "Spline: " + i, i.ToString(), spline.GetPosition(i), Vector2.one, 2, Color.white, "Foreground");
-            Debug.Log("Pos: " + spline.GetPosition(i));
+            for (int i = 0; i < spline.GetPointCount(); i++)
+            {
+                Utilities.CreateWorldText(transform, "Spline: " + i, i.ToString(), spline.GetPosition(i), Vector2.one, 2, Color.white, "Foreground");
+            }
         }
-        
     }
 
-    private void Update()
+    private void SetPointTangents(int index)
     {
-        //spline.SetPosition(3, spline.GetPosition(3) + new Vector3(Time.deltaTime, 0, 0));
+        float maxTangentValue = spacing * 0.5f;
+        spline.SetTangentMode(index, ShapeTangentMode.Continuous);
+        spline.SetLeftTangent(index, Vector3.up * maxTangentValue * curveRoundness);
+        spline.SetRightTangent(index, Vector3.down * maxTangentValue * curveRoundness);
+    }
+
+    private void UpdateHorizontalTargetPosition()
+    {
+        float increment = horizontalTargetPosition - centerPosition.x;
+        for (int i = 0; i < infectionPoints.Count; i++)
+        {
+            Vector3 newPosition = infectionPoints[i].position;
+            newPosition.x = centerPosition.x;
+            newPosition.x += increment * (EdgeFalloffMultiplier(newPosition, edgePositionFalloff));
+            newPosition = OffsetPosition(newPosition);
+            newPosition.x = Mathf.Clamp(newPosition.x, minX + 0.1f, Mathf.Infinity);
+            infectionPoints[i].targetPosition = newPosition;
+            infectionPoints[i].startPosition = infectionPoints[i].position;
+            
+        }
+        centerPosition.x = horizontalTargetPosition;
+    }
+
+    private Vector3 OffsetPosition(Vector3 position)
+    {
+        Vector3 offsetPosition = position;
+        offsetPosition.x += Random.Range(0, -randomOffset);
+        return offsetPosition;
+    }
+
+    private float EdgeFalloffMultiplier(Vector3 position, float falloffValue)
+    {
+        float edgeFalloffMultiplier = 1 - (Vector3.Distance(position, centerPosition) * falloffValue / height);
+        return edgeFalloffMultiplier;
+    }
+
+    public void Spread()
+    {
+        if (!spreadingInfection)
+        {
+            StartCoroutine(SpreadInfection());
+        }
+    }
+
+    private IEnumerator SpreadInfection()
+    {
+        spreadingInfection = true;
+        horizontalTargetPosition += spreadLength;
+        UpdateHorizontalTargetPosition();
+        spreadLerpTime = 0;
+
+        List<InfectionPoint> pointsToMove = new List<InfectionPoint>(infectionPoints);
+        
+        while(pointsToMove.Count > 0)
+        {
+            spreadLerpTime += Time.deltaTime / spreadDuration;
+
+            for (int i = 0; i < pointsToMove.Count; i++)
+            {
+                /* Lerp SpriteShapePoint Towards targetPosition */
+                float edgeFalloffMultiplier = EdgeFalloffMultiplier(pointsToMove[i].position, edgeSpeedFalloff);
+                pointsToMove[i].position = Vector3.Lerp(pointsToMove[i].startPosition, pointsToMove[i].targetPosition, spreadLerpTime * edgeFalloffMultiplier);
+                spline.SetPosition(pointsToMove[i].index, pointsToMove[i].position);
+
+                /* Remove Point if TargetReached */
+                if (pointsToMove[i].TargetReached())
+                {
+                    pointsToMove.RemoveAt(i);
+                }
+            }
+            yield return null;
+        }
+        spreadingInfection = false;
     }
 }
