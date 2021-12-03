@@ -124,7 +124,7 @@ namespace Pathfinding {
 
 		/// <summary>Used for drawing gizmos</summary>
 		[System.NonSerialized]
-		List<GraphNode> lastCompletedNodePath;
+		public List<GraphNode> lastCompletedNodePath;
 
 		/// <summary>The current path</summary>
 		[System.NonSerialized]
