@@ -45,37 +45,35 @@ public class TowerTargeting : MonoBehaviour
     // Returns list of GameObjects sorted by distance
     public List<GameObject> FindClosestObjectsInList(List<GameObject> list, int numOfObjects)
     {
-        List<GameObject> goList = list;
-
         //returns if no object is in list
-        if(goList.Count == 0)
+        if(list.Count == 0)
         {
-            return goList;
+            return list;
         }
 
 
 
         List<GameObject> removeNullList = new List<GameObject>();
-        for(int i = 0; i < goList.Count; i++)
+        for(int i = 0; i < list.Count; i++)
         {
-            if(goList[i] != null) 
+            if(list[i] != null) 
             {
-                removeNullList.Add(goList[i]);
+                removeNullList.Add(list[i]);
             }
         }
-        goList = removeNullList;
+        list = removeNullList;
 
         //sorts game object list by distance
         Vector3 position = transform.position;
-        goList = goList.OrderBy(go => Vector3.Distance(go.transform.position, position)).ToList<GameObject>();
+        list = list.OrderBy(go => Vector3.Distance(go.transform.position, position)).ToList<GameObject>();
 
         //adds sorted objects within numOfObjects limit to sortedObjects
         List<GameObject> sortedObjects = new List<GameObject>();
         for(int i = 0; i < numOfObjects; i++)
         {
-            if(i < goList.Count) 
+            if(i < list.Count) 
             {
-                sortedObjects.Add(goList[i]);
+                sortedObjects.Add(list[i]);
             }
         }
 
