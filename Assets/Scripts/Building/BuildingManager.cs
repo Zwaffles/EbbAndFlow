@@ -135,6 +135,7 @@ public class BuildingManager : MonoBehaviour
                 towerToBuild = null;
                 var graphToScan = AstarPath.active.data.gridGraph;
                 AstarPath.active.Scan(graphToScan);
+                SelectionManager.Instance.UnselectTower();
             }
         }
         else
