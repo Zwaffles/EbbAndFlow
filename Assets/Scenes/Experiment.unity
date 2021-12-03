@@ -7050,6 +7050,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1446018173}
+    - target: {fileID: 4569592754080441240, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4613489671085911615, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7245,6 +7249,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1120174637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4569592754080441240, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+  m_PrefabInstance: {fileID: 1120174629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291327321
 GameObject:
   m_ObjectHideFlags: 0
@@ -7749,7 +7758,7 @@ PrefabInstance:
     - target: {fileID: 162093081662066237, guid: 2289f8f09c0cd6542b9e964d5c96f029, type: 3}
       propertyPath: towerUI
       value: 
-      objectReference: {fileID: 4313252276996822487}
+      objectReference: {fileID: 1120174637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2289f8f09c0cd6542b9e964d5c96f029, type: 3}
 --- !u!1001 &3565715571818856171
@@ -7817,8 +7826,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
---- !u!1 &4313252276996822487 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4313252276996822487, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
-  m_PrefabInstance: {fileID: 1120174629}
-  m_PrefabAsset: {fileID: 0}
