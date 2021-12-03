@@ -19,8 +19,7 @@ public class CheatDetection : MonoBehaviour
     //GraphMask mask2;
 
     NNConstraint buildingConstraint = new NNConstraint();
-    GraphNode spawnPointNode;
-    GraphNode goalNode;
+    
 
     //GraphUpdateObject guo = new GraphUpdateObject();
 
@@ -53,11 +52,11 @@ public class CheatDetection : MonoBehaviour
         //node2 = AstarPath.active.GetNearest(GetComponent<AIDestinationSetter>().target.position, buildingConstraint).node;
     }
 
-    private void Start()
-    {
-        spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-        goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
-    }
+    //private void Start()
+    //{
+    //    spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
+    //    goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
+    //}
 
     //    void OnPathCalculated(Path path)
     //    {
@@ -80,8 +79,10 @@ public class CheatDetection : MonoBehaviour
     public bool CheckForObstacles()
     {
         var guo = new GraphUpdateObject(GetComponent<Collider2D>().bounds);
+        var spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
+        var goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
 
-        if(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false))
+        if (GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false))
         {
             return true;
         }
