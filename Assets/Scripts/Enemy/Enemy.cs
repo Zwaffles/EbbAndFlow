@@ -44,4 +44,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void IncreaseHealth(float value)
+    {
+        currentHealth += value;
+    }
+
+    public void DecreaseHealth(float value)
+    {
+        currentHealth -= value;
+    }
+
 }

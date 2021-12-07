@@ -8,6 +8,9 @@ using Pathfinding;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner Instance { get { return instance; } }
+    private static WaveSpawner instance;
+
     //Waves
     [SerializeField] List<WaveConfigSO> waves;
     [SerializeField] float timeBetweenWaves = 15f;
@@ -36,13 +39,19 @@ public class WaveSpawner : MonoBehaviour
     bool endWaveActionsMade;
 
     //Infection towers
-    List<InfectedBlockade> infectedBlockades = new List<InfectedBlockade>();
-
-    EnemyHealth enemyHealth;
-
+    List<InfectedBlockade> infectedBlockades = new List<InfectedBlockade>();   
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
+            instance = this;
+        }
         playerCurrency = FindObjectOfType<PlayerCurrency>();
     }
 
@@ -72,14 +81,7 @@ public class WaveSpawner : MonoBehaviour
 
                 if (!endWaveActionsMade && waveIndex >= 0) //Does end wave actions
                 {
-                    endWaveActionsMade = true;
-                    infectedBlockades = FindObjectsOfType<InfectedBlockade>().ToList();
-                    foreach (InfectedBlockade blockade in infectedBlockades)
-                    {
-                        blockade.IncreaseEnemiesInWave();
-                    }
-
-                    playerCurrency.AddPlayerNormalCurrency(GetCurrentWave().WaveNormalCurrencyReward);
+                    OnWaveEnd();
                 }
             }
         }
@@ -112,6 +114,7 @@ public class WaveSpawner : MonoBehaviour
             GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
             enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
             currentWaveEnemies.Add(enemyInstance);
+            enemyInstance.GetComponent<Enemy>().IncreaseHealth(BuffManager.Instance.GetHealthModifier());
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }
         endWaveActionsMade = false;
@@ -123,7 +126,7 @@ public class WaveSpawner : MonoBehaviour
     public void AddAdditionalEnemy(GameObject enemy)
     {
         additionalEnemies.Add(enemy);
-    }
+    }   
 
     void FinalWaveCheck()
     {
@@ -133,6 +136,19 @@ public class WaveSpawner : MonoBehaviour
             StopCoroutine(spawnWaveCoroutine);
             Debug.Log("Final Wave!");
         }
+    }
+
+    void OnWaveEnd()
+    {
+        endWaveActionsMade = true;
+        infectedBlockades = FindObjectsOfType<InfectedBlockade>().ToList();
+        foreach (InfectedBlockade blockade in infectedBlockades)
+        {
+            blockade.IncreaseEnemiesInWave();
+        }
+
+        playerCurrency.AddPlayerNormalCurrency(GetCurrentWave().WaveNormalCurrencyReward);
+        BuffManager.Instance.IncreaseInfectionScore();
     }
 
     public void NextWave()
