@@ -129,7 +129,6 @@ public class InfectionManager : MonoBehaviour
             for (int i = 0; i < infectionPoints.Count; i++)
             {
                 infectionPoints[i].position.x += spreadSpeedCurve.Evaluate(spreadCurveTime + i * i * spreadSpeedRandomOffset) * constantSpreadSpeed * Time.deltaTime;
-                Debug.Log(spreadSpeedCurve.Evaluate(spreadCurveTime * i));
                 spline.SetPosition(infectionPoints[i].index, infectionPoints[i].position);
                 spreadCurveTime += Time.deltaTime ;
             }
