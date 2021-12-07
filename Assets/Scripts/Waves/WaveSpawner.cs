@@ -114,7 +114,6 @@ public class WaveSpawner : MonoBehaviour
             GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
             enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
             currentWaveEnemies.Add(enemyInstance);
-            Debug.Log("Modifying enemy HP by : " + BuffManager.Instance.GetHealthModifier());
             enemyInstance.GetComponent<Enemy>().Initialize(BuffManager.Instance.GetHealthModifier());
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }

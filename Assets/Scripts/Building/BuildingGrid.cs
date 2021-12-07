@@ -84,6 +84,10 @@ public class BuildingGrid : MonoBehaviour
         }
     }
 
+    public float GetCellSize()
+    {
+        return cellSize;
+    }
 
     public int GetValue(Vector2 worldPosition)
     {

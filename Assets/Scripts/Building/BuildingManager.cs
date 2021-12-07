@@ -23,13 +23,17 @@ public class BuildingManager : MonoBehaviour
     [Header("Tower Parent")]
     [SerializeField] private Transform towerParent;
 
+    [SerializeField] private List<GameObject> towerPrefabs = new List<GameObject>();
+
     private SpriteRenderer buildMarkerSprite;
+    private BuildingGrid buildingGrid;
     private GameObject towerToBuild;
     private bool placingTower;
 
-    BuildingGrid buildingGrid;
+    private Vector3 startDragPosition;
+    private Vector3 currentDragPosition;
 
-    [SerializeField] private List<GameObject> towerPrefabs = new List<GameObject>();
+    
 
     private void Awake()
     {
@@ -127,21 +131,46 @@ public class BuildingManager : MonoBehaviour
         {
             buildMarker.GetComponent<SpriteRenderer>().color = canBuildColor;
 
-            if (Input.GetMouseButtonDown(0))
+            /* Shift Actions */
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                buildingGrid.SetValue(Utilities.GetMouseWorldPosition(), 1);
-                towerToBuild.GetComponent<SpriteRenderer>().color = Color.white;
-                towerToBuild.GetComponent<Collider2D>().enabled = true;
-                towerToBuild.GetComponent<Tower>().enabled = true;
-                GameManager.Instance.GetComponent<PlayerCurrency>().RemovePlayerNormalCurrency(towerToBuild.GetComponent<Tower>().baseCost);
-                Vector3 gridWorldPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
-                towerToBuild.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                towerToBuild.transform.position = gridWorldPosition;
-                placingTower = false;
-                towerToBuild = null;
-                var graphToScan = AstarPath.active.data.gridGraph;
-                AstarPath.active.Scan(graphToScan);
-                SelectionManager.Instance.UnselectTower();
+                /* Shift Click */
+                if (Input.GetMouseButtonDown(0))
+                {
+                    startDragPosition = Utilities.GetMouseWorldPosition();
+                }
+                /* Shift Click Released */
+                if (Input.GetMouseButtonUp(0))
+                {
+
+                }
+                /* Dragging */
+                if (Input.GetMouseButton(0))
+                {
+                    currentDragPosition = Utilities.GetMouseWorldPosition();
+                    Debug.DrawLine(startDragPosition, currentDragPosition, Color.blue);
+                    Debug.Log("Drag Length: " + GetDragLength());
+                }  
+            }
+            /* Normal Actions */
+            else
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    buildingGrid.SetValue(Utilities.GetMouseWorldPosition(), 1);
+                    towerToBuild.GetComponent<SpriteRenderer>().color = Color.white;
+                    towerToBuild.GetComponent<Collider2D>().enabled = true;
+                    towerToBuild.GetComponent<Tower>().enabled = true;
+                    GameManager.Instance.GetComponent<PlayerCurrency>().RemovePlayerNormalCurrency(towerToBuild.GetComponent<Tower>().baseCost);
+                    Vector3 gridWorldPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+                    towerToBuild.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    towerToBuild.transform.position = gridWorldPosition;
+                    placingTower = false;
+                    towerToBuild = null;
+                    var graphToScan = AstarPath.active.data.gridGraph;
+                    AstarPath.active.Scan(graphToScan);
+                    SelectionManager.Instance.UnselectTower();
+                }
             }
         }
         else
@@ -149,6 +178,16 @@ public class BuildingManager : MonoBehaviour
             CheatDetection.Instance.CheckForObstacles();
             buildMarker.GetComponent<SpriteRenderer>().color = cantBuildColor;
         }
+    }
+
+    private float GetDragLength()
+    {
+        return Vector3.Distance(startDragPosition, currentDragPosition);
+    }
+
+    private Vector3 GetDragDirection()
+    {
+        return Vector3.right;
     }
 
     public void RemoveTower(GameObject tower)
@@ -184,6 +223,12 @@ public class BuildingManager : MonoBehaviour
         {
             return false;
         }
+    }
+  
+    private bool InfectionCheck()
+    {
+
+        return true;        
     }
 
     private void HotkeyManager(int key)
