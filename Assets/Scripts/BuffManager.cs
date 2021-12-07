@@ -10,9 +10,9 @@ public class BuffManager : MonoBehaviour
 
     [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
 
-    List<Tower> healthModifierTowers;
-    List<Tower> speedModifierTowers;
-    List<Tower> damageModifierTowers;
+    public List<Tower> healthModifierTowers = new List<Tower>();
+    List<Tower> speedModifierTowers = new List<Tower>();
+    List<Tower> damageModifierTowers = new List<Tower>();
 
     private void Awake()
     {
@@ -63,12 +63,15 @@ public class BuffManager : MonoBehaviour
         }
     }
 
-    void CalculateHealthModifier()
+    public void CalculateHealthModifier()
     {
+        float healthModifierTotal = 0;
+
         for (int i = 0; i < healthModifierTowers.Count; i++)
         {
-            IncreaseHealthModifier(GetTowerHealthModifier(healthModifierTowers[i]));
+            healthModifierTotal += GetTowerHealthModifier(healthModifierTowers[i]);
         }
+        healthModifier = healthModifierTotal;
     }
 
     float GetTowerHealthModifier(Tower tower)

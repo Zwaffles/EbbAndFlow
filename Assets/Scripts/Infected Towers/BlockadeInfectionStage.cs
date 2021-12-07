@@ -6,7 +6,7 @@ using System;
 [Serializable]
 public class BlockadeInfectionStage
 {
-    [SerializeField] string stage = "Stage 1";
+    public string stage = "Stage 1";
     [SerializeField] private int infectionScoreTrigger;
     [SerializeField] private int enemyAmountToSpawn;
     [SerializeField] GameObject enemyToSpawn;

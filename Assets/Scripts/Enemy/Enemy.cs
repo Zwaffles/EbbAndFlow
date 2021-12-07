@@ -7,7 +7,7 @@ using Pathfinding;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float enemyHealth = 10f;
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private float dmgMultiplier = 1f;
     private Image healthBar;
     private WaveSpawner waveSpawner;
@@ -17,8 +17,9 @@ public class Enemy : MonoBehaviour
         waveSpawner = FindObjectOfType<WaveSpawner>();
     }
 
-    void Start()
+    public void Initialize(float healthModifier)
     {
+        enemyHealth += healthModifier;
         currentHealth = enemyHealth;
         healthBar = transform.GetChild(0).GetChild(1).GetComponent<Image>();
     }
@@ -26,11 +27,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float _damage) //is called when a projectile hits an enemy
     {
         currentHealth -= _damage * dmgMultiplier;
-        if(currentHealth <= 0) 
+        if (currentHealth <= 0)
         {
             currentHealth = 0;
             waveSpawner.currentWaveEnemies.Remove(gameObject);
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
         healthBar.fillAmount = currentHealth / enemyHealth;
     }
@@ -43,15 +44,4 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void IncreaseHealth(float value)
-    {
-        currentHealth += value;
-    }
-
-    public void DecreaseHealth(float value)
-    {
-        currentHealth -= value;
-    }
-
 }
