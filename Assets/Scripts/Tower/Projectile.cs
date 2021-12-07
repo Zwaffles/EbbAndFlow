@@ -7,6 +7,10 @@ public class Projectile : MonoBehaviour
 {
     private Transform target;
     private float damage;
+    private float splashRadius;
+    private float splashDamage;
+
+    private bool hitTarget;
 
     public float speed = 70f;
 
@@ -20,14 +24,20 @@ public class Projectile : MonoBehaviour
         damage = _damage;
     }
 
+    public void SetSplash(float _splashRadius, float _splashDamage)
+    {
+        splashRadius = _splashRadius;
+        splashDamage = _splashDamage;
+    }
+
     void Start()
     {
         
     }
 
-    void Update()
+    void Update() // updates every frame
     {
-        if(target == null)
+        if(target == null) //returns and destroys the projectile if target is null
         {
             Destroy(gameObject);
             return;
@@ -37,19 +47,32 @@ public class Projectile : MonoBehaviour
         transform.right = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        if(dir.magnitude <= distanceThisFrame) //executes logic if projectile has reached destination
         {
             HitTarget();
             target.GetComponent<Enemy>().TakeDamage(damage);
-            Destroy(gameObject);
             return;
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    private void HitTarget()
+    private void HitTarget() //logic for hitting target
     {
-        
+        if (splashRadius > 0) //check if tower has splash damage
+        {
+            target.GetComponent<Enemy>()?.TakeDamage(damage - splashDamage);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, splashRadius);
+            foreach (Collider2D hitCollider in hitColliders)
+            {
+                hitCollider.GetComponent<Enemy>()?.TakeDamage(splashDamage);
+            }
+            Destroy(gameObject);
+        }
+        else
+        {
+            target.GetComponent<Enemy>()?.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

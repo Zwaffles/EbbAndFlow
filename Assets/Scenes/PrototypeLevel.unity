@@ -7189,7 +7189,7 @@ PrefabInstance:
       objectReference: {fileID: 1839536589}
     - target: {fileID: 2921617793824096590, guid: 6daf1dfe00e002244b9da9cbccc78ee2, type: 3}
       propertyPath: playerNormalCurrency
-      value: 1000
+      value: 12625
       objectReference: {fileID: 0}
     - target: {fileID: 7289205081546277639, guid: 6daf1dfe00e002244b9da9cbccc78ee2, type: 3}
       propertyPath: endPosition
