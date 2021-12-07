@@ -16,7 +16,7 @@ public class CheatDetection : MonoBehaviour
     //GraphNode node1;
     //GraphNode node2;
     GraphMask mask1;
-    //GraphMask mask2;
+    GraphMask mask2;
 
     NNConstraint buildingConstraint = new NNConstraint();
     
@@ -42,6 +42,7 @@ public class CheatDetection : MonoBehaviour
         //seeker = GetComponent<Seeker>();
 
         mask1 = GraphMask.FromGraphName("Detection Graph");
+        mask2 = GraphMask.FromGraphName("Enemy Graph");
 
         buildingConstraint = NNConstraint.Default;
         buildingConstraint.graphMask = mask1;
@@ -76,13 +77,13 @@ public class CheatDetection : MonoBehaviour
     //        Debug.Log(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, node1, node2, false));
     //    }
 
-    public bool CheckForObstacles()
+    public bool CheckForObstacles() //method name kinda self explanatory innit?
     {
         var guo = new GraphUpdateObject(GetComponent<Collider2D>().bounds);
         var spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
         var goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
 
-        if (GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false))
+        if (GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false)) //updates the graph while checking for blocking elements, if nothing blocks it returns true
         {
             return true;
         }
