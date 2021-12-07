@@ -116,8 +116,11 @@ MonoBehaviour:
   turret: {fileID: 0}
   fireRate: 1
   baseCost: 100
+  sellPrice: 75
   projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
-  damage: 100000
+  damage: 10
+  splashRadius: 3
+  splashDamage: 10
   numberOfTargets: 1
 --- !u!95 &1894824103181417025
 Animator:

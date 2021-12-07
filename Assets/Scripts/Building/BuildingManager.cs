@@ -108,8 +108,12 @@ public class BuildingManager : MonoBehaviour
         {
             buildMarkerSprite.enabled = true;
             buildMarker.transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
-            var graphToScan = AstarPath.active.data.graphs;
-            AstarPath.active.Scan(graphToScan);
+            //if (buildMarker.hasChanged)
+            //{
+            //    var graphToScan = AstarPath.active.data.graphs;
+            //    AstarPath.active.Scan(graphToScan);
+            //    buildMarker.hasChanged = false;
+            //}
         }
         else
         {
@@ -142,6 +146,7 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
+            CheatDetection.Instance.CheckForObstacles();
             buildMarker.GetComponent<SpriteRenderer>().color = cantBuildColor;
         }
     }

@@ -7,6 +7,8 @@ public class AttackTower : Tower
     TowerTargeting towerTargeting;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float damage = 3f;
+    [SerializeField] float splashRadius = 0f;
+    [SerializeField] float splashDamage = 0f;
     public int numberOfTargets = 2;
 
     private Transform target;
@@ -22,12 +24,12 @@ public class AttackTower : Tower
         towerTargeting = GetComponent<TowerTargeting>();
     }
 
-    void Update()
+    void Update() 
     {
         cooldown -= Time.deltaTime;
-        if (cooldown <= 0)
+        if (cooldown <= 0) //executes if cooldown has reached 0
         {
-            for (int i = 0; i < numberOfTargets; i++)
+            for (int i = 0; i < numberOfTargets; i++) //for loop that checks for multiple targets incase its a multi shot tower
             {
                 if(towerTargeting.AcquireTarget().Count - 1 < i) { return; }
                 if(towerTargeting.AcquireTarget()[i] == null) { return; }
@@ -37,15 +39,16 @@ public class AttackTower : Tower
         }
     }
 
-    void Shoot()
+    void Shoot() //tower goes pew pew
     {
         cooldown = fireRate;
         GameObject projectileGO = (GameObject)Instantiate(projectilePrefab, turret.position, turret.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
 
-        if(projectile != null)
+        if(projectile != null) //sets projectile parameters
         {
             projectile.SetDamage(damage);
+            projectile.SetSplash(splashRadius, splashDamage);
             projectile.Seek(target);
         }
     }
