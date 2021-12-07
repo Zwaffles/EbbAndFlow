@@ -18,6 +18,7 @@ public class BuildingManager : MonoBehaviour
 
     [Header("Build Marker")]
     [SerializeField] private Transform buildMarker;
+    [SerializeField] private GameObject buildMarkerPrefab;
 
     [Header("Tower Parent")]
     [SerializeField] private Transform towerParent;
