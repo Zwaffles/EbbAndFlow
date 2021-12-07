@@ -91,7 +91,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 325901458233729537}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,9 +175,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
   fireRate: 1
+  modifierType: 0
   baseCost: 100
+  sellPrice: 75
+  isInfected: 0
+  infectionScore: 0
   projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
   damage: 1
+  splashRadius: 0
+  splashDamage: 0
   numberOfTargets: 5
 --- !u!95 &5397961501414708617
 Animator:
