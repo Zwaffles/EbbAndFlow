@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27292584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.46, y: 0, z: 10}
+  m_LocalPosition: {x: -9.95, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 642853907}
@@ -10408,6 +10408,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400473325}
     m_Modifications:
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedHealthModifiers.Array.data[0].healthModifier
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedHealthModifiers.Array.data[1].healthModifier
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedHealthModifiers.Array.data[3].healthModifier
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8337210360985748033, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: m_Name
       value: BuffManager

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeCollider: {fileID: 6285389534871322752}
-  towerRange: 10.5
+  towerRange: 7
 --- !u!114 &5397961501414708614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
-  fireRate: 1.5
+  fireRate: 1
   modifierType: 0
   baseCost: 8
   sellPrice: 3
