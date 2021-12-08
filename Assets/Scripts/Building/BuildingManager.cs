@@ -18,12 +18,15 @@ public class BuildingManager : MonoBehaviour
 
     [Header("Build Marker")]
     [SerializeField] private Transform buildMarker;
+    [SerializeField] private Transform buildMarkerParent;
     [SerializeField] private GameObject buildMarkerPrefab;
 
     [Header("Tower Parent")]
     [SerializeField] private Transform towerParent;
 
     [SerializeField] private List<GameObject> towerPrefabs = new List<GameObject>();
+
+    [SerializeField] private List<GameObject> buildMarkers = new List<GameObject>();
 
     private SpriteRenderer buildMarkerSprite;
     private BuildingGrid buildingGrid;
@@ -32,8 +35,6 @@ public class BuildingManager : MonoBehaviour
 
     private Vector3 startDragPosition;
     private Vector3 currentDragPosition;
-
-    
 
     private void Awake()
     {
@@ -127,6 +128,7 @@ public class BuildingManager : MonoBehaviour
 
     private void BuildTower()
     {
+        /* Can Build Tower*/
         if (CanBuildTowerCheck() && CheatDetection.Instance.CheckForObstacles() && GameManager.Instance.CanBuy(towerToBuild.GetComponent<Tower>().baseCost))
         {
             buildMarker.GetComponent<SpriteRenderer>().color = canBuildColor;
@@ -137,20 +139,21 @@ public class BuildingManager : MonoBehaviour
                 /* Shift Click */
                 if (Input.GetMouseButtonDown(0))
                 {
-                    startDragPosition = Utilities.GetMouseWorldPosition();
-                }
-                /* Shift Click Released */
-                if (Input.GetMouseButtonUp(0))
-                {
-
+                    startDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 }
                 /* Dragging */
                 if (Input.GetMouseButton(0))
                 {
-                    currentDragPosition = Utilities.GetMouseWorldPosition();
-                    Debug.DrawLine(startDragPosition, currentDragPosition, Color.blue);
-                    Debug.Log("Drag Length: " + GetDragLength());
-                }  
+                    currentDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+                    RegulateBuildMarkers();
+                    PositionBuildMarkers();
+                    BuildMarkerCheck();
+                }
+                /* Mouse Button Released */
+                if (Input.GetMouseButtonUp(0))
+                {
+                    DestroyBuildMarkers();
+                }
             }
             /* Normal Actions */
             else
@@ -173,11 +176,71 @@ public class BuildingManager : MonoBehaviour
                 }
             }
         }
+        /* Cant Build Tower */
         else
         {
             CheatDetection.Instance.CheckForObstacles();
             buildMarker.GetComponent<SpriteRenderer>().color = cantBuildColor;
         }
+        /* Shift Click Released */
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            DestroyBuildMarkers();
+        }
+    }
+
+    private void RegulateBuildMarkers()
+    {
+        /* Instantiate BuildMarker to fill Drag Area */
+        if(buildMarkers.Count < GetDragCellAmount())
+        {
+            GameObject newBuildMarker = Instantiate(buildMarkerPrefab, buildMarkerParent);
+            buildMarkers.Add(newBuildMarker);
+        }
+        /* Destroy BuildMarker if we have to many */
+        else if(buildMarkers.Count > GetDragCellAmount())
+        {
+            Destroy(buildMarkers[buildMarkers.Count - 1]);
+            buildMarkers.RemoveAt(buildMarkers.Count - 1);
+        }
+        
+    }
+
+    private void PositionBuildMarkers()
+    {
+        /* Loop through BuildMarkers */
+        for (int i = 0; i < buildMarkers.Count; i++)
+        {
+            buildMarkers[i].transform.position = startDragPosition + (i * buildingGrid.GetCellSize()) * GetDragDirection();
+        }
+    }
+
+    private void BuildMarkerCheck()
+    {
+        /* Loop through BuildMarkers */
+        for (int i = 0; i < buildMarkers.Count; i++)
+        {
+            /* Can Build at Specific BuildMarker Location */
+            if (buildingGrid.GetValue(buildMarker.transform.position) == 0)
+            {
+                buildMarkers[i].GetComponent<SpriteRenderer>().color = cantBuildColor;
+            }
+            /* Cant Build at Specific BuildMarker Location */
+            else
+            {
+                buildMarkers[i].GetComponent<SpriteRenderer>().color = canBuildColor;
+            }
+        }
+    }
+
+    private void DestroyBuildMarkers()
+    {
+        /* Destroy all BuildMarkers and Clear list */
+        for (int i = 0; i < buildMarkers.Count; i++)
+        {
+            Destroy(buildMarkers[i]);
+        }
+        buildMarkers.Clear();
     }
 
     private float GetDragLength()
@@ -185,9 +248,59 @@ public class BuildingManager : MonoBehaviour
         return Vector3.Distance(startDragPosition, currentDragPosition);
     }
 
+    private int GetDragCellAmount()
+    {
+        Vector3 normalizedDirection = (currentDragPosition - startDragPosition).normalized;
+
+        /* Diagonal Drag */
+        if (Mathf.Abs(normalizedDirection.x) == Mathf.Abs(normalizedDirection.y))
+        {
+            return Mathf.RoundToInt(Vector3.Distance(startDragPosition, currentDragPosition) / buildingGrid.GetCellDiagonal()) + 1;
+        }
+        /* Horizontal/Vertical Drag */
+        else
+        {
+            return Mathf.RoundToInt(Vector3.Distance(startDragPosition, currentDragPosition) / buildingGrid.GetCellSize()) + 1;
+        }  
+    }
+
     private Vector3 GetDragDirection()
     {
-        return Vector3.right;
+        Vector3 normalizedDirection = (currentDragPosition - startDragPosition).normalized;
+
+        /* Horizontal Drag */
+        if (Mathf.Abs(normalizedDirection.x) > Mathf.Abs(normalizedDirection.y))
+        {
+            
+            normalizedDirection.y = 0;
+            normalizedDirection.x = 1 * GetDirectionMultiplier(normalizedDirection.x);
+        }
+        /* Vertical Drag */
+        else if (Mathf.Abs(normalizedDirection.y) > Mathf.Abs(normalizedDirection.x))
+        {
+            normalizedDirection.x = 0; 
+            normalizedDirection.y = 1 * GetDirectionMultiplier(normalizedDirection.y); 
+        }
+        /* Diagonal Drag */
+        else if (Mathf.Abs(normalizedDirection.x) == Mathf.Abs(normalizedDirection.y))
+        {
+            normalizedDirection.x = 1 * GetDirectionMultiplier(normalizedDirection.x);
+            normalizedDirection.y = 1 * GetDirectionMultiplier(normalizedDirection.y);
+        }
+
+        return normalizedDirection;
+    }
+
+    private float GetDirectionMultiplier(float axis)
+    {
+        if(axis > 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
     }
 
     public void RemoveTower(GameObject tower)
@@ -199,7 +312,9 @@ public class BuildingManager : MonoBehaviour
     private void CancelPlacement()
     {
         placingTower = false;
-        if(towerToBuild != null)
+        DestroyBuildMarkers();
+
+        if (towerToBuild != null)
         {
             Destroy(towerToBuild);
         }
@@ -236,6 +351,25 @@ public class BuildingManager : MonoBehaviour
         if(key > 0 && key <= towerPrefabs.Count)
         {
             PlaceTower(towerPrefabs[key - 1]);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (placingTower)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Gizmos.color = Color.blue;
+
+                if (Input.GetMouseButton(0))
+                {
+                    Gizmos.DrawWireSphere(startDragPosition, buildingGrid.GetCellRadius());
+                    Gizmos.DrawWireSphere(currentDragPosition, buildingGrid.GetCellRadius());
+                    Gizmos.DrawLine(startDragPosition, currentDragPosition);
+                }
+                
+            }
         }
     }
 }

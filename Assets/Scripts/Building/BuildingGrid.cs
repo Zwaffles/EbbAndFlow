@@ -18,11 +18,9 @@ public class BuildingGrid : MonoBehaviour
 
     private int[,] gridArray;
     private TextMeshPro[,] debugTextArray;
-    private float cellRadius;
 
     public void BuildGrid()
     {
-        cellRadius = cellSize / 2;
         gridArray = new int[width, height];
         debugTextArray = new TextMeshPro[width, height];
 
@@ -33,7 +31,7 @@ public class BuildingGrid : MonoBehaviour
                 if (drawGridValue)
                 {
                     string name = "(" + x + "," + y + ")";
-                    debugTextArray[x,y] = Utilities.CreateWorldText(gridValueParent, name, gridArray[x, y].ToString(), GetWorldPosition(x, y) + new Vector2(cellRadius, cellRadius), new Vector2(cellSize, cellSize), 2, Color.white, "Foreground");
+                    debugTextArray[x,y] = Utilities.CreateWorldText(gridValueParent, name, gridArray[x, y].ToString(), GetWorldPosition(x, y) + new Vector2(GetCellRadius(), GetCellRadius()), new Vector2(cellSize, cellSize), 2, Color.white, "Foreground");
                 }
                 if (drawGridLines)
                 {
@@ -65,8 +63,8 @@ public class BuildingGrid : MonoBehaviour
     public Vector3 RoundToGridPosition(Vector2 worldPosition)
     {
         Vector3 gridWorldPosition = new Vector3(0, 0, 0);
-        gridWorldPosition.x = Mathf.FloorToInt((worldPosition).x / cellSize) + cellRadius;
-        gridWorldPosition.y = Mathf.FloorToInt((worldPosition).y / cellSize) + cellRadius;
+        gridWorldPosition.x = Mathf.FloorToInt((worldPosition).x / cellSize) + GetCellRadius();
+        gridWorldPosition.y = Mathf.FloorToInt((worldPosition).y / cellSize) + GetCellRadius();
         return gridWorldPosition;
     }
 
@@ -87,6 +85,16 @@ public class BuildingGrid : MonoBehaviour
     public float GetCellSize()
     {
         return cellSize;
+    }
+
+    public float GetCellRadius()
+    {
+        return cellSize * 0.5f;
+    }
+
+    public float GetCellDiagonal()
+    {
+        return Mathf.Sqrt(cellSize * cellSize + cellSize * cellSize);
     }
 
     public int GetValue(Vector2 worldPosition)
