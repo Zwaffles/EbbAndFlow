@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class TowerRangeOutline : MonoBehaviour
 {
     private float _towerRange;
-    private RectTransform outlineSize;
+    public SpriteRenderer outline;
 
     void Start()
     {
         _towerRange = GetComponentInParent<TowerTargeting>().towerRange;
-        outlineSize = GetComponent<RectTransform>();
-        //RectTransform. = new Vector3(_towerRange, _towerRange, 1);
+        outline.gameObject.transform.localScale = new Vector2(_towerRange, _towerRange);
     }
 }

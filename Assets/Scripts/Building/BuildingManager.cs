@@ -134,7 +134,10 @@ public class BuildingManager : MonoBehaviour
                 towerToBuild.GetComponent<SpriteRenderer>().color = Color.white;
                 towerToBuild.GetComponent<Collider2D>().enabled = true;
                 towerToBuild.GetComponent<Tower>().enabled = true;
-                //towerToBuild.GetComponentInChildren<TowerRangeOutline>().gameObject.SetActive(false);
+                if (towerToBuild.gameObject.GetComponent<TowerRangeOutline>() != null)
+                {
+                    towerToBuild.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 0);
+                }
                 GameManager.Instance.GetComponent<PlayerCurrency>().RemovePlayerNormalCurrency(towerToBuild.GetComponent<Tower>().baseCost);
                 Vector3 gridWorldPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 towerToBuild.GetComponent<SpriteRenderer>().sortingOrder = 0;

@@ -44,13 +44,18 @@ public class SelectionManager : MonoBehaviour
             {
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
                 {
+                    UnselectTower();
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
+                    if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
+                    {
+                        selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
+                    }
                     OpenTowerUI();
                 }
             }
             else
             {
-                if (!EventSystem.current.IsPointerOverGameObject())
+                if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
                 {
                     UnselectTower();
                 }
@@ -60,6 +65,13 @@ public class SelectionManager : MonoBehaviour
 
     public void UnselectTower()
     {
+        if(selectedTower != null)
+        {
+            if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
+            {
+                selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 0);
+            }
+        }
         selectedTower = null;
         CloseTowerUI();
     }
