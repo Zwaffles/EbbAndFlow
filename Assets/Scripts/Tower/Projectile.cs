@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
         if(dir.magnitude <= distanceThisFrame) //executes logic if projectile has reached destination
         {
             HitTarget();
-            target.GetComponent<Enemy>().TakeDamage(damage);
+            //target.GetComponent<Enemy>().TakeDamage(damage);
             return;
         }
 

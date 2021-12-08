@@ -67,6 +67,7 @@ public class BuildingManager : MonoBehaviour
     {
         BuildMarker();
         PlacingTower();
+        CheatDetection.Instance.CheckForObstacles();
     }
 
     private void PlacingTower()
@@ -124,6 +125,7 @@ public class BuildingManager : MonoBehaviour
     {
         if (CanBuildTowerCheck() && CheatDetection.Instance.CheckForObstacles() && GameManager.Instance.CanBuy(towerToBuild.GetComponent<Tower>().baseCost))
         {
+            CheatDetection.Instance.CheckForObstacles();
             buildMarker.GetComponent<SpriteRenderer>().color = canBuildColor;
 
             if (Input.GetMouseButtonDown(0))
@@ -132,6 +134,7 @@ public class BuildingManager : MonoBehaviour
                 towerToBuild.GetComponent<SpriteRenderer>().color = Color.white;
                 towerToBuild.GetComponent<Collider2D>().enabled = true;
                 towerToBuild.GetComponent<Tower>().enabled = true;
+                //towerToBuild.GetComponentInChildren<TowerRangeOutline>().gameObject.SetActive(false);
                 GameManager.Instance.GetComponent<PlayerCurrency>().RemovePlayerNormalCurrency(towerToBuild.GetComponent<Tower>().baseCost);
                 Vector3 gridWorldPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 towerToBuild.GetComponent<SpriteRenderer>().sortingOrder = 0;
@@ -145,7 +148,6 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            CheatDetection.Instance.CheckForObstacles();
             buildMarker.GetComponent<SpriteRenderer>().color = cantBuildColor;
         }
     }
