@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
     public int sellPrice = 75;
     
     protected float cooldown;
-    [SerializeField] private bool isInfected;
+    public bool isInfected;
     [SerializeField] private int infectionScore = 0;
 
    
