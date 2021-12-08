@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd027d73e8e403949ace7068b2fa7e33, type: 3}
-  m_Name: Wave 4
+  m_Name: Wave 9
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
@@ -26,5 +26,22 @@ MonoBehaviour:
   - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
   - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
   - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
   enemySpawnInterval: 0.5
-  waveNormalCurrencyReward: 21
+  waveNormalCurrencyReward: 23

@@ -412,4 +412,4 @@ MonoBehaviour:
   curveRoundness: 1
   randomOffset: 1
   drawPoints: 1
-  constantGrowth: 0
+  constantGrowth: 1

@@ -487,7 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53429027caa22b4cb9d32bb42561b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 30
+  enemyHealth: 150
+  currentHealth: 0
   dmgMultiplier: 1
 --- !u!95 &7017037496881684769
 Animator:
