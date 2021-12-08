@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//incomplete, blame me for now (Jesper)
 public class ProjectileLightning : MonoBehaviour
 {
     private Transform target;
