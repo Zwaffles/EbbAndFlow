@@ -7,9 +7,7 @@ using UnityEngine.U2D;
 public class InfectionManager : MonoBehaviour
 {
     public static InfectionManager Instance { get { return instance; } }
-    private static InfectionManager instance;
-
-    //[SerializeField] private List<InfectionCyst> infectionCysts = new List<InfectionCyst>();
+    private static InfectionManager instance;    
 
     public enum SpreadSetting
     {
@@ -303,5 +301,13 @@ public class InfectionManager : MonoBehaviour
             yield return null;
         }
         spreadingInfection = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
+        {
+            collision.gameObject.GetComponent<Tower>().InfectTower();
+        }
     }
 }
