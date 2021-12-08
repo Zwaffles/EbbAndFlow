@@ -176,14 +176,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
-  fireRate: 1
-  baseCost: 100
-  sellPrice: 75
+  fireRate: 1.5
+  modifierType: 0
+  baseCost: 8
+  sellPrice: 3
+  isInfected: 0
+  infectionScore: 0
   projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
-  damage: 1
+  damage: 20
   splashRadius: 0
   splashDamage: 0
-  numberOfTargets: 5
+  numberOfTargets: 3
 --- !u!95 &5397961501414708617
 Animator:
   serializedVersion: 3
