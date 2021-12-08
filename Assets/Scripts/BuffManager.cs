@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class BuffManager : MonoBehaviour
 {
     public static BuffManager Instance { get { return instance; } }
     private static BuffManager instance;
     private float healthModifier;
+    private int speedModifier;
+    
 
     [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
 
-    public List<Tower> healthModifierTowers = new List<Tower>();
+    List<Tower> healthModifierTowers = new List<Tower>();
     List<Tower> speedModifierTowers = new List<Tower>();
     List<Tower> damageModifierTowers = new List<Tower>();
 
@@ -109,15 +112,9 @@ public class BuffManager : MonoBehaviour
     {
         return healthModifier;
     }
-
-    public void IncreaseHealthModifier(float value)
+   
+    public void ModifySpeedValue()
     {
-        healthModifier += value;
-    }
-
-    public void DecreaseHealthModifier(float value)
-    {
-        healthModifier -= value;
-    }
-  
+                
+    } 
 }
