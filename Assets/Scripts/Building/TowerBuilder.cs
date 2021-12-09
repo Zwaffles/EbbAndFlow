@@ -24,6 +24,15 @@ public class TowerBuilder : MonoBehaviour
 
     public void PlaceTower()
     {
-        BuildingManager.Instance.PlaceTower(this);
+        /* Can afford Tower */
+        if (PlayerCurrency.Instance.CanBuy(towerCost))
+        {
+            BuildingManager.Instance.PlaceTower(this);
+        }
+        /* Cant afford Tower */
+        else
+        {
+            Debug.Log("Cant afford Tower!");
+        } 
     }
 }

@@ -7368,7 +7368,7 @@ PrefabInstance:
       objectReference: {fileID: 1839536589}
     - target: {fileID: 2921617793824096590, guid: 6daf1dfe00e002244b9da9cbccc78ee2, type: 3}
       propertyPath: playerNormalCurrency
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7289205081546277639, guid: 6daf1dfe00e002244b9da9cbccc78ee2, type: 3}
       propertyPath: endPosition
@@ -8138,11 +8138,10 @@ MonoBehaviour:
     m_Bits: 8
   buildMarkerParent: {fileID: 658692528}
   buildMarkerPrefab: {fileID: 563112408190199971, guid: 60dc0268eab768a46b502431c6d948f4, type: 3}
+  buildObstacleLayer:
+    serializedVersion: 2
+    m_Bits: 67109056
   towerParent: {fileID: 1686463573}
-  towerBuilders: []
-  buildMarkers: []
-  towerPreviews: []
-  currentTowerBuilder: {fileID: 0}
 --- !u!4 &2136665378
 Transform:
   m_ObjectHideFlags: 0
