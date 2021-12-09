@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5040808530298309641}
   - component: {fileID: 1822263042897214202}
-  - component: {fileID: 5676173830456102675}
-  m_Layer: 0
-  m_Name: TowerOnePlaceholder
+  - component: {fileID: 6883291328445087304}
+  - component: {fileID: 3627903051152038598}
+  m_Layer: 7
+  m_Name: CurrencyTowerPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,8 +84,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5676173830456102675
-BoxCollider2D:
+--- !u!58 &6883291328445087304
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,15 +98,25 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
+--- !u!114 &3627903051152038598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554956503562465551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49d681c7f2e70e4487bc39a859b29a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 0}
+  fireRate: 0
+  modifierType: 3
+  baseCost: 1
+  sellPrice: 1
+  isInfected: 0
+  infectionScore: 0
+  currencyPerWave: 1

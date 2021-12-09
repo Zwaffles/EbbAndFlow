@@ -9,14 +9,17 @@ public class BuffManager : MonoBehaviour
     private static BuffManager instance;
     private float healthModifier;
     private int speedModifier;
+    private int infectedCurrencyModifier;
 
 
     [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
     [SerializeField] List<InfectedSpeedModifier> infectedSpeedModifiers;
+    [SerializeField] List<InfectedCurrencyModifier> infectedCurrencyModifiers;
 
     List<Tower> healthModifierTowers = new List<Tower>();
     List<Tower> speedModifierTowers = new List<Tower>();
     List<Tower> damageModifierTowers = new List<Tower>();
+    List<Tower> infectedCurrencyModifierTowers = new List<Tower>();
 
     private void Awake()
     {
@@ -44,6 +47,9 @@ public class BuffManager : MonoBehaviour
             case Tower.ModifierType.Damage:
                 damageModifierTowers.Add(tower);
                 break;
+            case Tower.ModifierType.Currency:
+                infectedCurrencyModifierTowers.Add(tower);
+                break;
             default:
                 break;
         }
@@ -62,9 +68,38 @@ public class BuffManager : MonoBehaviour
             case Tower.ModifierType.Damage:
                 damageModifierTowers.Remove(tower);
                 break;
+            case Tower.ModifierType.Currency:
+                infectedCurrencyModifierTowers.Remove(tower);
+                break;
             default:
                 break;
         }
+    }
+
+    public int CalculateInfectedCurrencyModifier()
+    {
+        int currencyModifierTotal = 0;
+
+        for (int i = 0; i < infectedCurrencyModifierTowers.Count; i++)
+        {
+            currencyModifierTotal += GetTowerInfectedCurrencyModifier(infectedCurrencyModifierTowers[i]);
+        }
+        infectedCurrencyModifier = currencyModifierTotal;
+        return currencyModifierTotal;
+    }
+
+    private int GetTowerInfectedCurrencyModifier(Tower tower) 
+    {
+        int towerCurrencyModifier = 0;
+
+        for (int i = 0; i < infectedCurrencyModifiers.Count; i++)
+        {
+            if (tower.GetInfectionScore() >= infectedCurrencyModifiers[i].InfectionScoreTrigger)
+            {
+                towerCurrencyModifier = infectedCurrencyModifiers[i].CurrencyModifier;
+            }
+        }
+        return towerCurrencyModifier;
     }
 
     public void CalculateHealthModifier()
@@ -145,6 +180,10 @@ public class BuffManager : MonoBehaviour
         for (int k = 0; k < damageModifierTowers.Count; k++)
         {
             damageModifierTowers[k].IncreaseInfectionScore(1);
+        }
+        for (int l = 0; l < infectedCurrencyModifierTowers.Count; l++)
+        {
+            infectedCurrencyModifierTowers[l].IncreaseInfectionScore(1);
         }
     }
 
