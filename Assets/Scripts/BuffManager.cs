@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class BuffManager : MonoBehaviour
 {
     public static BuffManager Instance { get { return instance; } }
     private static BuffManager instance;
     private float healthModifier;
+    private int speedModifier;
+
 
     [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
+    [SerializeField] List<InfectedSpeedModifier> infectedSpeedModifiers;
 
-    public List<Tower> healthModifierTowers = new List<Tower>();
+    List<Tower> healthModifierTowers = new List<Tower>();
     List<Tower> speedModifierTowers = new List<Tower>();
     List<Tower> damageModifierTowers = new List<Tower>();
 
@@ -77,6 +81,7 @@ public class BuffManager : MonoBehaviour
     float GetTowerHealthModifier(Tower tower)
     {
         float towerHealthModifier = 0f;
+
         for (int i = 0; i < infectedHealthModifiers.Count; i++)
         {
             if (tower.GetInfectionScore() >= infectedHealthModifiers[i].InfectionScoreTrigger)
@@ -85,6 +90,44 @@ public class BuffManager : MonoBehaviour
             }
         }
         return towerHealthModifier;
+    }
+
+    public void CalculateIncreasedSpeed()
+    {
+        float totalSpeedIncrease = 0f;
+
+        for (int i = 0; i < speedModifierTowers.Count; i++)
+        {
+            totalSpeedIncrease += GetIncreasedEnemySpeed(speedModifierTowers[i]);
+        }
+    }
+
+    float GetIncreasedEnemySpeed(Tower tower)
+    {
+        float increasedEnemySpeedModifier = 0f;
+
+        for (int i = 0; i < infectedSpeedModifiers.Count; i++)
+        {
+            if (tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
+            {
+                increasedEnemySpeedModifier = infectedSpeedModifiers[i].IncreasedSpeedModifier;
+            }
+        }
+        return increasedEnemySpeedModifier;
+    }
+
+    float GetSlowEnemySpeed(Tower tower)
+    {
+        float slowedEnemySpeedModifier = 0;
+
+        for (int i = 0; i < infectedSpeedModifiers.Count; i++)
+        {
+            if(tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
+            {
+                slowedEnemySpeedModifier = infectedSpeedModifiers[i].SlowSpeedModifier;
+            }
+        }
+        return slowedEnemySpeedModifier;
     }
 
     public void IncreaseInfectionScore()
@@ -110,14 +153,13 @@ public class BuffManager : MonoBehaviour
         return healthModifier;
     }
 
-    public void IncreaseHealthModifier(float value)
+    public void IncreaseEnemyMovementSpeed()
     {
-        healthModifier += value;
+
     }
 
-    public void DecreaseHealthModifier(float value)
+    public void SlowEnemyMovementSpeed()
     {
-        healthModifier -= value;
+
     }
-  
 }

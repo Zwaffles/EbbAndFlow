@@ -14,12 +14,12 @@ public class Tower : MonoBehaviour
     [SerializeField] private ModifierType modifierType;
     public int baseCost = 100;
     public int sellPrice = 75;
-    
-    protected float cooldown;
-    public bool isInfected;
-    [SerializeField] private int infectionScore = 0;
 
-   
+    protected float cooldown;
+    private bool isInfected;
+    private int infectionScore = 0;
+
+
 
     public ModifierType GetModifierType()
     {
