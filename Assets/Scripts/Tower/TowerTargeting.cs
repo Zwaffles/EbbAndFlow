@@ -28,7 +28,7 @@ public class TowerTargeting : MonoBehaviour
         // Add Enemy to List
         if(other.gameObject.CompareTag("Enemy"))
         {
-            enemiesWithinRange.Add(other.gameObject);            
+            enemiesWithinRange.Add(other.gameObject);             
         }
     }
 
