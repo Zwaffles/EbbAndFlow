@@ -6,7 +6,7 @@ public class Tower : MonoBehaviour
 {
     public enum ModifierType
     {
-        Health, Speed, Damage
+        Health, Speed, Damage, Currency
     }
 
     [SerializeField] protected Transform turret;
@@ -16,8 +16,8 @@ public class Tower : MonoBehaviour
     public int sellPrice = 75;
 
     protected float cooldown;
-    private bool isInfected;
-    private int infectionScore = 0;
+    [SerializeField] protected bool isInfected;
+    [SerializeField] private int infectionScore = 0;
 
 
 

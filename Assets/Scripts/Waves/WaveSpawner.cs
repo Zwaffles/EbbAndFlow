@@ -148,7 +148,18 @@ public class WaveSpawner : MonoBehaviour
             blockade.IncreaseEnemiesInWave();
         }
 
-        playerCurrency.AddPlayerNormalCurrency(GetCurrentWave().WaveNormalCurrencyReward);
+
+        //adds currency amount of all towers into waveCurrencyAmount
+        List<CurrencyTower> CurrencyTowers = FindObjectsOfType<CurrencyTower>().ToList();
+        int waveCurrencyAmount = 0;
+
+        foreach (CurrencyTower tower in CurrencyTowers)
+        {
+            waveCurrencyAmount += tower.GetTowerCurrencyPerWave();
+        }
+
+        playerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward) + waveCurrencyAmount);
+        playerCurrency.AddPlayerInfectedCurrency(BuffManager.Instance.CalculateInfectedCurrencyModifier());
         BuffManager.Instance.IncreaseInfectionScore();
         BuffManager.Instance.CalculateHealthModifier();
     }
