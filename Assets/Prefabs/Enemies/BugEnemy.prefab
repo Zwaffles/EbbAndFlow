@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 30
+  currentHealth: 0
   dmgMultiplier: 1
 --- !u!95 &7017037496881684769
 Animator:
