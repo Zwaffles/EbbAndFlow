@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneManagement : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class SceneManagement : MonoBehaviour
     [Header("Options Menu")]
     [SerializeField] GameObject optionsMenuUI;
     private bool isOptions;
+
+    [Header("Infection Stats")]
+    [SerializeField] GameObject infectionStatsUI;
+    private bool infectionStatsShown;
 
 
 
@@ -35,7 +41,7 @@ public class SceneManagement : MonoBehaviour
                 }
             }
             if (isOptions)
-            {                
+            {
                 optionsMenuUI.gameObject.SetActive(false);
                 isOptions = false;
                 if (canPause)
@@ -68,13 +74,13 @@ public class SceneManagement : MonoBehaviour
     {
         pauseMenuUI.gameObject.SetActive(false);
         isOptions = true;
-        optionsMenuUI.gameObject.SetActive(true);        
+        optionsMenuUI.gameObject.SetActive(true);
     }
 
     public void Back() //Used for back button
     {
         if (canPause)
-        {            
+        {
             pauseMenuUI.gameObject.SetActive(true);
             optionsMenuUI.gameObject.SetActive(false);
         }
@@ -89,10 +95,27 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-
     public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Exiting Game...");
     }
+
+    public void ToggleInfectionStats() //Shows/hides Speed %, Health %, Extra enemies #, tower infection score #
+    {
+        if (!infectionStatsShown)
+        {
+            //GetComponents<Tower>().ShowInfectionScore();
+            infectionStatsUI.SetActive(true);
+            infectionStatsShown = true;
+        }
+        else if (infectionStatsShown)
+        {
+            //GetComponents<Tower>().HideInfectionScore();
+            infectionStatsUI.SetActive(false);
+            infectionStatsShown = false;
+        }
+    }
 }
+
+
