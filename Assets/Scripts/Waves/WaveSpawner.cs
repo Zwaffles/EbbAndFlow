@@ -39,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
     bool endWaveActionsMade;
 
     //Infection towers
-    List<InfectedBlockade> infectedBlockades = new List<InfectedBlockade>();
+    List<InfectedCurrencyTower> infectedBlockades = new List<InfectedCurrencyTower>();
 
     private void Awake()
     {
@@ -142,8 +142,8 @@ public class WaveSpawner : MonoBehaviour
     void OnWaveEnd()
     {
         endWaveActionsMade = true;
-        infectedBlockades = FindObjectsOfType<InfectedBlockade>().ToList();
-        foreach (InfectedBlockade blockade in infectedBlockades)
+        infectedBlockades = FindObjectsOfType<InfectedCurrencyTower>().ToList();
+        foreach (InfectedCurrencyTower blockade in infectedBlockades)
         {
             blockade.IncreaseEnemiesInWave();
         }

@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfectedBlockade : MonoBehaviour
+public class InfectedCurrencyTower : MonoBehaviour
 {    
     [SerializeField] int infectionScore = 0;
     [SerializeField] int maxInfectionScore = 10;   
-    [SerializeField] List<BlockadeInfectionStage> infectionStages = new List<BlockadeInfectionStage>();
-    BlockadeInfectionStage currentInfectionStage;
+    [SerializeField] List<EnemySpawnerInfectionStage> infectionStages = new List<EnemySpawnerInfectionStage>();
+    EnemySpawnerInfectionStage currentInfectionStage;
     WaveSpawner waveSpawner;
     bool hasAddedEnemies;
 
 
 
-    public void IncreaseEnemiesInWave()
+    public void IncreaseEnemiesInWave() //Adds infection score and enemies
     {
         if (infectionScore < maxInfectionScore)
         {
@@ -28,7 +28,7 @@ public class InfectedBlockade : MonoBehaviour
         }
     }
 
-    void AddEnemy()
+    void AddEnemy() //Adds enemies to list in wavespawner
     {
         waveSpawner = FindObjectOfType<WaveSpawner>();
         if (currentInfectionStage != null)
@@ -42,9 +42,9 @@ public class InfectedBlockade : MonoBehaviour
         Debug.Log(hasAddedEnemies);
     }
 
-    void UpdateInfectionStage()
+    void UpdateInfectionStage() //Updates current infection stage
     {
-        foreach (BlockadeInfectionStage infectionStage in infectionStages)
+        foreach (EnemySpawnerInfectionStage infectionStage in infectionStages)
         {
             if (infectionScore >= infectionStage.InfectionScoreTrigger)
             {

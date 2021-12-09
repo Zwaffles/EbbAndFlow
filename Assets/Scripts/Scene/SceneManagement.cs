@@ -52,13 +52,13 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    void PauseGame()
+    void PauseGame() //Pauses game
     {
         pauseMenuUI.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
 
-    public void ResumeGame()
+    public void ResumeGame() //Resumes game
     {
         isPaused = false;
         pauseMenuUI.gameObject.SetActive(false);
@@ -95,7 +95,7 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    public void QuitGame()
+    public void QuitGame() //Quits Game :)
     {
         Application.Quit();
         Debug.Log("Exiting Game...");

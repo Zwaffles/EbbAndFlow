@@ -2710,6 +2710,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &512815764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8226927842927605078, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+  m_PrefabInstance: {fileID: 1120174629}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &581254776
 GameObject:
   m_ObjectHideFlags: 0
@@ -6940,6 +6945,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
+      propertyPath: constantGrowth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
 --- !u!1 &965058187
@@ -7046,25 +7055,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 308151910083239561, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 308151910083239561, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 236174612}
-    - target: {fileID: 308151910083239561, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 308151910083239561, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SellTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 308151910083239561, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SelectionManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 2074098509810777608, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7081,9 +7074,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1446018173}
-    - target: {fileID: 4569592754080441240, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 3710676438559964448, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1446018173}
+    - target: {fileID: 3710676438559964448, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleInfectionStats
       objectReference: {fileID: 0}
     - target: {fileID: 4613489671085911615, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7187,6 +7184,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5348883458399004779, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226927842927605078, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8750539405832342173, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
@@ -7300,6 +7301,10 @@ PrefabInstance:
       propertyPath: optionsMenuUI
       value: 
       objectReference: {fileID: 1120174631}
+    - target: {fileID: 372729633749251904, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
+      propertyPath: infectionStatsUI
+      value: 
+      objectReference: {fileID: 512815764}
     - target: {fileID: 372729633749251905, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -7382,6 +7387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLives: 50
+  infectionSpeedIncrease: 10
+  infectionSpeedChangeDuration: 5
   livesText: {fileID: 387866115}
 --- !u!58 &1357758509
 CircleCollider2D:
