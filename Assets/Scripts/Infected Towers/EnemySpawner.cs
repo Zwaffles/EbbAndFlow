@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class EnemySpawnerInfectionStage
+public class EnemySpawner
 {
     public string stage = "Stage 1";
     [SerializeField] private int infectionScoreTrigger;

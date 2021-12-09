@@ -39,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
     bool endWaveActionsMade;
 
     //Infection towers
-    List<InfectedCurrencyTower> infectedBlockades = new List<InfectedCurrencyTower>();
+    //List<InfectedCurrencyTower> infectedBlockades = new List<InfectedCurrencyTower>();
 
     private void Awake()
     {
@@ -142,13 +142,7 @@ public class WaveSpawner : MonoBehaviour
     void OnWaveEnd()
     {
         endWaveActionsMade = true;
-        infectedBlockades = FindObjectsOfType<InfectedCurrencyTower>().ToList();
-        foreach (InfectedCurrencyTower blockade in infectedBlockades)
-        {
-            blockade.IncreaseEnemiesInWave();
-        }
-
-
+       
         //adds currency amount of all towers into waveCurrencyAmount
         List<CurrencyTower> CurrencyTowers = FindObjectsOfType<CurrencyTower>().ToList();
         int waveCurrencyAmount = 0;
@@ -160,6 +154,7 @@ public class WaveSpawner : MonoBehaviour
 
         playerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward) + waveCurrencyAmount);
         playerCurrency.AddPlayerInfectedCurrency(BuffManager.Instance.CalculateInfectedCurrencyModifier());
+        BuffManager.Instance.SpawnAdditionalEnemies();
         BuffManager.Instance.IncreaseInfectionScore();
         BuffManager.Instance.CalculateHealthModifier();
     }

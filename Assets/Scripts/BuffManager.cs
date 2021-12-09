@@ -11,10 +11,13 @@ public class BuffManager : MonoBehaviour
     private int speedModifier;
     private int infectedCurrencyModifier;
 
+    WaveSpawner waveSpawner;
+
 
     [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
     [SerializeField] List<InfectedSpeedModifier> infectedSpeedModifiers;
     [SerializeField] List<InfectedCurrencyModifier> infectedCurrencyModifiers;
+    [SerializeField] List<EnemySpawner> additionalSpawnedEnemies;
 
     List<Tower> healthModifierTowers = new List<Tower>();
     List<Tower> speedModifierTowers = new List<Tower>();
@@ -88,7 +91,7 @@ public class BuffManager : MonoBehaviour
         return currencyModifierTotal;
     }
 
-    private int GetTowerInfectedCurrencyModifier(Tower tower) 
+    private int GetTowerInfectedCurrencyModifier(Tower tower)
     {
         int towerCurrencyModifier = 0;
 
@@ -100,6 +103,14 @@ public class BuffManager : MonoBehaviour
             }
         }
         return towerCurrencyModifier;
+    }
+
+    public void SpawnAdditionalEnemies()
+    {       
+        for (int i = 0; i < infectedCurrencyModifierTowers.Count; i++)
+        {
+                                                               
+        }
     }
 
     public void CalculateHealthModifier()
@@ -157,7 +168,7 @@ public class BuffManager : MonoBehaviour
 
         for (int i = 0; i < infectedSpeedModifiers.Count; i++)
         {
-            if(tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
+            if (tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
             {
                 slowedEnemySpeedModifier = infectedSpeedModifiers[i].SlowSpeedModifier;
             }
