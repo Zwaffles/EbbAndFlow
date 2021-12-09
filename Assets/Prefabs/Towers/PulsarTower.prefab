@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeCollider: {fileID: 4096642115988748615}
-  towerRange: 5
+  towerRange: 4
 --- !u!114 &1894824103181417032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   sellPrice: 3
   isInfected: 0
   infectionScore: 0
-  projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
+  projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
   damage: 30
   splashRadius: 3
   splashDamage: 25

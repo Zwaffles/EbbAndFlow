@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeCollider: {fileID: 6285389534871322752}
-  towerRange: 7
+  towerRange: 4.5
 --- !u!114 &5397961501414708614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   damage: 20
   splashRadius: 0
   splashDamage: 0
-  numberOfTargets: 3
+  numberOfTargets: 4
 --- !u!95 &5397961501414708617
 Animator:
   serializedVersion: 3
