@@ -49,6 +49,7 @@ public class BuildMarker : MonoBehaviour
         {
             buildMarker.enabled = false;
             towerPreview.enabled = false;
+            transform.position = Vector3.left * 100000;
         }
     }
 }

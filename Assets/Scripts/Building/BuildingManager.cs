@@ -36,6 +36,8 @@ public class BuildingManager : MonoBehaviour
     private Vector3[] directions = new Vector3[8] { Vector3.left, Vector3.right, Vector3.up, Vector3.down, new Vector3(-1.0f, 1.0f), new Vector3(-1.0f, -1.0f), new Vector3(1.0f, 1.0f), new Vector3(1.0f, -1.0f) };
     private Vector3 startDragPosition;
     private Vector3 currentDragPosition;
+    private Vector3 currentGridPosition;
+
 
     private void Awake()
     {
@@ -106,11 +108,25 @@ public class BuildingManager : MonoBehaviour
         {
             if (currentTowerBuilder != null)
             {
+                
                 Building();
                 Cancel();
+                GridUpdate();
             }
         }
     }
+
+    private void GridUpdate()
+    {
+        if(currentGridPosition != buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition()))
+        {
+            Debug.Log("Updating Graph: " + Time.realtimeSinceStartup);
+            ScanGraph();
+        }
+        currentGridPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+    }
+
+
 
     /*
     private void BuildMarker()
@@ -136,6 +152,7 @@ public class BuildingManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 startDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+                currentDragPosition = startDragPosition;
             }
             
             /* Dragging */
@@ -199,13 +216,9 @@ public class BuildingManager : MonoBehaviour
             /* Cancel Building */
             building = false;
             currentTowerBuilder = null;
-            
-            /* Deactivate All BuildMarkers */
-            DeactivateBuildMarkers();
 
-            /* Rescan A* Graph? */
-            var graphToScan = AstarPath.active.data.gridGraph;
-            AstarPath.active.Scan(graphToScan);
+            ScanGraph();
+            DeactivateBuildMarkers(); 
         }
     }
 
@@ -241,9 +254,19 @@ public class BuildingManager : MonoBehaviour
             CancelDrag();
         }
 
+        ScanGraph();
         DeactivateBuildMarkers();
+    }
 
-        /* Rescan A* Graph? */
+    private void ScanGraph()
+    {
+        for (int i = 0; i < buildMarkers.Count; i++)
+        {
+            CheatDetection.Instance.CheckForObstacles(buildMarkers[i].gameObject);
+        }
+
+
+        /* Rescan A* Graph */
         var graphToScan = AstarPath.active.data.gridGraph;
         AstarPath.active.Scan(graphToScan);
     }
@@ -267,8 +290,8 @@ public class BuildingManager : MonoBehaviour
         /* BoxCast over BuildMarker Grid Cell */
         RaycastHit2D boxCast = Physics2D.BoxCast(buildMarker.transform.position, new Vector2(buildingGrid.GetCellSize() * 0.5f, buildingGrid.GetCellSize() * 0.5f), 0.0f, Vector3.zero, 1.0f, buildObstacleLayer);
 
-        /*  No Obstacle                 No Tower Occupying Grid Cell Position                         Not Hovering over any UI-element                  Can afford buildCostTotal    */
-        if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && PlayerCurrency.Instance.CanBuy(buildCostTotal))
+        /*  No Obstacle                 No Tower Occupying Grid Cell Position                         Not Hovering over any UI-element                  Can afford buildCostTotal                         Nothing blocking path */
+        if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && PlayerCurrency.Instance.CanBuy(buildCostTotal) && CheatDetection.Instance.CheckForObstacles(buildMarker.gameObject))
         {
             buildMarker.CanBuild();
             return true;
@@ -303,17 +326,22 @@ public class BuildingManager : MonoBehaviour
 
     private void PositionBuildMarker()
     {
+        ScanGraph();
         buildMarkers[0].transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+
+        ScanGraph();
     }
 
     private void PositionBuildMarkers()
     {
+        ScanGraph();
         /* Loop through Active BuildMarkers */
         for (int i = 0; i < activeBuildMarkers; i++)
         {
             /* Position according to Drag Values */
             buildMarkers[i].transform.position = startDragPosition + (i * buildingGrid.GetCellSize()) * GetDragDirection();
         }
+        ScanGraph();
     }
 
     private int GetDragCellAmount()
