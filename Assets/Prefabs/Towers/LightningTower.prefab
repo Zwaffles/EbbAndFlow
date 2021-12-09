@@ -182,7 +182,7 @@ MonoBehaviour:
   sellPrice: 3
   isInfected: 0
   infectionScore: 0
-  projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
+  projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
   damage: 20
   splashRadius: 0
   splashDamage: 0

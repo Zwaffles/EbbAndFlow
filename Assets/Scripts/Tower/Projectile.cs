@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Transform target;
+    protected Transform target;
     private float damage;
     private float splashRadius;
     private float splashDamage;
@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    private void HitTarget() //logic for hitting target
+    protected void HitTarget() //logic for hitting target
     {
         if (splashRadius > 0) //check if tower has splash damage
         {
