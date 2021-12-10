@@ -120,31 +120,13 @@ public class BuildingManager : MonoBehaviour
     {
         if(currentGridPosition != buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition()))
         {
-            Debug.Log("Updating Graph: " + Time.realtimeSinceStartup);
-            ScanGraph();
+            CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
         currentGridPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
     }
 
-
-
-    /*
-    private void BuildMarker()
-    {
-        if (buildMarker.hasChanged)
-        {
-            var graphToScan = AstarPath.active.data.graphs;
-            AstarPath.active.Scan(graphToScan);
-            buildMarker.hasChanged = false;
-        }
-
-    }
-    */
-
     private void Building()
     {
-        //if (CheatDetection.Instance.CheckForObstacles())
-
         /* Shift Placement */
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -160,7 +142,7 @@ public class BuildingManager : MonoBehaviour
             {
                 currentDragPosition = Utilities.GetMouseWorldPosition();
             }
-
+            
             RegulateBuildMarkers();
             PositionBuildMarkers();
             BuildMarkerScan();
@@ -176,6 +158,7 @@ public class BuildingManager : MonoBehaviour
                 startDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 currentDragPosition = startDragPosition;
             }
+            //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
         /* Normal Placement */
         else
@@ -260,11 +243,12 @@ public class BuildingManager : MonoBehaviour
 
     private void ScanGraph()
     {
+        /*
         for (int i = 0; i < buildMarkers.Count; i++)
         {
-            CheatDetection.Instance.CheckForObstacles(buildMarkers[i].gameObject);
+            CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
-
+        */
 
         /* Rescan A* Graph */
         var graphToScan = AstarPath.active.data.gridGraph;
@@ -291,7 +275,7 @@ public class BuildingManager : MonoBehaviour
         RaycastHit2D boxCast = Physics2D.BoxCast(buildMarker.transform.position, new Vector2(buildingGrid.GetCellSize() * 0.5f, buildingGrid.GetCellSize() * 0.5f), 0.0f, Vector3.zero, 1.0f, buildObstacleLayer);
 
         /*  No Obstacle                 No Tower Occupying Grid Cell Position                         Not Hovering over any UI-element                  Can afford buildCostTotal                         Nothing blocking path */
-        if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && PlayerCurrency.Instance.CanBuy(buildCostTotal) && CheatDetection.Instance.CheckForObstacles(buildMarker.gameObject))
+        if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && PlayerCurrency.Instance.CanBuy(buildCostTotal) && CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject))
         {
             buildMarker.CanBuild();
             return true;
@@ -326,28 +310,24 @@ public class BuildingManager : MonoBehaviour
 
     private void PositionBuildMarker()
     {
-        ScanGraph();
         buildMarkers[0].transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
-
-        ScanGraph();
+        //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
     }
 
     private void PositionBuildMarkers()
     {
-        ScanGraph();
         /* Loop through Active BuildMarkers */
         for (int i = 0; i < activeBuildMarkers; i++)
         {
             /* Position according to Drag Values */
             buildMarkers[i].transform.position = startDragPosition + (i * buildingGrid.GetCellSize()) * GetDragDirection();
+            //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
-        ScanGraph();
     }
 
     private int GetDragCellAmount()
     {
         int cellAmount; 
-        Vector3 normalizedDirection = (currentDragPosition - startDragPosition).normalized;
 
         /* Diagonal Drag */
         if (dragDirection == DragDirection.Diagonal)

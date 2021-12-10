@@ -16,6 +16,7 @@ public class BuildMarker : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.SetActive(false);
         buildMarker.enabled = false;
         towerPreview.enabled = false;
     }
@@ -41,15 +42,16 @@ public class BuildMarker : MonoBehaviour
         /* Activated */
         if (state)
         {
+            gameObject.SetActive(true); 
             buildMarker.enabled = true;
             towerPreview.enabled = true;
         }
         /* Deactivated */
         else
         {
+            gameObject.SetActive(false); 
             buildMarker.enabled = false;
             towerPreview.enabled = false;
-            transform.position = Vector3.left * 100000;
         }
     }
 }

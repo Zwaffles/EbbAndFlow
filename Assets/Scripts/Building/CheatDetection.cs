@@ -36,8 +36,11 @@ public class CheatDetection : MonoBehaviour
 
     public bool CheckForObstacles(GameObject buildMarker)
     {
-        Collider2D buildMarkerCollider = buildMarker.GetComponent<Collider2D>();
+        Collider2D buildMarkerCollider = buildMarker.GetComponent<CompositeCollider2D>();
         GraphUpdateObject graphUpdateObject = new GraphUpdateObject(buildMarkerCollider.bounds);
+
+        //GraphUpdateShape collider = new GraphUpdateShape()
+        //graphUpdateObject.shape
 
         GraphNode spawnNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
         GraphNode goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
@@ -51,10 +54,5 @@ public class CheatDetection : MonoBehaviour
         {
             return false;
         }
-    }
-
-    public void UpdateGraphs(List<GameObject> buildMarkers)
-    {
-        /* Combine Colliders ??? */
     }
 }
