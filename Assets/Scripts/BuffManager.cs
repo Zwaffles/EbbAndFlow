@@ -34,6 +34,28 @@ public class BuffManager : MonoBehaviour
         }
     }
 
+    public void IncreaseInfectionScore()
+    {
+        for (int i = 0; i < healthModifierTowers.Count; i++)
+        {
+            healthModifierTowers[i].IncreaseInfectionScore(1);
+        }
+
+        for (int j = 0; j < speedModifierTowers.Count; j++)
+        {
+            speedModifierTowers[j].IncreaseInfectionScore(1);
+        }
+
+        for (int k = 0; k < damageModifierTowers.Count; k++)
+        {
+            damageModifierTowers[k].IncreaseInfectionScore(1);
+        }
+        for (int l = 0; l < infectedCurrencyModifierTowers.Count; l++)
+        {
+            infectedCurrencyModifierTowers[l].IncreaseInfectionScore(1);
+        }
+    }
+
     public void AddInfectedTower(Tower tower)
     {
         switch (tower.GetModifierType())
@@ -76,6 +98,8 @@ public class BuffManager : MonoBehaviour
         }
     }
 
+    #region Currency/Spawn-Modifier
+
     public int CalculateInfectedCurrencyModifier()
     {
         int currencyModifierTotal = 0;
@@ -102,7 +126,6 @@ public class BuffManager : MonoBehaviour
         return towerCurrencyModifier;
     }
 
-
     public void SpawnAdditionalEnemies()
     {
         List<GameObject> enemiesToSpawn = new List<GameObject>();
@@ -127,6 +150,10 @@ public class BuffManager : MonoBehaviour
             WaveSpawner.Instance.AddAdditionalEnemy(enemiesToSpawn[i]);
         }
     }
+
+    #endregion
+
+    #region HealthModifier
 
     public void CalculateHealthModifier()
     {
@@ -153,6 +180,15 @@ public class BuffManager : MonoBehaviour
         return towerHealthModifier;
     }
 
+    public float GetHealthModifier()
+    {
+        return healthModifier;
+    }
+
+    #endregion
+
+    #region SpeedModifier
+
     public void CalculateIncreasedSpeed()
     {
         float totalSpeedIncrease = 0f;
@@ -171,7 +207,7 @@ public class BuffManager : MonoBehaviour
         {
             if (tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
             {
-                increasedEnemySpeedModifier = infectedSpeedModifiers[i].IncreasedSpeedModifier;
+                increasedEnemySpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
             }
         }
         return increasedEnemySpeedModifier;
@@ -185,38 +221,15 @@ public class BuffManager : MonoBehaviour
         {
             if (tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
             {
-                slowedEnemySpeedModifier = infectedSpeedModifiers[i].SlowSpeedModifier;
+                slowedEnemySpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
             }
         }
         return slowedEnemySpeedModifier;
     }
 
-    public void IncreaseInfectionScore()
-    {
-        for (int i = 0; i < healthModifierTowers.Count; i++)
-        {
-            healthModifierTowers[i].IncreaseInfectionScore(1);
-        }
+    #endregion
 
-        for (int j = 0; j < speedModifierTowers.Count; j++)
-        {
-            speedModifierTowers[j].IncreaseInfectionScore(1);
-        }
-
-        for (int k = 0; k < damageModifierTowers.Count; k++)
-        {
-            damageModifierTowers[k].IncreaseInfectionScore(1);
-        }
-        for (int l = 0; l < infectedCurrencyModifierTowers.Count; l++)
-        {
-            infectedCurrencyModifierTowers[l].IncreaseInfectionScore(1);
-        }
-    }
-
-    public float GetHealthModifier()
-    {
-        return healthModifier;
-    }
+    
 
     public void IncreaseEnemyMovementSpeed()
     {
