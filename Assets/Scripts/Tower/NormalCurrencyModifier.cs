@@ -4,17 +4,13 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class BlockadeInfectionStage
+public class NormalCurrencyModifier
 {
     public string stage = "Stage 1";
     [SerializeField] private int infectionScoreTrigger;
-    [SerializeField] private int enemyAmountToSpawn;
-    [SerializeField] GameObject enemyToSpawn;
-
-
+    [SerializeField] private int currencyModifier;
+    
     public int InfectionScoreTrigger { get { return infectionScoreTrigger; } }
-    public int EnemyAmountToSpawn { get { return enemyAmountToSpawn; } }
-
-    public GameObject EnemyToSpawn { get { return enemyToSpawn; } }
-
+    public int CurrencyModifier { get { return currencyModifier; } }
+    
 }

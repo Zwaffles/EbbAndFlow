@@ -25,7 +25,7 @@ public class InfectionManager : MonoBehaviour
     [Header("Infection Spread")]
     [SerializeField] public SpreadSetting spreadSetting = SpreadSetting.Constant;
     [Range(0.0f, 10.0f)]
-    [SerializeField] private float constantSpreadSpeed = 0.25f;
+    [SerializeField] public float constantSpreadSpeed = 0.25f;
     [Range(0.0f, 5.0f)]
     [SerializeField] private float spreadSpeedRandomOffset = 2.5f;
     [SerializeField] private AnimationCurve spreadSpeedCurve;
@@ -41,6 +41,7 @@ public class InfectionManager : MonoBehaviour
     [SerializeField] private float curveRoundness = 1.0f;
     [Range(0.0f, 5.0f)]
     [SerializeField] private float randomOffset = 1.0f;
+    private float infectionSpreadNormalSpeed;
 
     [Header("Debug")]
     [SerializeField] private bool drawPoints;
@@ -75,6 +76,7 @@ public class InfectionManager : MonoBehaviour
 
     private void Start()
     {
+        infectionSpreadNormalSpeed = constantSpreadSpeed;
         InitializeSpriteShape();
     }
 
@@ -102,7 +104,18 @@ public class InfectionManager : MonoBehaviour
         }
         ConstantGrowth();
     }
-    
+
+    public void ChangeInfectionSpeed(int duration, float speed)
+    {
+        StartCoroutine(ModifyInfectionSpeed(duration, speed));
+    }
+    IEnumerator ModifyInfectionSpeed(int duration, float speed)
+    {
+        constantSpreadSpeed = infectionSpreadNormalSpeed * (1 + speed);
+        yield return new WaitForSeconds(duration);
+        constantSpreadSpeed = infectionSpreadNormalSpeed;
+    }
+
     public void SetSpreadSpeed(float value)
     {
         constantSpreadSpeed = value;

@@ -39,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
     bool endWaveActionsMade;
 
     //Infection towers
-    List<InfectedBlockade> infectedBlockades = new List<InfectedBlockade>();
+    //List<InfectedCurrencyTower> infectedBlockades = new List<InfectedCurrencyTower>();
 
     private void Awake()
     {
@@ -114,7 +114,6 @@ public class WaveSpawner : MonoBehaviour
             GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
             enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
             currentWaveEnemies.Add(enemyInstance);
-            Debug.Log("Modifying enemy HP by : " + BuffManager.Instance.GetHealthModifier());
             enemyInstance.GetComponent<Enemy>().Initialize(BuffManager.Instance.GetHealthModifier());
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }
@@ -142,13 +141,19 @@ public class WaveSpawner : MonoBehaviour
     void OnWaveEnd()
     {
         endWaveActionsMade = true;
-        infectedBlockades = FindObjectsOfType<InfectedBlockade>().ToList();
-        foreach (InfectedBlockade blockade in infectedBlockades)
+       
+        //adds currency amount of all towers into waveCurrencyAmount
+        List<CurrencyTower> CurrencyTowers = FindObjectsOfType<CurrencyTower>().ToList();
+        int waveCurrencyAmount = 0;
+
+        foreach (CurrencyTower tower in CurrencyTowers)
         {
-            blockade.IncreaseEnemiesInWave();
+            waveCurrencyAmount += tower.GetTowerCurrencyPerWave();
         }
 
-        playerCurrency.AddPlayerNormalCurrency(GetCurrentWave().WaveNormalCurrencyReward);
+        playerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward) + waveCurrencyAmount);
+        playerCurrency.AddPlayerInfectedCurrency(BuffManager.Instance.CalculateInfectedCurrencyModifier());
+        BuffManager.Instance.SpawnAdditionalEnemies();
         BuffManager.Instance.IncreaseInfectionScore();
         BuffManager.Instance.CalculateHealthModifier();
     }

@@ -4,13 +4,13 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class InfectedHealthModifier
+public class InfectedCurrencyModifier
 {
     public string stage = "Stage 1";
     [SerializeField] private int infectionScoreTrigger;
-    [SerializeField] private float healthModifier;
+    [SerializeField] private int currencyModifier;
     
     public int InfectionScoreTrigger { get { return infectionScoreTrigger; } }
-    public float HealthModifier { get { return healthModifier; } }
+    public int CurrencyModifier { get { return currencyModifier; } }
     
 }

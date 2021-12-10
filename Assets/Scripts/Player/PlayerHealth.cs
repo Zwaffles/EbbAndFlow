@@ -9,11 +9,20 @@ public class PlayerHealth : MonoBehaviour
     [Header("Lives")]
     [SerializeField] int playerLives = 50;
 
+    [Header("On Lives Lost")]
+    [Tooltip("Set % value (1 = 100%)")] [Range(0, 10)] [SerializeField] float infectionSpeedIncrease;
+    [SerializeField] int infectionSpeedChangeDuration;
+    
+
+
+    InfectionManager infectionManager;
+
     [Header("UI")]
     [SerializeField] TextMeshProUGUI livesText;
 
     private void Start()
     {
+        infectionManager = FindObjectOfType<InfectionManager>();       
         livesText.text = ("Lives: " + playerLives.ToString());
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -28,9 +37,11 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 playerLives -= 1;
-
+                infectionManager.ChangeInfectionSpeed(infectionSpeedChangeDuration, infectionSpeedIncrease);
             }
             livesText.text = ("Lives: " + playerLives.ToString());
         }
     }
+
+   
 }

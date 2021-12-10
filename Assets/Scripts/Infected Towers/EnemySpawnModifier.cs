@@ -4,13 +4,13 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class InfectedHealthModifier
+public class EnemySpawnModifier
 {
     public string stage = "Stage 1";
     [SerializeField] private int infectionScoreTrigger;
-    [SerializeField] private float healthModifier;
-    
+    [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
+
     public int InfectionScoreTrigger { get { return infectionScoreTrigger; } }
-    public float HealthModifier { get { return healthModifier; } }
-    
+    public List<GameObject> EnemiesToSpawn { get { return enemiesToSpawn; } }
+
 }
