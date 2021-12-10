@@ -7809,6 +7809,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 169248689}
+    - target: {fileID: 3565715572468323272, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
+      propertyPath: width
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3565715572468323273, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
       propertyPath: m_RootOrder
       value: 12
