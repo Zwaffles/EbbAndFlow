@@ -9,15 +9,12 @@ public class BuffManager : MonoBehaviour
     private static BuffManager instance;
     private float healthModifier;
     private int speedModifier;
-    private int infectedCurrencyModifier;
-
-    WaveSpawner waveSpawner;
-
+    private int infectedCurrencyModifier;   
 
     [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
     [SerializeField] List<InfectedSpeedModifier> infectedSpeedModifiers;
     [SerializeField] List<InfectedCurrencyModifier> infectedCurrencyModifiers;
-    [SerializeField] List<EnemySpawner> additionalSpawnedEnemies;
+    [SerializeField] List<EnemySpawnModifier> enemySpawnModifiers;
 
     List<Tower> healthModifierTowers = new List<Tower>();
     List<Tower> speedModifierTowers = new List<Tower>();
@@ -51,7 +48,7 @@ public class BuffManager : MonoBehaviour
                 damageModifierTowers.Add(tower);
                 break;
             case Tower.ModifierType.Currency:
-                infectedCurrencyModifierTowers.Add(tower);
+                infectedCurrencyModifierTowers.Add(tower);                
                 break;
             default:
                 break;
@@ -105,11 +102,29 @@ public class BuffManager : MonoBehaviour
         return towerCurrencyModifier;
     }
 
+
     public void SpawnAdditionalEnemies()
-    {       
+    {
+        List<GameObject> enemiesToSpawn = new List<GameObject>();
+
         for (int i = 0; i < infectedCurrencyModifierTowers.Count; i++)
         {
-                                                               
+            List<GameObject> tempList = new List<GameObject>();
+
+            for (int j = 0; j < enemySpawnModifiers.Count; j++)
+            {
+                if (infectedCurrencyModifierTowers[i].GetInfectionScore() >= enemySpawnModifiers[j].InfectionScoreTrigger - 1)
+                {
+                    tempList.Clear();
+                    tempList = enemySpawnModifiers[j].EnemiesToSpawn;
+                }
+            }
+            enemiesToSpawn.AddRange(tempList);
+        }
+
+        for (int i = 0; i < enemiesToSpawn.Count; i++)
+        {
+            WaveSpawner.Instance.AddAdditionalEnemy(enemiesToSpawn[i]);
         }
     }
 

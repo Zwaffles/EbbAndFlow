@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1975446708146751606}
   - component: {fileID: 7293411531984828228}
   m_Layer: 5
-  m_Name: InfectionScore
+  m_Name: TowerInfectionScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

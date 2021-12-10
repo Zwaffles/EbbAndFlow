@@ -7,6 +7,8 @@ using TMPro;
 
 public class SceneManagement : MonoBehaviour
 {
+    public static SceneManagement Instance { get { return instance; } }
+    private static SceneManagement instance;
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenuUI;
     [Tooltip("Enables pause menu")] [SerializeField] bool canPause;
@@ -19,10 +21,20 @@ public class SceneManagement : MonoBehaviour
     [Header("Infection Stats")]
     [SerializeField] GameObject infectionStatsUI;
     private bool infectionStatsShown;
+    List<Tower> towers = new List<Tower>();
 
-
-
-
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
+            instance = this;
+        }
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -105,15 +117,33 @@ public class SceneManagement : MonoBehaviour
     {
         if (!infectionStatsShown)
         {
-            //GetComponents<Tower>().ShowInfectionScore();
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
             infectionStatsUI.SetActive(true);
             infectionStatsShown = true;
         }
         else if (infectionStatsShown)
         {
-            //GetComponents<Tower>().HideInfectionScore();
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].HideInfectionScore();
+            }
             infectionStatsUI.SetActive(false);
             infectionStatsShown = false;
+        }
+    }
+
+    public void AddTowerToList(Tower tower)
+    {
+        towers.Add(tower);
+        if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
         }
     }
 }
