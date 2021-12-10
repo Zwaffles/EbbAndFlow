@@ -158,6 +158,7 @@ public class BuildingManager : MonoBehaviour
                 startDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 currentDragPosition = startDragPosition;
             }
+
             //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
         /* Normal Placement */
