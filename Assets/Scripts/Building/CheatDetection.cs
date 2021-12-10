@@ -1,31 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Pathfinding;
-using UnityEngine.Tilemaps;
 
 public class CheatDetection : MonoBehaviour
 {
     public static CheatDetection Instance { get { return instance; } }
     private static CheatDetection instance;
 
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] Transform goalPoint;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform goalPoint;
 
-    //GraphNode node1;
-    //GraphNode node2;
-    GraphMask mask1;
-    GraphMask mask2;
-
-    NNConstraint buildingConstraint = new NNConstraint();
-    
-
-    //GraphUpdateObject guo = new GraphUpdateObject();
-
-    //Seeker seeker;
-
-    //private float remainingDistance;
+    private NNConstraint buildingConstraint = new NNConstraint(); 
+    private GraphMask mask1;
 
     private void Awake()
     {
@@ -38,52 +25,28 @@ public class CheatDetection : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
         }
-
-        //seeker = GetComponent<Seeker>();
-
-        mask1 = GraphMask.FromGraphName("Detection Graph");
-        mask2 = GraphMask.FromGraphName("Enemy Graph");
-
-        buildingConstraint = NNConstraint.Default;
-        buildingConstraint.graphMask = mask1;
-
-        //var guo = new GraphUpdateObject(FindObjectOfType<TilemapCollider2D>().bounds);
-
-        //node1 = AstarPath.active.GetNearest(transform.position, buildingConstraint).node;
-        //node2 = AstarPath.active.GetNearest(GetComponent<AIDestinationSetter>().target.position, buildingConstraint).node;
     }
 
-    //private void Start()
-    //{
-    //    spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-    //    goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
-    //}
-
-    //    void OnPathCalculated(Path path)
-    //    {
-
-    //        if (path.error)
-    //        {
-    //            Debug.Log("ahhh!!");
-    //            return;
-    //        }
-
-    //        float pathLength = path.GetTotalLength();
-    //}
-
-    //    private void Update()
-    //    {
-    //        GetComponent<AIPath>().SearchPath();
-    //        Debug.Log(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, node1, node2, false));
-    //    }
-
-    public bool CheckForObstacles() //method name kinda self explanatory innit?
+    private void Start()
     {
-        var guo = new GraphUpdateObject(GetComponent<Collider2D>().bounds);
-        var spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-        var goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
+        mask1 = GraphMask.FromGraphName("Detection Graph");
+        buildingConstraint = NNConstraint.Default;
+        buildingConstraint.graphMask = mask1;
+    }
 
-        if (GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false)) //updates the graph while checking for blocking elements, if nothing blocks it returns true
+    public bool CheckForObstacles(GameObject buildMarker)
+    {
+        Collider2D buildMarkerCollider = buildMarker.GetComponent<CompositeCollider2D>();
+        GraphUpdateObject graphUpdateObject = new GraphUpdateObject(buildMarkerCollider.bounds);
+
+        //GraphUpdateShape collider = new GraphUpdateShape()
+        //graphUpdateObject.shape
+
+        GraphNode spawnNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
+        GraphNode goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
+
+        /* Updates the graph while checking for blocking elements, if nothing blocks it returns true */
+        if (GraphUpdateUtilities.UpdateGraphsNoBlock(graphUpdateObject, spawnNode, goalNode, false)) 
         {
             return true;
         }

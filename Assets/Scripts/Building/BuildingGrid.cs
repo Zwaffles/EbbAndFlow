@@ -18,11 +18,9 @@ public class BuildingGrid : MonoBehaviour
 
     private int[,] gridArray;
     private TextMeshPro[,] debugTextArray;
-    private float cellRadius;
 
     public void BuildGrid()
     {
-        cellRadius = cellSize / 2;
         gridArray = new int[width, height];
         debugTextArray = new TextMeshPro[width, height];
 
@@ -33,19 +31,9 @@ public class BuildingGrid : MonoBehaviour
                 if (drawGridValue)
                 {
                     string name = "(" + x + "," + y + ")";
-                    debugTextArray[x,y] = Utilities.CreateWorldText(gridValueParent, name, gridArray[x, y].ToString(), GetWorldPosition(x, y) + new Vector2(cellRadius, cellRadius), new Vector2(cellSize, cellSize), 2, Color.white, "Foreground");
-                }
-                if (drawGridLines)
-                {
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 1000.0f);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 1000.0f);
+                    debugTextArray[x,y] = Utilities.CreateWorldText(gridValueParent, name, gridArray[x, y].ToString(), GetWorldPosition(x, y) + new Vector2(GetCellRadius(), GetCellRadius()), new Vector2(cellSize, cellSize), 2, Color.white, "Foreground");
                 }
             }
-        }
-        if (drawGridLines)
-        {
-            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 1000.0f);
-            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 1000.0f);
         }
     }
 
@@ -65,8 +53,8 @@ public class BuildingGrid : MonoBehaviour
     public Vector3 RoundToGridPosition(Vector2 worldPosition)
     {
         Vector3 gridWorldPosition = new Vector3(0, 0, 0);
-        gridWorldPosition.x = Mathf.FloorToInt((worldPosition).x / cellSize) + cellRadius;
-        gridWorldPosition.y = Mathf.FloorToInt((worldPosition).y / cellSize) + cellRadius;
+        gridWorldPosition.x = Mathf.FloorToInt((worldPosition).x / cellSize) + GetCellRadius();
+        gridWorldPosition.y = Mathf.FloorToInt((worldPosition).y / cellSize) + GetCellRadius();
         return gridWorldPosition;
     }
 
@@ -84,6 +72,20 @@ public class BuildingGrid : MonoBehaviour
         }
     }
 
+    public float GetCellSize()
+    {
+        return cellSize;
+    }
+
+    public float GetCellRadius()
+    {
+        return cellSize * 0.5f;
+    }
+
+    public float GetCellDiagonal()
+    {
+        return Mathf.Sqrt(cellSize * cellSize + cellSize * cellSize);
+    }
 
     public int GetValue(Vector2 worldPosition)
     {
@@ -110,6 +112,23 @@ public class BuildingGrid : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (drawGridLines)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white);
+                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white);
+                }
+            }
+            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white);
+            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white);
         }
     }
 }
