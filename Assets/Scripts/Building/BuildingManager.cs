@@ -292,7 +292,6 @@ public class BuildingManager : MonoBehaviour
 
     private void RegulateBuildMarkers()
     {
-        Time.timeScale = 0.1f;
         /* Activate BuildMarker to fill Drag Area */
         if (activeBuildMarkers < GetDragCellAmount())
         {
