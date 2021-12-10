@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 1250c96844634844b9210677ba90234f
+guid: bae483c3cf39a2a41bdb2b25d984dce5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1141952050144353763
-    second: Crystal_Lamp_v2_spritesheet_0
+      213: 6594300003049683822
+    second: PulsarTower_1
   - first:
-      213: -4598913945200555536
-    second: Crystal_Lamp_v2_spritesheet_1
+      213: -6056928335429598660
+    second: PulsarTower_2
   - first:
-      213: -6651359336368449190
-    second: Crystal_Lamp_v2_spritesheet_2
+      213: 4197119105326444930
+    second: PulsarTower_3
   - first:
-      213: 5570414319446666140
-    second: Crystal_Lamp_v2_spritesheet_3
+      213: 8567247326122760671
+    second: PulsarTower_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crystal_Lamp_v2_spritesheet_0
+      name: PulsarTower_1
       rect:
         serializedVersion: 2
         x: 0
@@ -111,20 +111,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed126bd65709df00800000000000000
-      internalID: 1141952050144353763
+      spriteID: e6b32282ae8a38b50800000000000000
+      internalID: 6594300003049683822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crystal_Lamp_v2_spritesheet_1
+      name: PulsarTower_2
       rect:
         serializedVersion: 2
         x: 37
@@ -132,20 +132,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f90bb702206d20c0800000000000000
-      internalID: -4598913945200555536
+      spriteID: c3288b815c771fba0800000000000000
+      internalID: -6056928335429598660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crystal_Lamp_v2_spritesheet_2
+      name: PulsarTower_3
       rect:
         serializedVersion: 2
         x: 74
@@ -153,20 +153,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a59d74a8cef91b3a0800000000000000
-      internalID: -6651359336368449190
+      spriteID: 281fcf8c6992f3a30800000000000000
+      internalID: 4197119105326444930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crystal_Lamp_v2_spritesheet_3
+      name: PulsarTower_4
       rect:
         serializedVersion: 2
         x: 111
@@ -174,14 +174,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9b2e5a6f461e4d40800000000000000
-      internalID: 5570414319446666140
+      spriteID: fd956784d0af4e670800000000000000
+      internalID: 8567247326122760671
       vertices: []
       indices: 
       edges: []

@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: d6aa018209855ed429758e611dc5e2b8
+guid: 2e513e65bdc910a418fab33e55ee62d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3934573570188906904
-    second: PURPGRUB_WIP_v2_spritesheet_0
+      213: -8762227857148749906
+    second: Crawler_1
   - first:
-      213: 7797750546058758571
-    second: PURPGRUB_WIP_v2_spritesheet_1
+      213: -2962213020763339799
+    second: Crawler_2
   - first:
-      213: -6202356176859409318
-    second: PURPGRUB_WIP_v2_spritesheet_2
+      213: -2676774432875549974
+    second: Crawler_3
   - first:
-      213: 349876257725939315
-    second: PURPGRUB_WIP_v2_spritesheet_3
+      213: 4622643974633732965
+    second: Crawler_4
   - first:
-      213: 988369133781449216
-    second: PURPGRUB_WIP_v2_spritesheet_4
+      213: -7267247409357377454
+    second: Crawler_5
   - first:
-      213: 3588769213395226331
-    second: PURPGRUB_WIP_v2_spritesheet_5
+      213: -2518736511582006313
+    second: Crawler_6
   - first:
-      213: -493433844024682122
-    second: PURPGRUB_WIP_v2_spritesheet_6
+      213: 577401033454374037
+    second: Crawler_7
   - first:
-      213: -8841768749644956693
-    second: PURPGRUB_WIP_v2_spritesheet_7
+      213: -1003521474920870867
+    second: Crawler_8
   - first:
-      213: 5320062995494623989
-    second: PURPGRUB_WIP_v2_spritesheet_8
+      213: -3886166967281087428
+    second: Crawler_9
   - first:
-      213: -418207234117704124
-    second: PURPGRUB_WIP_v2_spritesheet_9
+      213: -100684147036312166
+    second: Crawler_10
   - first:
-      213: 4319786957557695437
-    second: PURPGRUB_WIP_v2_spritesheet_10
+      213: 3556421843839505906
+    second: Crawler_11
   - first:
-      213: -3582792753177890841
-    second: PURPGRUB_WIP_v2_spritesheet_11
+      213: -8337851909946018141
+    second: Crawler_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,154 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_0
+      name: Crawler_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7dd9d2030566680800000000000000
+      internalID: -8762227857148749906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e34d5cb3fa14e6d0800000000000000
+      internalID: -2962213020763339799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeaea90e5df2adad0800000000000000
+      internalID: -2676774432875549974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bb42ff33ee62040800000000000000
+      internalID: 4622643974633732965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25030661cfc852b90800000000000000
+      internalID: -7267247409357377454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d31950dc76ab0dd0800000000000000
+      internalID: -2518736511582006313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ccdf34e27530800800000000000000
+      internalID: 577401033454374037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crawler_8
       rect:
         serializedVersion: 2
         x: 0
@@ -135,20 +282,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86eef362f269569c0800000000000000
-      internalID: -3934573570188906904
+      spriteID: d2c8dd21986c212f0800000000000000
+      internalID: -1003521474920870867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_1
+      name: Crawler_9
       rect:
         serializedVersion: 2
         x: 32
@@ -156,20 +303,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba9c0f0becc273c60800000000000000
-      internalID: 7797750546058758571
+      spriteID: c3c8a59abbf811ac0800000000000000
+      internalID: -3886166967281087428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_2
+      name: Crawler_10
       rect:
         serializedVersion: 2
         x: 64
@@ -177,20 +324,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5458db2bedcce9a0800000000000000
-      internalID: -6202356176859409318
+      spriteID: a9d236d3d4c4a9ef0800000000000000
+      internalID: -100684147036312166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_3
+      name: Crawler_11
       rect:
         serializedVersion: 2
         x: 96
@@ -198,20 +345,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37ef8194a920bd400800000000000000
-      internalID: 349876257725939315
+      spriteID: 2f55e7103d2fa5130800000000000000
+      internalID: 3556421843839505906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_4
+      name: Crawler_12
       rect:
         serializedVersion: 2
         x: 128
@@ -219,161 +366,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00af0069d7467bd00800000000000000
-      internalID: 988369133781449216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdec741e59eddc130800000000000000
-      internalID: 3588769213395226331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 679d0ce7888f629f0800000000000000
-      internalID: -493433844024682122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: beb334bfa2abb4580800000000000000
-      internalID: -8841768749644956693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fa58258b19a4d940800000000000000
-      internalID: 5320062995494623989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4466aef7cba323af0800000000000000
-      internalID: -418207234117704124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc38796c957f2fb30800000000000000
-      internalID: 4319786957557695437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PURPGRUB_WIP_v2_spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7efecf239fc574ec0800000000000000
-      internalID: -3582792753177890841
+      spriteID: 3a6fadd1ddff94c80800000000000000
+      internalID: -8337851909946018141
       vertices: []
       indices: 
       edges: []
