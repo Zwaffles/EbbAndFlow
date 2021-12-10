@@ -127,6 +127,12 @@ public class BuildingManager : MonoBehaviour
 
     private void Building()
     {
+        /* Reset Drag Positions */
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            startDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
+            currentDragPosition = startDragPosition;
+        }
         /* Shift Placement */
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -158,8 +164,6 @@ public class BuildingManager : MonoBehaviour
                 startDragPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
                 currentDragPosition = startDragPosition;
             }
-
-            //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
         /* Normal Placement */
         else
@@ -168,6 +172,7 @@ public class BuildingManager : MonoBehaviour
             PositionBuildMarker();
             BuildMarkerScan();
 
+            /* Normal Click */
             if (Input.GetMouseButtonDown(0))
             {
                 BuildSingleTower();
@@ -176,6 +181,7 @@ public class BuildingManager : MonoBehaviour
         /* Shift Click Released */
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            DeactivateBuildMarkers();
             CancelDrag();
         }
     }
@@ -244,14 +250,7 @@ public class BuildingManager : MonoBehaviour
 
     private void ScanGraph()
     {
-        /*
-        for (int i = 0; i < buildMarkers.Count; i++)
-        {
-            CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
-        }
-        */
-
-        /* Rescan A* Graph */
+        /* Scan A* Graph */
         var graphToScan = AstarPath.active.data.gridGraph;
         AstarPath.active.Scan(graphToScan);
     }
@@ -273,7 +272,7 @@ public class BuildingManager : MonoBehaviour
         buildCostTotal += currentTowerBuilder.TowerCost;
 
         /* BoxCast over BuildMarker Grid Cell */
-        RaycastHit2D boxCast = Physics2D.BoxCast(buildMarker.transform.position, new Vector2(buildingGrid.GetCellSize() * 0.5f, buildingGrid.GetCellSize() * 0.5f), 0.0f, Vector3.zero, 1.0f, buildObstacleLayer);
+        RaycastHit2D boxCast = Physics2D.BoxCast(buildMarker.transform.position, new Vector2(buildingGrid.GetCellRadius() * 0.9f, buildingGrid.GetCellRadius() * 0.9f), 0.0f, Vector3.zero, 1.0f, buildObstacleLayer);
 
         /*  No Obstacle                 No Tower Occupying Grid Cell Position                         Not Hovering over any UI-element                  Can afford buildCostTotal                         Nothing blocking path */
         if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && PlayerCurrency.Instance.CanBuy(buildCostTotal) && CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject))
@@ -293,6 +292,7 @@ public class BuildingManager : MonoBehaviour
 
     private void RegulateBuildMarkers()
     {
+        Time.timeScale = 0.1f;
         /* Activate BuildMarker to fill Drag Area */
         if (activeBuildMarkers < GetDragCellAmount())
         {
@@ -303,7 +303,7 @@ public class BuildingManager : MonoBehaviour
         /* Deactive BuildMarker if we have too many */
         else if(activeBuildMarkers > GetDragCellAmount())
         {
-            int index = Mathf.Clamp(activeBuildMarkers -1, 0, maxBuildLength - 1);
+            int index = Mathf.Clamp(activeBuildMarkers - 1, 0, maxBuildLength - 1);
             buildMarkers[index].SetActive(false);
             activeBuildMarkers--;
         }
@@ -312,7 +312,6 @@ public class BuildingManager : MonoBehaviour
     private void PositionBuildMarker()
     {
         buildMarkers[0].transform.position = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
-        //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
     }
 
     private void PositionBuildMarkers()
@@ -322,7 +321,6 @@ public class BuildingManager : MonoBehaviour
         {
             /* Position according to Drag Values */
             buildMarkers[i].transform.position = startDragPosition + (i * buildingGrid.GetCellSize()) * GetDragDirection();
-            //CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
         }
     }
 

@@ -7857,9 +7857,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3565715572468323274, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
+      propertyPath: buildObstacleLayer.m_Bits
+      value: 67108928
+      objectReference: {fileID: 0}
     - target: {fileID: 3565715572468323275, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
       propertyPath: m_Name
       value: BuildingManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664120479396417423, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
