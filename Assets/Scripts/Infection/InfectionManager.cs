@@ -7,7 +7,7 @@ using UnityEngine.U2D;
 public class InfectionManager : MonoBehaviour
 {
     public static InfectionManager Instance { get { return instance; } }
-    private static InfectionManager instance;    
+    private static InfectionManager instance;
 
     public enum SpreadSetting
     {
@@ -41,13 +41,24 @@ public class InfectionManager : MonoBehaviour
     [SerializeField] private float curveRoundness = 1.0f;
     [Range(0.0f, 5.0f)]
     [SerializeField] private float randomOffset = 1.0f;
+    
+    [Header("Infection Pushback")]
+    [SerializeField] private int temporaryInfectionPushbackTime;
+    [SerializeField] private float temporarySpreadPushbackSpeed;
+    [SerializeField] private int costToBuy;
+
+    [Header("Infection Stop")]
+    [SerializeField] private int temporaryInfectionPauseTime;
+    [SerializeField] private int _costToBuy;
     private float infectionSpreadNormalSpeed;
+
+    private bool isChangingSpeed;
 
     [Header("Debug")]
     [SerializeField] private bool drawPoints;
 
     private List<InfectionPoint> infectionPoints = new List<InfectionPoint>();
-    
+
     private Spline spline;
     private Vector3 centerPosition;
     private float horizontalTargetPosition;
@@ -55,7 +66,7 @@ public class InfectionManager : MonoBehaviour
     private float spreadLerpTime;
     private float spacing;
     private float minX;
-    
+
     private bool spreadingInfection;
     public bool constantGrowth;
 
@@ -105,15 +116,40 @@ public class InfectionManager : MonoBehaviour
         ConstantGrowth();
     }
 
+    public void StopInfection()
+    {
+        if(_costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        {
+            isChangingSpeed = false;
+            ChangeInfectionSpeed(temporaryInfectionPauseTime, -1f);
+        }       
+    }
+
+    public void PushBackInfection()
+    {
+        if(costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        {
+            isChangingSpeed = false;
+            float speed = -temporarySpreadPushbackSpeed;
+            ChangeInfectionSpeed(temporaryInfectionPushbackTime, speed);
+        }
+    }
+
     public void ChangeInfectionSpeed(int duration, float speed)
     {
         StartCoroutine(ModifyInfectionSpeed(duration, speed));
     }
     IEnumerator ModifyInfectionSpeed(int duration, float speed)
     {
-        constantSpreadSpeed = infectionSpreadNormalSpeed * (1 + speed);
-        yield return new WaitForSeconds(duration);
-        constantSpreadSpeed = infectionSpreadNormalSpeed;
+        if (!isChangingSpeed)
+        {
+            isChangingSpeed = true;
+            constantSpreadSpeed = infectionSpreadNormalSpeed * (1 + speed);
+            yield return new WaitForSeconds(duration);
+            constantSpreadSpeed = infectionSpreadNormalSpeed;
+            isChangingSpeed = false;
+        }
+        
     }
 
     public void SetSpreadSpeed(float value)
@@ -141,7 +177,7 @@ public class InfectionManager : MonoBehaviour
             {
                 infectionPoints[i].position.x += spreadSpeedCurve.Evaluate(spreadCurveTime + i * i * spreadSpeedRandomOffset) * constantSpreadSpeed * Time.deltaTime;
                 spline.SetPosition(infectionPoints[i].index, infectionPoints[i].position);
-                spreadCurveTime += Time.deltaTime ;
+                spreadCurveTime += Time.deltaTime;
             }
         }
     }
@@ -181,7 +217,7 @@ public class InfectionManager : MonoBehaviour
         int pointsToAdd = shapeResolution - 2;
         spacing = (float)height / (shapeResolution - 1);
         centerPosition = spline.GetPosition(3) + new Vector3(0, (float)(height * 0.5f));
-        
+
 
         /* Add Bottom Point to Spline Point List */
         infectionPoints.Add(new InfectionPoint(3 + pointsToAdd, spline.GetPosition(3)));
@@ -202,9 +238,9 @@ public class InfectionManager : MonoBehaviour
         infectionPoints = infectionPoints.OrderBy(infectionPoint => infectionPoint.index).ToList();
 
         /* Apply Initial spreadLength so we can create the Sprite Shape */
-        horizontalTargetPosition = centerPosition.x; 
+        horizontalTargetPosition = centerPosition.x;
         horizontalTargetPosition += spreadLength;
-       
+
         /* Set Spline Point positions according to inspector values */
         for (int i = 0; i < infectionPoints.Count; i++)
         {
@@ -258,7 +294,7 @@ public class InfectionManager : MonoBehaviour
             newPosition.x = Mathf.Clamp(newPosition.x, minX + 0.1f, Mathf.Infinity);
             infectionPoints[i].targetPosition = newPosition;
             infectionPoints[i].startPosition = infectionPoints[i].position;
-            
+
         }
         centerPosition.x = horizontalTargetPosition;
     }
@@ -294,7 +330,7 @@ public class InfectionManager : MonoBehaviour
         List<InfectionPoint> pointsToMove = new List<InfectionPoint>(infectionPoints);
 
         Debug.DrawLine(transform.TransformPoint(new Vector3(centerPosition.x, (float)(height * 0.5f))), transform.TransformPoint(new Vector3(centerPosition.x, (float)(-height * 0.5f))), Color.yellow, 20.0f);
-        while(pointsToMove.Count > 0)
+        while (pointsToMove.Count > 0)
         {
             spreadLerpTime += Time.deltaTime / spreadDuration;
 
@@ -318,7 +354,7 @@ public class InfectionManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
             collision.gameObject.GetComponent<Tower>().InfectTower();
         }
