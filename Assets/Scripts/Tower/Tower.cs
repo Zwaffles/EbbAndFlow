@@ -16,9 +16,10 @@ public class Tower : MonoBehaviour
     public int sellPrice = 75;
 
     protected float cooldown;
+    protected Animator animator;
     [SerializeField] protected bool isInfected;
     [SerializeField] private int infectionScore = 0;
-
+    [SerializeField] private int scoreRequiredForCorruption = 1;
 
 
     public ModifierType GetModifierType()
@@ -29,6 +30,11 @@ public class Tower : MonoBehaviour
     public void IncreaseInfectionScore(int value)
     {
         infectionScore += value;
+        if(infectionScore >= scoreRequiredForCorruption)
+        {
+            animator.SetBool("isCorrupted", true);
+        }
+
     }
 
     public void DecreaseInfectionScore(int value)
@@ -45,11 +51,14 @@ public class Tower : MonoBehaviour
     {
         isInfected = true;
         BuffManager.Instance.AddInfectedTower(this);
+        animator = GetComponent<Animator>();
+        animator.SetBool("isInfected", true);
     }
 
     public void CleanseTower()
     {
         isInfected = false;
         BuffManager.Instance.RemoveInfectedTower(this);
+        animator.SetBool("isInfected", false);
     }
 }
