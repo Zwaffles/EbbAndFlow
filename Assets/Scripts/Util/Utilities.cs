@@ -15,6 +15,13 @@ public static class Utilities
         return new Vector2Int((int)vector.x, (int)vector.y);
     }
 
+    public static float AngleBetweenVectors(Vector3 v1, Vector3 v2)
+    {
+        Vector2 diference = v2 - v1;
+        float sign = (v2.y < v1.y) ? -1.0f : 1.0f;
+        return Vector2.Angle(Vector2.right, diference) * sign;
+    }
+
     public static TextMeshPro CreateWorldText(Transform parent, string name, string text, Vector3 localPosition, Vector2 textAreaSize, int fontSize, Color color = default, string sortingLayer = "Default", int sortingOrder = 0, TextAnchor textAnchor = TextAnchor.MiddleCenter, TextAlignmentOptions textAlignment = TextAlignmentOptions.Center)
     {
         GameObject textObject = new GameObject(name, typeof(TextMeshPro));

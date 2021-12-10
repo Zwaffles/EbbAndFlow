@@ -16,10 +16,10 @@ public class Tower : MonoBehaviour
     public int sellPrice = 75;
     
     protected float cooldown;
-    [SerializeField] private bool isInfected;
-    [SerializeField] private int infectionScore = 0;
+    private bool isInfected;
+    private int infectionScore = 0;
 
-   
+   public bool IsInfected { get { return isInfected; } }
 
     public ModifierType GetModifierType()
     {
