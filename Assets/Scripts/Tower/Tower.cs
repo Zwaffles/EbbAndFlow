@@ -26,7 +26,6 @@ public class Tower : MonoBehaviour
     [SerializeField] TextMeshProUGUI infectionScoreText;
     [SerializeField] private int scoreRequiredForCorruption = 1;
 
-
     public ModifierType GetModifierType()
     {
         return modifierType;
@@ -56,8 +55,11 @@ public class Tower : MonoBehaviour
     {
         isInfected = true;
         BuffManager.Instance.AddInfectedTower(this);
-        animator = GetComponent<Animator>();
-        animator.SetBool("isInfected", true);
+        if (GetComponent<Animator>())
+        {
+            animator = GetComponent<Animator>();
+            animator.SetBool("isInfected", true);
+        }
         SceneManagement.Instance.AddTowerToList(this);
     }
 

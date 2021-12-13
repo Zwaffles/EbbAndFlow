@@ -185,6 +185,7 @@ MonoBehaviour:
   infectionScore: 0
   infectionScoreUI: {fileID: 8188251127653013830}
   infectionScoreText: {fileID: 4570008168370623021}
+  scoreRequiredForCorruption: 1
   projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
   damage: 20
   splashRadius: 0
@@ -200,7 +201,7 @@ Animator:
   m_GameObject: {fileID: 5397961501414708609}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 17a849060893fee46bf458597ff13955, type: 2}
+  m_Controller: {fileID: 9100000, guid: 73a5a56846827f146b6c626c544176a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
