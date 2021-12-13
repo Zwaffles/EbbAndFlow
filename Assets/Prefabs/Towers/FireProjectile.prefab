@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -874215968764921559}
   - component: {fileID: 3504635455829940188}
   m_Layer: 0
-  m_Name: Projectile 1
+  m_Name: FireProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1537314119
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1477139578795627453, guid: de3f957e91fba0a45a23bdeaaf2b514c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

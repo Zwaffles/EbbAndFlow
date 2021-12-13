@@ -8,11 +8,8 @@ public class CheatDetection : MonoBehaviour
     public static CheatDetection Instance { get { return instance; } }
     private static CheatDetection instance;
 
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private Transform goalPoint;
-
-    private NNConstraint buildingConstraint = new NNConstraint(); 
-    private GraphMask mask1;
+    [SerializeField] List<CheatDetector> cheatDetectors = new List<CheatDetector>();
+    private int currentCystIndex = -1;
 
     private void Awake()
     {
@@ -27,32 +24,39 @@ public class CheatDetection : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void IncreaseCystIndex()
     {
-        mask1 = GraphMask.FromGraphName("Detection Graph");
-        buildingConstraint = NNConstraint.Default;
-        buildingConstraint.graphMask = mask1;
+        currentCystIndex++;
+    }
+
+    public void DecreaseCystIndex()
+    {
+        currentCystIndex--;
     }
 
     public bool CheckForObstacles(GameObject buildMarker)
     {
         Collider2D buildMarkerCollider = buildMarker.GetComponent<CompositeCollider2D>();
-        GraphUpdateObject graphUpdateObject = new GraphUpdateObject(buildMarkerCollider.bounds);
 
-        //GraphUpdateShape collider = new GraphUpdateShape()
-        //graphUpdateObject.shape
+        bool isPathValid;
 
-        GraphNode spawnNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-        GraphNode goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
-
-        /* Updates the graph while checking for blocking elements, if nothing blocks it returns true */
-        if (GraphUpdateUtilities.UpdateGraphsNoBlock(graphUpdateObject, spawnNode, goalNode, false)) 
+        if(currentCystIndex == 0)
         {
-            return true;
+            Debug.Log("checking for index: " + currentCystIndex + " & " + (currentCystIndex + 1));
+            isPathValid = cheatDetectors[0].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
+            return isPathValid;
+        }
+        else if(currentCystIndex == cheatDetectors.Count - 1)
+        {
+            Debug.Log("checking for index: " + (currentCystIndex - 1) + " & " + currentCystIndex);
+            isPathValid = cheatDetectors[cheatDetectors.Count - 2].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[cheatDetectors.Count - 1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
+            return isPathValid;
         }
         else
         {
-            return false;
+            Debug.Log("checking for index: " + (currentCystIndex - 1) + ", " + currentCystIndex + " & " + (currentCystIndex + 1));
+            isPathValid = cheatDetectors[currentCystIndex - 1].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex + 1].CheckForObstacles(buildMarkerCollider) ? true : false : false : false;
+            return isPathValid;
         }
     }
 }
