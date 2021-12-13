@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a455c310426be4eaad562e25e9d735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenuUI: {fileID: 0}
   canPause: 1
-  optionsMenu: {fileID: 0}
+  optionsMenuUI: {fileID: 0}
+  infectionStatsUI: {fileID: 0}

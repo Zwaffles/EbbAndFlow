@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -19,8 +21,10 @@ public class Tower : MonoBehaviour
     protected Animator animator;
     [SerializeField] protected bool isInfected;
     [SerializeField] private int infectionScore = 0;
-    [SerializeField] private int scoreRequiredForCorruption = 1;
 
+    [SerializeField] GameObject infectionScoreUI;
+    [SerializeField] TextMeshProUGUI infectionScoreText;
+    [SerializeField] private int scoreRequiredForCorruption = 1;
 
     public ModifierType GetModifierType()
     {
@@ -51,8 +55,12 @@ public class Tower : MonoBehaviour
     {
         isInfected = true;
         BuffManager.Instance.AddInfectedTower(this);
-        animator = GetComponent<Animator>();
-        animator.SetBool("isInfected", true);
+        if (GetComponent<Animator>())
+        {
+            animator = GetComponent<Animator>();
+            animator.SetBool("isInfected", true);
+        }
+        SceneManagement.Instance.AddTowerToList(this);
     }
 
     public void CleanseTower()
@@ -60,5 +68,24 @@ public class Tower : MonoBehaviour
         isInfected = false;
         BuffManager.Instance.RemoveInfectedTower(this);
         animator.SetBool("isInfected", false);
+        BuffManager.Instance.RemoveInfectedTower(this);        
+    }
+
+    public void ShowInfectionScore()
+    {
+        if (isInfected)
+        {           
+            infectionScoreUI.SetActive(true);
+        }             
+    }
+
+    public void HideInfectionScore()
+    {
+        infectionScoreUI.SetActive(false);
+    }
+
+    private void LateUpdate()
+    {
+        infectionScoreText.text = infectionScore.ToString();
     }
 }
