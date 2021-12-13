@@ -60,6 +60,8 @@ public class InfectionManager : MonoBehaviour
 
     public bool SpreadingInfection { get { return spreadingInfection; } }
 
+    [SerializeField] private SpawnPoint spawnPoint;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -308,6 +310,19 @@ public class InfectionManager : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
             collision.gameObject.GetComponent<Tower>().InfectTower();
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Cyst"))
+        {
+            spawnPoint.AddNewSpawn(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Cyst"))
+        {
+            spawnPoint.RemoveOldSpawn(collision.gameObject);
         }
     }
 }
