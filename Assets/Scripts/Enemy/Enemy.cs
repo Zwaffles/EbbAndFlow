@@ -37,7 +37,10 @@ public class Enemy : MonoBehaviour
         {
             animator.SetTrigger("isHurt");
         }
-        healthBar.fillAmount = currentHealth / enemyHealth;
+        if(healthBar != null) 
+        {
+            healthBar.fillAmount = currentHealth / enemyHealth;
+        }
     }
 
     public void Die()
