@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float dmgMultiplier = 1f;
     private Image healthBar;
     private WaveSpawner waveSpawner;
+    private Animator animator;
 
     private void Awake()
     {
         waveSpawner = FindObjectOfType<WaveSpawner>();
+        animator = GetComponent<Animator>();
     }
 
     public void Initialize(float healthModifier)
@@ -29,11 +31,20 @@ public class Enemy : MonoBehaviour
         currentHealth -= _damage * dmgMultiplier;
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            waveSpawner.currentWaveEnemies.Remove(gameObject);
-            Destroy(gameObject);
+            animator.SetTrigger("isDead");
+        }
+        else
+        {
+            animator.SetTrigger("isHurt");
         }
         healthBar.fillAmount = currentHealth / enemyHealth;
+    }
+
+    public void Die()
+    {
+        currentHealth = 0;
+        waveSpawner.currentWaveEnemies.Remove(gameObject);
+        Destroy(gameObject);
     }
 
     private void Update()
