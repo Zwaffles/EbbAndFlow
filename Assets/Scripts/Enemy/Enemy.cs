@@ -10,17 +10,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private float dmgMultiplier = 1f;
     private Image healthBar;
-    private WaveSpawner waveSpawner;
+    private AIPath path;
 
     private void Awake()
     {
-        waveSpawner = FindObjectOfType<WaveSpawner>();
+        path = GetComponent<AIPath>();
     }
 
-    public void Initialize(float healthModifier)
+    public void Initialize(float healthModifier, float speedModifier)
     {
         enemyHealth += healthModifier;
         currentHealth = enemyHealth;
+        path.maxSpeed += speedModifier;
         healthBar = transform.GetChild(0).GetChild(1).GetComponent<Image>();
     }
 
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            waveSpawner.currentWaveEnemies.Remove(gameObject);
+            WaveSpawner.Instance.RemoveEnemy(gameObject);
             Destroy(gameObject);
         }
         healthBar.fillAmount = currentHealth / enemyHealth;
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<AIPath>().reachedEndOfPath)
         {
-            waveSpawner.currentWaveEnemies.Remove(gameObject);
+            WaveSpawner.Instance.RemoveEnemy(gameObject);
             Destroy(gameObject);
         }
     }

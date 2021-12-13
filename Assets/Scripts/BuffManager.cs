@@ -7,19 +7,23 @@ public class BuffManager : MonoBehaviour
 {
     public static BuffManager Instance { get { return instance; } }
     private static BuffManager instance;
+    
+
+    [SerializeField] private List<InfectedHealthModifier> infectedHealthModifiers;
+    [SerializeField] private List<InfectedSpeedModifier> infectedSpeedModifiers;
+    [SerializeField] private List<InfectedCurrencyModifier> infectedCurrencyModifiers;
+    [SerializeField] private List<InfectedSpawnModifier> infectedSpawnModifiers;
+
+    private List<Tower> healthModifierTowers = new List<Tower>();
+    private List<Tower> speedModifierTowers = new List<Tower>();
+    private List<Tower> damageModifierTowers = new List<Tower>();
+    private List<Tower> currencyModifierTowers = new List<Tower>();
+
+    private bool[] speedModifierStageAdded;
+
     private float healthModifier;
     private float speedModifier;
-    private int currencyModifier;   
-
-    [SerializeField] List<InfectedHealthModifier> infectedHealthModifiers;
-    [SerializeField] List<InfectedSpeedModifier> infectedSpeedModifiers;
-    [SerializeField] List<InfectedCurrencyModifier> infectedCurrencyModifiers;
-    [SerializeField] List<InfectedSpawnModifier> infectedSpawnModifiers;
-
-    List<Tower> healthModifierTowers = new List<Tower>();
-    List<Tower> speedModifierTowers = new List<Tower>();
-    List<Tower> damageModifierTowers = new List<Tower>();
-    List<Tower> currencyModifierTowers = new List<Tower>();
+    private int currencyModifier;
 
     private void Awake()
     {
@@ -192,12 +196,15 @@ public class BuffManager : MonoBehaviour
 
     public void CalculateSpeedModifier()
     {
-        float totalSpeedIncrease = 0f;
+        float speedModifierTotal = 0f;
+        speedModifierStageAdded = new bool[infectedSpeedModifiers.Count];
 
         for (int i = 0; i < speedModifierTowers.Count; i++)
         {
-            totalSpeedIncrease += GetTowerSpeedModifier(speedModifierTowers[i]);
+
+            speedModifierTotal += GetTowerSpeedModifier(speedModifierTowers[i]);
         }
+        speedModifier = speedModifierTotal;
     }
 
     private float GetTowerSpeedModifier(Tower tower)
@@ -208,7 +215,18 @@ public class BuffManager : MonoBehaviour
         {
             if (tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
             {
-                towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
+                /* If Stackable, always add Modifier */
+                if (infectedSpeedModifiers[i].Stackable)
+                {
+                    towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
+                    speedModifierStageAdded[i] = true;
+                }
+                /* If not Stackable, check if we have already added Modifier */
+                else if(speedModifierStageAdded[i] == false)
+                {
+                    towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
+                    speedModifierStageAdded[i] = true;
+                }
             }
         }
         return towerSpeedModifier;
