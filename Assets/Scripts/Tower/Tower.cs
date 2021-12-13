@@ -48,7 +48,7 @@ public class Tower : MonoBehaviour
     {
         isInfected = true;
         BuffManager.Instance.AddInfectedTower(this);
-        SceneManagement.Instance.AddTowerToList(this);
+        SceneManagement.Instance.AddTowerToList(this);  
     }
 
     public void CleanseTower()

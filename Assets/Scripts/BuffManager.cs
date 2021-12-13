@@ -8,7 +8,6 @@ public class BuffManager : MonoBehaviour
     public static BuffManager Instance { get { return instance; } }
     private static BuffManager instance;
     
-
     [SerializeField] private List<InfectedHealthModifier> infectedHealthModifiers;
     [SerializeField] private List<InfectedSpeedModifier> infectedSpeedModifiers;
     [SerializeField] private List<InfectedCurrencyModifier> infectedCurrencyModifiers;
@@ -201,7 +200,6 @@ public class BuffManager : MonoBehaviour
 
         for (int i = 0; i < speedModifierTowers.Count; i++)
         {
-
             speedModifierTotal += GetTowerSpeedModifier(speedModifierTowers[i]);
         }
         speedModifier = speedModifierTotal;
@@ -215,21 +213,71 @@ public class BuffManager : MonoBehaviour
         {
             if (tower.GetInfectionScore() >= infectedSpeedModifiers[i].InfectionScoreTrigger)
             {
-                /* If Stackable, always add Modifier */
-                if (infectedSpeedModifiers[i].Stackable)
+                /* Global Slow Effect */
+                if (infectedSpeedModifiers[i].GlobalRange)
                 {
-                    towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
-                    speedModifierStageAdded[i] = true;
+                    RemoveLocalSpeedModifier(tower);
+
+                    /* If Stackable, always add Modifier */
+                    if (infectedSpeedModifiers[i].Stackable)
+                    {
+                        towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
+                        speedModifierStageAdded[i] = true;
+                    }
+                    /* If not Stackable, check if we have already added Modifier */
+                    else if (speedModifierStageAdded[i] == false)
+                    {
+                        towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
+                        speedModifierStageAdded[i] = true;
+                    }
                 }
-                /* If not Stackable, check if we have already added Modifier */
-                else if(speedModifierStageAdded[i] == false)
+                /* Local Slow Effect */
+                else
                 {
-                    towerSpeedModifier = infectedSpeedModifiers[i].SpeedModifier;
-                    speedModifierStageAdded[i] = true;
+                    AddLocalSpeedModifier(tower);
+                    UpdateLocalSpeedModifier(tower, infectedSpeedModifiers[i]);
                 }
+                
             }
         }
         return towerSpeedModifier;
+    }
+
+    private void AddLocalSpeedModifier(Tower tower)
+    {
+        GameObject rangeGameObject = tower.transform.GetChild(0).gameObject;
+        LocalSpeedModifier modifier = rangeGameObject.GetComponent<LocalSpeedModifier>();
+
+        if (modifier == null)
+        {
+            rangeGameObject.AddComponent<LocalSpeedModifier>();
+        }
+    }
+
+    private void UpdateLocalSpeedModifier(Tower tower, InfectedSpeedModifier infectedSpeedModifier)
+    {
+        tower.transform.GetChild(0).gameObject.GetComponent<LocalSpeedModifier>().UpdateSpeedModifier(infectedSpeedModifier);
+    }
+
+    private void RemoveLocalSpeedModifier(Tower tower)
+    {
+        LocalSpeedModifier modifier = tower.transform.GetChild(0).gameObject.GetComponent<LocalSpeedModifier>();
+        if (modifier != null)
+        {
+            Destroy(modifier);
+        }
+    }
+
+    public InfectedSpeedModifier GetSpeedModifierByInfectionScore(int infectionScore)
+    {
+        for (int i = infectedSpeedModifiers.Count - 1; i >= 0; i--)
+        {
+            if (infectionScore >= infectedSpeedModifiers[i].InfectionScoreTrigger)
+            {
+                return infectedSpeedModifiers[i];
+            }
+        }
+        return null;
     }
 
     public float GetSpeedModifier()
