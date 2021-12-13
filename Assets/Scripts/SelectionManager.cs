@@ -91,7 +91,8 @@ public class SelectionManager : MonoBehaviour
         if (selectedTower != null)
         {
             playerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice);
-            BuildingManager.Instance.RemoveBuilding(selectedTower.gameObject);
+            SceneManagement.Instance.RemoveTowerFromList(selectedTower);
+            BuildingManager.Instance.RemoveBuilding(selectedTower.gameObject);            
             CloseTowerUI();
         }
     }

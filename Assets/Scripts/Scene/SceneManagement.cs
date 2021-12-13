@@ -146,6 +146,11 @@ public class SceneManagement : MonoBehaviour
             }
         }
     }
+
+    public void RemoveTowerFromList(Tower tower)
+    {
+        towers.Remove(tower);
+    }
 }
 
 
