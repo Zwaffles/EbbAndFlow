@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2448152885614293271}
   - component: {fileID: 2448152885614293288}
   - component: {fileID: 2448152885614293291}
-  - component: {fileID: 6638180308762432114}
+  - component: {fileID: 473611647}
   m_Layer: 26
   m_Name: InfectionManager
   m_TagString: Untagged
@@ -414,7 +414,7 @@ MonoBehaviour:
   randomOffset: 1
   drawPoints: 1
   constantGrowth: 0
---- !u!50 &6638180308762432114
+--- !u!50 &473611647
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

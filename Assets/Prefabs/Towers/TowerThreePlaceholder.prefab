@@ -115,5 +115,9 @@ MonoBehaviour:
   turret: {fileID: 0}
   fireRate: 1
   modifierType: 0
-  baseCost: 100
-  sellPrice: 75
+  baseCost: 1
+  sellPrice: 1
+  isInfected: 0
+  infectionScore: 0
+  infectionScoreUI: {fileID: 0}
+  infectionScoreText: {fileID: 0}
