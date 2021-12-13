@@ -6954,6 +6954,14 @@ PrefabInstance:
       value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
+      propertyPath: tempSpeedToIncrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
+      propertyPath: tempTimeForIncrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: temporarySpreadSlow
       value: 3
       objectReference: {fileID: 0}
@@ -6963,11 +6971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: temporaryInfectionPauseTime
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: temporarySpreadPushbackSpeed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: temporarySpreadPuschbackSpeed
@@ -6975,7 +6983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: temporaryInfectionPushbackTime
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
@@ -7486,8 +7494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLives: 50
-  infectionSpeedIncrease: 10
-  infectionSpeedChangeDuration: 5
   livesText: {fileID: 387866115}
 --- !u!58 &1357758509
 CircleCollider2D:
