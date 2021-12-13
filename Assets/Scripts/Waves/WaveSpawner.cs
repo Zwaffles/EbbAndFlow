@@ -11,7 +11,6 @@ public class WaveSpawner : MonoBehaviour
     public static WaveSpawner Instance { get { return instance; } }
     private static WaveSpawner instance;
 
-    //Waves
     [SerializeField] List<WaveConfigSO> waves;
     [SerializeField] float timeBetweenWaves = 15f;
     [HideInInspector] public List<GameObject> currentWaveEnemies;

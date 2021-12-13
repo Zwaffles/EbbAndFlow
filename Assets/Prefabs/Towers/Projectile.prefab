@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9357344275fc1194aa8bc57cb9905c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailParticleSystem: {fileID: 520205920724946267}
   speed: 150
+  trailParticleSystem: {fileID: 520205920724946267}
 --- !u!1001 &4037358132209546316
 PrefabInstance:
   m_ObjectHideFlags: 0
