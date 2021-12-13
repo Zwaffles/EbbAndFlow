@@ -39,43 +39,43 @@ public class InfectionCystSpawner : MonoBehaviour
         //cystConstraint.tags = 0;
     }
 
-    internal void SpawnCyst() //spawns new cyst on new wave 
-    {
-        if(collider != null)
-        {
-            Destroy(collider);
-        }
-        collider = InfectionManager.Instance.gameObject.AddComponent<PolygonCollider2D>();
-        collider.points = trigger.points;
+    //internal void SpawnCyst() //spawns new cyst on new wave 
+    //{
+    //    if(collider != null)
+    //    {
+    //        Destroy(collider);
+    //    }
+    //    collider = InfectionManager.Instance.gameObject.AddComponent<PolygonCollider2D>();
+    //    collider.points = trigger.points;
 
-        var graphToScan = AstarPath.active.graphs[2] as GridGraph;
-        AstarPath.active.Scan(graphToScan);
+    //    var graphToScan = AstarPath.active.graphs[2] as GridGraph;
+    //    AstarPath.active.Scan(graphToScan);
 
-        var info = AstarPath.active.GetNearest(infectionCystHolder.position, cystConstraint);
-        var correction = AstarPath.active.GetNearest(info.position, validationConstraint);
+    //    var info = AstarPath.active.GetNearest(infectionCystHolder.position, cystConstraint);
+    //    var correction = AstarPath.active.GetNearest(info.position, validationConstraint);
 
-        var node = correction.node;
+    //    var node = correction.node;
 
-        int x = (int)((node.position.x / 1000) + 8.5f);
-        if(CheatDetection.Instance.CheckForObstacles(graphToScan.GetNode(x, 5)))
-        {
-            transform.position = (Vector3)node.position;
-        }
-        else
-        {
-            GraphNode newNode = node;
-            for (int i = 0; i < graphToScan.depth; i++)
-            {
+    //    int x = (int)((node.position.x / 1000) + 8.5f);
+    //    if(CheatDetection.Instance.CheckForObstacles(graphToScan.GetNode(x, 5)))
+    //    {
+    //        transform.position = (Vector3)node.position;
+    //    }
+    //    else
+    //    {
+    //        GraphNode newNode = node;
+    //        for (int i = 0; i < graphToScan.depth; i++)
+    //        {
 
-                if (CheatDetection.Instance.CheckForObstacles(graphToScan.GetNode(x, i)))
-                {
-                    newNode = graphToScan.GetNode(x, i);
-                    Debug.Log(i);
-                }
-            }
+    //            if (CheatDetection.Instance.CheckForObstacles(graphToScan.GetNode(x, i)))
+    //            {
+    //                newNode = graphToScan.GetNode(x, i);
+    //                Debug.Log(i);
+    //            }
+    //        }
 
-            transform.position = (Vector3)newNode.position;
-        }
+    //        transform.position = (Vector3)newNode.position;
+    //    }
 
-    }
+    //}
 }
