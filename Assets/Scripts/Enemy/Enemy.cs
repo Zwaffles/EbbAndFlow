@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     private Image healthBar;
     private AIPath path;
+    private Animator animator;
     private bool speedDebuff;
     private float globalSpeedModifier;
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         path = GetComponent<AIPath>();
         path.maxSpeed = moveSpeed;
     }
@@ -69,16 +71,16 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         currentHealth = 0;
-        waveSpawner.currentWaveEnemies.Remove(gameObject);
+        WaveSpawner.Instance.RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
 
-    private void Update()
-    {
-        if (GetComponent<AIPath>().reachedEndOfPath)
-        {
-            WaveSpawner.Instance.RemoveEnemy(gameObject);
-            Destroy(gameObject);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (GetComponent<AIPath>().reachedEndOfPath)
+    //    {
+    //        WaveSpawner.Instance.RemoveEnemy(gameObject);
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
