@@ -16,8 +16,8 @@ TagManager:
   - Tower
   - Marker
   - TowerRange
-  - 
-  - 
+  - Obstacle
+  - Cyst
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1372353357
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3871839833
     locked: 0
   - name: Infection
     uniqueID: 993490585

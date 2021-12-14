@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ObstaclesAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1665029506914457908, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -9032074469175354827, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 8338763495693311072, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 2581991172188177051, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -512526596969411320, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 5555633124898304304, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 2791667864743167470, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -2898851144175050545, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 6008575723459035100, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -1146438685564149199, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 280714536575015765, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -482672575136947434, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 9080620966800253363, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -7830150232416001970, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 7535189017067948387, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 7616230822963672675, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -3656023387522529375, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -5495435580807097187, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -6300901572984243183, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -9135463732703479327, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 6145618496985425179, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 6327243418961434699, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -7837849485651429619, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -6383593333341681610, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -5489198313404701631, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -2737400067694355236, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -4554110432015059706, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 7702569584553134341, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 5210623273660503405, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 1679010610958286659, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - cmrd0i5f_22
+  - cmrd0i5f_23
+  - cmrd0i5f_20
+  - cmrd0i5f_21
+  - cmrd0i5f_26
+  - cmrd0i5f_27
+  - cmrd0i5f_24
+  - cmrd0i5f_25
+  - cmrd0i5f_28
+  - cmrd0i5f_29
+  - cmrd0i5f_4
+  - cmrd0i5f_5
+  - cmrd0i5f_6
+  - cmrd0i5f_7
+  - cmrd0i5f_0
+  - cmrd0i5f_19
+  - cmrd0i5f_1
+  - cmrd0i5f_18
+  - cmrd0i5f_2
+  - cmrd0i5f_17
+  - cmrd0i5f_3
+  - cmrd0i5f_16
+  - cmrd0i5f_15
+  - cmrd0i5f_14
+  - cmrd0i5f_13
+  - cmrd0i5f_12
+  - cmrd0i5f_8
+  - cmrd0i5f_11
+  - cmrd0i5f_9
+  - cmrd0i5f_10
+  m_RenderDataMap: {}
+  m_Tag: ObstaclesAtlas
+  m_IsVariant: 0

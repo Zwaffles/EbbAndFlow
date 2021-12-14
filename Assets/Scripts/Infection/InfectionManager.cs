@@ -56,12 +56,19 @@ public class InfectionManager : MonoBehaviour
     [SerializeField] [Range(0, 10)] float tempSpeedToIncrease;
     [SerializeField] int tempTimeForIncrease;
 
+    [Header("Infection Stats")]
+    [SerializeField] GameObject infectionStatsUI;
+    private bool infectionStatsShown;
+    List<Tower> towers = new List<Tower>();
+
     private bool addedSpeed;
-    private bool slow;    
+    private bool slow;
     private float tempTimer;
 
     [Header("Debug")]
     [SerializeField] private bool drawPoints;
+
+
 
     private List<InfectionPoint> infectionPoints = new List<InfectionPoint>();
 
@@ -77,6 +84,10 @@ public class InfectionManager : MonoBehaviour
     public bool constantGrowth;
 
     public bool SpreadingInfection { get { return spreadingInfection; } }
+
+    [SerializeField] private SpawnPoint spawnPoint;
+
+
 
     private void Awake()
     {
@@ -120,7 +131,7 @@ public class InfectionManager : MonoBehaviour
             SetSpreadSpeed(constantSpreadSpeed += 0.1f);
         }
         ConstantGrowth();
-        FastInfectionSpeedChanger();       
+        FastInfectionSpeedChanger();
     }
 
     public void StopInfection()
@@ -153,9 +164,9 @@ public class InfectionManager : MonoBehaviour
 
     private void FastInfectionSpeedChanger()
     {
-        if(tempTimer > 0)
+        if (tempTimer > 0)
         {
-            tempTimer -= 1 * Time.deltaTime;            
+            tempTimer -= 1 * Time.deltaTime;
         }
         if (tempTimer <= 0)
         {
@@ -168,9 +179,9 @@ public class InfectionManager : MonoBehaviour
         if (!slow && !addedSpeed)
         {
             SetSpreadSpeed(infectionSpreadNormalSpeed);
-        }       
+        }
     }
-   
+
     private IEnumerator SlowInfectionSpeed(int duration, float speed)
     {
         slow = true;
@@ -179,7 +190,7 @@ public class InfectionManager : MonoBehaviour
         if (!addedSpeed)
         {
             SetSpreadSpeed(infectionSpreadNormalSpeed);
-        }       
+        }
         slow = false;
     }
 
@@ -383,11 +394,63 @@ public class InfectionManager : MonoBehaviour
         spreadingInfection = false;
     }
 
+    public void ToggleInfectionStats() //Shows/hides Speed %, Health %, Extra enemies #, tower infection score #
+    {
+        if (!infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
+            infectionStatsUI.SetActive(true);
+            infectionStatsShown = true;
+        }
+        else if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].HideInfectionScore();
+            }
+            infectionStatsUI.SetActive(false);
+            infectionStatsShown = false;
+        }
+    }
+
+    public void AddTowerToList(Tower tower)
+    {
+        towers.Add(tower);
+        if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
+        }
+    }
+
+    public void RemoveTowerFromList(Tower tower)
+    {
+        towers.Remove(tower);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
             collision.gameObject.GetComponent<Tower>().InfectTower();
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Cyst"))
+        {
+            spawnPoint.AddNewSpawn(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Cyst"))
+        {
+            spawnPoint.RemoveOldSpawn(collision.gameObject);
         }
     }
 }
