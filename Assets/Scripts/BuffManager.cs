@@ -63,6 +63,8 @@ public class BuffManager : MonoBehaviour
     {
         switch (tower.GetModifierType())
         {
+            case Tower.ModifierType.None:
+                break;
             case Tower.ModifierType.Health:
                 healthModifierTowers.Add(tower);
                 break;
@@ -85,6 +87,8 @@ public class BuffManager : MonoBehaviour
     {
         switch (tower.GetModifierType())
         {
+            case Tower.ModifierType.None:
+                break;
             case Tower.ModifierType.Health:
                 healthModifierTowers.Remove(tower);
                 break;

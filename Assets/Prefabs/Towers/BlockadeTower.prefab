@@ -120,7 +120,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.5
 --- !u!114 &6076084600923761221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,14 +135,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
   fireRate: 0
-  modifierType: 3
+  modifierType: 0
   baseCost: 1
   sellPrice: 1
   isInfected: 0
   infectionScore: 0
   infectionScoreUI: {fileID: 8174948376976345229}
   infectionScoreText: {fileID: 4592032314014991334}
-  scoreRequiredForCorruption: 1
+  scoreRequiredForCorruption: 6
   currencyPerWave: 1
 --- !u!1 &8174948376976345229
 GameObject:

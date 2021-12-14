@@ -235,14 +235,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
   fireRate: 1
-  modifierType: 0
+  modifierType: 1
   baseCost: 5
   sellPrice: 3
   isInfected: 0
   infectionScore: 0
   infectionScoreUI: {fileID: 8899239686532233161}
   infectionScoreText: {fileID: 3839633602587507874}
-  scoreRequiredForCorruption: 1
+  scoreRequiredForCorruption: 6
   projectilePrefab: {fileID: 7077911764423161174, guid: 8f0efab776d101a4e97a4c181b8473c2, type: 3}
   damage: 10
   splashRadius: 0

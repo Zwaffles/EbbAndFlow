@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
 {
     public enum ModifierType
     {
-        Health, Speed, Damage, Currency
+        None, Health, Speed, Damage, Currency
     }
 
     [SerializeField] protected Transform turret;
