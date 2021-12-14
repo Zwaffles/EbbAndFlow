@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Tower
   - Marker
+  - TowerRange
   - 
   - 
   - 
@@ -31,8 +32,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Infection
   - 
   - 
   - 
