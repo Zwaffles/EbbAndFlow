@@ -60,6 +60,10 @@ public class Tower : MonoBehaviour
             animator = GetComponent<Animator>();
             animator.SetBool("isInfected", true);
         }
+        if (GetComponent<TowerTargeting>())
+        {
+            GetComponent<TowerTargeting>().enabled = false;
+        }
         InfectionManager.Instance.AddTowerToList(this);
     }
 
@@ -67,8 +71,16 @@ public class Tower : MonoBehaviour
     {
         isInfected = false;
         BuffManager.Instance.RemoveInfectedTower(this);
-        animator.SetBool("isInfected", false);
-        BuffManager.Instance.RemoveInfectedTower(this);        
+        if (GetComponent<Animator>())
+        {
+            animator = GetComponent<Animator>();
+            animator.SetBool("isInfected", false);
+        }
+        if (GetComponent<TowerTargeting>())
+        {
+            GetComponent<TowerTargeting>().enabled = true;
+        }
+        InfectionManager.Instance.RemoveTowerFromList(this);        
     }
 
     public void ShowInfectionScore()
