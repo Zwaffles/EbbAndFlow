@@ -70,10 +70,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5397961501414708613}
   - component: {fileID: 5397961501414708610}
-  - component: {fileID: 5397961501414708611}
-  - component: {fileID: 5397961501414708614}
   - component: {fileID: 5397961501414708617}
   - component: {fileID: 122266773957538168}
+  - component: {fileID: 5397961501414708611}
+  - component: {fileID: 5397961501414708614}
   - component: {fileID: 5422224227217685564}
   m_Layer: 7
   m_Name: LightningTower
@@ -150,47 +150,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5397961501414708611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397961501414708609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd1989cfee06804588c6b743cd85312, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rangeCollider: {fileID: 6285389534871322752}
-  towerRange: 4.5
---- !u!114 &5397961501414708614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397961501414708609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 0}
-  fireRate: 1
-  modifierType: 0
-  baseCost: 8
-  sellPrice: 3
-  isInfected: 0
-  infectionScore: 0
-  infectionScoreUI: {fileID: 8188251127653013830}
-  infectionScoreText: {fileID: 4570008168370623021}
-  scoreRequiredForCorruption: 1
-  projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
-  damage: 20
-  splashRadius: 0
-  splashDamage: 0
-  numberOfTargets: 4
 --- !u!95 &5397961501414708617
 Animator:
   serializedVersion: 3
@@ -226,6 +185,47 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5397961501414708611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397961501414708609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd1989cfee06804588c6b743cd85312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeCollider: {fileID: 6285389534871322752}
+  towerRange: 4.5
+--- !u!114 &5397961501414708614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397961501414708609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 0}
+  fireRate: 1
+  modifierType: 3
+  baseCost: 8
+  sellPrice: 3
+  isInfected: 0
+  infectionScore: 0
+  infectionScoreUI: {fileID: 8188251127653013830}
+  infectionScoreText: {fileID: 4570008168370623021}
+  scoreRequiredForCorruption: 6
+  projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
+  damage: 20
+  splashRadius: 0
+  splashDamage: 0
+  numberOfTargets: 4
 --- !u!114 &5422224227217685564
 MonoBehaviour:
   m_ObjectHideFlags: 0

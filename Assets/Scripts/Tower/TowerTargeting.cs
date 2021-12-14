@@ -12,6 +12,8 @@ public class TowerTargeting : MonoBehaviour
     private List<GameObject> currentlyTargeted = new List<GameObject>();
     private List<GameObject> enemiesWithinRange = new List<GameObject>();
 
+    public List<GameObject> EnemiesWithinRange { get { return enemiesWithinRange; } }
+
     void Start()
     {
 
