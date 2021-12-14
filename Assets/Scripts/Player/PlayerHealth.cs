@@ -39,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
                 playerLives -= 1;
                 infectionManager.ChangeInfectionSpeed(infectionSpeedChangeDuration, infectionSpeedIncrease);
             }
+            WaveSpawner.Instance.RemoveEnemy(collision.gameObject);
+            Destroy(collision.gameObject);
             livesText.text = ("Lives: " + playerLives.ToString());
         }
     }

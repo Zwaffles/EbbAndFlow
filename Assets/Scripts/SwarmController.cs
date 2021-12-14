@@ -12,6 +12,7 @@ public class SwarmController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Base"))
         {
+            Debug.Log("Base found!");
             foreach(var _swarmLayer in swarmLayer)
             {
                 _swarmLayer.SetActive(true);
@@ -29,7 +30,7 @@ public class SwarmController : MonoBehaviour
 
 public class SwarmTimer : MonoBehaviour
 {
-    public float timeRemaining = 10;
+    public float timeRemaining = 0;
     public bool timerIsRunning = false;
 
     public TextMeshProUGUI timeText;

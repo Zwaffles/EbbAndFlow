@@ -11,34 +11,27 @@ public class WaveSpawner : MonoBehaviour
     public static WaveSpawner Instance { get { return instance; } }
     private static WaveSpawner instance;
 
-    [SerializeField] List<WaveConfigSO> waves;
-    [SerializeField] float timeBetweenWaves = 15f;
-    [HideInInspector] public List<GameObject> currentWaveEnemies;
-    private List<GameObject> additionalEnemies = new List<GameObject>();
-    Coroutine spawnWaveCoroutine = null;
-    float waveSpawnCounter = 60f;
-    int waveIndex = -1;
-    bool spawning;
-    bool spawnerActive = true;
+    [SerializeField] private List<WaveConfigSO> waves;
+    [SerializeField] private float timeBetweenWaves = 15f;
 
     [Header("Path")]
-    [SerializeField] Transform startPosition;
-    [SerializeField] Transform endPosition;
+    [SerializeField] private Transform startPosition;
+    [SerializeField] private Transform endPosition;
 
     [Header("UI")]
-    [SerializeField] TextMeshProUGUI currentWaveText;
-    [SerializeField] TextMeshProUGUI waveTimerText;
-    [SerializeField] Button skipWaveButton;
+    [SerializeField] private TextMeshProUGUI currentWaveText;
+    [SerializeField] private TextMeshProUGUI waveTimerText;
+    [SerializeField] private Button skipWaveButton;
 
+    private List<GameObject> currentWaveEnemies = new List<GameObject>();
+    private List<GameObject> additionalEnemies = new List<GameObject>();
 
-    //Currency    
-    PlayerCurrency playerCurrency;
-
-    //End of wave actions
-    bool endWaveActionsMade;
-
-    //Infection towers
-    //List<InfectedCurrencyTower> infectedBlockades = new List<InfectedCurrencyTower>();
+    private Coroutine spawnWaveCoroutine = null;
+    private float waveSpawnCounter = 60f;
+    private int waveIndex = -1;
+    private bool spawning;
+    private bool spawnerActive = true;
+    private bool endWaveActionsMade;
 
     private void Awake()
     {
@@ -51,13 +44,17 @@ public class WaveSpawner : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
         }
-        playerCurrency = FindObjectOfType<PlayerCurrency>();
     }
 
     void Update()
     {
         SpawnWaves();
         currentWaveText.text = ("Wave: " + (waveIndex + 1) + "/" + waves.Count.ToString());
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log(BuffManager.Instance.GetSpeedModifier());
+        }
     }
 
     void SpawnWaves()
@@ -90,6 +87,7 @@ public class WaveSpawner : MonoBehaviour
     {
         waveIndex++;
         FinalWaveCheck();
+
         if (waveIndex > waves.Count - 1)
         {
             yield break;
@@ -113,9 +111,14 @@ public class WaveSpawner : MonoBehaviour
             GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
             enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
             currentWaveEnemies.Add(enemyInstance);
-            enemyInstance.GetComponent<Enemy>().Initialize(BuffManager.Instance.GetHealthModifier());
+
+            BuffManager.Instance.CalculateHealthModifier();
+            BuffManager.Instance.CalculateSpeedModifier();
+            enemyInstance.GetComponent<Enemy>().Initialize(BuffManager.Instance.GetHealthModifier(), BuffManager.Instance.GetSpeedModifier());
+
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }
+
         endWaveActionsMade = false;
         waveSpawnCounter = timeBetweenWaves;
         spawning = false;
@@ -125,6 +128,11 @@ public class WaveSpawner : MonoBehaviour
     public void AddAdditionalEnemy(GameObject enemy)
     {
         additionalEnemies.Add(enemy);
+    }
+
+    public void RemoveEnemy(GameObject enemy)
+    {
+        currentWaveEnemies.Remove(enemy.gameObject);
     }
 
     void FinalWaveCheck()
@@ -150,8 +158,9 @@ public class WaveSpawner : MonoBehaviour
             waveCurrencyAmount += tower.GetTowerCurrencyPerWave();
         }
 
-        playerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward) + waveCurrencyAmount);
-        playerCurrency.AddPlayerInfectedCurrency(BuffManager.Instance.CalculateInfectedCurrencyModifier());
+        PlayerCurrency.Instance.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward + waveCurrencyAmount));
+        PlayerCurrency.Instance.AddPlayerInfectedCurrency(BuffManager.Instance.CalculateInfectedCurrencyModifier());
+
         BuffManager.Instance.SpawnAdditionalEnemies();
         BuffManager.Instance.IncreaseInfectionScore();
         BuffManager.Instance.CalculateHealthModifier();
