@@ -23909,7 +23909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8226927842927605078, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8428489150360755193, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: towerPreviewAC
@@ -24076,6 +24076,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1645797356}
+    - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
+      propertyPath: constantGrowth
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
 --- !u!114 &2111673925 stripped
