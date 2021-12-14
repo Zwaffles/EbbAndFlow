@@ -60,7 +60,7 @@ public class Tower : MonoBehaviour
             animator = GetComponent<Animator>();
             animator.SetBool("isInfected", true);
         }
-        SceneManagement.Instance.AddTowerToList(this);
+        InfectionManager.Instance.AddTowerToList(this);
     }
 
     public void CleanseTower()
