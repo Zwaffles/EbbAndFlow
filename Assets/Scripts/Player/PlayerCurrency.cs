@@ -7,9 +7,6 @@ using TMPro;
 
 public class PlayerCurrency : MonoBehaviour
 {
-    public static PlayerCurrency Instance { get { return instance; } }
-    private static PlayerCurrency instance;
-
     [Header("Currency")]
     public int playerNormalCurrency = 50;
     public int playerInfectedCurrency = 0;
@@ -17,19 +14,6 @@ public class PlayerCurrency : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI normalCurrencyText;
     [SerializeField] TextMeshProUGUI infectedCurrencyText;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
 
     private void Start()
     {

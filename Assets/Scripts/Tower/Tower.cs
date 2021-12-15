@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
 {
     public enum ModifierType
     {
-        Health, Speed, Damage, Currency
+        None, Health, Speed, Damage, Currency
     }
 
     [SerializeField] protected Transform turret;
@@ -54,7 +54,8 @@ public class Tower : MonoBehaviour
     public void InfectTower()
     {
         isInfected = true;
-        BuffManager.Instance.AddInfectedTower(this);
+        
+        GameManager.Instance.BuffManager.AddInfectedTower(this);
         if (GetComponent<Animator>())
         {
             animator = GetComponent<Animator>();
@@ -64,13 +65,13 @@ public class Tower : MonoBehaviour
         {
             GetComponent<TowerTargeting>().enabled = false;
         }
-        SceneManagement.Instance.AddTowerToList(this);
+        GameManager.Instance.SceneManagement.AddTowerToList(this);
     }
 
     public void CleanseTower()
     {
         isInfected = false;
-        BuffManager.Instance.RemoveInfectedTower(this);
+        GameManager.Instance.BuffManager.RemoveInfectedTower(this);
         if (GetComponent<Animator>())
         {
             animator = GetComponent<Animator>();
@@ -80,7 +81,7 @@ public class Tower : MonoBehaviour
         {
             GetComponent<TowerTargeting>().enabled = true;
         }
-        SceneManagement.Instance.RemoveTowerFromList(this);        
+        GameManager.Instance.SceneManagement.RemoveTowerFromList(this);        
     }
 
     public void ShowInfectionScore()

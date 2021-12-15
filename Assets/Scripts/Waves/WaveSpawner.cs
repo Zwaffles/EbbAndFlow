@@ -50,11 +50,6 @@ public class WaveSpawner : MonoBehaviour
     {
         SpawnWaves();
         currentWaveText.text = ("Wave: " + (waveIndex + 1) + "/" + waves.Count.ToString());
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log(BuffManager.Instance.GetSpeedModifier());
-        }
     }
 
     void SpawnWaves()
@@ -112,9 +107,9 @@ public class WaveSpawner : MonoBehaviour
             enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
             currentWaveEnemies.Add(enemyInstance);
 
-            BuffManager.Instance.CalculateHealthModifier();
-            BuffManager.Instance.CalculateSpeedModifier();
-            enemyInstance.GetComponent<Enemy>().Initialize(BuffManager.Instance.GetHealthModifier(), BuffManager.Instance.GetSpeedModifier());
+            GameManager.Instance.BuffManager.CalculateHealthModifier();
+            GameManager.Instance.BuffManager.CalculateSpeedModifier();
+            enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
 
             yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
         }
@@ -158,12 +153,12 @@ public class WaveSpawner : MonoBehaviour
             waveCurrencyAmount += tower.GetTowerCurrencyPerWave();
         }
 
-        PlayerCurrency.Instance.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward + waveCurrencyAmount));
-        PlayerCurrency.Instance.AddPlayerInfectedCurrency(BuffManager.Instance.CalculateInfectedCurrencyModifier());
+        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward + waveCurrencyAmount));
+        GameManager.Instance.PlayerCurrency.AddPlayerInfectedCurrency(GameManager.Instance.BuffManager.CalculateInfectedCurrencyModifier());
 
-        BuffManager.Instance.SpawnAdditionalEnemies();
-        BuffManager.Instance.IncreaseInfectionScore();
-        BuffManager.Instance.CalculateHealthModifier();
+        GameManager.Instance.BuffManager.SpawnAdditionalEnemies();
+        GameManager.Instance.BuffManager.IncreaseInfectionScore();
+        GameManager.Instance.BuffManager.CalculateHealthModifier();
     }
 
     public void NextWave()
