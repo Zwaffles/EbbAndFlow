@@ -7,33 +7,15 @@ public class SwarmController : MonoBehaviour
 {
     [SerializeField] GameObject[] swarmLayer;
     [SerializeField] GameObject swarmTimer;
+    private TextMeshProUGUI timeText;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Base"))
-        {
-            Debug.Log("Base found!");
-            foreach(var _swarmLayer in swarmLayer)
-            {
-                _swarmLayer.SetActive(true);
-            }
-            swarmTimer.SetActive(true);
-            GetComponent<SwarmTimer>().timerIsRunning = true;
-        }
-    }
-
-    public void SwarmStart()
-    {
-
-    }
-}
-
-public class SwarmTimer : MonoBehaviour
-{
     public float timeRemaining = 0;
     public bool timerIsRunning = false;
 
-    public TextMeshProUGUI timeText;
+    private void Start()
+    {
+        timeText = swarmTimer.GetComponent<TextMeshProUGUI>();
+    }
 
     void Update()
     {
@@ -50,8 +32,22 @@ public class SwarmTimer : MonoBehaviour
                 timeRemaining = 0;
                 DisplayTime(timeRemaining);
                 timerIsRunning = false;
-                GetComponent<SwarmController>().SwarmStart();
+                SwarmStart();
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Base"))
+        {
+            Debug.Log("Base found!");
+            foreach(var _swarmLayer in swarmLayer)
+            {
+                _swarmLayer.SetActive(true);
+            }
+            swarmTimer.SetActive(true);
+            timerIsRunning = true;
         }
     }
 
@@ -61,5 +57,10 @@ public class SwarmTimer : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void SwarmStart()
+    {
+        Debug.Log("the swarm is on!");
     }
 }
