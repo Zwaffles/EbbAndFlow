@@ -65,7 +65,7 @@ public class Tower : MonoBehaviour
         {
             GetComponent<TowerTargeting>().enabled = false;
         }
-        InfectionManager.Instance.AddTowerToList(this);
+        GameManager.Instance.InfectionManager.AddTowerToList(this);
     }
 
     public void CleanseTower()
@@ -81,7 +81,7 @@ public class Tower : MonoBehaviour
         {
             GetComponent<TowerTargeting>().enabled = true;
         }
-        InfectionManager.Instance.RemoveTowerFromList(this);        
+        GameManager.Instance.InfectionManager.RemoveTowerFromList(this);        
     }
 
     public void ShowInfectionScore()

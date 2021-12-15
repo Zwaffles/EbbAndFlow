@@ -92,8 +92,5 @@ public class SceneManagement : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Exiting Game...");
-    }
-    }    
+    } 
 }
-
-
