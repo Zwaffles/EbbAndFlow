@@ -17418,6 +17418,10 @@ PrefabInstance:
       propertyPath: infectedCurrencyText
       value: 
       objectReference: {fileID: 1839536589}
+    - target: {fileID: 5022140291064173087, guid: 4763bf8b53b40164490312d1e050c6cb, type: 3}
+      propertyPath: playerNormalCurrency
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6714489503304541929, guid: 4763bf8b53b40164490312d1e050c6cb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -24699,43 +24703,43 @@ PrefabInstance:
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 4ffac84d72bc5034792be1966a9acc2a, type: 2}
+      objectReference: {fileID: 11400000, guid: 333a6fccb0a76624f85fbe867f4db2e2, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 23d8217519228a14c9689a093ab69775, type: 2}
+      objectReference: {fileID: 11400000, guid: 53e6c03268cdd4c43ac4ad0f150690b5, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: e1817d77c307d2949b404dbda1b15cdb, type: 2}
+      objectReference: {fileID: 11400000, guid: d7b9efb48b0e2f14cbe36b0d8d7b58e4, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 11170dece914ed64eb31a0d3d556ba18, type: 2}
+      objectReference: {fileID: 11400000, guid: bcabf28e1c1059340b14ccd127f6fa6f, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 8c06ff6588b016a46a1753cec5583d19, type: 2}
+      objectReference: {fileID: 11400000, guid: 3d605651a4388e4408cbe0130b4cf61d, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[10]
       value: 
-      objectReference: {fileID: 11400000, guid: a2ece4e6d85ff34478a310b806d80677, type: 2}
+      objectReference: {fileID: 11400000, guid: 2bfccfb2c80b65041ba1b8e9079b7169, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[11]
       value: 
-      objectReference: {fileID: 11400000, guid: 43253488ee21fe546aed08cd22e3f20b, type: 2}
+      objectReference: {fileID: 11400000, guid: 6f0ecf4cf10762b4f86b6d11c956b6a6, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[12]
       value: 
-      objectReference: {fileID: 11400000, guid: 1258334889f60e648920a511b4654f14, type: 2}
+      objectReference: {fileID: 11400000, guid: bf8500e7a79cea24ea31f2373c5c52c3, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[13]
       value: 
-      objectReference: {fileID: 11400000, guid: d2d5f9f4ab61cf848abbe27730337e92, type: 2}
+      objectReference: {fileID: 11400000, guid: 68831e14e516a9646a23ff0cc9b9643e, type: 2}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[14]
       value: 
-      objectReference: {fileID: 11400000, guid: dbc04b9ca528dee47b58bffb1fd12b69, type: 2}
+      objectReference: {fileID: 11400000, guid: 9c6af85cd1ac15a42b530123bd13a2af, type: 2}
     - target: {fileID: 3518691760054999368, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -27105,6 +27109,10 @@ PrefabInstance:
     - target: {fileID: 3565715572468323272, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
       propertyPath: width
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565715572468323272, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
+      propertyPath: origin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3565715572468323272, guid: f9b9156b7db4ce54fba9d746ad9617aa, type: 3}
       propertyPath: drawGridLines

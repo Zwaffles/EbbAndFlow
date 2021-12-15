@@ -214,7 +214,7 @@ MonoBehaviour:
   turret: {fileID: 0}
   fireRate: 1
   modifierType: 3
-  baseCost: 8
+  baseCost: 10
   sellPrice: 3
   isInfected: 0
   infectionScore: 0
