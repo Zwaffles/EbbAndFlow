@@ -509,3 +509,5 @@ MonoBehaviour:
   enemyHealth: 30
   currentHealth: 0
   dmgMultiplier: 1
+  minMoveSpeed: 0.25
+  moveSpeed: 3
