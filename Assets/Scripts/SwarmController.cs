@@ -51,7 +51,7 @@ public class SwarmController : MonoBehaviour
         }
     }
 
-    void DisplayTime(float timeToDisplay)
+    void DisplayTime(float timeToDisplay) //displays the time remaining until the swarm arrives, is called when the base collides with a Swarm Point Trigger
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
@@ -59,7 +59,7 @@ public class SwarmController : MonoBehaviour
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void SwarmStart()
+    void SwarmStart() //wip logic for swarms
     {
         Debug.Log("the swarm is on!");
     }
