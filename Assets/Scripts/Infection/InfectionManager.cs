@@ -6,9 +6,6 @@ using UnityEngine.U2D;
 
 public class InfectionManager : MonoBehaviour
 {
-    public static InfectionManager Instance { get { return instance; } }
-    private static InfectionManager instance;
-
     public enum SpreadSetting
     {
         Constant, Intervals
@@ -41,21 +38,34 @@ public class InfectionManager : MonoBehaviour
     [SerializeField] private float curveRoundness = 1.0f;
     [Range(0.0f, 5.0f)]
     [SerializeField] private float randomOffset = 1.0f;
-    
-    [Header("Infection Pushback")]
+
+    [Header("Infection Pushback Speed")]
     [SerializeField] private int temporaryInfectionPushbackTime;
     [SerializeField] private float temporarySpreadPushbackSpeed;
-    [SerializeField] private int costToBuy;
+    [SerializeField] private int pushbackInfectionCost;
 
     [Header("Infection Stop")]
     [SerializeField] private int temporaryInfectionPauseTime;
-    [SerializeField] private int _costToBuy;
+    [SerializeField] private int stopInfectionCost;
     private float infectionSpreadNormalSpeed;
 
-    private bool isChangingSpeed;
+    [Header("On Lives Lost Infection Speed Increase")]
+    [SerializeField] [Range(0, 10)] float tempSpeedToIncrease;
+    [SerializeField] int tempTimeForIncrease;
+
+    [Header("Infection Stats")]
+    [SerializeField] GameObject infectionStatsUI;
+    private bool infectionStatsShown;
+    List<Tower> towers = new List<Tower>();
+
+    private bool addedSpeed;
+    private bool slow;
+    private float tempTimer;
 
     [Header("Debug")]
     [SerializeField] private bool drawPoints;
+
+
 
     private List<InfectionPoint> infectionPoints = new List<InfectionPoint>();
 
@@ -73,19 +83,6 @@ public class InfectionManager : MonoBehaviour
     public bool SpreadingInfection { get { return spreadingInfection; } }
 
     [SerializeField] private SpawnPoint spawnPoint;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
 
     private void Start()
     {
@@ -116,42 +113,69 @@ public class InfectionManager : MonoBehaviour
             SetSpreadSpeed(constantSpreadSpeed += 0.1f);
         }
         ConstantGrowth();
+        FastInfectionSpeedChanger();
     }
 
     public void StopInfection()
     {
-        if(_costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(stopInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
         {
-            isChangingSpeed = false;
-            ChangeInfectionSpeed(temporaryInfectionPauseTime, -1f);
-        }       
+            ChangeSlowInfectionSpeed(temporaryInfectionPauseTime, -1f);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(stopInfectionCost);
+        }
     }
 
     public void PushBackInfection()
     {
-        if(costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(pushbackInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
         {
-            isChangingSpeed = false;
             float speed = -temporarySpreadPushbackSpeed;
-            ChangeInfectionSpeed(temporaryInfectionPushbackTime, speed);
+            ChangeSlowInfectionSpeed(temporaryInfectionPushbackTime, speed);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(pushbackInfectionCost);
         }
     }
 
-    public void ChangeInfectionSpeed(int duration, float speed)
+    public void IncreaseInfectionSpeed()
     {
-        StartCoroutine(ModifyInfectionSpeed(duration, speed));
+        tempTimer = tempTimeForIncrease;
+        addedSpeed = true;
     }
-    IEnumerator ModifyInfectionSpeed(int duration, float speed)
+
+    private void ChangeSlowInfectionSpeed(int duration, float speed)
     {
-        if (!isChangingSpeed)
+        StartCoroutine(SlowInfectionSpeed(duration, speed));
+    }
+
+    private void FastInfectionSpeedChanger()
+    {
+        if (tempTimer > 0)
         {
-            isChangingSpeed = true;
-            constantSpreadSpeed = infectionSpreadNormalSpeed * (1 + speed);
-            yield return new WaitForSeconds(duration);
-            constantSpreadSpeed = infectionSpreadNormalSpeed;
-            isChangingSpeed = false;
+            tempTimer -= 1 * Time.deltaTime;
         }
-        
+        if (tempTimer <= 0)
+        {
+            addedSpeed = false;
+        }
+        if (!slow && addedSpeed)
+        {
+            constantSpreadSpeed = infectionSpreadNormalSpeed * (1 + tempSpeedToIncrease);
+        }
+        if (!slow && !addedSpeed)
+        {
+            SetSpreadSpeed(infectionSpreadNormalSpeed);
+        }
+    }
+
+    private IEnumerator SlowInfectionSpeed(int duration, float speed)
+    {
+        slow = true;
+        constantSpreadSpeed = infectionSpreadNormalSpeed * (1 + speed);
+        yield return new WaitForSeconds(duration);
+        if (!addedSpeed)
+        {
+            SetSpreadSpeed(infectionSpreadNormalSpeed);
+        }
+        slow = false;
     }
 
     public void SetSpreadSpeed(float value)
@@ -354,11 +378,49 @@ public class InfectionManager : MonoBehaviour
         spreadingInfection = false;
     }
 
+    public void ToggleInfectionStats() //Shows/hides Speed %, Health %, Extra enemies #, tower infection score #
+    {
+        if (!infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
+            infectionStatsUI.SetActive(true);
+            infectionStatsShown = true;
+        }
+        else if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].HideInfectionScore();
+            }
+            infectionStatsUI.SetActive(false);
+            infectionStatsShown = false;
+        }
+    }
+
+    public void AddTowerToList(Tower tower)
+    {
+        towers.Add(tower);
+        if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
+        }
+    }
+
+    public void RemoveTowerFromList(Tower tower)
+    {
+        towers.Remove(tower);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
-            Debug.Log("aaaahh!!! da performance hiadhoaidhas");
             collision.gameObject.GetComponent<Tower>().InfectTower();
         }
 

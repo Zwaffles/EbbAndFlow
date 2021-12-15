@@ -5,9 +5,6 @@ using Pathfinding;
 
 public class BuffManager : MonoBehaviour
 {
-    public static BuffManager Instance { get { return instance; } }
-    private static BuffManager instance;
-    
     [SerializeField] private List<InfectedHealthModifier> infectedHealthModifiers;
     [SerializeField] private List<InfectedSpeedModifier> infectedSpeedModifiers;
     [SerializeField] private List<InfectedCurrencyModifier> infectedCurrencyModifiers;
@@ -24,19 +21,6 @@ public class BuffManager : MonoBehaviour
     private float healthModifier;
     private float speedModifier;
     private int currencyModifier;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
 
     public void IncreaseInfectionScore()
     {
@@ -197,7 +181,7 @@ public class BuffManager : MonoBehaviour
 
         for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
-            WaveSpawner.Instance.AddAdditionalEnemy(enemiesToSpawn[i]);
+            GameManager.Instance.WaveSpawner.AddAdditionalEnemy(enemiesToSpawn[i]);
         }
     }
 

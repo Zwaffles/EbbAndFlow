@@ -10,7 +10,7 @@ public class SpawnPoint : MonoBehaviour
     {
         cyst.GetComponent<SpriteRenderer>().color = Color.red;
         cysts.Add(cyst);
-        CheatDetection.Instance.IncreaseCystIndex();
+        GameManager.Instance.CheatDetection.IncreaseCystIndex();
         SetSpawn();
     }
 
@@ -18,7 +18,7 @@ public class SpawnPoint : MonoBehaviour
     {
         cyst.GetComponent<SpriteRenderer>().color = Color.black;
         cysts.Remove(cyst);
-        CheatDetection.Instance.DecreaseCystIndex();
+        GameManager.Instance.CheatDetection.DecreaseCystIndex();
         SetSpawn();
     }
 

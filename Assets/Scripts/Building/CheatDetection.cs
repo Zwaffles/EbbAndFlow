@@ -5,26 +5,10 @@ using Pathfinding;
 
 public class CheatDetection : MonoBehaviour
 {
-    public static CheatDetection Instance { get { return instance; } }
-    private static CheatDetection instance;
-
     [SerializeField] List<CheatDetector> cheatDetectors = new List<CheatDetector>();
     private int currentCystIndex = -1;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
-
-    public void IncreaseCystIndex() //increases the index for current active cyst by one integer, this is used for culling of the path obstruction detection to save on memory and performance
+    public void IncreaseCystIndex()
     {
         currentCystIndex++;
     }
@@ -42,19 +26,19 @@ public class CheatDetection : MonoBehaviour
 
         if(currentCystIndex == 0) //logic for checking path obstruction on first index
         {
-            Debug.Log("checking for index: " + currentCystIndex + " & " + (currentCystIndex + 1));
+            //Debug.Log("checking for index: " + currentCystIndex + " & " + (currentCystIndex + 1));
             isPathValid = cheatDetectors[0].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
             return isPathValid;
         }
         else if(currentCystIndex == cheatDetectors.Count - 1) //logic for checking path obstruction on last index
         {
-            Debug.Log("checking for index: " + (currentCystIndex - 1) + " & " + currentCystIndex);
+            //Debug.Log("checking for index: " + (currentCystIndex - 1) + " & " + currentCystIndex);
             isPathValid = cheatDetectors[cheatDetectors.Count - 2].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[cheatDetectors.Count - 1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
             return isPathValid;
         }
         else //logic for checking path obstruction on any index inbetween first and last
         {
-            Debug.Log("checking for index: " + (currentCystIndex - 1) + ", " + currentCystIndex + " & " + (currentCystIndex + 1));
+            //Debug.Log("checking for index: " + (currentCystIndex - 1) + ", " + currentCystIndex + " & " + (currentCystIndex + 1));
             isPathValid = cheatDetectors[currentCystIndex - 1].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex + 1].CheckForObstacles(buildMarkerCollider) ? true : false : false : false;
             return isPathValid;
         }
