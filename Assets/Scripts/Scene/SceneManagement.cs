@@ -6,16 +6,35 @@ using UnityEngine.UI;
 using TMPro;
 
 public class SceneManagement : MonoBehaviour
-{   
+{
+    public static SceneManagement Instance { get { return instance; } }
+    private static SceneManagement instance;
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenuUI;
-    [Tooltip("Enables pause menu")] [SerializeField] private bool canPause;
+    [Tooltip("Enables pause menu")] [SerializeField] bool canPause;
     private bool isPaused;
 
     [Header("Options Menu")]
     [SerializeField] GameObject optionsMenuUI;
     private bool isOptions;
-    
+
+    [Header("Infection Stats")]
+    [SerializeField] GameObject infectionStatsUI;
+    private bool infectionStatsShown;
+    List<Tower> towers = new List<Tower>();
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
+            instance = this;
+        }
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -88,11 +107,48 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    public void QuitGame() //Quits Game :)
+    public void QuitGame() //Quits Game 
     {
         Application.Quit();
         Debug.Log("Exiting Game...");
-    }    
+    }
+
+    public void ToggleInfectionStats() //Shows/hides Speed %, Health %, Extra enemies #, tower infection score #
+    {
+        if (!infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
+            infectionStatsUI.SetActive(true);
+            infectionStatsShown = true;
+        }
+        else if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].HideInfectionScore();
+            }
+            infectionStatsUI.SetActive(false);
+            infectionStatsShown = false;
+        }
+    }
+
+    public void AddTowerToList(Tower tower)
+    {
+        towers.Add(tower);
+        if (infectionStatsShown)
+        {
+            for (int i = 0; i < towers.Count; i++)
+            {
+                towers[i].ShowInfectionScore();
+            }
+        }
+    }
+
+    public void RemoveTowerFromList(Tower tower)
+    {
+        towers.Remove(tower);
+    }
 }
-
-
