@@ -10,59 +10,55 @@ public class GameManager : MonoBehaviour
     private SelectionManager selectionManager;
     private InfectionManager infectionManager;
     private BuildingManager buildingManager;
-    private SceneManagement sceneManagement;
+    private SceneManager sceneManagement;
     private BuffManager buffManager;
 
     private PlayerCurrency playerCurrency;
     private CheatDetection cheatDetection;
     private WaveSpawner waveSpawner;
+    private EndScreen endScreen;
 
     public SelectionManager SelectionManager { get { return selectionManager; } }
     public InfectionManager InfectionManager { get { return infectionManager; } }
     public BuildingManager BuildingManager { get { return buildingManager; } }
-    public SceneManagement SceneManagement { get { return sceneManagement; } }
+    public SceneManager SceneManagement { get { return sceneManagement; } }
     public BuffManager BuffManager { get { return buffManager; } }
 
     public PlayerCurrency PlayerCurrency { get { return playerCurrency; } }
     public CheatDetection CheatDetection { get { return cheatDetection; } }
     public WaveSpawner WaveSpawner { get { return waveSpawner; } }
+    public EndScreen EndScreen { get { return endScreen; } }
 
     void Awake()
     {
+        /* Replace Old Instance */
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(instance);
+            DontDestroyOnLoad(this);
+            instance = this;
         }
+        /* Create new Instance */
         else
         {
             DontDestroyOnLoad(this);
             instance = this;
         }
+        UpdateReferences();
     }
 
-    private void Start()
+    private void UpdateReferences()
     {
         /* Managers lmao */
         selectionManager = FindObjectOfType<SelectionManager>();
         infectionManager = FindObjectOfType<InfectionManager>();
         buildingManager = FindObjectOfType<BuildingManager>();
-        sceneManagement = FindObjectOfType<SceneManagement>();
+        sceneManagement = FindObjectOfType<SceneManager>();
         buffManager = FindObjectOfType<BuffManager>();
 
         playerCurrency = FindObjectOfType<PlayerCurrency>();
         cheatDetection = FindObjectOfType<CheatDetection>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
-    }
-
-    public bool CanBuy(int cost)
-    {
-        if(cost <= GetComponent<PlayerCurrency>().playerNormalCurrency)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        endScreen = FindObjectOfType<EndScreen>();
     }
 }

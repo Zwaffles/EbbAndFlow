@@ -12,28 +12,27 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI livesText;
 
-    InfectionManager infectionManager;
-
     private void Start()
     {
-        infectionManager = FindObjectOfType<InfectionManager>();
         livesText.text = ("Lives: " + playerLives.ToString());
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             if (playerLives <= 1)
             {
-                Debug.Log("Game Over!");
                 playerLives = 0;
+                GameManager.Instance.EndScreen.ActivateEndScreen(true);
             }
             else
             {
                 playerLives -= 1;
-                infectionManager.IncreaseInfectionSpeed();
+
+                GameManager.Instance.InfectionManager.IncreaseInfectionSpeed();
             }
-            WaveSpawner.Instance.RemoveEnemy(collision.gameObject);
+            GameManager.Instance.WaveSpawner.RemoveEnemy(collision.gameObject);
             Destroy(collision.gameObject);
             livesText.text = ("Lives: " + playerLives.ToString());
         }

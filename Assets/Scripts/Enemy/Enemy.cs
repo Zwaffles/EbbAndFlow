@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            WaveSpawner.Instance.RemoveEnemy(gameObject);
+            GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
             Destroy(gameObject);
         }
         else
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         currentHealth = 0;
-        WaveSpawner.Instance.RemoveEnemy(gameObject);
+        GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
 

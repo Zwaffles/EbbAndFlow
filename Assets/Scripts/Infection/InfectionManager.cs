@@ -421,7 +421,6 @@ public class InfectionManager : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
-            Debug.Log("aaaahh!!! da performance hiadhoaidhas");
             collision.gameObject.GetComponent<Tower>().InfectTower();
         }
 
