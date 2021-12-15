@@ -26,19 +26,19 @@ public class CheatDetection : MonoBehaviour
 
         if(currentCystIndex == 0)
         {
-            Debug.Log("checking for index: " + currentCystIndex + " & " + (currentCystIndex + 1));
+            //Debug.Log("checking for index: " + currentCystIndex + " & " + (currentCystIndex + 1));
             isPathValid = cheatDetectors[0].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
             return isPathValid;
         }
         else if(currentCystIndex == cheatDetectors.Count - 1)
         {
-            Debug.Log("checking for index: " + (currentCystIndex - 1) + " & " + currentCystIndex);
+            //Debug.Log("checking for index: " + (currentCystIndex - 1) + " & " + currentCystIndex);
             isPathValid = cheatDetectors[cheatDetectors.Count - 2].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[cheatDetectors.Count - 1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
             return isPathValid;
         }
         else
         {
-            Debug.Log("checking for index: " + (currentCystIndex - 1) + ", " + currentCystIndex + " & " + (currentCystIndex + 1));
+            //Debug.Log("checking for index: " + (currentCystIndex - 1) + ", " + currentCystIndex + " & " + (currentCystIndex + 1));
             isPathValid = cheatDetectors[currentCystIndex - 1].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex + 1].CheckForObstacles(buildMarkerCollider) ? true : false : false : false;
             return isPathValid;
         }
