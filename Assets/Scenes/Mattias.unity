@@ -12716,6 +12716,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounds: {fileID: 2030985242}
   cameraSpeed: 0.1
+--- !u!114 &697365013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7289205081546277639, guid: 6daf1dfe00e002244b9da9cbccc78ee2, type: 3}
+  m_PrefabInstance: {fileID: 882865685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c858e7ddde930c47b17a4d39ebece4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &797496281 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 555847856107866864, guid: 8a632da5614c2dc42985ee28411f83c9, type: 3}
@@ -13351,6 +13362,14 @@ PrefabInstance:
     - target: {fileID: 4331585987389568269, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348883457173086938, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 697365013}
+    - target: {fileID: 5348883457173086938, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextWave
       objectReference: {fileID: 0}
     - target: {fileID: 5348883457383107475, guid: 418de1a2d3b66f548bc1c22a1a09c548, type: 3}
       propertyPath: m_AnchorMax.y
