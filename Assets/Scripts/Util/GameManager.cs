@@ -7,14 +7,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
     private static GameManager instance;
 
-    [SerializeField] private SelectionManager selectionManager;
-    [SerializeField] private InfectionManager infectionManager;
-    [SerializeField] private BuildingManager buildingManager;
-    [SerializeField] private SceneManagement sceneManagement;
-    [SerializeField] private BuffManager buffManager;
-    [SerializeField] private PlayerCurrency playerCurrency;
-    [SerializeField] private CheatDetection cheatDetection;
-    [SerializeField] private WaveSpawner waveSpawner;
+    private SelectionManager selectionManager;
+    private InfectionManager infectionManager;
+    private BuildingManager buildingManager;
+    private SceneManagement sceneManagement;
+    private BuffManager buffManager;
+
+    private PlayerCurrency playerCurrency;
+    private CheatDetection cheatDetection;
+    private WaveSpawner waveSpawner;
 
     public SelectionManager SelectionManager { get { return selectionManager; } }
     public InfectionManager InfectionManager { get { return infectionManager; } }

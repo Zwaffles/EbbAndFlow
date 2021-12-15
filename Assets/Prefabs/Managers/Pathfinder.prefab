@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &26645952477846206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6731490450560943829}
+  - component: {fileID: 3452004331085374926}
+  - component: {fileID: 5218843730494849358}
+  m_Layer: 0
+  m_Name: Pathfinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6731490450560943829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26645952477846206}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7130613, y: 2.0155795, z: 3.3985293}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3452004331085374926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26645952477846206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: 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
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 4
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!114 &5218843730494849358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26645952477846206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394becd54d1728d4fb226a3453f8cf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheatDetectors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -9,18 +9,13 @@ public class SceneManagement : MonoBehaviour
 {
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenuUI;
-    [Tooltip("Enables pause menu")] [SerializeField] bool canPause;
+    [Tooltip("Enables pause menu")] [SerializeField] private bool canPause;
     private bool isPaused;
 
     [Header("Options Menu")]
     [SerializeField] GameObject optionsMenuUI;
     private bool isOptions;
-
-    [Header("Infection Stats")]
-    [SerializeField] GameObject infectionStatsUI;
-    private bool infectionStatsShown;
-    List<Tower> towers = new List<Tower>();
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -97,46 +92,5 @@ public class SceneManagement : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Exiting Game...");
-    }
-
-    public void ToggleInfectionStats() //Shows/hides Speed %, Health %, Extra enemies #, tower infection score #
-    {
-        if (!infectionStatsShown)
-        {
-            for (int i = 0; i < towers.Count; i++)
-            {
-                towers[i].ShowInfectionScore();
-            }
-            infectionStatsUI.SetActive(true);
-            infectionStatsShown = true;
-        }
-        else if (infectionStatsShown)
-        {
-            for (int i = 0; i < towers.Count; i++)
-            {
-                towers[i].HideInfectionScore();
-            }
-            infectionStatsUI.SetActive(false);
-            infectionStatsShown = false;
-        }
-    }
-
-    public void AddTowerToList(Tower tower)
-    {
-        towers.Add(tower);
-        if (infectionStatsShown)
-        {
-            for (int i = 0; i < towers.Count; i++)
-            {
-                towers[i].ShowInfectionScore();
-            }
-        }
-    }
-
-    public void RemoveTowerFromList(Tower tower)
-    {
-        towers.Remove(tower);
-    }
+    } 
 }
-
-
