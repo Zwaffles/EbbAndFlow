@@ -144,7 +144,7 @@ MonoBehaviour:
   infectionScoreUI: {fileID: 8174948376976345229}
   infectionScoreText: {fileID: 4592032314014991334}
   scoreRequiredForCorruption: 6
-  currencyPerWave: 1
+  currencyPerWave: 0
 --- !u!1 &7944397219472438312
 GameObject:
   m_ObjectHideFlags: 0

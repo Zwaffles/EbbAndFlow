@@ -30,7 +30,7 @@ public class WaveSpawner : MonoBehaviour
     private List<GameObject> additionalEnemies = new List<GameObject>();
 
     private Coroutine spawnWaveCoroutine = null;
-    private float waveSpawnCounter = 60f;
+    private float waveSpawnCounter = 35f;
     private int waveIndex = -1;
     private bool spawning;
     private bool spawnerActive = true;

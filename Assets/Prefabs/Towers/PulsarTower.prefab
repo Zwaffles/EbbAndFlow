@@ -160,7 +160,7 @@ MonoBehaviour:
   infectionScore: 0
   infectionScoreUI: {fileID: 5475668045344713534}
   infectionScoreText: {fileID: 374948996840742997}
-  scoreRequiredForCorruption: 6
+  scoreRequiredForCorruption: 5
   projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
   damage: 30
   splashRadius: 3
