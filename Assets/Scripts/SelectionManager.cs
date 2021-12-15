@@ -70,9 +70,12 @@ public class SelectionManager : MonoBehaviour
     {
         if (selectedTower != null)
         {
+            /* Decrease Counter in the StatisticsManager */
+            GameManager.Instance.StatisticsManager.DecreaseTowersBuiltCount();
             GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice); 
             GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
             GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
+            GameManager.Instance.BuildingManager.UpdateGraph();
             CloseTowerUI();
         }
     }

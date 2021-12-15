@@ -22,6 +22,12 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endScreenHeader;
     [SerializeField] private TextMeshProUGUI endScreenText;
 
+    [Header("Statistics")]
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private TextMeshProUGUI killsText;
+    [SerializeField] private TextMeshProUGUI towersBuiltText;
+    [SerializeField] private TextMeshProUGUI progressText;
+
     private bool activated;
 
     public void ActivateEndScreen(bool gameOver)
@@ -42,6 +48,7 @@ public class EndScreen : MonoBehaviour
                 endScreenText.text = playerWonText;
             }
 
+            UpdateStats();
             endScreenPanel.SetActive(true);
             activated = true;
         }
@@ -49,6 +56,19 @@ public class EndScreen : MonoBehaviour
 
     private void UpdateStats()
     {
+        timeText.text = FormatTime(GameManager.Instance.StatisticsManager.TimeCounter);
+        killsText.text = GameManager.Instance.StatisticsManager.Kills.ToString();
+        towersBuiltText.text = GameManager.Instance.StatisticsManager.TowersBuilt.ToString();
+        progressText.text = (GameManager.Instance.StatisticsManager.Progress * 100).ToString("F1") + "%";
+    }
 
+    private string FormatTime(float time)
+    {
+        int intTime = (int)time;
+        int milliseconds = (int)((time - intTime) * 100);
+        int seconds = (int)(time % 60);
+        int minutes = (int)(time / 60 % 60);
+
+        return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 }
