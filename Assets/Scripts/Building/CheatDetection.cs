@@ -5,24 +5,8 @@ using Pathfinding;
 
 public class CheatDetection : MonoBehaviour
 {
-    public static CheatDetection Instance { get { return instance; } }
-    private static CheatDetection instance;
-
     [SerializeField] List<CheatDetector> cheatDetectors = new List<CheatDetector>();
     private int currentCystIndex = -1;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
 
     public void IncreaseCystIndex()
     {

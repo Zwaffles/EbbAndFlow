@@ -7,24 +7,24 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
     private static GameManager instance;
 
-    private SelectionManager selectionManager;
-    private InfectionManager infectionManager; 
-    private BuildingManager buildingManager;
-    private SceneManagement sceneManagement;
-    private BuffManager buffManager;
-    private PlayerCurrency playerCurrency;
-    private CheatDetection cheatDetection;
-    private WaveSpawner waveSpawner;
+    [SerializeField] private SelectionManager selectionManager;
+    [SerializeField] private InfectionManager infectionManager;
+    [SerializeField] private BuildingManager buildingManager;
+    [SerializeField] private SceneManagement sceneManagement;
+    [SerializeField] private BuffManager buffManager;
+    [SerializeField] private PlayerCurrency playerCurrency;
+    [SerializeField] private CheatDetection cheatDetection;
+    [SerializeField] private WaveSpawner waveSpawner;
 
-    public SelectionManager SelectionManager { get; }
-    public InfectionManager InfectionManager { get; }
-    public BuildingManager BuildingManager { get; }
-    public SceneManagement SceneManagement { get; }
-    public BuffManager BuffManager { get; }
+    public SelectionManager SelectionManager { get { return selectionManager; } }
+    public InfectionManager InfectionManager { get { return infectionManager; } }
+    public BuildingManager BuildingManager { get { return buildingManager; } }
+    public SceneManagement SceneManagement { get { return sceneManagement; } }
+    public BuffManager BuffManager { get { return buffManager; } }
 
-    public PlayerCurrency PlayerCurrency { get; }
-    public CheatDetection CheatDetection { get; }
-    public WaveSpawner WaveSpawner { get; }
+    public PlayerCurrency PlayerCurrency { get { return playerCurrency; } }
+    public CheatDetection CheatDetection { get { return cheatDetection; } }
+    public WaveSpawner WaveSpawner { get { return waveSpawner; } }
 
     void Awake()
     {
@@ -37,7 +37,10 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
         }
+    }
 
+    private void Start()
+    {
         /* Managers lmao */
         selectionManager = FindObjectOfType<SelectionManager>();
         infectionManager = FindObjectOfType<InfectionManager>();

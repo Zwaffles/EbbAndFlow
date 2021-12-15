@@ -7,8 +7,6 @@ using TMPro;
 
 public class SceneManagement : MonoBehaviour
 {
-    public static SceneManagement Instance { get { return instance; } }
-    private static SceneManagement instance;
     [Header("Pause Menu")]
     [SerializeField] GameObject pauseMenuUI;
     [Tooltip("Enables pause menu")] [SerializeField] bool canPause;
@@ -23,18 +21,6 @@ public class SceneManagement : MonoBehaviour
     private bool infectionStatsShown;
     List<Tower> towers = new List<Tower>();
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

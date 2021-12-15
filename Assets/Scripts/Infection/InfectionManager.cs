@@ -6,9 +6,6 @@ using UnityEngine.U2D;
 
 public class InfectionManager : MonoBehaviour
 {
-    public static InfectionManager Instance { get { return instance; } }
-    private static InfectionManager instance;
-
     public enum SpreadSetting
     {
         Constant, Intervals
@@ -74,19 +71,6 @@ public class InfectionManager : MonoBehaviour
 
     [SerializeField] private SpawnPoint spawnPoint;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
-
     private void Start()
     {
         infectionSpreadNormalSpeed = constantSpreadSpeed;
@@ -120,7 +104,7 @@ public class InfectionManager : MonoBehaviour
 
     public void StopInfection()
     {
-        if(_costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(_costToBuy <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
         {
             isChangingSpeed = false;
             ChangeInfectionSpeed(temporaryInfectionPauseTime, -1f);
@@ -129,7 +113,7 @@ public class InfectionManager : MonoBehaviour
 
     public void PushBackInfection()
     {
-        if(costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(costToBuy <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
         {
             isChangingSpeed = false;
             float speed = -temporarySpreadPushbackSpeed;
