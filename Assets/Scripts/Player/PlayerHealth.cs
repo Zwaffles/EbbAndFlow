@@ -36,7 +36,10 @@ public class PlayerHealth : MonoBehaviour
             Destroy(collision.gameObject);
             livesText.text = ("Lives: " + playerLives.ToString());
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Infection"))
+        {
+            playerLives = 0;
+            GameManager.Instance.EndScreen.ActivateEndScreen(true);
+        }
     }
-
-
 }
