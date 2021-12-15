@@ -9,27 +9,21 @@ public class PlayerHealth : MonoBehaviour
     [Header("Lives")]
     [SerializeField] int playerLives = 50;
 
-    [Header("On Lives Lost")]
-    [Tooltip("Set % value (1 = 100%)")] [Range(0, 10)] [SerializeField] float infectionSpeedIncrease;
-    [SerializeField] int infectionSpeedChangeDuration;
-    
-
-
-    InfectionManager infectionManager;
-
     [Header("UI")]
     [SerializeField] TextMeshProUGUI livesText;
 
+    InfectionManager infectionManager;
+
     private void Start()
     {
-        infectionManager = FindObjectOfType<InfectionManager>();       
+        infectionManager = FindObjectOfType<InfectionManager>();
         livesText.text = ("Lives: " + playerLives.ToString());
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            if (playerLives < 2)
+            if (playerLives <= 1)
             {
                 Debug.Log("Game Over!");
                 playerLives = 0;
@@ -37,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 playerLives -= 1;
-                infectionManager.ChangeInfectionSpeed(infectionSpeedChangeDuration, infectionSpeedIncrease);
+                infectionManager.IncreaseInfectionSpeed();
             }
             WaveSpawner.Instance.RemoveEnemy(collision.gameObject);
             Destroy(collision.gameObject);
@@ -45,5 +39,5 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-   
+
 }
