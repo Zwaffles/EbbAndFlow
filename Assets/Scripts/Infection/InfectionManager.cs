@@ -6,9 +6,6 @@ using UnityEngine.U2D;
 
 public class InfectionManager : MonoBehaviour
 {
-    public static InfectionManager Instance { get { return instance; } }
-    private static InfectionManager instance;
-
     public enum SpreadSetting
     {
         Constant, Intervals
@@ -45,11 +42,11 @@ public class InfectionManager : MonoBehaviour
     [Header("Infection Pushback Speed")]
     [SerializeField] private int temporaryInfectionPushbackTime;
     [SerializeField] private float temporarySpreadPushbackSpeed;
-    [SerializeField] private int costToBuy;
+    [SerializeField] private int pushbackInfectionCost;
 
     [Header("Infection Stop")]
     [SerializeField] private int temporaryInfectionPauseTime;
-    [SerializeField] private int _costToBuy;
+    [SerializeField] private int stopInfectionCost;
     private float infectionSpreadNormalSpeed;
 
     [Header("On Lives Lost Infection Speed Increase")]
@@ -87,21 +84,6 @@ public class InfectionManager : MonoBehaviour
 
     [SerializeField] private SpawnPoint spawnPoint;
 
-
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
-
     private void Start()
     {
         infectionSpreadNormalSpeed = constantSpreadSpeed;
@@ -136,18 +118,20 @@ public class InfectionManager : MonoBehaviour
 
     public void StopInfection()
     {
-        if (_costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(stopInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
         {
             ChangeSlowInfectionSpeed(temporaryInfectionPauseTime, -1f);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(stopInfectionCost);
         }
     }
 
     public void PushBackInfection()
     {
-        if (costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(pushbackInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
         {
             float speed = -temporarySpreadPushbackSpeed;
             ChangeSlowInfectionSpeed(temporaryInfectionPushbackTime, speed);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(pushbackInfectionCost);
         }
     }
 
