@@ -8,9 +8,6 @@ using Pathfinding;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public static WaveSpawner Instance { get { return instance; } }
-    private static WaveSpawner instance;
-
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private float timeBetweenWaves = 15f;
 
@@ -32,19 +29,6 @@ public class WaveSpawner : MonoBehaviour
     private bool spawning;
     private bool spawnerActive = true;
     private bool endWaveActionsMade;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
 
     void Update()
     {

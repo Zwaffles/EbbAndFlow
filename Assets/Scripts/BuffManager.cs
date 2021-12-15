@@ -181,7 +181,7 @@ public class BuffManager : MonoBehaviour
 
         for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
-            WaveSpawner.Instance.AddAdditionalEnemy(enemiesToSpawn[i]);
+            GameManager.Instance.WaveSpawner.AddAdditionalEnemy(enemiesToSpawn[i]);
         }
     }
 
