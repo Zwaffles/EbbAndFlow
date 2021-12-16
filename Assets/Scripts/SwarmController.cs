@@ -65,11 +65,13 @@ public class SwarmController : MonoBehaviour
 
     void StartSwarm()
     {
-        foreach (GameObject enemy in swarmWave.Enemies)
+        Debug.Log("Swarm Incoming!");
+        foreach (var _swarmLayer in swarmLayer)
         {
-            GameManager.Instance.WaveSpawner.AddAdditionalEnemy(enemy);
+            _swarmLayer.SetActive(false);
         }
-
-        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval);
+        swarmTimer.SetActive(false);
+        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval, swarmWave.Enemies);
+        Destroy(gameObject);
     }
 }

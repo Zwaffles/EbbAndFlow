@@ -25,11 +25,12 @@ public class WaveSpawner : MonoBehaviour
 
     private List<GameObject> currentWaveEnemies = new List<GameObject>();
     private List<GameObject> additionalEnemies = new List<GameObject>();
+    private List<GameObject> swarmEnemies = new List<GameObject>();
 
     private Coroutine spawnWaveCoroutine = null;
-    private float waveSpawnCounter = 60f;
-    private float swarmInterval = 1f;
     private float waveSpawnCounter = 35f;
+    private float swarmInterval = 1f;
+
     private int waveIndex = -1;
     private bool spawning;
     private bool spawnerActive = true;
@@ -103,6 +104,22 @@ public class WaveSpawner : MonoBehaviour
             enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
 
             yield return new WaitForSeconds(activeSwarm ? swarmInterval : GetCurrentWave().EnemySpawnInterval);
+        }
+
+        if (activeSwarm)
+        {
+            foreach (GameObject enemy in swarmEnemies)
+            {
+                GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
+                enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
+                currentWaveEnemies.Add(enemyInstance);
+
+                GameManager.Instance.BuffManager.CalculateHealthModifier();
+                GameManager.Instance.BuffManager.CalculateSpeedModifier();
+                enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
+
+                yield return new WaitForSeconds(activeSwarm ? swarmInterval : GetCurrentWave().EnemySpawnInterval);
+            }
         }
 
         endWaveActionsMade = false;
@@ -179,9 +196,10 @@ public class WaveSpawner : MonoBehaviour
         return waves[waveIndex];
     }
 
-    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval)
+    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval, List<GameObject> _swarmEnemies)
     {
         activeSwarm = _activeSwarm;
         swarmInterval = _swarmInterval;
+        swarmEnemies = _swarmEnemies;
     }
 }
