@@ -83,9 +83,10 @@ public class WaveSpawner : MonoBehaviour
 
         List<GameObject> tempEnemyWave = new List<GameObject>();
 
-        foreach (GameObject enemy in GetCurrentWave().Enemies)
+        foreach (WaveConfigSO.EnemyEntry enemyEntry in GetCurrentWave().EnemyEntries)
         {
-            tempEnemyWave.Add(enemy);
+            for(int i = 0; i < enemyEntry.amount; i++)
+            tempEnemyWave.Add(enemyEntry.enemy);
         }
 
 
@@ -167,6 +168,7 @@ public class WaveSpawner : MonoBehaviour
         if(currentSwarm != null)
         {
             currentSwarm.EndSwarm();
+            swarmEnemies.Clear();
         }
 
         endWaveActionsMade = true;
@@ -202,11 +204,15 @@ public class WaveSpawner : MonoBehaviour
         return waves[waveIndex];
     }
 
-    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval, List<GameObject> _swarmEnemies, SwarmController _currentSwarm)
+    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval, List<WaveConfigSO.EnemyEntry> _swarmEnemies, SwarmController _currentSwarm)
     {
         activeSwarm = _activeSwarm;
         swarmInterval = _swarmInterval;
-        swarmEnemies = _swarmEnemies;
         currentSwarm = _currentSwarm;
+        foreach (WaveConfigSO.EnemyEntry enemyEntry in _swarmEnemies)
+        {
+            for (int i = 0; i < enemyEntry.amount; i++)
+                swarmEnemies.Add(enemyEntry.enemy);
+        }
     }
 }
