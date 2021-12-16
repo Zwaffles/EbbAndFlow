@@ -22,4 +22,11 @@ public class CameraBounds2D : MonoBehaviour
         maxXlimit = new Vector2((transform.position.x + offset.x - (scaleBound.x / 2)) + cameraHalfWidth, (transform.position.x + offset.x + (scaleBound.x / 2)) - cameraHalfWidth);
         maxYlimit = new Vector2((transform.position.y + offset.y - (scaleBound.y / 2)) + _camera.orthographicSize, (transform.position.y + offset.y + (scaleBound.y / 2)) - _camera.orthographicSize);
     }
+
+    public Vector3 GetEdgePosition()
+    {
+        Vector3 edgePosition = transform.position;
+        edgePosition.x += (scaleBound.x * 0.5f) + offset.x - (_camera.aspect * _camera.orthographicSize);
+        return edgePosition;
+    }
 }

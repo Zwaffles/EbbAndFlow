@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
     private static GameManager instance;
 
+    private StatisticsManager statisticsManager; 
+    private TimeScaleManager timeScaleManager;
     private SelectionManager selectionManager;
     private InfectionManager infectionManager;
     private BuildingManager buildingManager;
@@ -15,9 +17,12 @@ public class GameManager : MonoBehaviour
 
     private PlayerCurrency playerCurrency;
     private CheatDetection cheatDetection;
+    private PlayerHealth playerHealth;
     private WaveSpawner waveSpawner;
     private EndScreen endScreen;
 
+    public StatisticsManager StatisticsManager { get { return statisticsManager; } }
+    public TimeScaleManager TimeScaleManager {  get { return timeScaleManager; } }
     public SelectionManager SelectionManager { get { return selectionManager; } }
     public InfectionManager InfectionManager { get { return infectionManager; } }
     public BuildingManager BuildingManager { get { return buildingManager; } }
@@ -26,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerCurrency PlayerCurrency { get { return playerCurrency; } }
     public CheatDetection CheatDetection { get { return cheatDetection; } }
+    public PlayerHealth PlayerHealth { get { return playerHealth; } }
     public WaveSpawner WaveSpawner { get { return waveSpawner; } }
     public EndScreen EndScreen { get { return endScreen; } }
 
@@ -50,6 +56,8 @@ public class GameManager : MonoBehaviour
     private void UpdateReferences()
     {
         /* Managers lmao */
+        statisticsManager = FindObjectOfType<StatisticsManager>();
+        timeScaleManager = FindObjectOfType<TimeScaleManager>();
         selectionManager = FindObjectOfType<SelectionManager>();
         infectionManager = FindObjectOfType<InfectionManager>();
         buildingManager = FindObjectOfType<BuildingManager>();
@@ -58,6 +66,7 @@ public class GameManager : MonoBehaviour
 
         playerCurrency = FindObjectOfType<PlayerCurrency>();
         cheatDetection = FindObjectOfType<CheatDetection>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
         waveSpawner = FindObjectOfType<WaveSpawner>();
         endScreen = FindObjectOfType<EndScreen>();
     }

@@ -56,4 +56,16 @@ public class PlayerCurrency : MonoBehaviour
             return false;
         }
     }
+
+    public bool InfectedCanBuy(int cost)
+    {
+        if (cost <= playerInfectedCurrency)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

@@ -10,6 +10,9 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private float timeBetweenWaves = 15f;
+    [SerializeField] private int globalCurrencyUpgradeInfectedCost = 10;
+    [SerializeField] private int globalCurrencyUpgradeNormalBonus = 3;
+
 
     [Header("Path")]
     [SerializeField] private Transform startPosition;
@@ -26,10 +29,12 @@ public class WaveSpawner : MonoBehaviour
     private Coroutine spawnWaveCoroutine = null;
     private float waveSpawnCounter = 60f;
     private float swarmInterval = 1f;
+    private float waveSpawnCounter = 35f;
     private int waveIndex = -1;
     private bool spawning;
     private bool spawnerActive = true;
     private bool endWaveActionsMade;
+    private int normalCurrencyBonus = 0;
     private bool activeSwarm;
 
     void Update()
@@ -126,6 +131,17 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    public void GlobalCurrencyUpgrade()
+    {
+        if(GameManager.Instance.PlayerCurrency.InfectedCanBuy(globalCurrencyUpgradeInfectedCost))
+        {
+            Debug.Log("bonus");
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(globalCurrencyUpgradeInfectedCost);
+            normalCurrencyBonus = globalCurrencyUpgradeNormalBonus;
+            globalCurrencyUpgradeNormalBonus += globalCurrencyUpgradeNormalBonus;
+        }
+    }
+
     void OnWaveEnd()
     {
         activeSwarm = false;
@@ -142,7 +158,7 @@ public class WaveSpawner : MonoBehaviour
         }
 
         GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward + waveCurrencyAmount));
-        GameManager.Instance.PlayerCurrency.AddPlayerInfectedCurrency(GameManager.Instance.BuffManager.CalculateInfectedCurrencyModifier());
+        GameManager.Instance.PlayerCurrency.AddPlayerInfectedCurrency(GameManager.Instance.BuffManager.CalculateInfectedCurrencyModifier() + normalCurrencyBonus);
 
         GameManager.Instance.BuffManager.SpawnAdditionalEnemies();
         GameManager.Instance.BuffManager.IncreaseInfectionScore();
