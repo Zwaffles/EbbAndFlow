@@ -21866,8 +21866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e234a68a575295443afd8e3a929be383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleBound: {x: 145.1, y: 12}
-  offset: {x: 10.5, y: 0}
+  scaleBound: {x: 82.42673, y: 12}
+  offset: {x: -19.027325, y: 0}
   maxXlimit: {x: 0, y: 0}
   maxYlimit: {x: 0, y: 0}
 --- !u!4 &750691376
@@ -26939,7 +26939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: tempTimeForIncrease
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: pushbackInfectionCost
