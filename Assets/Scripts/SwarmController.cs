@@ -7,10 +7,13 @@ public class SwarmController : MonoBehaviour
 {
     [SerializeField] GameObject[] swarmLayer;
     [SerializeField] GameObject swarmTimer;
+    [SerializeField] WaveConfigSO swarmWave;
     private TextMeshProUGUI timeText;
 
     public float timeRemaining = 0;
     public bool timerIsRunning = false;
+
+    private bool swarming = false;
 
     private void Start()
     {
@@ -32,7 +35,8 @@ public class SwarmController : MonoBehaviour
                 timeRemaining = 0;
                 DisplayTime(timeRemaining);
                 timerIsRunning = false;
-                SwarmStart();
+                swarming = true;
+                StartSwarm();
             }
         }
     }
@@ -59,8 +63,13 @@ public class SwarmController : MonoBehaviour
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void SwarmStart() //wip logic for swarms
+    void StartSwarm()
     {
-        Debug.Log("the swarm is on!");
+        foreach (GameObject enemy in swarmWave.Enemies)
+        {
+            GameManager.Instance.WaveSpawner.AddAdditionalEnemy(enemy);
+        }
+
+        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval);
     }
 }
