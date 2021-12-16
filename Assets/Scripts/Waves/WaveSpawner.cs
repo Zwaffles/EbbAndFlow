@@ -27,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
     private List<GameObject> additionalEnemies = new List<GameObject>();
     private List<GameObject> swarmEnemies = new List<GameObject>();
 
+    private SwarmController currentSwarm = null;
     private Coroutine spawnWaveCoroutine = null;
     private float waveSpawnCounter = 35f;
     private float swarmInterval = 1f;
@@ -163,6 +164,11 @@ public class WaveSpawner : MonoBehaviour
     {
         activeSwarm = false;
 
+        if(currentSwarm != null)
+        {
+            currentSwarm.EndSwarm();
+        }
+
         endWaveActionsMade = true;
        
         //adds currency amount of all towers into waveCurrencyAmount
@@ -196,10 +202,11 @@ public class WaveSpawner : MonoBehaviour
         return waves[waveIndex];
     }
 
-    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval, List<GameObject> _swarmEnemies)
+    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval, List<GameObject> _swarmEnemies, SwarmController _currentSwarm)
     {
         activeSwarm = _activeSwarm;
         swarmInterval = _swarmInterval;
         swarmEnemies = _swarmEnemies;
+        currentSwarm = _currentSwarm;
     }
 }

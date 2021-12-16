@@ -41,14 +41,17 @@ public class SwarmController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //swarm begins AS SOON as base touches the collider, MEANING it starts even when in build phase... watch out!
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Base"))
         {
             Debug.Log("Base found!");
-            foreach(var _swarmLayer in swarmLayer)
+            if(swarmLayer.Length > 0)
             {
-                _swarmLayer.SetActive(true);
+                foreach (var _swarmLayer in swarmLayer)
+                {
+                    _swarmLayer.SetActive(true);
+                }
             }
             swarmTimer.SetActive(true);
             timerIsRunning = true;
@@ -66,12 +69,20 @@ public class SwarmController : MonoBehaviour
     void StartSwarm()
     {
         Debug.Log("Swarm Incoming!");
-        foreach (var _swarmLayer in swarmLayer)
-        {
-            _swarmLayer.SetActive(false);
-        }
         swarmTimer.SetActive(false);
-        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval, swarmWave.Enemies);
+        GameManager.Instance.WaveSpawner.NextWave();
+        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval, swarmWave.Enemies, this);
+    }
+
+    public void EndSwarm()
+    {
+        if(swarmLayer.Length > 0)
+        {
+            foreach (var _swarmLayer in swarmLayer)
+            {
+                _swarmLayer.SetActive(false);
+            }
+        }
         Destroy(gameObject);
     }
 }
