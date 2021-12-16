@@ -71,7 +71,7 @@ public class SwarmController : MonoBehaviour
         Debug.Log("Swarm Incoming!");
         swarmTimer.SetActive(false);
         GameManager.Instance.WaveSpawner.NextWave();
-        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval, swarmWave.Enemies, this);
+        GameManager.Instance.WaveSpawner.SetSwarmActive(swarming, swarmWave.EnemySpawnInterval, swarmWave.EnemyEntries, this);
     }
 
     public void EndSwarm()
