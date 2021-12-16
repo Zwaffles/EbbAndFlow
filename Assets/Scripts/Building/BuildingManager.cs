@@ -186,12 +186,16 @@ public class BuildingManager : MonoBehaviour
             /* Mark Grid Cell as occupied */
             buildingGrid.SetValue(buildMarkers[0].transform.position, 1);
 
+            /* Increase Counter in the StatisticsManager */
+            GameManager.Instance.StatisticsManager.IncreaseTowersBuiltCount();
+
             /* Cancel Building */
             building = false;
             currentTowerBuilder = null;
 
             ScanGraph();
-            DeactivateBuildMarkers(); 
+            DeactivateBuildMarkers();
+            GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
         }
     }
 
@@ -209,6 +213,9 @@ public class BuildingManager : MonoBehaviour
 
                 /* Mark Grid Cell as occupied */
                 buildingGrid.SetValue(buildMarkers[i].transform.position, 1);
+
+                /* Increase Counter in the StatisticsManager */
+                GameManager.Instance.StatisticsManager.IncreaseTowersBuiltCount();
             }
         }
 
@@ -229,6 +236,7 @@ public class BuildingManager : MonoBehaviour
 
         ScanGraph();
         DeactivateBuildMarkers();
+        GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
     }
 
     private void ScanGraph()
@@ -236,6 +244,12 @@ public class BuildingManager : MonoBehaviour
         /* Scan A* Graph */
         var graphToScan = AstarPath.active.data.gridGraph;
         AstarPath.active.Scan(graphToScan);
+    }
+
+    public void UpdateGraph()
+    {
+        GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
+        ScanGraph();
     }
 
     private void BuildMarkerScan()
@@ -370,15 +384,6 @@ public class BuildingManager : MonoBehaviour
         activeBuildMarkers = 0;
     }
 
-    private void CancelPlacement()
-    {
-        building = false;
-        currentTowerBuilder = null;
-
-        CancelDrag();
-        DeactivateBuildMarkers();
-    }
-
     private void CancelDrag()
     {
         /* Reset Drag Positions */
@@ -393,7 +398,17 @@ public class BuildingManager : MonoBehaviour
             CancelPlacement();
         }
     }
-  
+
+    private void CancelPlacement()
+    {
+        building = false;
+        currentTowerBuilder = null;
+
+        CancelDrag();
+        DeactivateBuildMarkers();
+        GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
+    }
+
     private void HotkeyManager(int key)
     {
         if(key > 0 && key <= towerBuilders.Count)

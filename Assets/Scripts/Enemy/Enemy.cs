@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
         {
             currentHealth = 0;
             GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
+            GameManager.Instance.StatisticsManager.IncreaseKillCount();
             Destroy(gameObject);
         }
         else
