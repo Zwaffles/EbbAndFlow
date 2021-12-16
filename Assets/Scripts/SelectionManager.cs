@@ -5,9 +5,8 @@ using UnityEngine.EventSystems;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField] Tower selectedTower;
+    [SerializeField] private Tower selectedTower;
     [SerializeField] private LayerMask towerLayer;
-    [SerializeField] GameObject towerUI;
 
     private void Update()
     {
@@ -30,7 +29,7 @@ public class SelectionManager : MonoBehaviour
                     {
                         selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
                     }
-                    OpenTowerUI();
+                    UpdateActionBarPanel(selectedTower.ActionBar);
                 }
             }
             else
@@ -53,17 +52,18 @@ public class SelectionManager : MonoBehaviour
             }
         }
         selectedTower = null;
-        CloseTowerUI();
+        DefaultActionBarPanel();
     }
 
-    void OpenTowerUI()
+    void UpdateActionBarPanel(ActionBar actionBar)
     {
-        towerUI.gameObject.SetActive(true);
+        GameManager.Instance.ActionBarManager.UpdateActionBar(actionBar);
     }
 
-    void CloseTowerUI()
+    void DefaultActionBarPanel()
     {
-        towerUI.gameObject.SetActive(false);
+        GameManager.Instance.ActionBarManager.DefaultActionBar();
+        //towerUI.gameObject.SetActive(false);
     }
 
     public void SellTower()
@@ -76,7 +76,7 @@ public class SelectionManager : MonoBehaviour
             GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
             GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
             GameManager.Instance.BuildingManager.UpdateGraph();
-            CloseTowerUI();
+            DefaultActionBarPanel();
         }
     }
 }

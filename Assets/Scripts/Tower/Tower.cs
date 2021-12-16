@@ -11,6 +11,10 @@ public class Tower : MonoBehaviour
         None, Health, Speed, Damage, Currency
     }
 
+    [Header("Tower Selection")]
+    [SerializeField] private ActionBar actionBar;
+
+    [Header("Tower Settings")]
     [SerializeField] protected Transform turret;
     [SerializeField] public float fireRate = 1.0f;
     [SerializeField] private ModifierType modifierType;
@@ -25,6 +29,8 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject infectionScoreUI;
     [SerializeField] TextMeshProUGUI infectionScoreText;
     [SerializeField] private int scoreRequiredForCorruption = 1;
+
+    public ActionBar ActionBar { get { return actionBar; } }
 
     public ModifierType GetModifierType()
     {
