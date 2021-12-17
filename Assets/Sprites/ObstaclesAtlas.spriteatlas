@@ -44,6 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+    - {fileID: 2800000, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -120,6 +121,12 @@ SpriteAtlas:
   - {fileID: -4517305837086498198, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: -4158684601492685560, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 8840618053319713365, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 6627649763376337232, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
+  - {fileID: -5983045922377713702, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
+  - {fileID: 3952087346101536742, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
+  - {fileID: 3262019731140464661, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
+  - {fileID: 8536086885815309252, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
+  - {fileID: 7940306436916436892, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   m_PackedSpriteNamesToIndex:
   - cmrd0i5f_22
   - cmrd0i5f_23
@@ -192,6 +199,12 @@ SpriteAtlas:
   - cmrd0i5f_38
   - cmrd0i5f_68
   - cmrd0i5f_69
+  - Grass_alt 1_5
+  - Grass_alt 1_4
+  - Grass_alt 1_3
+  - Grass_alt 1_2
+  - Grass_alt 1_1
+  - Grass_alt 1_0
   m_RenderDataMap: {}
   m_Tag: ObstaclesAtlas
   m_IsVariant: 0
