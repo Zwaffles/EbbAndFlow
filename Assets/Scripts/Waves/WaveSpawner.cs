@@ -25,14 +25,19 @@ public class WaveSpawner : MonoBehaviour
 
     private List<GameObject> currentWaveEnemies = new List<GameObject>();
     private List<GameObject> additionalEnemies = new List<GameObject>();
+    private List<GameObject> swarmEnemies = new List<GameObject>();
 
+    private SwarmController currentSwarm = null;
     private Coroutine spawnWaveCoroutine = null;
     private float waveSpawnCounter = 35f;
+    private float swarmInterval = 1f;
+
     private int waveIndex = -1;
     private bool spawning;
     private bool spawnerActive = true;
     private bool endWaveActionsMade;
     private int normalCurrencyBonus = 0;
+    private bool activeSwarm;
 
     void Update()
     {
@@ -78,9 +83,10 @@ public class WaveSpawner : MonoBehaviour
 
         List<GameObject> tempEnemyWave = new List<GameObject>();
 
-        foreach (GameObject enemy in GetCurrentWave().Enemies)
+        foreach (WaveConfigSO.EnemyEntry enemyEntry in GetCurrentWave().EnemyEntries)
         {
-            tempEnemyWave.Add(enemy);
+            for(int i = 0; i < enemyEntry.amount; i++)
+            tempEnemyWave.Add(enemyEntry.enemy);
         }
 
 
@@ -99,7 +105,23 @@ public class WaveSpawner : MonoBehaviour
             GameManager.Instance.BuffManager.CalculateSpeedModifier();
             enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
 
-            yield return new WaitForSeconds(GetCurrentWave().EnemySpawnInterval);
+            yield return new WaitForSeconds(activeSwarm ? swarmInterval : GetCurrentWave().EnemySpawnInterval);
+        }
+
+        if (activeSwarm)
+        {
+            foreach (GameObject enemy in swarmEnemies)
+            {
+                GameObject enemyInstance = Instantiate(enemy, startPosition.position, Quaternion.identity);
+                enemyInstance.GetComponent<AIDestinationSetter>().target = endPosition;
+                currentWaveEnemies.Add(enemyInstance);
+
+                GameManager.Instance.BuffManager.CalculateHealthModifier();
+                GameManager.Instance.BuffManager.CalculateSpeedModifier();
+                enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
+
+                yield return new WaitForSeconds(activeSwarm ? swarmInterval : GetCurrentWave().EnemySpawnInterval);
+            }
         }
 
         endWaveActionsMade = false;
@@ -141,6 +163,14 @@ public class WaveSpawner : MonoBehaviour
 
     void OnWaveEnd()
     {
+        activeSwarm = false;
+
+        if(currentSwarm != null)
+        {
+            currentSwarm.EndSwarm();
+            swarmEnemies.Clear();
+        }
+
         endWaveActionsMade = true;
        
         //adds currency amount of all towers into waveCurrencyAmount
@@ -172,5 +202,17 @@ public class WaveSpawner : MonoBehaviour
     private WaveConfigSO GetCurrentWave()
     {
         return waves[waveIndex];
+    }
+
+    public void SetSwarmActive(bool _activeSwarm, float _swarmInterval, List<WaveConfigSO.EnemyEntry> _swarmEnemies, SwarmController _currentSwarm)
+    {
+        activeSwarm = _activeSwarm;
+        swarmInterval = _swarmInterval;
+        currentSwarm = _currentSwarm;
+        foreach (WaveConfigSO.EnemyEntry enemyEntry in _swarmEnemies)
+        {
+            for (int i = 0; i < enemyEntry.amount; i++)
+                swarmEnemies.Add(enemyEntry.enemy);
+        }
     }
 }

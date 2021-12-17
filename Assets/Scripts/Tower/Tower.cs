@@ -107,4 +107,9 @@ public class Tower : MonoBehaviour
     {
         infectionScoreText.text = infectionScore.ToString();
     }
+
+    public bool CheckTowerInfected()
+    {
+        return isInfected;
+    }
 }

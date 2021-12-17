@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SelectionManager : MonoBehaviour
@@ -55,6 +56,12 @@ public class SelectionManager : MonoBehaviour
         DefaultActionBarPanel();
     }
 
+    void OpenTowerUI()
+    {
+        towerUI.gameObject.SetActive(true);
+        towerUI.transform.GetChild(0).GetComponent<Image>().color = selectedTower.CheckTowerInfected() ? Color.gray : Color.white;
+    }
+
     void UpdateActionBarPanel(ActionBar actionBar)
     {
         GameManager.Instance.ActionBarManager.UpdateActionBar(actionBar);
@@ -63,20 +70,19 @@ public class SelectionManager : MonoBehaviour
     void DefaultActionBarPanel()
     {
         GameManager.Instance.ActionBarManager.DefaultActionBar();
-        //towerUI.gameObject.SetActive(false);
     }
 
     public void SellTower()
     {
-        if (selectedTower != null)
-        {
-            /* Decrease Counter in the StatisticsManager */
-            GameManager.Instance.StatisticsManager.DecreaseTowersBuiltCount();
-            GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice); 
-            GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
-            GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
-            GameManager.Instance.BuildingManager.UpdateGraph();
-            DefaultActionBarPanel();
-        }
+        if (selectedTower == null) { return; }
+        if (selectedTower.CheckTowerInfected()) { return; }
+        /* Decrease Counter in the StatisticsManager */
+        GameManager.Instance.StatisticsManager.DecreaseTowersBuiltCount();
+        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice); 
+        GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
+        GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
+        GameManager.Instance.BuildingManager.UpdateGraph();
+        DefaultActionBarPanel();
+        CloseTowerUI();
     }
 }
