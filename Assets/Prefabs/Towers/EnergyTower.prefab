@@ -460,4 +460,4 @@ MonoBehaviour:
   infectionScoreUI: {fileID: 3445283406082231641}
   infectionScoreText: {fileID: 6996753453908887090}
   scoreRequiredForCorruption: 5
-  currencyPerWave: 3
+  currencyPerWave: 2
