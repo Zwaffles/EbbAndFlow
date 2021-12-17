@@ -8,7 +8,9 @@ public class ActionBarButton: MonoBehaviour
 {
     [SerializeField] private Image actionIcon;
     [SerializeField] private float activationDelay = 0.1f;
-    [SerializeField] private MultiImageButton actionButton; 
+    private MultiImageButton actionButton;
+
+    private Tooltip tooltip;
     private Action action;
     
     private string actionTooltip;
@@ -16,6 +18,7 @@ public class ActionBarButton: MonoBehaviour
     private void Awake()
     {
         actionButton = GetComponent<MultiImageButton>();
+        tooltip = GetComponent<Tooltip>();
     }
 
     public void UpdateActionButton(Action action, Sprite icon, string tooltip)
@@ -23,7 +26,13 @@ public class ActionBarButton: MonoBehaviour
         this.action = action;
         actionIcon.sprite = icon;
         actionTooltip = tooltip;
+        this.tooltip.UpdateTooltip(tooltip);
         EnableActionButton();
+    }
+
+    private void OnMouseOver()
+    {
+        Debug.Log("Hover over " + gameObject.name);
     }
 
     private void DelayedActivation()

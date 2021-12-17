@@ -8,5 +8,6 @@ public class SellTowerAction : Action
     public override void UseAction()
     {
         base.UseAction();
+        GameManager.Instance.SelectionManager.SellTower();
     }
 }

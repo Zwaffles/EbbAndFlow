@@ -1,0 +1,1140 @@
+fileFormatVersion: 2
+guid: 565be8b223f62ba458f0a46410834792
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8423424630724882815
+    second: Crystal_Moneymaker_v3_0
+  - first:
+      213: 952821044247982511
+    second: Crystal_Moneymaker_v3_1
+  - first:
+      213: -249029846657799067
+    second: Crystal_Moneymaker_v3_2
+  - first:
+      213: -3588465919122614716
+    second: Crystal_Moneymaker_v3_3
+  - first:
+      213: 8217506773183917331
+    second: Crystal_Moneymaker_v3_4
+  - first:
+      213: -8651094036410903787
+    second: Crystal_Moneymaker_v3_5
+  - first:
+      213: -2560397857783560713
+    second: Crystal_Moneymaker_v3_6
+  - first:
+      213: -571291716373234651
+    second: Crystal_Moneymaker_v3_7
+  - first:
+      213: -6907723160377218385
+    second: Crystal_Moneymaker_v3_8
+  - first:
+      213: -8817957469139226139
+    second: Crystal_Moneymaker_v3_9
+  - first:
+      213: -2802785267972767667
+    second: Crystal_Moneymaker_v3_10
+  - first:
+      213: -1102571977155166408
+    second: Crystal_Moneymaker_v3_11
+  - first:
+      213: 8734759323260963693
+    second: Crystal_Moneymaker_v3_12
+  - first:
+      213: -6480870231375011289
+    second: Crystal_Moneymaker_v3_13
+  - first:
+      213: 2987952582547836867
+    second: Crystal_Moneymaker_v3_14
+  - first:
+      213: -3670855637463056445
+    second: Crystal_Moneymaker_v3_15
+  - first:
+      213: -19908010021559216
+    second: Crystal_Moneymaker_v3_16
+  - first:
+      213: -5404024262686758175
+    second: Crystal_Moneymaker_v3_17
+  - first:
+      213: 9056524071539223148
+    second: Crystal_Moneymaker_v3_18
+  - first:
+      213: 8530147438366145325
+    second: Crystal_Moneymaker_v3_19
+  - first:
+      213: -1322494077883747285
+    second: Crystal_Moneymaker_v3_20
+  - first:
+      213: 2499000853096953875
+    second: Crystal_Moneymaker_v3_21
+  - first:
+      213: 5506818879586596580
+    second: Crystal_Moneymaker_v3_22
+  - first:
+      213: 8234247216902860779
+    second: Crystal_Moneymaker_v3_23
+  - first:
+      213: 4453848631201487328
+    second: Crystal_Moneymaker_v3_24
+  - first:
+      213: -738750182277284135
+    second: Crystal_Moneymaker_v3_25
+  - first:
+      213: 7614380953317853340
+    second: Crystal_Moneymaker_v3_26
+  - first:
+      213: 9157387715503313796
+    second: Crystal_Moneymaker_v3_27
+  - first:
+      213: 8704228874402438372
+    second: Crystal_Moneymaker_v3_28
+  - first:
+      213: -6116068485669056390
+    second: Crystal_Moneymaker_v3_29
+  - first:
+      213: 4185287650819455475
+    second: Crystal_Moneymaker_v3_30
+  - first:
+      213: 8310371157538780710
+    second: Crystal_Moneymaker_v3_31
+  - first:
+      213: 2805481703335644163
+    second: Crystal_Moneymaker_v3_32
+  - first:
+      213: 6221117498584597898
+    second: Crystal_Moneymaker_v3_33
+  - first:
+      213: 3196986981556648230
+    second: Crystal_Moneymaker_v3_34
+  - first:
+      213: 8249841517982688909
+    second: Crystal_Moneymaker_v3_35
+  - first:
+      213: 1325806927712678164
+    second: Crystal_Moneymaker_v3_36
+  - first:
+      213: -6760026379498985750
+    second: Crystal_Moneymaker_v3_37
+  - first:
+      213: 512371349021356134
+    second: Crystal_Moneymaker_v3_38
+  - first:
+      213: 1478195756166684349
+    second: Crystal_Moneymaker_v3_39
+  - first:
+      213: -8140610454779765424
+    second: Crystal_Moneymaker_v3_40
+  - first:
+      213: -101208173080985559
+    second: Crystal_Moneymaker_v3_41
+  - first:
+      213: -7173486217719208732
+    second: Crystal_Moneymaker_v3_42
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e0e557debf91b80800000000000000
+      internalID: -8423424630724882815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1fae401b9193d00800000000000000
+      internalID: 952821044247982511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ced738ca44b8cf0800000000000000
+      internalID: -249029846657799067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_3
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446d9125245333ec0800000000000000
+      internalID: -3588465919122614716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d6efa3fd27a0270800000000000000
+      internalID: 8217506773183917331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_5
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5135a313fc321f780800000000000000
+      internalID: -8651094036410903787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_6
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5c323c6b3a77cd0800000000000000
+      internalID: -2560397857783560713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_7
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c3376f53d5218f0800000000000000
+      internalID: -571291716373234651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa2af26266d220a0800000000000000
+      internalID: -6907723160377218385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_9
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1347fb66250a580800000000000000
+      internalID: -8817957469139226139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_10
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4009c806a18a19d0800000000000000
+      internalID: -2802785267972767667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_11
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83fbd52e0a0e2b0f0800000000000000
+      internalID: -1102571977155166408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_12
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 148
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b40856359183970800000000000000
+      internalID: 8734759323260963693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7222d779cd25f06a0800000000000000
+      internalID: -6480870231375011289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_14
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf89700b07577920800000000000000
+      internalID: 2987952582547836867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_15
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf364b2f308e0dc0800000000000000
+      internalID: -3670855637463056445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_16
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054ea7635c549bff0800000000000000
+      internalID: -19908010021559216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_17
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eaa6f8909c0105b0800000000000000
+      internalID: -5404024262686758175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_18
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6aaed7d8ac3fad70800000000000000
+      internalID: 9056524071539223148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_19
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2bb58986eb216670800000000000000
+      internalID: 8530147438366145325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_20
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b247e2e94ae85ade0800000000000000
+      internalID: -1322494077883747285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_21
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318fd3e190c3ea220800000000000000
+      internalID: 2499000853096953875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_22
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e67c2838962c6c40800000000000000
+      internalID: 5506818879586596580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_23
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef6e34873ce54270800000000000000
+      internalID: 8234247216902860779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_24
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9df1a8bbf3fcd30800000000000000
+      internalID: 4453848631201487328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_25
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de7b9f8f9e6fb5f0800000000000000
+      internalID: -738750182277284135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98c2036227bba960800000000000000
+      internalID: 7614380953317853340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_27
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483d91dfb93951f70800000000000000
+      internalID: 9157387715503313796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_28
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec94765b02abc870800000000000000
+      internalID: 8704228874402438372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_29
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a701cb9dd1c5f1ba0800000000000000
+      internalID: -6116068485669056390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_30
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f93ced91f0251a30800000000000000
+      internalID: 4185287650819455475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_31
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62630cc998e545370800000000000000
+      internalID: 8310371157538780710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_32
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ccd2fbeb21fe620800000000000000
+      internalID: 2805481703335644163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_33
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a850a117769d55650800000000000000
+      internalID: 6221117498584597898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_34
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6297b3ba8bafd5c20800000000000000
+      internalID: 3196986981556648230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_35
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86a0aca6235d7270800000000000000
+      internalID: 8249841517982688909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_36
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411f0175066366210800000000000000
+      internalID: 1325806927712678164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_37
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae661b1f2df8f22a0800000000000000
+      internalID: -6760026379498985750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_38
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 74
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 660718bf60f4c1700800000000000000
+      internalID: 512371349021356134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe1eca553b938410800000000000000
+      internalID: 1478195756166684349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_40
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 37
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d55041cedb60f80800000000000000
+      internalID: -8140610454779765424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_41
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920442be3bf689ef0800000000000000
+      internalID: -101208173080985559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal_Moneymaker_v3_42
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 3
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4afafaa48a27c90800000000000000
+      internalID: -7173486217719208732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

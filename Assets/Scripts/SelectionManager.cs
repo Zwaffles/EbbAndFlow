@@ -18,7 +18,7 @@ public class SelectionManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Utilities.GetMouseWorldPosition(), transform.forward, Mathf.Infinity, towerLayer);
-            Debug.DrawRay(Utilities.GetMouseWorldPosition(), transform.forward, Color.red, 10.0f);
+
             if (hit.collider != null)
             {
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
