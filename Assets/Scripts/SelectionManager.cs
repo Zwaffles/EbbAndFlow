@@ -56,12 +56,6 @@ public class SelectionManager : MonoBehaviour
         DefaultActionBarPanel();
     }
 
-    void OpenTowerUI()
-    {
-        towerUI.gameObject.SetActive(true);
-        towerUI.transform.GetChild(0).GetComponent<Image>().color = selectedTower.CheckTowerInfected() ? Color.gray : Color.white;
-    }
-
     void UpdateActionBarPanel(ActionBar actionBar)
     {
         GameManager.Instance.ActionBarManager.UpdateActionBar(actionBar);
@@ -83,6 +77,5 @@ public class SelectionManager : MonoBehaviour
         GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
         GameManager.Instance.BuildingManager.UpdateGraph();
         DefaultActionBarPanel();
-        CloseTowerUI();
     }
 }
