@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     private TimeScaleManager timeScaleManager;
     private SelectionManager selectionManager;
     private InfectionManager infectionManager;
+    private ActionBarManager actionBarManager;
     private BuildingManager buildingManager;
+    private TooltipManager tooltipManager;
     private SceneManager sceneManagement;
     private BuffManager buffManager;
 
@@ -25,7 +27,9 @@ public class GameManager : MonoBehaviour
     public TimeScaleManager TimeScaleManager {  get { return timeScaleManager; } }
     public SelectionManager SelectionManager { get { return selectionManager; } }
     public InfectionManager InfectionManager { get { return infectionManager; } }
+    public ActionBarManager ActionBarManager { get { return actionBarManager; } }
     public BuildingManager BuildingManager { get { return buildingManager; } }
+    public TooltipManager TooltipManager { get { return tooltipManager; } }
     public SceneManager SceneManagement { get { return sceneManagement; } }
     public BuffManager BuffManager { get { return buffManager; } }
 
@@ -60,7 +64,9 @@ public class GameManager : MonoBehaviour
         timeScaleManager = FindObjectOfType<TimeScaleManager>();
         selectionManager = FindObjectOfType<SelectionManager>();
         infectionManager = FindObjectOfType<InfectionManager>();
+        actionBarManager = FindObjectOfType<ActionBarManager>();
         buildingManager = FindObjectOfType<BuildingManager>();
+        tooltipManager = FindObjectOfType<TooltipManager>();
         sceneManagement = FindObjectOfType<SceneManager>();
         buffManager = FindObjectOfType<BuffManager>();
 

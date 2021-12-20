@@ -6,25 +6,41 @@ using TMPro;
 
 public class ActionBarButton: MonoBehaviour
 {
+    [SerializeField] private Image actionIcon;
+    [SerializeField] private float activationDelay = 0.1f;
+    private MultiImageButton actionButton;
+
+    private Tooltip tooltip;
     private Action action;
-    private Button actionButton;
-    private Image actionIcon;
+    
     private string actionTooltip;
 
     private void Awake()
     {
-        actionButton = GetComponent<Button>();
-        actionIcon = GetComponentInChildren<Image>();
+        actionButton = GetComponent<MultiImageButton>();
+        tooltip = GetComponent<Tooltip>();
     }
 
-    public void InitializeActionButton(Action action, Sprite icon, string tooltip)
+    public void UpdateActionButton(Action action, Sprite icon, string tooltip)
     {
         this.action = action;
         actionIcon.sprite = icon;
         actionTooltip = tooltip;
+        this.tooltip.UpdateTooltip(tooltip);
+        EnableActionButton();
     }
 
-    public void OnClick()
+    private void OnMouseOver()
+    {
+        Debug.Log("Hover over " + gameObject.name);
+    }
+
+    private void DelayedActivation()
+    {
+        actionButton.enabled = true;
+    }
+
+    public void UseAction()
     {
         action.UseAction();
     }
@@ -42,10 +58,12 @@ public class ActionBarButton: MonoBehaviour
     public void EnableActionButton()
     {
         gameObject.SetActive(true);
+        Invoke("DelayedActivation", activationDelay);
     }
 
     public void DisableActionButton()
     {
+        actionButton.enabled = false;
         gameObject.SetActive(false);
     }
 }
