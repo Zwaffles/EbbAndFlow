@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49d681c7f2e70e4487bc39a859b29a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionBar: {fileID: 0}
   turret: {fileID: 0}
   fireRate: 0
   modifierType: 4

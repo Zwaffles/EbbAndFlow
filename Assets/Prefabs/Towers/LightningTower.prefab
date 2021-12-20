@@ -294,9 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionBar: {fileID: 0}
   turret: {fileID: 0}
   fireRate: 1
-  modifierType: 3
+  modifierType: 1
   baseCost: 10
   sellPrice: 3
   isInfected: 0
