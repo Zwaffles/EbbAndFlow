@@ -32099,7 +32099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.size
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: waves.Array.data[0]
@@ -32181,6 +32181,26 @@ PrefabInstance:
       propertyPath: waves.Array.data[19]
       value: 
       objectReference: {fileID: 11400000, guid: 84505b9ec85442a4ea1e5b7349467a10, type: 2}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: waves.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: 766bf28b0df842647bee66d6e703d161, type: 2}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: waves.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: e2c87c8e564502e4ab7a9655a2947526, type: 2}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: waves.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1273cc1c8f993644d9e0ee3f176bb5f2, type: 2}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: waves.Array.data[23]
+      value: 
+      objectReference: {fileID: 11400000, guid: 74cc69af7d6b4574da0529ca74364a2c, type: 2}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: waves.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: 071081d084239654588fc420c0d06e92, type: 2}
     - target: {fileID: 3518691760054999368, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -33382,7 +33402,7 @@ PrefabInstance:
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedSpawnModifiers.Array.data[1].enemiesToSpawn.Array.data[1]
       value: 
-      objectReference: {fileID: 3800213037063682495, guid: 2572b7bc1a5c19f4785264974d135f8c, type: 3}
+      objectReference: {fileID: 3800213037063682495, guid: 37e2f7b2ba5eb8d4eb717129528bd32e, type: 3}
     - target: {fileID: 8337210360985748033, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: m_Name
       value: BuffManager
