@@ -17,32 +17,32 @@ public class PlayerCurrency : MonoBehaviour
 
     private void Start()
     {
-        normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
-        infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+        normalCurrencyText.text = ("Normal Currency: " + playerNormalCurrency.ToString());
+        infectedCurrencyText.text = ("Infected Currency: " + playerInfectedCurrency.ToString());
     }
 
     public void AddPlayerNormalCurrency(int amount)
     {
         playerNormalCurrency += amount;
-        normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
+        normalCurrencyText.text = ("Normal Currency: " + playerNormalCurrency.ToString());
     }
 
     public void RemovePlayerNormalCurrency(int amount)
     {
         playerNormalCurrency -= amount;
-        normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
+        normalCurrencyText.text = ("Normal Currency: " + playerNormalCurrency.ToString());
     }
 
     public void AddPlayerInfectedCurrency(int amount)
     {
         playerInfectedCurrency += amount;
-        infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+        infectedCurrencyText.text = ("Infected Currency: " + playerInfectedCurrency.ToString());
     }
 
     public void RemovePlayerInfectedCurrency(int amount)
     {
         playerInfectedCurrency -= amount;
-        infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+        infectedCurrencyText.text = ("Infected Currency: " + playerInfectedCurrency.ToString());
     }
 
     public bool CanBuy(int cost)
