@@ -17555,6 +17555,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 755798363}
+    - target: {fileID: 6077243506368680671, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 130216030}
+    - target: {fileID: 6077243506368680671, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 6077243506937438273, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
