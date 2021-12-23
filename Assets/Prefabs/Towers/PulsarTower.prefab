@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionBar: {fileID: 11400000, guid: b7d2f8645c7b0f64b9b911661156460f, type: 2}
   turret: {fileID: 0}
   fireRate: 1.5
   modifierType: 2
