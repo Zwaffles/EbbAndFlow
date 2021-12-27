@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 5397961501414708611}
   - component: {fileID: 5397961501414708614}
   - component: {fileID: 5422224227217685564}
+  - component: {fileID: -2546218072013578483}
   m_Layer: 7
   m_Name: LightningTower
   m_TagString: Untagged
@@ -217,11 +218,11 @@ MonoBehaviour:
   modifierType: 3
   baseCost: 10
   sellPrice: 3
-  isInfected: 0
-  infectionScore: 0
   infectionScoreUI: {fileID: 8188251127653013830}
   infectionScoreText: {fileID: 4570008168370623021}
   scoreRequiredForCorruption: 5
+  isInfected: 0
+  infectionScore: 0
   projectilePrefab: {fileID: 7077911764423161174, guid: f7bc15b2e0801284b96f1f862e876d65, type: 3}
   damage: 20
   splashRadius: 0
@@ -240,6 +241,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 94585998120380911}
+--- !u!114 &-2546218072013578483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397961501414708609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7714c7024c56e942bdf03e440dca8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningTowerUpgrades:
+  - upgrade: Upgrade 1
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    numberOfTargets: 1
+    upgradeCost: 5
+  - upgrade: Upgrade 2
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    numberOfTargets: 1
+    upgradeCost: 5
+  - upgrade: Upgrade 3
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    numberOfTargets: 1
+    upgradeCost: 5
+  - upgrade: Upgrade 4
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    numberOfTargets: 1
+    upgradeCost: 5
+  - upgrade: Upgrade 5
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    numberOfTargets: 1
+    upgradeCost: 5
 --- !u!1 &7642219740863972336
 GameObject:
   m_ObjectHideFlags: 0

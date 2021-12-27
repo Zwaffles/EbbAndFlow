@@ -23959,6 +23959,10 @@ PrefabInstance:
       propertyPath: infectedCurrencyText
       value: 
       objectReference: {fileID: 5723208971381236588}
+    - target: {fileID: 5022140291064173087, guid: 4763bf8b53b40164490312d1e050c6cb, type: 3}
+      propertyPath: playerNormalCurrency
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6714489503304541929, guid: 4763bf8b53b40164490312d1e050c6cb, type: 3}
       propertyPath: m_RootOrder
       value: 9

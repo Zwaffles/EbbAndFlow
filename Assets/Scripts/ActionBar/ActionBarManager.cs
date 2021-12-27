@@ -38,5 +38,14 @@ public class ActionBarManager : MonoBehaviour
             Action newAction = actionBar.Actions[i];
             actionBarButtons[newAction.ActionBarOrder].UpdateActionButton(newAction, newAction.ActionIcon, newAction.ActionTooltip);
         }
+        UpdateButtonStates();
+    }
+
+    public void UpdateButtonStates()
+    {
+        for (int i = 0; i < actionBarButtons.Count; i++)
+        {
+            actionBarButtons[i].UpdateState();
+        }
     }
 }

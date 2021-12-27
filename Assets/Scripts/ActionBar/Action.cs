@@ -23,4 +23,9 @@ public abstract class Action: ScriptableObject
     {
 
     }
+
+    public virtual bool Interactable()
+    {
+        return true;
+    }
 }

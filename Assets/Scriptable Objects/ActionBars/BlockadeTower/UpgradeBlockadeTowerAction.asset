@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionBarOrder: 3
   actionIcon: {fileID: -5214620469579322617, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
-  actionTooltip: USE 'VALUE' 'CURRENCY NAME' TO UPGRADES THIS TOWER.
+  actionTooltip: This does nothing and is completely worthless :)

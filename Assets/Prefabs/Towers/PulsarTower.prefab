@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1894824103181417030}
   - component: {fileID: 1894824103181417032}
   - component: {fileID: 4443643862011117749}
+  - component: {fileID: -5825864515148485070}
   m_Layer: 7
   m_Name: PulsarTower
   m_TagString: Untagged
@@ -157,11 +158,11 @@ MonoBehaviour:
   modifierType: 2
   baseCost: 8
   sellPrice: 3
-  isInfected: 0
-  infectionScore: 0
   infectionScoreUI: {fileID: 5475668045344713534}
   infectionScoreText: {fileID: 374948996840742997}
   scoreRequiredForCorruption: 5
+  isInfected: 0
+  infectionScore: 0
   projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
   damage: 30
   splashRadius: 3
@@ -180,6 +181,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 2455825870989433894}
+--- !u!114 &-5825864515148485070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894824103181417033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c45e2491827d840b84588f4fe410f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulsarTowerUpgrades:
+  - upgrade: Upgrade 1
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    splashRadius: 0.25
+    splashDamage: 5
+    upgradeCost: 5
+  - upgrade: Upgrade 2
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    splashRadius: 0.25
+    splashDamage: 5
+    upgradeCost: 5
+  - upgrade: Upgrade 3
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    splashRadius: 0.25
+    splashDamage: 5
+    upgradeCost: 5
+  - upgrade: Upgrade 4
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    splashRadius: 0.25
+    splashDamage: 5
+    upgradeCost: 5
+  - upgrade: Upgrade 5
+    damageIncrease: 5
+    rangeIncrease: 1
+    fireRateIncrease: 0.2
+    splashRadius: 0.25
+    splashDamage: 5
+    upgradeCost: 5
 --- !u!1 &4192528932975907368
 GameObject:
   m_ObjectHideFlags: 0

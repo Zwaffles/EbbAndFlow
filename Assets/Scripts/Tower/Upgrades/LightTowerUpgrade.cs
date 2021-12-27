@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+[Serializable]
+public class LightTowerUpgrade
+{
+    public string upgrade = "Upgrade 1";
+
+    [Header("Upgrades")]
+    [SerializeField] private float damageIncrease = 5.0f;
+    [SerializeField] private float rangeIncrease = 1.0f;
+    [SerializeField] private float fireRateIncrease = 0.2f;
+
+    [Header("Cost")]
+    [SerializeField] private int upgradeCost = 5;
+
+    public float DamageIncrease { get { return damageIncrease; } set { damageIncrease = value; } }
+    public float RangeIncrease { get { return rangeIncrease; } set { rangeIncrease = value; } }
+    public float FireRateIncrease { get { return fireRateIncrease; } set { fireRateIncrease = value; } }
+    public int UpgradeCost { get { return upgradeCost; } set { upgradeCost = value; } }
+}

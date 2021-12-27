@@ -18,17 +18,20 @@ public class Tower : MonoBehaviour
     [SerializeField] protected Transform turret;
     [SerializeField] public float fireRate = 1.0f;
     [SerializeField] private ModifierType modifierType;
+
+    [Header("Tower Cost")]
     public int baseCost = 100;
     public int sellPrice = 75;
 
-    protected float cooldown;
-    protected Animator animator;
-    [SerializeField] protected bool isInfected;
-    [SerializeField] private int infectionScore = 0;
-
+    [Header("Infection Settings")]
     [SerializeField] GameObject infectionScoreUI;
     [SerializeField] TextMeshProUGUI infectionScoreText;
     [SerializeField] private int scoreRequiredForCorruption = 1;
+    [SerializeField] protected bool isInfected;
+    [SerializeField] private int infectionScore = 0;
+
+    protected float cooldown;
+    protected Animator animator;
 
     public ActionBar ActionBar { get { return actionBar; } }
 
