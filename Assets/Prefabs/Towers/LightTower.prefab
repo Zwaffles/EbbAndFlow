@@ -237,6 +237,7 @@ MonoBehaviour:
   actionBar: {fileID: 11400000, guid: 8050021d5fd4ec14ca315f6dc3548fc7, type: 2}
   turret: {fileID: 0}
   fireRate: 0.8
+  towerType: 2
   modifierType: 1
   baseCost: 6
   sellPrice: 3
@@ -277,29 +278,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightTowerUpgrades:
   - upgrade: Upgrade 1
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     upgradeCost: 5
   - upgrade: Upgrade 2
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     upgradeCost: 5
   - upgrade: Upgrade 3
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     upgradeCost: 5
   - upgrade: Upgrade 4
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     upgradeCost: 5
   - upgrade: Upgrade 5
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     upgradeCost: 5
 --- !u!1 &7180545969340166651
 GameObject:

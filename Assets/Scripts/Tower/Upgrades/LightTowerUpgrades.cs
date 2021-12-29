@@ -39,9 +39,9 @@ public class LightTowerUpgrades : TowerUpgrades
         base.UpgradeTower();
 
         CurrentUpgrade++;
-        attackTower.Damage += lightTowerUpgrades[CurrentUpgrade].DamageIncrease;
-        attackTower.Range += lightTowerUpgrades[CurrentUpgrade].RangeIncrease;
-        attackTower.FireRate += lightTowerUpgrades[CurrentUpgrade].FireRateIncrease;
+        attackTower.Damage *= (1.0f + lightTowerUpgrades[CurrentUpgrade].DamageIncrease);
+        attackTower.Range *= (1.0f + lightTowerUpgrades[CurrentUpgrade].RangeIncrease);
+        attackTower.FireRate *= (1.0f + lightTowerUpgrades[CurrentUpgrade].FireRateIncrease);
         attackTower.GetComponent<TowerRangeOutline>().UpdateOutline();
         GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(lightTowerUpgrades[CurrentUpgrade].UpgradeCost);
     }

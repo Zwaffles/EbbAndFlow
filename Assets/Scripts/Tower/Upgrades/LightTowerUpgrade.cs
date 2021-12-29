@@ -9,9 +9,12 @@ public class LightTowerUpgrade
     public string upgrade = "Upgrade 1";
 
     [Header("Upgrades")]
-    [SerializeField] private float damageIncrease = 5.0f;
-    [SerializeField] private float rangeIncrease = 1.0f;
-    [SerializeField] private float fireRateIncrease = 0.2f;
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float damageIncrease = 0.25f;
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float rangeIncrease = 0.25f;
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float fireRateIncrease = 0.25f;
 
     [Header("Cost")]
     [SerializeField] private int upgradeCost = 5;

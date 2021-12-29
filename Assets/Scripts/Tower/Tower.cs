@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
+    public enum TowerType
+    {
+        Blockade, EnergyTower, LightTower, LightningTower, PulsarTower
+    }
+
     public enum ModifierType
     {
         None, Health, Speed, Damage, Currency
@@ -17,6 +22,7 @@ public class Tower : MonoBehaviour
     [Header("Tower Settings")]
     [SerializeField] protected Transform turret;
     [SerializeField] public float fireRate = 1.0f;
+    [SerializeField] private TowerType towerType;
     [SerializeField] private ModifierType modifierType;
 
     [Header("Tower Cost")]

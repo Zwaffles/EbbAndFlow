@@ -215,6 +215,7 @@ MonoBehaviour:
   actionBar: {fileID: 11400000, guid: 2f00c6642f94cce4d9fabb3f2bf2ec3a, type: 2}
   turret: {fileID: 0}
   fireRate: 1
+  towerType: 3
   modifierType: 3
   baseCost: 10
   sellPrice: 3
@@ -255,33 +256,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningTowerUpgrades:
   - upgrade: Upgrade 1
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     numberOfTargets: 1
     upgradeCost: 5
   - upgrade: Upgrade 2
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     numberOfTargets: 1
     upgradeCost: 5
   - upgrade: Upgrade 3
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     numberOfTargets: 1
     upgradeCost: 5
   - upgrade: Upgrade 4
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     numberOfTargets: 1
     upgradeCost: 5
   - upgrade: Upgrade 5
-    damageIncrease: 5
-    rangeIncrease: 1
-    fireRateIncrease: 0.2
+    damageIncrease: 0.25
+    rangeIncrease: 0.25
+    fireRateIncrease: 0.25
     numberOfTargets: 1
     upgradeCost: 5
 --- !u!1 &7642219740863972336

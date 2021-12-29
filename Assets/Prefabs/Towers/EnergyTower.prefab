@@ -371,6 +371,7 @@ MonoBehaviour:
   actionBar: {fileID: 11400000, guid: a9baf466e42369d47b9e0a97f818d040, type: 2}
   turret: {fileID: 0}
   fireRate: 0
+  towerType: 1
   modifierType: 4
   baseCost: 15
   sellPrice: 7

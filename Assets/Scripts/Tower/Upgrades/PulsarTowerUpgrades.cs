@@ -39,11 +39,11 @@ public class PulsarTowerUpgrades : TowerUpgrades
         base.UpgradeTower();
 
         CurrentUpgrade++;
-        attackTower.Damage += pulsarTowerUpgrades[CurrentUpgrade].DamageIncrease;
-        attackTower.Range += pulsarTowerUpgrades[CurrentUpgrade].RangeIncrease;
-        attackTower.FireRate += pulsarTowerUpgrades[CurrentUpgrade].FireRateIncrease;
-        attackTower.SplashRadius += pulsarTowerUpgrades[CurrentUpgrade].SplashRadius;
-        attackTower.SplashDamage += pulsarTowerUpgrades[CurrentUpgrade].SplashDamage;
+        attackTower.Damage *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].DamageIncrease);
+        attackTower.Range *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].RangeIncrease);
+        attackTower.FireRate *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].FireRateIncrease);
+        attackTower.SplashRadius *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashRadius);
+        attackTower.SplashDamage *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashDamage);
         attackTower.GetComponent<TowerRangeOutline>().UpdateOutline();
         GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(pulsarTowerUpgrades[CurrentUpgrade].UpgradeCost);
     }
