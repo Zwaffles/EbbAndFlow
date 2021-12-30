@@ -11800,6 +11800,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a2b1fd60573ae498ca36738fd0c813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  permanentEnergyTowerUpgrades:
+    upgrade: Energy Tower Upgrades
+    upgradeCost: 0
+    currencyPerWave: 0
+  permanentLightTowerUpgrades:
+    upgrade: Light Tower Upgrades
+    upgradeCost: 0
+    damageIncrease: 0
+    rangeIncrease: 0
+    fireRateIncrease: 0
+  permanentLightningTowerUpgrades:
+    upgrade: Ligtning Tower Upgrades
+    upgradeCost: 0
+    damageIncrease: 0
+    rangeIncrease: 0
+    fireRateIncrease: 0
+    numberOfTargets: 0
+  permanentPulsarTowerUpgrades:
+    upgrade: Pulsar Tower Upgrades
+    upgradeCost: 0
+    damageIncrease: 0
+    rangeIncrease: 0
+    fireRateIncrease: 0
+    splashRadius: 0
+    splashDamage: 0
 --- !u!114 &299640693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 162093081662066237, guid: 2289f8f09c0cd6542b9e964d5c96f029, type: 3}

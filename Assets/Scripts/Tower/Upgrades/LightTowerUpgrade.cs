@@ -4,10 +4,8 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class LightTowerUpgrade
+public class LightTowerUpgrade: TowerUpgrade
 {
-    public string upgrade = "Upgrade 1";
-
     [Header("Upgrades")]
     [Range(0.0f, 1.0f)]
     [SerializeField] private float damageIncrease = 0.25f;
@@ -16,11 +14,14 @@ public class LightTowerUpgrade
     [Range(0.0f, 1.0f)]
     [SerializeField] private float fireRateIncrease = 0.25f;
 
-    [Header("Cost")]
-    [SerializeField] private int upgradeCost = 5;
-
     public float DamageIncrease { get { return damageIncrease; } set { damageIncrease = value; } }
     public float RangeIncrease { get { return rangeIncrease; } set { rangeIncrease = value; } }
     public float FireRateIncrease { get { return fireRateIncrease; } set { fireRateIncrease = value; } }
-    public int UpgradeCost { get { return upgradeCost; } set { upgradeCost = value; } }
+    public LightTowerUpgrade()
+    {
+        UpgradeCost = 0;
+        damageIncrease = 0;
+        rangeIncrease = 0;
+        fireRateIncrease = 0;
+    }
 }
