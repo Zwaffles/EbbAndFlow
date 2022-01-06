@@ -11757,78 +11757,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282012917}
   m_CullTransparentMesh: 1
---- !u!1 &290196985
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 290196986}
-  - component: {fileID: 290196987}
-  m_Layer: 0
-  m_Name: UpgradeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &290196986
+--- !u!4 &290196986 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+  m_PrefabInstance: {fileID: 1252317787742363146}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290196985}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1774469151}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &290196987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290196985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2a2b1fd60573ae498ca36738fd0c813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  permanentEnergyTowerUpgrades:
-    upgrade: Energy Tower Upgrades
-    upgradeCost: 0
-    currencyPerWave: 0
-  permanentLightTowerUpgrades:
-    upgrade: Light Tower Upgrades
-    upgradeCost: 0
-    damageIncrease: 0
-    rangeIncrease: 0
-    fireRateIncrease: 0
-  permanentLightningTowerUpgrades:
-    upgrade: Ligtning Tower Upgrades
-    upgradeCost: 0
-    damageIncrease: 0
-    rangeIncrease: 0
-    fireRateIncrease: 0
-    numberOfTargets: 0
-  permanentPulsarTowerUpgrades:
-    upgrade: Pulsar Tower Upgrades
-    upgradeCost: 0
-    damageIncrease: 0
-    rangeIncrease: 0
-    fireRateIncrease: 0
-    splashRadius: 0
-    splashDamage: 0
-  energyTowers: []
-  lightTowers: []
-  lightningTowers: []
-  pulsarTowers: []
 --- !u!114 &299640693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 162093081662066237, guid: 2289f8f09c0cd6542b9e964d5c96f029, type: 3}
@@ -17097,50 +17030,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1681869255
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1681869256}
-  - component: {fileID: 1681869257}
-  m_Layer: 0
-  m_Name: TooltipManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1681869256
+--- !u!4 &1681869256 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+  m_PrefabInstance: {fileID: 3819124604025815175}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681869255}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1774469151}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1681869257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681869255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d970c63d3a30eb645ad925f866f72295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tooltipPanel: {fileID: 604877934}
 --- !u!1 &1735040856
 GameObject:
   m_ObjectHideFlags: 0
@@ -21170,6 +21064,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1252317787742363146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1774469151}
+    m_Modifications:
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245872, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245875, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: m_Name
+      value: UpgradeManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
 --- !u!1001 &1260687765556685068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23175,6 +23126,67 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &3819124604025815175
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1774469151}
+    m_Modifications:
+    - target: {fileID: 7848904374608228737, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_Name
+      value: TooltipManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228750, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848904374608228751, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
+      propertyPath: tooltipPanel
+      value: 
+      objectReference: {fileID: 604877934}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f13584105c1c7034b9e1566f5d0e7e04, type: 3}
 --- !u!222 &3856919123776819251
 CanvasRenderer:
   m_ObjectHideFlags: 0
