@@ -15,7 +15,7 @@ public abstract class TowerUpgrades : MonoBehaviour
     }
 
 
-    public virtual void UpgradeTower()
+    public virtual void UpgradeTower(bool increaseUpgradeIndex = true)
     {
         
     }

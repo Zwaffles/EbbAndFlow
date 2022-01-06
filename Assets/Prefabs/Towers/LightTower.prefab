@@ -251,6 +251,9 @@ MonoBehaviour:
   splashRadius: 0
   splashDamage: 0
   numberOfTargets: 1
+  baseDamage: 0
+  baseRange: 0
+  baseFireRate: 0
 --- !u!114 &997537180801948738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,30 +281,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightTowerUpgrades:
   - upgrade: Upgrade 1
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
     upgradeCost: 5
+    damageIncrease: 0.1
+    rangeIncrease: 0.1
+    fireRateIncrease: 0.1
   - upgrade: Upgrade 2
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
     upgradeCost: 5
+    damageIncrease: 0.2
+    rangeIncrease: 0.2
+    fireRateIncrease: 0.2
   - upgrade: Upgrade 3
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
     upgradeCost: 5
+    damageIncrease: 0.3
+    rangeIncrease: 0.3
+    fireRateIncrease: 0.3
   - upgrade: Upgrade 4
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
     upgradeCost: 5
+    damageIncrease: 0.4
+    rangeIncrease: 0.4
+    fireRateIncrease: 0.4
   - upgrade: Upgrade 5
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
     upgradeCost: 5
+    damageIncrease: 0.5
+    rangeIncrease: 0.5
+    fireRateIncrease: 0.5
 --- !u!1 &7180545969340166651
 GameObject:
   m_ObjectHideFlags: 0

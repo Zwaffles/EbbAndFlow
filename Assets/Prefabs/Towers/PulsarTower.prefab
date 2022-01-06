@@ -169,6 +169,9 @@ MonoBehaviour:
   splashRadius: 3
   splashDamage: 25
   numberOfTargets: 1
+  baseDamage: 0
+  baseRange: 0
+  baseFireRate: 0
 --- !u!114 &4443643862011117749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,40 +199,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pulsarTowerUpgrades:
   - upgrade: Upgrade 1
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    splashRadius: 0.25
-    splashDamage: 0.25
     upgradeCost: 5
+    damageIncrease: 0.1
+    rangeIncrease: 0.1
+    fireRateIncrease: 0.1
+    splashRadius: 0.1
+    splashDamage: 0.1
   - upgrade: Upgrade 2
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    splashRadius: 0.25
-    splashDamage: 0.25
     upgradeCost: 5
+    damageIncrease: 0.2
+    rangeIncrease: 0.2
+    fireRateIncrease: 0.2
+    splashRadius: 0.2
+    splashDamage: 0.2
   - upgrade: Upgrade 3
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    splashRadius: 0.25
-    splashDamage: 0.25
     upgradeCost: 5
+    damageIncrease: 0.3
+    rangeIncrease: 0.3
+    fireRateIncrease: 0.3
+    splashRadius: 0.3
+    splashDamage: 0.3
   - upgrade: Upgrade 4
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    splashRadius: 0.25
-    splashDamage: 0.25
     upgradeCost: 5
+    damageIncrease: 0.4
+    rangeIncrease: 0.4
+    fireRateIncrease: 0.4
+    splashRadius: 0.4
+    splashDamage: 0.4
   - upgrade: Upgrade 5
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    splashRadius: 0.25
-    splashDamage: 0.25
     upgradeCost: 5
+    damageIncrease: 0.5
+    rangeIncrease: 0.5
+    fireRateIncrease: 0.5
+    splashRadius: 0.5
+    splashDamage: 0.5
 --- !u!1 &4192528932975907368
 GameObject:
   m_ObjectHideFlags: 0

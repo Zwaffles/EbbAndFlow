@@ -229,6 +229,9 @@ MonoBehaviour:
   splashRadius: 0
   splashDamage: 0
   numberOfTargets: 4
+  baseDamage: 0
+  baseRange: 0
+  baseFireRate: 0
 --- !u!114 &5422224227217685564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,35 +259,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningTowerUpgrades:
   - upgrade: Upgrade 1
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    numberOfTargets: 1
     upgradeCost: 5
+    damageIncrease: 0.1
+    rangeIncrease: 0.1
+    fireRateIncrease: 0.1
+    numberOfTargets: 1
   - upgrade: Upgrade 2
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    numberOfTargets: 1
     upgradeCost: 5
+    damageIncrease: 0.2
+    rangeIncrease: 0.2
+    fireRateIncrease: 0.2
+    numberOfTargets: 5
   - upgrade: Upgrade 3
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    numberOfTargets: 1
     upgradeCost: 5
+    damageIncrease: 0.3
+    rangeIncrease: 0.3
+    fireRateIncrease: 0.3
+    numberOfTargets: 6
   - upgrade: Upgrade 4
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    numberOfTargets: 1
     upgradeCost: 5
+    damageIncrease: 0.4
+    rangeIncrease: 0.4
+    fireRateIncrease: 0.4
+    numberOfTargets: 7
   - upgrade: Upgrade 5
-    damageIncrease: 0.25
-    rangeIncrease: 0.25
-    fireRateIncrease: 0.25
-    numberOfTargets: 1
     upgradeCost: 5
+    damageIncrease: 0.5
+    rangeIncrease: 0.5
+    fireRateIncrease: 0.5
+    numberOfTargets: 8
 --- !u!1 &7642219740863972336
 GameObject:
   m_ObjectHideFlags: 0

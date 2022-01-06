@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Permanent Tower Upgrade Action", menuName = "ActionBar/Permanent Tower Upgrade", order = 3)]
 public class PermanentTowerUpgradeAction : Action
 {
-    public enum Upgrade { Damage, Range, Speed }
+    public enum Upgrade { Damage, Range, Speed, Currency }
 
     [SerializeField] private Tower.TowerType towerType;
     [SerializeField] private Upgrade upgradeType;
@@ -19,12 +19,17 @@ public class PermanentTowerUpgradeAction : Action
     public override void UseAction()
     {
         base.UseAction();
-        GameManager.Instance.UpgradeManager.UpgradeTowerType(Tower.TowerType.LightningTower, upgradeType, percentageValue);
+        if (GameManager.Instance.PlayerCurrency.CanBuy(upgradeCost))
+        {
+            GameManager.Instance.UpgradeManager.UpgradeTowerType(towerType, upgradeType, percentageValue);
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(upgradeCost);
+        }
+        
     }
 
     public override bool Interactable()
     {
-        if (GameManager.Instance.PlayerCurrency)
+        if (GameManager.Instance.PlayerCurrency.CanBuy(upgradeCost))
         {
             return true;
         }

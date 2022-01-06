@@ -34,15 +34,28 @@ public class LightTowerUpgrades : TowerUpgrades
         }
     }
 
-    public override void UpgradeTower()
+    public override void UpgradeTower(bool increaseUpgradeIndex = true)
     {
-        base.UpgradeTower();
+        if (increaseUpgradeIndex)
+        {
+            CurrentUpgrade++;
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(lightTowerUpgrades[CurrentUpgrade].UpgradeCost);
+        }
 
-        CurrentUpgrade++;
-        attackTower.Damage *= (1.0f + lightTowerUpgrades[CurrentUpgrade].DamageIncrease);
-        attackTower.Range *= (1.0f + lightTowerUpgrades[CurrentUpgrade].RangeIncrease);
-        attackTower.FireRate *= (1.0f + lightTowerUpgrades[CurrentUpgrade].FireRateIncrease);
+        /* Tower not upgraded */
+        if (CurrentUpgrade < 0)
+        {
+            attackTower.Damage = attackTower.BaseDamage * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.DamageIncrease);
+            attackTower.Range = attackTower.BaseRange * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.RangeIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.FireRateIncrease);
+        }
+        else
+        {
+            attackTower.Damage = attackTower.BaseDamage * (1.0f + lightTowerUpgrades[CurrentUpgrade].DamageIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.DamageIncrease);
+            attackTower.Range = attackTower.BaseRange * (1.0f + lightTowerUpgrades[CurrentUpgrade].RangeIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.RangeIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + lightTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.FireRateIncrease);
+        }
+     
         attackTower.GetComponent<TowerRangeOutline>().UpdateOutline();
-        GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(lightTowerUpgrades[CurrentUpgrade].UpgradeCost);
     }
 }

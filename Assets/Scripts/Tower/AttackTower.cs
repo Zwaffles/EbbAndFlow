@@ -14,9 +14,9 @@ public class AttackTower : Tower
     private TowerTargeting towerTargeting;
     private Transform target;
 
-    private float baseDamage;
-    private float baseRange;
-    private float baseFireRate;
+    [SerializeField] private float baseDamage;
+    [SerializeField] private float baseRange;
+    [SerializeField] private float baseFireRate;
     private float baseSplashRadius;
     private float baseSplashDamage;
     private int baseNumberOfTargets;

@@ -41,6 +41,11 @@ public class Tower : MonoBehaviour
 
     public ActionBar ActionBar { get { return actionBar; } }
 
+    private void Start()
+    {
+        GameManager.Instance.UpgradeManager.AddTower(GetComponent<TowerUpgrades>(), towerType);
+    }
+
     public ModifierType GetModifierType()
     {
         return modifierType;
@@ -66,10 +71,15 @@ public class Tower : MonoBehaviour
         return infectionScore;
     }
 
+    public void RemoveTower()
+    {
+        GameManager.Instance.UpgradeManager.RemoveTower(GetComponent<TowerUpgrades>(), towerType);
+    }
+
     public void InfectTower()
     {
         isInfected = true;
-        
+        RemoveTower();
         GameManager.Instance.BuffManager.AddInfectedTower(this);
         if (GetComponent<Animator>())
         {

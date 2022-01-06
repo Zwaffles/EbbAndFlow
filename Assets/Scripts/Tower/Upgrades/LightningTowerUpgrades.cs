@@ -34,16 +34,30 @@ public class LightningTowerUpgrades : TowerUpgrades
         }
     }
 
-    public override void UpgradeTower()
+    public override void UpgradeTower(bool increaseUpgradeIndex = true)
     {
-        base.UpgradeTower();
-
-        CurrentUpgrade++;
-        attackTower.Damage *= (1.0f + lightningTowerUpgrades[CurrentUpgrade].DamageIncrease);
-        attackTower.Range *= (1.0f + lightningTowerUpgrades[CurrentUpgrade].RangeIncrease);
-        attackTower.FireRate *= (1.0f + lightningTowerUpgrades[CurrentUpgrade].FireRateIncrease);
-        attackTower.NumberOfTargets += lightningTowerUpgrades[CurrentUpgrade].NumberOfTargets;
+        if (increaseUpgradeIndex)
+        {
+            CurrentUpgrade++;
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(lightningTowerUpgrades[CurrentUpgrade].UpgradeCost);
+        }
+        
+        /* Tower not upgraded */
+        if(CurrentUpgrade < 0)
+        {
+            attackTower.Damage = attackTower.BaseDamage * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.DamageIncrease);
+            attackTower.Range = attackTower.BaseRange * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.RangeIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.FireRateIncrease);
+            attackTower.NumberOfTargets = attackTower.BaseNumberOfTargets;
+        }
+        else
+        {
+            attackTower.Damage = attackTower.BaseDamage * (1.0f + lightningTowerUpgrades[CurrentUpgrade].DamageIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.DamageIncrease);
+            attackTower.Range = attackTower.BaseRange * (1.0f + lightningTowerUpgrades[CurrentUpgrade].RangeIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.RangeIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + lightningTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.FireRateIncrease);
+            attackTower.NumberOfTargets = attackTower.BaseNumberOfTargets + lightningTowerUpgrades[CurrentUpgrade].NumberOfTargets;
+        }
+        
         attackTower.GetComponent<TowerRangeOutline>().UpdateOutline();
-        GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(lightningTowerUpgrades[CurrentUpgrade].UpgradeCost);
     }
 }

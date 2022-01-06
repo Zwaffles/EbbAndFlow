@@ -11825,6 +11825,10 @@ MonoBehaviour:
     fireRateIncrease: 0
     splashRadius: 0
     splashDamage: 0
+  energyTowers: []
+  lightTowers: []
+  lightningTowers: []
+  pulsarTowers: []
 --- !u!114 &299640693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 162093081662066237, guid: 2289f8f09c0cd6542b9e964d5c96f029, type: 3}
@@ -24030,7 +24034,7 @@ PrefabInstance:
       objectReference: {fileID: 5723208971381236588}
     - target: {fileID: 5022140291064173087, guid: 4763bf8b53b40164490312d1e050c6cb, type: 3}
       propertyPath: playerNormalCurrency
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6714489503304541929, guid: 4763bf8b53b40164490312d1e050c6cb, type: 3}
       propertyPath: m_RootOrder

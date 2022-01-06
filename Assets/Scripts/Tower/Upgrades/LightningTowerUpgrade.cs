@@ -8,10 +8,13 @@ public class LightningTowerUpgrade : TowerUpgrade
 {
     [Header("Upgrades")]
     [Range(0.0f, 1.0f)]
+    [Tooltip("Increase in percent!")]
     [SerializeField] private float damageIncrease = 0.25f;
     [Range(0.0f, 1.0f)]
+    [Tooltip("Increase in percent!")]
     [SerializeField] private float rangeIncrease = 0.25f;
     [Range(0.0f, 1.0f)]
+    [Tooltip("Increase in percent!")]
     [SerializeField] private float fireRateIncrease = 0.25f;
     [SerializeField] private int numberOfTargets = 1;
 

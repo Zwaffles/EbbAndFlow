@@ -34,17 +34,32 @@ public class PulsarTowerUpgrades : TowerUpgrades
         }
     }
 
-    public override void UpgradeTower()
+    public override void UpgradeTower(bool increaseUpgradeIndex = true)
     {
-        base.UpgradeTower();
+        if (increaseUpgradeIndex)
+        {
+            CurrentUpgrade++;
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(pulsarTowerUpgrades[CurrentUpgrade].UpgradeCost);
+        }
 
-        CurrentUpgrade++;
-        attackTower.Damage *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].DamageIncrease);
-        attackTower.Range *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].RangeIncrease);
-        attackTower.FireRate *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].FireRateIncrease);
-        attackTower.SplashRadius *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashRadius);
-        attackTower.SplashDamage *= (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashDamage);
+        /* Tower not upgraded */
+        if (CurrentUpgrade < 0)
+        {
+            attackTower.Damage = attackTower.BaseDamage * (1.0f + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.DamageIncrease);
+            attackTower.Range = attackTower.BaseRange * (1.0f + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.RangeIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.FireRateIncrease);
+            attackTower.SplashRadius = attackTower.BaseSplashRadius;
+            attackTower.SplashDamage = attackTower.BaseSplashDamage;
+        }
+        else
+        {
+            attackTower.Damage = attackTower.BaseDamage * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].DamageIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.DamageIncrease);
+            attackTower.Range = attackTower.BaseRange * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].RangeIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.RangeIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.FireRateIncrease);
+            attackTower.SplashRadius = attackTower.BaseSplashRadius * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashRadius);
+            attackTower.SplashDamage = attackTower.BaseSplashDamage * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashDamage);
+        }
+
         attackTower.GetComponent<TowerRangeOutline>().UpdateOutline();
-        GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(pulsarTowerUpgrades[CurrentUpgrade].UpgradeCost);
     }
 }

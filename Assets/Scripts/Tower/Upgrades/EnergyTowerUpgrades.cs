@@ -34,11 +34,22 @@ public class EnergyTowerUpgrades : TowerUpgrades
         }
     }
 
-    public override void UpgradeTower()
+    public override void UpgradeTower(bool increaseUpgradeIndex = true)
     {
-        base.UpgradeTower();
-        CurrentUpgrade++;
-        currencyTower.CurrencyPerWave += energyTowerUpgrades[CurrentUpgrade].CurrencyPerWave;
-        GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(energyTowerUpgrades[CurrentUpgrade].UpgradeCost);
+        if (increaseUpgradeIndex)
+        {
+            CurrentUpgrade++;
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(energyTowerUpgrades[CurrentUpgrade].UpgradeCost);
+        }
+
+        /* Tower not upgraded */
+        if (CurrentUpgrade < 0)
+        {
+            currencyTower.CurrencyPerWave += GameManager.Instance.UpgradeManager.PermanentEnergyTowerUpgrades.CurrencyPerWave;
+        }
+        else
+        {
+            currencyTower.CurrencyPerWave += (energyTowerUpgrades[CurrentUpgrade].CurrencyPerWave + GameManager.Instance.UpgradeManager.PermanentEnergyTowerUpgrades.CurrencyPerWave);
+        }
     }
 }

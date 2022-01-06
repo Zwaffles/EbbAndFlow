@@ -16,5 +16,7 @@ MonoBehaviour:
   actionIcon: {fileID: 127798155406108777, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
   actionTooltip: USE 'VALUE' 'CURRENCY NAME' TO PERMANENTLY UPGRADES THIS TOWER-TYPE,
     INCREASING ITS 'RANGE' BY 'VALUE'.
-  towerType: 1
+  towerType: 2
   upgradeType: 1
+  percentageValue: 0.1
+  upgradeCost: 10

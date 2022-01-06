@@ -9,8 +9,13 @@ public class BlockadeTowerUpgrade : TowerUpgrades
         return base.CanUpgrade();
     }
 
-    public override void UpgradeTower()
+    public override void UpgradeTower(bool increaseUpgradeIndex = true)
     {
         base.UpgradeTower();
+
+        if (increaseUpgradeIndex)
+        {
+            CurrentUpgrade++;
+        }
     }
 }
