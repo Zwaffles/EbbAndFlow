@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1252317787486245875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252317787486245872}
+  - component: {fileID: 1252317787486245873}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252317787486245872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252317787486245875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252317787486245873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252317787486245875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a2b1fd60573ae498ca36738fd0c813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  permanentEnergyTowerUpgrades:
+    upgrade: Energy Tower Upgrades
+    upgradeCost: 0
+    currencyPerWave: 0
+  permanentLightTowerUpgrades:
+    upgrade: Light Tower Upgrades
+    upgradeCost: 0
+    damageIncrease: 0
+    rangeIncrease: 0
+    fireRateIncrease: 0
+  permanentLightningTowerUpgrades:
+    upgrade: Ligtning Tower Upgrades
+    upgradeCost: 0
+    damageIncrease: 0
+    rangeIncrease: 0
+    fireRateIncrease: 0
+    numberOfTargets: 0
+  permanentPulsarTowerUpgrades:
+    upgrade: Pulsar Tower Upgrades
+    upgradeCost: 0
+    damageIncrease: 0
+    rangeIncrease: 0
+    fireRateIncrease: 0
+    splashRadius: 0
+    splashDamage: 0
+  energyTowers: []
+  lightTowers: []
+  lightningTowers: []
+  pulsarTowers: []
