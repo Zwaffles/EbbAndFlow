@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Upgrade Utility Action", menuName = "ActionBar/Upgrade Utility", order = 4)]
+[CreateAssetMenu(fileName = "New Upgrade Utility Action", menuName = "ActionBar/Upgrade Utility", order = 5)]
 public class UpgradeUtilityAction : Action
 {
     public override void UseAction()

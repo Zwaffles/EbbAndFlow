@@ -7,7 +7,11 @@ using UnityEngine.EventSystems;
 public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private Tower selectedTower;
+    [SerializeField] private TowerUpgrades towerUpgrades;
     [SerializeField] private LayerMask towerLayer;
+
+    public Tower SelectedTower { get { return selectedTower; } }
+    public TowerUpgrades TowerUpgrades { get { return towerUpgrades; } }
 
     private void Update()
     {
@@ -26,6 +30,7 @@ public class SelectionManager : MonoBehaviour
                 {
                     UnselectTower();
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
+                    towerUpgrades = selectedTower.GetComponent<TowerUpgrades>();
                     if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
                     {
                         selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
@@ -70,9 +75,10 @@ public class SelectionManager : MonoBehaviour
     {
         if (selectedTower == null) { return; }
         if (selectedTower.CheckTowerInfected()) { return; }
+        selectedTower.RemoveTower();
         /* Decrease Counter in the StatisticsManager */
         GameManager.Instance.StatisticsManager.DecreaseTowersBuiltCount();
-        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice); 
+        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice);
         GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
         GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
         GameManager.Instance.BuildingManager.UpdateGraph();

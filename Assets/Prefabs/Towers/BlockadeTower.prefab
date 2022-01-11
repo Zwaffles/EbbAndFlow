@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1203375649972224399}
   - component: {fileID: 4146738441688698571}
   - component: {fileID: 6076084600923761221}
+  - component: {fileID: 4511361318182114274}
   m_Layer: 7
   m_Name: BlockadeTower
   m_TagString: Untagged
@@ -140,12 +141,24 @@ MonoBehaviour:
   modifierType: 0
   baseCost: 1
   sellPrice: 1
-  isInfected: 0
-  infectionScore: 0
   infectionScoreUI: {fileID: 8174948376976345229}
   infectionScoreText: {fileID: 4592032314014991334}
   scoreRequiredForCorruption: 6
+  isInfected: 0
+  infectionScore: 0
   currencyPerWave: 0
+--- !u!114 &4511361318182114274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203375649972224396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f071cb62ae8b38745b290aa7dee45846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7944397219472438312
 GameObject:
   m_ObjectHideFlags: 0

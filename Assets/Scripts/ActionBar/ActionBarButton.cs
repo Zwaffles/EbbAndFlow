@@ -30,11 +30,6 @@ public class ActionBarButton: MonoBehaviour
         EnableActionButton();
     }
 
-    private void OnMouseOver()
-    {
-        Debug.Log("Hover over " + gameObject.name);
-    }
-
     private void DelayedActivation()
     {
         actionButton.enabled = true;
@@ -53,6 +48,21 @@ public class ActionBarButton: MonoBehaviour
     public void Interactable(bool state)
     {
         actionButton.interactable = state;
+    }
+
+    public void UpdateState()
+    {
+        if(action != null)
+        {
+            if (action.Interactable())
+            {
+                Interactable(true);
+            }
+            else
+            {
+                Interactable(false);
+            }
+        } 
     }
 
     public void EnableActionButton()

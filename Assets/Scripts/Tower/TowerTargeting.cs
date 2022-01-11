@@ -8,16 +8,12 @@ public class TowerTargeting : MonoBehaviour
     [SerializeField] CircleCollider2D rangeCollider;
     //placeholder, replace with inherited tower range
     public float towerRange = 5f;
+    
 
     private List<GameObject> currentlyTargeted = new List<GameObject>();
     private List<GameObject> enemiesWithinRange = new List<GameObject>();
 
     public List<GameObject> EnemiesWithinRange { get { return enemiesWithinRange; } }
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {

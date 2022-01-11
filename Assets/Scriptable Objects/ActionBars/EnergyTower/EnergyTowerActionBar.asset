@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2278de7e68d42b14088e050c72b112e7, type: 3}
+  m_Name: EnergyTowerActionBar
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 01f35cf1bd0d00342b8fb6f2ea3cf416, type: 2}
+  - {fileID: 11400000, guid: 6ef54a1d7b63f6645a18008c34e837af, type: 2}
