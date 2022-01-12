@@ -10,6 +10,11 @@ public class TowerRangeOutline : MonoBehaviour
 
     void Start()
     {
+        UpdateOutline();
+    }
+
+    public void UpdateOutline()
+    {
         _towerRange = GetComponentInParent<TowerTargeting>().towerRange * 2;
         outline.gameObject.transform.localScale = new Vector2(_towerRange, _towerRange);
     }

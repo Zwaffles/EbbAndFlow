@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 3041843108582827697}
   - component: {fileID: 3041843108582827711}
   - component: {fileID: 997537180801948738}
+  - component: {fileID: -5545252944015931574}
   m_Layer: 7
   m_Name: LightTower
   m_TagString: Untagged
@@ -316,21 +317,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionBar: {fileID: 11400000, guid: 8050021d5fd4ec14ca315f6dc3548fc7, type: 2}
   turret: {fileID: 0}
   fireRate: 0.8
+  towerType: 2
   modifierType: 1
   baseCost: 6
   sellPrice: 3
-  isInfected: 0
-  infectionScore: 0
   infectionScoreUI: {fileID: 8899239686532233161}
   infectionScoreText: {fileID: 3839633602587507874}
   scoreRequiredForCorruption: 5
+  isInfected: 0
+  infectionScore: 0
   projectilePrefab: {fileID: 7077911764423161174, guid: 8f0efab776d101a4e97a4c181b8473c2, type: 3}
   damage: 40
   splashRadius: 0
   splashDamage: 0
   numberOfTargets: 1
+  baseDamage: 0
+  baseRange: 0
+  baseFireRate: 0
 --- !u!114 &997537180801948738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +350,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1326821180346155217}
+--- !u!114 &-5545252944015931574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041843108582827710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa83ca6f7310c745b59433b25c57a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightTowerUpgrades:
+  - upgrade: Upgrade 1
+    upgradeCost: 5
+    damageIncrease: 0.1
+    rangeIncrease: 0.1
+    fireRateIncrease: 0.1
+  - upgrade: Upgrade 2
+    upgradeCost: 5
+    damageIncrease: 0.2
+    rangeIncrease: 0.2
+    fireRateIncrease: 0.2
+  - upgrade: Upgrade 3
+    upgradeCost: 5
+    damageIncrease: 0.3
+    rangeIncrease: 0.3
+    fireRateIncrease: 0.3
+  - upgrade: Upgrade 4
+    upgradeCost: 5
+    damageIncrease: 0.4
+    rangeIncrease: 0.4
+    fireRateIncrease: 0.4
+  - upgrade: Upgrade 5
+    upgradeCost: 5
+    damageIncrease: 0.5
+    rangeIncrease: 0.5
+    fireRateIncrease: 0.5
 --- !u!1 &7180545969340166651
 GameObject:
   m_ObjectHideFlags: 0

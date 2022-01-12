@@ -54,7 +54,7 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3d6ec0a4ef67994c84f58ce76d7a265, type: 2}
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -73,9 +73,9 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 993490585
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: 754840d3b0e1ba549905beb9efac7d1e, type: 3}
@@ -412,8 +412,17 @@ MonoBehaviour:
   edgePositionFalloff: 7.5
   curveRoundness: 1
   randomOffset: 1
-  drawPoints: 1
-  constantGrowth: 0
+  temporaryInfectionPushbackTime: 5
+  temporarySpreadPushbackSpeed: 2
+  pushbackInfectionCost: 0
+  temporaryInfectionPauseTime: 5
+  stopInfectionCost: 0
+  tempSpeedToIncrease: 5
+  tempTimeForIncrease: 2
+  infectionStatsUI: {fileID: 0}
+  drawPoints: 0
+  constantGrowth: 1
+  spawnPoint: {fileID: 0}
 --- !u!50 &473611647
 Rigidbody2D:
   serializedVersion: 4
