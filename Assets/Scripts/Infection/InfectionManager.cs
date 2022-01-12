@@ -52,6 +52,9 @@ public class InfectionManager : MonoBehaviour
     [SerializeField] private int temporaryInfectionPauseTime;
     [SerializeField] private int stopInfectionCost;
     private float infectionSpreadNormalSpeed;
+    [SerializeField] private float stopCooldown = 15f;
+    [SerializeField] protected float stopTimer;
+    [SerializeField] private Image stopButton;
 
     [Header("On Lives Lost Infection Speed Increase")]
     [SerializeField] [Range(0, 10)] float tempSpeedToIncrease;
@@ -92,6 +95,7 @@ public class InfectionManager : MonoBehaviour
     {
         infectionSpreadNormalSpeed = constantSpreadSpeed;
         pushbackTimer = pushbackCooldown;
+        stopTimer = stopCooldown;
         InitializeSpriteShape();
     }
 
@@ -131,12 +135,25 @@ public class InfectionManager : MonoBehaviour
                 pushbackButton.fillAmount = 1f;
             }
         }
+
+        if (stopTimer < stopCooldown)
+        {
+            stopTimer += Time.deltaTime;
+            stopButton.color = new Color(255, 255, 255, 150);
+            stopButton.fillAmount = stopTimer / stopCooldown;
+            if (stopTimer >= stopCooldown)
+            {
+                stopButton.color = Color.white;
+                stopButton.fillAmount = 1f;
+            }
+        }
     }
 
     public void StopInfection()
     {
-        if(stopInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency)
+        if(stopInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency && stopTimer >= stopCooldown)
         {
+            stopTimer = 0;
             ChangeSlowInfectionSpeed(temporaryInfectionPauseTime, -1f);
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(stopInfectionCost);
         }
