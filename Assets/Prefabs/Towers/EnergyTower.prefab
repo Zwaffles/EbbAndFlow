@@ -1,5 +1,87 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1940782635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940782636}
+  - component: {fileID: 1940782637}
+  m_Layer: 7
+  m_Name: FadeSpriteRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940782636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940782635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9033560878464711006}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1940782637
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940782635}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1567923401
+  m_SortingLayer: 4
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: d434fa2e1ca8a124f8db31578b252075, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2404284406236703642
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +329,7 @@ GameObject:
   - component: {fileID: 5625106960886236251}
   - component: {fileID: 7435293008851847967}
   - component: {fileID: 788637900429897617}
+  - component: {fileID: -6568732152798457038}
   m_Layer: 7
   m_Name: EnergyTower
   m_TagString: Untagged
@@ -266,6 +349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5686400127618445675}
+  - {fileID: 1940782636}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -309,7 +393,7 @@ SpriteRenderer:
   m_SortingLayerID: 1567923401
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3992767360536666472, guid: fb514dcd0be458a4583159def168dea8, type: 3}
+  m_Sprite: {fileID: -8423424630724882815, guid: 14c241026fbb1b047b593dbb26816a10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -367,14 +451,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49d681c7f2e70e4487bc39a859b29a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionBar: {fileID: 11400000, guid: 45a489ad2f3995547a48568f40e1a704, type: 2}
   turret: {fileID: 0}
   fireRate: 0
+  towerType: 1
   modifierType: 4
   baseCost: 15
   sellPrice: 7
-  isInfected: 0
-  infectionScore: 0
   infectionScoreUI: {fileID: 3445283406082231641}
   infectionScoreText: {fileID: 6996753453908887090}
   scoreRequiredForCorruption: 5
-  currencyPerWave: 1
+  isInfected: 0
+  infectionScore: 0
+  currencyPerWave: 3
+--- !u!114 &-6568732152798457038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625106960886236248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a00bd6a82ff154f9ca7e14f56ca7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyTowerUpgrades:
+  - upgrade: Upgrade 1
+    upgradeCost: 1
+    currencyPerWave: 1
+  - upgrade: Upgrade 2
+    upgradeCost: 2
+    currencyPerWave: 2
+  - upgrade: Upgrade 3
+    upgradeCost: 3
+    currencyPerWave: 3
+  - upgrade: Upgrade 4
+    upgradeCost: 4
+    currencyPerWave: 4
+  - upgrade: Upgrade 5
+    upgradeCost: 5
+    currencyPerWave: 5
