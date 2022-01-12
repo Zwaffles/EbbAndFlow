@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 531ed9253e9215d479a2e9414cfeec43
   - enabled: 1
+    path: Assets/Scenes/HermanHomeEdition.unity
+    guid: a566dd9622efa0e4fa02d3882fed176f
+  - enabled: 0
     path: Assets/Scenes/HermanNotBalancedScene.unity
     guid: 392342e8720da4149a1432461e1378a0
   - enabled: 0

@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53429027caa22b4cb9d32bb42561b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 130
+  enemyHealth: 140
   currentHealth: 0
   dmgMultiplier: 1
   minMoveSpeed: 0.25

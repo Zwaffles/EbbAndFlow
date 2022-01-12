@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: LightTowerActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: e965c5d17eb2e41488acaed44f751237, type: 2}
-  - {fileID: 11400000, guid: adc9f9d997db5064b97ac9ae53ba85a6, type: 2}
-  - {fileID: 11400000, guid: f2b5d3f9673030147a9e8c1307df245a, type: 2}
-  - {fileID: 11400000, guid: 47c38af38f575ee4d974646e37445945, type: 2}
-  - {fileID: 11400000, guid: 48186b374b524284a828173416bcec31, type: 2}
+  - {fileID: 11400000, guid: e3537b638c94558449fadcafab014fa0, type: 2}
+  - {fileID: 11400000, guid: efd1d351309246e45975545d8d01cb6a, type: 2}
