@@ -47,14 +47,14 @@ public class LightningTowerUpgrades : TowerUpgrades
         {
             attackTower.Damage = attackTower.BaseDamage * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.DamageIncrease);
             attackTower.Range = attackTower.BaseRange * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.RangeIncrease);
-            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.FireRateIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate - (attackTower.BaseFireRate * GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.FireRateIncrease);
             attackTower.NumberOfTargets = attackTower.BaseNumberOfTargets;
         }
         else
         {
             attackTower.Damage = attackTower.BaseDamage * (1.0f + lightningTowerUpgrades[CurrentUpgrade].DamageIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.DamageIncrease);
             attackTower.Range = attackTower.BaseRange * (1.0f + lightningTowerUpgrades[CurrentUpgrade].RangeIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.RangeIncrease);
-            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + lightningTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.FireRateIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate - (attackTower.BaseFireRate * (lightningTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentLightningTowerUpgrades.FireRateIncrease));
             attackTower.NumberOfTargets = attackTower.BaseNumberOfTargets + lightningTowerUpgrades[CurrentUpgrade].NumberOfTargets;
         }
         
