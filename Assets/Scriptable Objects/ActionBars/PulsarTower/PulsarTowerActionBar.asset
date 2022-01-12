@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: PulsarTowerActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: adbe986c9f2b5c04bbc3e6ecb92f1c1f, type: 2}
-  - {fileID: 11400000, guid: 359740fe1af70e6418b1ec8dbed95305, type: 2}
+  - {fileID: 11400000, guid: f633cc78d5140ca49a3f4a5c5f45548c, type: 2}
+  - {fileID: 11400000, guid: 7bf3748db6cdf1a419a3fc2f77b01796, type: 2}
+  - {fileID: 11400000, guid: cb2b0372ce99efa4d8cab4e73dd8c993, type: 2}
+  - {fileID: 11400000, guid: 3e9b5ef9ddbacc64483184892aaaf704, type: 2}
+  - {fileID: 11400000, guid: 0b60c560c7e1a554b9e1526ebfb9a122, type: 2}

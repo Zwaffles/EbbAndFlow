@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: EnergyTowerActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 4646e56d4ab6e5e44aea31ae94199371, type: 2}
-  - {fileID: 11400000, guid: 4380eaf055750ee4cbdb913d439dc792, type: 2}
+  - {fileID: 11400000, guid: 6eb619706e8f2ae44b47836898c4a3c5, type: 2}
+  - {fileID: 11400000, guid: 01f35cf1bd0d00342b8fb6f2ea3cf416, type: 2}
+  - {fileID: 11400000, guid: 6ef54a1d7b63f6645a18008c34e837af, type: 2}

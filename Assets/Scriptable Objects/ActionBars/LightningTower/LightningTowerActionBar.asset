@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: LightningTowerActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 3bddd8ae81a152848bb69b3744261731, type: 2}
-  - {fileID: 11400000, guid: e622b6b369d62a64c8bc2e073fb8cb56, type: 2}
+  - {fileID: 11400000, guid: 2577a09c7a77d90478da491afc5320fc, type: 2}
+  - {fileID: 11400000, guid: cc011e8a47d30734ca06ae538e63bf87, type: 2}
+  - {fileID: 11400000, guid: 91c9a64559914be49afc22cc00e7255b, type: 2}
+  - {fileID: 11400000, guid: aa4acc250b8476b49bcaac7e987166b7, type: 2}
+  - {fileID: 11400000, guid: 1f364febf1afdad47823ec997a2bd1a8, type: 2}
