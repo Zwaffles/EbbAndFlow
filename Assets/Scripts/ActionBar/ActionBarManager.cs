@@ -4,64 +4,48 @@ using UnityEngine;
 
 public class ActionBarManager : MonoBehaviour
 {
-    public static ActionBarManager Instance { get { return instance; } }
-    private static ActionBarManager instance;
-
     [Header("Debug")]
-    [SerializeField] private List<ActionBarButton> actionBarButtons = new List<ActionBarButton>();
+    [SerializeField] private ActionBar defaultActionBar;
     [SerializeField] private ActionBar currentActionBar;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-        //actionBarButtons = GetComponentsInChildren<ActionBarButton>();
-    }
-
-    private void InitializeActionBar()
-    {
-        ActionBarButton[] buttons = GetComponentsInChildren<ActionBarButton>();
-        //actionBarButtons = buttons;
-        foreach (ActionBarButton button in buttons)
-        {
-            //actionBarButtons.Add(button)
-        }
-    }
+    [SerializeField] private List<ActionBarButton> actionBarButtons = new List<ActionBarButton>();
+    
 
     private void Start()
     {
-        //SetCurrentActionBar(currentActionBar);
+        UpdateActionBar(defaultActionBar);
     }
 
-    public void SetCurrentActionBar(ActionBar actionBar)
+    public void DefaultActionBar()
     {
+        UpdateActionBar(defaultActionBar);
+    }
+
+    public void UpdateActionBar(ActionBar actionBar)
+    {
+        /* Disable ActionBar Buttons */
+        for (int i = 0; i < actionBarButtons.Count; i++)
+        {
+            actionBarButtons[i].DisableActionButton();
+        }
+
         /* Assign new Action Bar */
         currentActionBar = actionBar;
 
-        /* Loop through all Button GameObjects */
-        for (int i = 0, j = 0; i < actionBarButtons.Count; i++)
+        /* Loop through ActionBar Actions  */
+        for (int i = 0; i < currentActionBar.Actions.Count; i++)
         {
-            /* Check if we still have new Action to assign */
-            if(j < actionBar.Actions.Count)
-            {
-                /* Assign new Action to button */
-                Action newAction = actionBar.Actions[j];
-                actionBarButtons[i].EnableActionButton(); ;
-                actionBarButtons[i].InitializeActionButton(newAction, newAction.ActionIcon, newAction.ActionTooltip);
-                j++;
-            }
-            /* Disable Button */
-            else
-            {
-                actionBarButtons[i].DisableActionButton(); ;
-            }
+            /* Assign new Action to button */
+            Action newAction = actionBar.Actions[i];
+            actionBarButtons[newAction.ActionBarOrder].UpdateActionButton(newAction, newAction.ActionIcon, newAction.ActionTooltip);
+        }
+        UpdateButtonStates();
+    }
+
+    public void UpdateButtonStates()
+    {
+        for (int i = 0; i < actionBarButtons.Count; i++)
+        {
+            actionBarButtons[i].UpdateState();
         }
     }
 }
