@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionBar: {fileID: 11400000, guid: 2f00c6642f94cce4d9fabb3f2bf2ec3a, type: 2}
+  actionBar: {fileID: 11400000, guid: 47c27325d0af8784cb3c602f672ef90b, type: 2}
   turret: {fileID: 0}
   fireRate: 1
   towerType: 3
