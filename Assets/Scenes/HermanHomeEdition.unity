@@ -24253,8 +24253,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeScaleManager
       objectReference: {fileID: 0}
+    - target: {fileID: 711749260574576181, guid: 5607f0c3c3484184c9ccabcb0315cc00, type: 3}
+      propertyPath: timeScaleText
+      value: 
+      objectReference: {fileID: 764715299}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5607f0c3c3484184c9ccabcb0315cc00, type: 3}
+--- !u!114 &643196589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 711749260574576181, guid: 5607f0c3c3484184c9ccabcb0315cc00, type: 3}
+  m_PrefabInstance: {fileID: 643196588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e38b450b30ce44b8c8a77b87d80d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &651346045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8990922748089810780, guid: 8a632da5614c2dc42985ee28411f83c9, type: 3}
@@ -32779,7 +32794,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 643196589}
         m_TargetAssemblyTypeName: TimeScaleManager, Assembly-CSharp
         m_MethodName: TogggleTimeScale
         m_Mode: 1
