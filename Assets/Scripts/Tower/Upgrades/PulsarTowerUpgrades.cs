@@ -47,7 +47,7 @@ public class PulsarTowerUpgrades : TowerUpgrades
         {
             attackTower.Damage = attackTower.BaseDamage * (1.0f + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.DamageIncrease);
             attackTower.Range = attackTower.BaseRange * (1.0f + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.RangeIncrease);
-            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.FireRateIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate - (attackTower.BaseFireRate * GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.FireRateIncrease);
             attackTower.SplashRadius = attackTower.BaseSplashRadius;
             attackTower.SplashDamage = attackTower.BaseSplashDamage;
         }
@@ -55,7 +55,7 @@ public class PulsarTowerUpgrades : TowerUpgrades
         {
             attackTower.Damage = attackTower.BaseDamage * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].DamageIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.DamageIncrease);
             attackTower.Range = attackTower.BaseRange * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].RangeIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.RangeIncrease);
-            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.FireRateIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate - (attackTower.BaseFireRate  * (pulsarTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentPulsarTowerUpgrades.FireRateIncrease));
             attackTower.SplashRadius = attackTower.BaseSplashRadius * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashRadius);
             attackTower.SplashDamage = attackTower.BaseSplashDamage * (1.0f + pulsarTowerUpgrades[CurrentUpgrade].SplashDamage);
         }
