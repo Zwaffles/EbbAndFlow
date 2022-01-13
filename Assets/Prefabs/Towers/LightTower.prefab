@@ -329,6 +329,7 @@ MonoBehaviour:
   scoreRequiredForCorruption: 5
   isInfected: 0
   infectionScore: 0
+  sellTimer: 10
   projectilePrefab: {fileID: 7077911764423161174, guid: 8f0efab776d101a4e97a4c181b8473c2, type: 3}
   damage: 40
   splashRadius: 0

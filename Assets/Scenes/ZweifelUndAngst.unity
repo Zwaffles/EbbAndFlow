@@ -23926,7 +23926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounds: {fileID: 750691375}
-  cameraSpeed: 0.1
+  transitionDuration: 600
 --- !u!1001 &643196588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45606,6 +45606,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1645797356}
     - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
+      propertyPath: stopButton
+      value: 
+      objectReference: {fileID: 3649900125474062848}
+    - target: {fileID: 2448152885614293291, guid: b6f4a984d4d9034478b3a301d9926fc4, type: 3}
       propertyPath: constantGrowth
       value: 1
       objectReference: {fileID: 0}
@@ -47969,7 +47973,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3248252066232408078
 CanvasRenderer:
@@ -48379,7 +48383,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
