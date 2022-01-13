@@ -40,7 +40,6 @@ public class EndScreen : MonoBehaviour
             {
                 endScreenHeader.text = playerLostHeader;
                 endScreenText.text = playerLostText;
-                return;
             }
             /* Player Won */
             else
