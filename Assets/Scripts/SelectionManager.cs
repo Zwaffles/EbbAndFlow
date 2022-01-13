@@ -84,4 +84,10 @@ public class SelectionManager : MonoBehaviour
         GameManager.Instance.BuildingManager.UpdateGraph();
         DefaultActionBarPanel();
     }
+
+    public bool CanSellTower()
+    {
+        if(selectedTower == null) { return false; }
+        return selectedTower.sellTimer <= 0 ? false : true;
+    }
 }
