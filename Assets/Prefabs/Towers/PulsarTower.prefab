@@ -164,7 +164,8 @@ MonoBehaviour:
   scoreRequiredForCorruption: 5
   isInfected: 0
   infectionScore: 0
-  projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
+  sellTimer: 10
+  projectilePrefab: {fileID: 7543107520254223616, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
   damage: 30
   splashRadius: 3
   splashDamage: 25
@@ -203,36 +204,36 @@ MonoBehaviour:
     damageIncrease: 0.1
     rangeIncrease: 0.1
     fireRateIncrease: 0.1
-    splashRadius: 0.1
-    splashDamage: 0.1
+    splashRadius: 0
+    splashDamage: 0
   - upgrade: Upgrade 2
     upgradeCost: 5
     damageIncrease: 0.2
     rangeIncrease: 0.2
+    fireRateIncrease: 0.1
+    splashRadius: 0.1
+    splashDamage: 0.1
+  - upgrade: Upgrade 3
+    upgradeCost: 5
+    damageIncrease: 0.2
+    rangeIncrease: 0.3
     fireRateIncrease: 0.2
     splashRadius: 0.2
     splashDamage: 0.2
-  - upgrade: Upgrade 3
+  - upgrade: Upgrade 4
     upgradeCost: 5
     damageIncrease: 0.3
-    rangeIncrease: 0.3
+    rangeIncrease: 0.4
     fireRateIncrease: 0.3
     splashRadius: 0.3
     splashDamage: 0.3
-  - upgrade: Upgrade 4
-    upgradeCost: 5
-    damageIncrease: 0.4
-    rangeIncrease: 0.4
-    fireRateIncrease: 0.4
-    splashRadius: 0.4
-    splashDamage: 0.4
   - upgrade: Upgrade 5
     upgradeCost: 5
     damageIncrease: 0.5
     rangeIncrease: 0.5
-    fireRateIncrease: 0.5
-    splashRadius: 0.5
-    splashDamage: 0.5
+    fireRateIncrease: 0.4
+    splashRadius: 0.3
+    splashDamage: 0.3
 --- !u!1 &4192528932975907368
 GameObject:
   m_ObjectHideFlags: 0

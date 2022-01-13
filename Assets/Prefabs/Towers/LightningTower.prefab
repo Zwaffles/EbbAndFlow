@@ -346,31 +346,31 @@ MonoBehaviour:
     damageIncrease: 0.1
     rangeIncrease: 0.1
     fireRateIncrease: 0.1
-    numberOfTargets: 1
+    numberOfTargets: 0
   - upgrade: Upgrade 2
+    upgradeCost: 5
+    damageIncrease: 0.1
+    rangeIncrease: 0.2
+    fireRateIncrease: 0.1
+    numberOfTargets: 1
+  - upgrade: Upgrade 3
     upgradeCost: 5
     damageIncrease: 0.2
     rangeIncrease: 0.2
-    fireRateIncrease: 0.2
-    numberOfTargets: 5
-  - upgrade: Upgrade 3
+    fireRateIncrease: 0.1
+    numberOfTargets: 2
+  - upgrade: Upgrade 4
     upgradeCost: 5
     damageIncrease: 0.3
     rangeIncrease: 0.3
-    fireRateIncrease: 0.3
-    numberOfTargets: 6
-  - upgrade: Upgrade 4
+    fireRateIncrease: 0.2
+    numberOfTargets: 2
+  - upgrade: Upgrade 5
     upgradeCost: 5
     damageIncrease: 0.4
     rangeIncrease: 0.4
-    fireRateIncrease: 0.4
-    numberOfTargets: 7
-  - upgrade: Upgrade 5
-    upgradeCost: 5
-    damageIncrease: 0.5
-    rangeIncrease: 0.5
-    fireRateIncrease: 0.5
-    numberOfTargets: 8
+    fireRateIncrease: 0.3
+    numberOfTargets: 3
 --- !u!1 &7642219740863972336
 GameObject:
   m_ObjectHideFlags: 0

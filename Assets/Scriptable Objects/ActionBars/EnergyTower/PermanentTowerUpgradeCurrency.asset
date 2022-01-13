@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0667079ddb5e2cf4b88339e1567bfe59, type: 3}
   m_Name: PermanentTowerUpgradeCurrency
   m_EditorClassIdentifier: 
-  actionBarOrder: 1
+  actionBarOrder: 0
   actionIcon: {fileID: 0}
   actionTooltip: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua.
