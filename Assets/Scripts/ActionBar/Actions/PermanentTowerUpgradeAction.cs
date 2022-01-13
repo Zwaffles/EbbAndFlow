@@ -19,17 +19,17 @@ public class PermanentTowerUpgradeAction : Action
     public override void UseAction()
     {
         base.UseAction();
-        if (GameManager.Instance.PlayerCurrency.CanBuy(upgradeCost))
+        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost))
         {
             GameManager.Instance.UpgradeManager.UpgradeTowerType(towerType, upgradeType, percentageValue);
-            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(upgradeCost);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(upgradeCost);
         }
         
     }
 
     public override bool Interactable()
     {
-        if (GameManager.Instance.PlayerCurrency.CanBuy(upgradeCost))
+        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost))
         {
             return true;
         }

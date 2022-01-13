@@ -47,13 +47,13 @@ public class LightTowerUpgrades : TowerUpgrades
         {
             attackTower.Damage = attackTower.BaseDamage * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.DamageIncrease);
             attackTower.Range = attackTower.BaseRange * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.RangeIncrease);
-            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.FireRateIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate - (attackTower.BaseFireRate * GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.FireRateIncrease);
         }
         else
         {
             attackTower.Damage = attackTower.BaseDamage * (1.0f + lightTowerUpgrades[CurrentUpgrade].DamageIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.DamageIncrease);
             attackTower.Range = attackTower.BaseRange * (1.0f + lightTowerUpgrades[CurrentUpgrade].RangeIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.RangeIncrease);
-            attackTower.FireRate = attackTower.BaseFireRate * (1.0f + lightTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.FireRateIncrease);
+            attackTower.FireRate = attackTower.BaseFireRate - (attackTower.BaseFireRate * (lightTowerUpgrades[CurrentUpgrade].FireRateIncrease + GameManager.Instance.UpgradeManager.PermanentLightTowerUpgrades.FireRateIncrease));
         }
      
         attackTower.GetComponent<TowerRangeOutline>().UpdateOutline();
