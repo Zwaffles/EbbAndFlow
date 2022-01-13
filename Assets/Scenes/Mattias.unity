@@ -17416,6 +17416,218 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774469151}
     m_Modifications:
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[0].stage
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[1].stage
+      value: Stage 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[2].stage
+      value: Stage 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[3].stage
+      value: 'Stage '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].stage
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].stage
+      value: Stage 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].stage
+      value: Stage 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].stage
+      value: Stage 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[0].stage
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[1].stage
+      value: Stage 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[2].stage
+      value: Stage 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[3].stage
+      value: Stage 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[0].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[1].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[2].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[3].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].stackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].globalRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].globalRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].globalRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].globalRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[0].speedModifier
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[1].speedModifier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[2].speedModifier
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[3].speedModifier
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].damageModifier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].damageModifier
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].damageModifier
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].damageModifier
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[0].currencyModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[1].currencyModifier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[0].infectionScoreTrigger
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[1].infectionScoreTrigger
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[2].infectionScoreTrigger
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedSpeedModifiers.Array.data[3].infectionScoreTrigger
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].infectionScoreTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].infectionScoreTrigger
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].infectionScoreTrigger
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].infectionScoreTrigger
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[0].infectionScoreTrigger
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[1].infectionScoreTrigger
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[2].infectionScoreTrigger
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedCurrencyModifiers.Array.data[3].infectionScoreTrigger
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8337210360985748033, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: m_Name
       value: BuffManager

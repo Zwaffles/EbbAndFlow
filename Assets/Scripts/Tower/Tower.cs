@@ -35,7 +35,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private int scoreRequiredForCorruption = 1;
     [SerializeField] protected bool isInfected;
     [SerializeField] private int infectionScore = 0;
-
+  
     protected float cooldown;
     protected Animator animator;
 
