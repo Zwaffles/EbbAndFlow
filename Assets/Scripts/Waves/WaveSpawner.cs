@@ -11,9 +11,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private float timeBetweenWaves = 15f;
     [SerializeField] private int globalCurrencyUpgradeInfectedCost = 10;
+    [SerializeField] private int globalCurrencyUpgradeInfectedBonus = 3;
     [SerializeField] private int globalCurrencyUpgradeCost = 10;
     [SerializeField] private int globalCurrencyUpgradeNormalBonus = 3;
-    [SerializeField] private int globalCurrencyUpgradeInfectedBonus = 3;
 
 
     [Header("Path")]
@@ -199,8 +199,8 @@ public class WaveSpawner : MonoBehaviour
             waveCurrencyAmount += tower.GetTowerCurrencyPerWave();
         }
 
-        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward + waveCurrencyAmount));
-        GameManager.Instance.PlayerCurrency.AddPlayerInfectedCurrency(GameManager.Instance.BuffManager.CalculateInfectedCurrencyModifier() + normalCurrencyBonus);
+        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency((GetCurrentWave().WaveNormalCurrencyReward + waveCurrencyAmount) + normalCurrencyBonus);
+        GameManager.Instance.PlayerCurrency.AddPlayerInfectedCurrency(GameManager.Instance.BuffManager.CalculateInfectedCurrencyModifier() + infectedCurrencyBonus);
 
         GameManager.Instance.BuffManager.SpawnAdditionalEnemies();
         GameManager.Instance.BuffManager.IncreaseInfectionScore();
