@@ -618,6 +618,7 @@ MonoBehaviour:
   selectionInfo:
     selectionIcon: {fileID: -3934573570188906904, guid: d6aa018209855ed429758e611dc5e2b8, type: 3}
     selectionHeaderText: Bug
+    selectionDescriptionText: The Bug is a fast, on the other hand very vulnerable.
     statInfo:
     - stat: 6
       statIcon: {fileID: 21300000, guid: cdf3da28f9720a34b8c234631cb3ac52, type: 3}

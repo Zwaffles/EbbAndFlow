@@ -42,11 +42,16 @@ public class Tower : MonoBehaviour
     protected Animator animator;
 
     public ActionBar ActionBar { get { return actionBar; } }
-    public SelectionInfo SelectionInfo { get { return selectionInfo; } }
 
     private void Start()
     {
         GameManager.Instance.UpgradeManager.AddTower(GetComponent<TowerUpgrades>(), towerType);
+    }
+
+    public SelectionInfo GetSelectionInfo()
+    {
+
+        return selectionInfo;
     }
 
     public ModifierType GetModifierType()

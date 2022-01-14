@@ -10792,7 +10792,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 125}
+  m_SizeDelta: {x: 260, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &361739653
 CanvasRenderer:
@@ -10822,7 +10822,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 100, y: 62.5}
+  m_CellSize: {x: 135, y: 62.5}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -10962,7 +10962,6 @@ GameObject:
   - component: {fileID: 499210181}
   - component: {fileID: 499210185}
   - component: {fileID: 499210183}
-  - component: {fileID: 499210184}
   m_Layer: 5
   m_Name: StatPanel
   m_TagString: Untagged
@@ -11037,24 +11036,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 50, y: 31.25}
+  offset: {x: 67.5, y: 31.25}
   floatDirection: 7
   tooltip: Damage Tooltip
---- !u!114 &499210184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499210179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ef31b42698170e4587196d29a5f0a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tooltip: {fileID: 0}
-  statIcon: {fileID: 0}
-  statText: {fileID: 0}
 --- !u!114 &499210185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11067,7 +11051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef31b42698170e4587196d29a5f0a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltip: {fileID: 1569058954}
+  tooltip: {fileID: 499210183}
   statIcon: {fileID: 86719625}
   statText: {fileID: 656422178}
 --- !u!1 &519111231
@@ -24441,7 +24425,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 85, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &656422178
 MonoBehaviour:
@@ -24463,7 +24447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 10 + [0.25]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
   m_sharedMaterial: {fileID: -6427842460768018867, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
@@ -24490,8 +24474,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24679,7 +24663,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753313782
 MonoBehaviour:
@@ -24701,7 +24685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 10 + [0.25]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
   m_sharedMaterial: {fileID: -6427842460768018867, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
@@ -24728,8 +24712,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32596,6 +32580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionHeaderText: {fileID: 1864869916}
+  selectionIconTooltip: {fileID: 1996340821}
   selectionIcon: {fileID: 885567803}
   statPanels:
   - {fileID: 499210185}
@@ -32637,7 +32622,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903747839
 MonoBehaviour:
@@ -32659,7 +32644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 10 + [0.25]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
   m_sharedMaterial: {fileID: -6427842460768018867, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
@@ -32686,8 +32671,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34239,7 +34224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 50, y: 31.25}
+  offset: {x: 67.5, y: 31.25}
   floatDirection: 7
   tooltip: Fire-Rate Tooltip
 --- !u!114 &1507069747
@@ -34254,7 +34239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef31b42698170e4587196d29a5f0a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltip: {fileID: 1569058954}
+  tooltip: {fileID: 1507069746}
   statIcon: {fileID: 1835251418}
   statText: {fileID: 1921992352}
 --- !u!1 &1569058950
@@ -34344,7 +34329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 50, y: 31.25}
+  offset: {x: 67.5, y: 31.25}
   floatDirection: 7
   tooltip: Infections-score Tooltip
 --- !u!114 &1569058955
@@ -35604,7 +35589,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921992352
 MonoBehaviour:
@@ -35626,7 +35611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 10 + [0.25]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
   m_sharedMaterial: {fileID: -6427842460768018867, guid: 26fd113f06700c242bda35e9a1d0095a, type: 2}
@@ -35653,8 +35638,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -46975,7 +46960,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996340819
 MonoBehaviour:
@@ -47029,7 +47014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 50, y: 55}
   floatDirection: 7
-  tooltip: Tower Tooltip
+  tooltip: Selection Tooltip
 --- !u!1 &2019947738
 GameObject:
   m_ObjectHideFlags: 0
@@ -47117,7 +47102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 50, y: 31.25}
+  offset: {x: 67.5, y: 31.25}
   floatDirection: 7
   tooltip: Range Tooltip
 --- !u!114 &2019947743
@@ -47132,7 +47117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef31b42698170e4587196d29a5f0a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltip: {fileID: 1569058954}
+  tooltip: {fileID: 2019947742}
   statIcon: {fileID: 633715193}
   statText: {fileID: 903747839}
 --- !u!1001 &2078190542
@@ -49091,7 +49076,8 @@ MonoBehaviour:
 
     Cost: 1
 
-    Cheap Tower that blocks shit.'
+    Cheap Tower used to block the enemy''s
+    path'
 --- !u!114 &190581049777245873
 MonoBehaviour:
   m_ObjectHideFlags: 0

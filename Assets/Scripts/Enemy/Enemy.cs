@@ -19,11 +19,12 @@ public class Enemy : MonoBehaviour
     private AIPath path;
 
     private bool speedDebuff;
+    private float baseHealth;
+    private float baseMoveSpeed;
     private float globalSpeedModifier;
     
     public bool SpeedDebuff { get; set; }
     public float MoveSpeed { get; }
-    public SelectionInfo SelectionInfo { get { return selectionInfo; } }
     public float DamageMultiplier { get { return damageMultiplier; } set { damageMultiplier = value; } }
     public SpriteRenderer SelectionOutline { get { return selectionOutline; } set { selectionOutline = value; } }
 
@@ -33,16 +34,44 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         path = GetComponent<AIPath>();
         path.maxSpeed = moveSpeed;
+        baseMoveSpeed = moveSpeed;
+        baseHealth = enemyHealth;
     }
 
     public void Initialize(float healthModifier, float speedModifier)
     {
-        
         enemyHealth += healthModifier;
         currentHealth = enemyHealth;
         globalSpeedModifier = speedModifier;
         path.maxSpeed = moveSpeed + globalSpeedModifier;
         healthBar = transform.GetChild(0).GetChild(1).GetComponent<Image>();
+    }
+
+    public SelectionInfo GetSelectionInfo()
+    {
+        for (int i = 0; i < selectionInfo.StatInfo.Count; i++)
+        {
+            switch (selectionInfo.StatInfo[i].Stat)
+            {
+                case StatInfo.StatType.MovementSpeed:
+                    selectionInfo.StatInfo[i].BaseStat = baseMoveSpeed;
+                    selectionInfo.StatInfo[i].CurrentStat = moveSpeed + globalSpeedModifier;
+                    break;
+                case StatInfo.StatType.Health:
+                    selectionInfo.StatInfo[i].BaseStat = baseHealth;
+                    Debug.Log("Current Stat: " + currentHealth);
+                    selectionInfo.StatInfo[i].CurrentStat = currentHealth;
+                    break;
+                case StatInfo.StatType.Armor:
+                    selectionInfo.StatInfo[i].BaseStat = 1.0f;
+                    selectionInfo.StatInfo[i].CurrentStat = damageMultiplier * GameManager.Instance.BuffManager.GetGlobalDamageModifier();
+                    break;
+                default:
+                    Debug.Log("No Method for " + selectionInfo.StatInfo[i].Stat + " implemented!");
+                    break;
+            }
+        }
+        return selectionInfo;
     }
 
     public void ModifyMoveSpeed(float value)

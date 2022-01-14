@@ -8,6 +8,7 @@ public class SelectionPanel : MonoBehaviour
 {
     [Header("Selection")]
     [SerializeField] private TextMeshProUGUI selectionHeaderText;
+    [SerializeField] private Tooltip selectionIconTooltip;
     [SerializeField] private Image selectionIcon;
 
     [SerializeField] private List<StatPanel> statPanels = new List<StatPanel>();
@@ -19,15 +20,14 @@ public class SelectionPanel : MonoBehaviour
 
     public void UpdateSelectionPanel(SelectionInfo selectionInfo)
     {
-        Debug.Log("SelectionInfo: " + selectionInfo.SelectionHeaderText);
-
         EnableSelectionPanel();
         selectionHeaderText.text = selectionInfo.SelectionHeaderText;
+        selectionIconTooltip.UpdateTooltip(selectionInfo.SelectionDescriptionText);
         selectionIcon.sprite = selectionInfo.SelectionIcon;
 
         for (int i = 0; i < statPanels.Count; i++)
         {
-            if(selectionInfo.StatInfo[i] != null)
+            if(i < selectionInfo.StatInfo.Count)
             {
                 statPanels[i].UpdateStatPanel(selectionInfo.StatInfo[i]);
             }

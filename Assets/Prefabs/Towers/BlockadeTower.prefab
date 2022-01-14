@@ -136,8 +136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionBar: {fileID: 11400000, guid: b56e106ea3037d449951cf72973dc27a, type: 2}
+  selectionInfo:
+    selectionIcon: {fileID: 21300000, guid: 7a44353adaff5254f9340166e7ecaf6d, type: 3}
+    selectionHeaderText: Blockade
+    selectionDescriptionText: The Blockade is a cheap tower used to block the enemy's
+      path
+    statInfo: []
   turret: {fileID: 0}
   fireRate: 0
+  towerType: 0
   modifierType: 0
   baseCost: 1
   sellPrice: 1
@@ -146,6 +153,7 @@ MonoBehaviour:
   scoreRequiredForCorruption: 6
   isInfected: 0
   infectionScore: 0
+  sellTimer: 10
   currencyPerWave: 0
 --- !u!114 &4511361318182114274
 MonoBehaviour:

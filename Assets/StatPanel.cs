@@ -33,7 +33,7 @@ public class StatPanel : MonoBehaviour
         /* Show Modified Stat */
         else
         {
-            text = statInfo.CurrentStat.ToString() + " + (" + (statInfo.CurrentStat - statInfo.BaseStat).ToString() + ")";
+            text = statInfo.CurrentStat.ToString() + " + [" + (statInfo.CurrentStat - statInfo.BaseStat).ToString() + "]";
             tooltip.UpdateTooltip(statInfo.Stat.ToString() + ": " + statInfo.CurrentStat.ToString());
         }
         return text;

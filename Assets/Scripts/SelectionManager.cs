@@ -24,10 +24,18 @@ public class SelectionManager : MonoBehaviour
 
     private void Update()
     {
-        SelectTower();
+        Select();
     }
 
-    void SelectTower()
+    private void FixedUpdate()
+    {
+        if(selectedEnemy != null)
+        {
+            //selectionPanel.UpdateSelectionPanel(selectedEnemy.GetSelectionInfo());
+        }
+    }
+
+    void Select()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -45,16 +53,17 @@ public class SelectionManager : MonoBehaviour
                     {
                         selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
                     }
-                    selectionPanel.UpdateSelectionPanel(selectedTower.SelectionInfo);
+                    selectionPanel.UpdateSelectionPanel(selectedTower.GetSelectionInfo());
                     UpdateActionBarPanel(selectedTower.ActionBar);
                 }
                 /* Enemy Selected */
                 else if (hit.transform.gameObject.GetComponent<Enemy>() != null)
                 {
-                    DeselectEnemy(); 
-                    DefaultActionBarPanel();
+                    DeselectEnemy();
                     selectedEnemy = hit.transform.gameObject.GetComponent<Enemy>();
-                    selectedEnemy.SelectionOutline.enabled = true;
+                    selectedEnemy.SelectionOutline.enabled = true; 
+                    selectionPanel.UpdateSelectionPanel(selectedEnemy.GetSelectionInfo());
+                    DefaultActionBarPanel();
                 }
             }
             /* Nothing Selected */
@@ -68,9 +77,7 @@ public class SelectionManager : MonoBehaviour
                 if (selectedEnemy != null && !EventSystem.current.IsPointerOverGameObject())
                 {
                     DeselectEnemy();
-                }
-                DefaultActionBarPanel();
-                selectionPanel.DisableSelectionPanel();
+                } 
             }
         }
     }
@@ -84,6 +91,8 @@ public class SelectionManager : MonoBehaviour
                 selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 0);
             }
         }
+        selectionPanel.DisableSelectionPanel();
+        DefaultActionBarPanel();
         selectedTower = null;
         
     }
@@ -94,6 +103,8 @@ public class SelectionManager : MonoBehaviour
         {
             selectedEnemy.SelectionOutline.enabled = false;
         }
+        selectionPanel.DisableSelectionPanel();
+        DefaultActionBarPanel();
         selectedEnemy = null;
     }
 

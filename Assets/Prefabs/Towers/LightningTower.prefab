@@ -299,6 +299,9 @@ MonoBehaviour:
   selectionInfo:
     selectionIcon: {fileID: 21300000, guid: eb9bfa6a737e25545be7a720edec8fc9, type: 3}
     selectionHeaderText: Lightning Tower
+    selectionDescriptionText: "The Lightning Tower is capable of attacking multiple
+      enemies \nat once. Decreases enemy HP when infected and \nIncreases enemy HP
+      when corrupted."
     statInfo:
     - stat: 0
       statIcon: {fileID: 5150583523307718820, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
