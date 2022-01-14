@@ -13342,7 +13342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounds: {fileID: 2030985242}
-  cameraSpeed: 0.1
+  transitionDuration: 600
 --- !u!1 &736957830
 GameObject:
   m_ObjectHideFlags: 0
@@ -17422,7 +17422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedCurrencyModifiers.Array.size
@@ -17459,6 +17459,10 @@ PrefabInstance:
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[3].stage
       value: Stage 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[4].stage
+      value: Stage 5
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedCurrencyModifiers.Array.data[0].stage
@@ -17510,18 +17514,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[0].stackable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[1].stackable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[2].stackable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[3].stackable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[4].stackable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
@@ -17539,6 +17547,10 @@ PrefabInstance:
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[3].globalRange
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[4].globalRange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedSpeedModifiers.Array.data[0].speedModifier
@@ -17581,6 +17593,26 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[0].damageModifierValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[1].damageModifierValue
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[2].damageModifierValue
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[3].damageModifierValue
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[4].damageModifierValue
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedSpeedModifiers.Array.data[0].infectionScoreTrigger
       value: 2
       objectReference: {fileID: 0}
@@ -17611,6 +17643,10 @@ PrefabInstance:
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedDamageModifiers.Array.data[3].infectionScoreTrigger
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
+      propertyPath: infectedDamageModifiers.Array.data[4].infectionScoreTrigger
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4498422287070185402, guid: 7e3b5be35dcc59349ad5967c8b850fde, type: 3}
       propertyPath: infectedCurrencyModifiers.Array.data[0].infectionScoreTrigger

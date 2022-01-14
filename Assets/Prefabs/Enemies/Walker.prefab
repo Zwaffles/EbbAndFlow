@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 3800213037063682433}
   - component: {fileID: 3800213037063682434}
   - component: {fileID: 3800213037063682436}
+  - component: {fileID: -3505021278176663712}
   m_Layer: 6
   m_Name: Walker
   m_TagString: Enemy
@@ -508,6 +509,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 140
   currentHealth: 0
-  dmgMultiplier: 1
+  damageMultiplier: 1
   minMoveSpeed: 0.25
   moveSpeed: 2
+--- !u!114 &-3505021278176663712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800213037063682495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d52a42060b3204cad17b92f75a5496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageIncreaseMultiplier: 1
+  damageDecreaseMultiplier: 1
+  minDamageMultiplier: -0.1
+  maxDamageMultiplier: 5

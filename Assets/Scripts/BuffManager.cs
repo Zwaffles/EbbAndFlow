@@ -22,7 +22,7 @@ public class BuffManager : MonoBehaviour
 
     private float globalHealthModifier;
     private float globalSpeedModifier;
-    private float globalDamageModifier;
+    [SerializeField] private float globalDamageModifier;
     private int currencyModifier;
 
     public void IncreaseInfectionScore()
@@ -201,7 +201,7 @@ public class BuffManager : MonoBehaviour
         {
             damageModifierTotal += GetTowerDamageModifier(damageModifierTowers[i]);
         }
-        globalDamageModifier = damageModifierTotal;
+        globalDamageModifier = 1.0f + damageModifierTotal;
     }
 
     private float GetTowerDamageModifier(Tower tower)
@@ -220,13 +220,13 @@ public class BuffManager : MonoBehaviour
                     /* If Stackable, always add Modifier */
                     if (infectedDamageModifiers[i].Stackable)
                     {
-                        towerDamageModifier = infectedDamageModifiers[i].DamageModifier;
+                        towerDamageModifier = infectedDamageModifiers[i].DamageModifierValue;
                         damageModifierStageAdded[i] = true;
                     }
                     /* If not Stackable, check if we have already added Modifier */
                     else if (damageModifierStageAdded[i] == false)
                     {
-                        towerDamageModifier = infectedDamageModifiers[i].DamageModifier;
+                        towerDamageModifier = infectedDamageModifiers[i].DamageModifierValue;
                         damageModifierStageAdded[i] = true;
                     }
                 }
@@ -267,7 +267,7 @@ public class BuffManager : MonoBehaviour
         }
     }
 
-    public float GetGlobalDamageModifierTotal()
+    public float GetGlobalDamageModifier()
     {
         return globalDamageModifier;
     }
