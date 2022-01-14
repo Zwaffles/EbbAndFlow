@@ -10394,6 +10394,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &92526808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 54663707234134521, guid: bba1d9561a0b4b74a87d53bdfcfad22b, type: 3}
+  m_PrefabInstance: {fileID: 1832631546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &130216030 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 372729633749251904, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
@@ -17436,12 +17447,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 190581049751690912, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 190581049751690912, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 190581049751690912, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412745271893450300, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3236071800134475062, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
       propertyPath: m_AnchorMax.y
@@ -32218,11 +32237,15 @@ PrefabInstance:
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: skipWaveButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 92526808}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: currentWaveText
       value: 
       objectReference: {fileID: 1095224085}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: roundStartSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 280135ca8613f8a45ae8c911711c7334, type: 3}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: timeBetweenWaves
       value: 10
