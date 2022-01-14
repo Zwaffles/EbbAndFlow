@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c560d2afadbdeb04c85aafba2f1348e4, type: 3}
-  m_Name: UpgradeUtility2
+  m_Script: {fileID: 11500000, guid: a1247d36c6bb35c42a916757b326c26b, type: 3}
+  m_Name: UpgradeInfectedUtility
   m_EditorClassIdentifier: 
   actionBarOrder: 1
-  actionIcon: {fileID: 5997646070686654698, guid: c7ea7b4e29085be408f03fb5c8d1ab08, type: 3}
-  actionTooltip: PERMANENTLY UPGRADES 'UTILITY 2' BY 'UNITS'.
+  actionIcon: {fileID: 0}
+  actionTooltip: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua.
