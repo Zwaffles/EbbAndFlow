@@ -7,6 +7,7 @@ public class BuffManager : MonoBehaviour
 {
     [SerializeField] private List<InfectedHealthModifier> infectedHealthModifiers;
     [SerializeField] private List<InfectedSpeedModifier> infectedSpeedModifiers;
+    [SerializeField] private List<InfectedDamageModifier> infectedDamageModifiers;
     [SerializeField] private List<InfectedCurrencyModifier> infectedCurrencyModifiers;
     [SerializeField] private List<InfectedSpawnModifier> infectedSpawnModifiers;
 
@@ -17,9 +18,11 @@ public class BuffManager : MonoBehaviour
     private List<Tower> currencyModifierTowers = new List<Tower>();
 
     private bool[] speedModifierStageAdded;
+    private bool[] damageModifierStageAdded;
 
-    private float healthModifier;
-    private float speedModifier;
+    private float globalHealthModifier;
+    private float globalSpeedModifier;
+    [SerializeField] private float globalDamageModifier;
     private int currencyModifier;
 
     public void IncreaseInfectionScore()
@@ -108,7 +111,7 @@ public class BuffManager : MonoBehaviour
         {
             healthModifierTotal += GetTowerHealthModifier(healthModifierTowers[i]);
         }
-        healthModifier = healthModifierTotal;
+        globalHealthModifier = healthModifierTotal;
     }
 
     private float GetTowerHealthModifier(Tower tower)
@@ -127,7 +130,7 @@ public class BuffManager : MonoBehaviour
 
     public float GetHealthModifier()
     {
-        return healthModifier;
+        return globalHealthModifier;
     }
 
     #endregion
@@ -187,6 +190,90 @@ public class BuffManager : MonoBehaviour
 
     #endregion
 
+    #region DamageModifier
+
+    public void CalculateDamageModifier()
+    {
+        float damageModifierTotal = 0f;
+        damageModifierStageAdded = new bool[infectedDamageModifiers.Count];
+
+        for (int i = 0; i < damageModifierTowers.Count; i++)
+        {
+            damageModifierTotal += GetTowerDamageModifier(damageModifierTowers[i]);
+        }
+        globalDamageModifier = 1.0f + damageModifierTotal;
+    }
+
+    private float GetTowerDamageModifier(Tower tower)
+    {
+        float towerDamageModifier = 0f;
+
+        for (int i = 0; i < infectedDamageModifiers.Count; i++)
+        {
+            if (tower.GetInfectionScore() >= infectedDamageModifiers[i].InfectionScoreTrigger)
+            {
+                /* Global Slow Effect */
+                if (infectedDamageModifiers[i].GlobalRange)
+                {
+                    RemoveLocalDamageModifier(tower);
+
+                    /* If Stackable, always add Modifier */
+                    if (infectedDamageModifiers[i].Stackable)
+                    {
+                        towerDamageModifier = infectedDamageModifiers[i].DamageModifierValue;
+                        damageModifierStageAdded[i] = true;
+                    }
+                    /* If not Stackable, check if we have already added Modifier */
+                    else if (damageModifierStageAdded[i] == false)
+                    {
+                        towerDamageModifier = infectedDamageModifiers[i].DamageModifierValue;
+                        damageModifierStageAdded[i] = true;
+                    }
+                }
+                /* Local Slow Effect */
+                else
+                {
+                    AddLocalDamageModifier(tower);
+                    UpdateLocalDamageModifier(tower, infectedDamageModifiers[i]);
+                }
+
+            }
+        }
+        return towerDamageModifier;
+    }
+
+    private void AddLocalDamageModifier(Tower tower)
+    {
+        GameObject rangeGameObject = tower.transform.GetChild(0).gameObject;
+        LocalDamageModifier modifier = rangeGameObject.GetComponent<LocalDamageModifier>();
+
+        if (modifier == null)
+        {
+            rangeGameObject.AddComponent<LocalDamageModifier>();
+        }
+    }
+
+    private void UpdateLocalDamageModifier(Tower tower, InfectedDamageModifier infectedDamageModifier)
+    {
+        tower.transform.GetChild(0).gameObject.GetComponent<LocalDamageModifier>().UpdateDamageModifier(infectedDamageModifier);
+    }
+
+    private void RemoveLocalDamageModifier(Tower tower)
+    {
+        LocalDamageModifier modifier = tower.transform.GetChild(0).gameObject.GetComponent<LocalDamageModifier>();
+        if (modifier != null)
+        {
+            Destroy(modifier);
+        }
+    }
+
+    public float GetGlobalDamageModifier()
+    {
+        return globalDamageModifier;
+    }
+
+    #endregion
+
     #region SpeedModifier
 
     public void CalculateSpeedModifier()
@@ -198,7 +285,7 @@ public class BuffManager : MonoBehaviour
         {
             speedModifierTotal += GetTowerSpeedModifier(speedModifierTowers[i]);
         }
-        speedModifier = speedModifierTotal;
+        globalSpeedModifier = speedModifierTotal;
     }
 
     private float GetTowerSpeedModifier(Tower tower)
@@ -278,7 +365,7 @@ public class BuffManager : MonoBehaviour
 
     public float GetSpeedModifier()
     {
-        return speedModifier;
+        return globalSpeedModifier;
     }
 
     #endregion

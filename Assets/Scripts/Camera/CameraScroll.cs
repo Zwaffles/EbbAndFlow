@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,10 @@ using UnityEngine;
 public class CameraScroll : MonoBehaviour
 {
     [SerializeField] private CameraBounds2D bounds;
-    [SerializeField] private float cameraSpeed = 10f;
+    [SerializeField] private float transitionDuration = 600f;
 
-    private Vector2 startPosition;
-    private Vector2 targetPosition;
+    private Vector3 startPosition;
+    private Vector3 targetPosition;
     private Vector2 maxXPositions;
     private bool targetReached;
 
@@ -17,12 +18,26 @@ public class CameraScroll : MonoBehaviour
         bounds.Initialize(GetComponent<Camera>());
         startPosition = transform.position;
         maxXPositions = bounds.maxXlimit;
-        targetPosition = bounds.GetEdgePosition();
+        targetPosition = new Vector3(bounds.GetEdgePosition().x, transform.position.y, -10);
+        StartCoroutine(Transition());
+    }
+
+    private IEnumerator Transition()
+    {
+        float t = 0.0f;
+        while(t < 1.0f)
+        {
+            t += Time.deltaTime * (1 / transitionDuration);
+            transform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            UpdateProgress();
+            yield return 0;
+        }
+        OnTargetReached();
     }
 
     void Update()
     {
-        MoveCamera();
+        //MoveCamera();
     }
 
     private void MoveCamera()
@@ -31,10 +46,10 @@ public class CameraScroll : MonoBehaviour
         {
             Vector3 currentPosition = transform.position;
             Vector3 target = new Vector3(Mathf.Clamp(transform.position.x + 1, maxXPositions.x, maxXPositions.y), transform.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(currentPosition, target, Time.deltaTime * cameraSpeed);
-            UpdateProgress();
+            //timeLerped += Time.deltaTime;
+            //transform.position = Vector3.Lerp(startPosition, targetPosition, timeLerped / timeToLerp);
 
-            if (Vector3.Distance(currentPosition, target) <= 0.01f)
+            if (Vector3.Distance(currentPosition, targetPosition) <= 0.01f)
             {
                 targetReached = true;
                 OnTargetReached();

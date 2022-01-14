@@ -106,6 +106,7 @@ public class WaveSpawner : MonoBehaviour
 
             GameManager.Instance.BuffManager.CalculateHealthModifier();
             GameManager.Instance.BuffManager.CalculateSpeedModifier();
+            GameManager.Instance.BuffManager.CalculateDamageModifier();
             enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
 
             yield return new WaitForSeconds(activeSwarm ? swarmInterval : GetCurrentWave().EnemySpawnInterval);
@@ -121,6 +122,7 @@ public class WaveSpawner : MonoBehaviour
 
                 GameManager.Instance.BuffManager.CalculateHealthModifier();
                 GameManager.Instance.BuffManager.CalculateSpeedModifier();
+                GameManager.Instance.BuffManager.CalculateDamageModifier();
                 enemyInstance.GetComponent<Enemy>().Initialize(GameManager.Instance.BuffManager.GetHealthModifier(), GameManager.Instance.BuffManager.GetSpeedModifier());
 
                 yield return new WaitForSeconds(activeSwarm ? swarmInterval : GetCurrentWave().EnemySpawnInterval);

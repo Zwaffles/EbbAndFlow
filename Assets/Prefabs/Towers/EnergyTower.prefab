@@ -395,17 +395,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyTowerUpgrades:
   - upgrade: Upgrade 1
-    upgradeCost: 1
+    upgradeCost: 3
     currencyPerWave: 1
   - upgrade: Upgrade 2
-    upgradeCost: 2
+    upgradeCost: 6
     currencyPerWave: 2
   - upgrade: Upgrade 3
-    upgradeCost: 3
+    upgradeCost: 9
     currencyPerWave: 3
   - upgrade: Upgrade 4
-    upgradeCost: 4
+    upgradeCost: 12
     currencyPerWave: 4
   - upgrade: Upgrade 5
-    upgradeCost: 5
+    upgradeCost: 15
     currencyPerWave: 5

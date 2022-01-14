@@ -35,8 +35,9 @@ public class Tower : MonoBehaviour
     [SerializeField] private int scoreRequiredForCorruption = 1;
     [SerializeField] protected bool isInfected;
     [SerializeField] private int infectionScore = 0;
-
+  
     protected float cooldown;
+    public float sellTimer = 10f;
     protected Animator animator;
 
     public ActionBar ActionBar { get { return actionBar; } }
@@ -125,6 +126,10 @@ public class Tower : MonoBehaviour
     private void LateUpdate()
     {
         infectionScoreText.text = infectionScore.ToString();
+        if(sellTimer > 0)
+        {
+            sellTimer -= Time.deltaTime;
+        }
     }
 
     public bool CheckTowerInfected()

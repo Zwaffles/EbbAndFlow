@@ -8,10 +8,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float enemyHealth = 10f;
     [SerializeField] private float currentHealth;
-    [SerializeField] private float dmgMultiplier = 1f;
+    [SerializeField] private float damageMultiplier = 1.0f;
     [SerializeField] private float minMoveSpeed = 0.25f;
     [SerializeField] private float moveSpeed = 3.0f;
-
+    
     private Image healthBar;
     private AIPath path;
     private Animator animator;
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     public bool SpeedDebuff { get; set; }
     public float MoveSpeed { get; }
+    public float DamageMultiplier { get { return damageMultiplier; } set { damageMultiplier = value; } }
 
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float _damage) //is called when a projectile hits an enemy
     {
-        currentHealth -= _damage * dmgMultiplier;
+        currentHealth -= _damage * damageMultiplier * GameManager.Instance.BuffManager.GetGlobalDamageModifier();
         if (currentHealth <= 0)
         {
             currentHealth = 0;
