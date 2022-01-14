@@ -50,6 +50,10 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 1972776977474178327, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -4552940506928854387, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -2965148868974029500, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 2835281856350563105, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: -1665029506914457908, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: -9032074469175354827, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 8338763495693311072, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
@@ -80,6 +84,26 @@ SpriteAtlas:
   - {fileID: 7702569584553134341, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 5210623273660503405, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 1679010610958286659, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 4573413723944379236, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 688713988671689497, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -879526635071698918, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 931242288735369777, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 4620919374303300614, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 8600422358289410406, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 4132240381495486393, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 7993672439829780506, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 8264472552237614864, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -4852574532275230490, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -1552180663807121169, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -4127545996262774045, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -9216443640028287757, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -7680095431372583293, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -8523000742058810607, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -1801447544284754440, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -9005282114065277085, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -409557931340475988, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: -633960717885166211, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 1857245051215737609, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 1940918664111147762, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 8700799318242803319, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 1676694619733373147, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
@@ -128,6 +152,10 @@ SpriteAtlas:
   - {fileID: 8536086885815309252, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   - {fileID: 7940306436916436892, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Environment_SpriteSheet_20
+  - Environment_SpriteSheet_21
+  - Environment_SpriteSheet_22
+  - Environment_SpriteSheet_23
   - cmrd0i5f_22
   - cmrd0i5f_23
   - cmrd0i5f_20
@@ -158,6 +186,26 @@ SpriteAtlas:
   - cmrd0i5f_11
   - cmrd0i5f_9
   - cmrd0i5f_10
+  - Environment_SpriteSheet_8
+  - Environment_SpriteSheet_9
+  - Environment_SpriteSheet_2
+  - Environment_SpriteSheet_3
+  - Environment_SpriteSheet_0
+  - Environment_SpriteSheet_1
+  - Environment_SpriteSheet_6
+  - Environment_SpriteSheet_7
+  - Environment_SpriteSheet_4
+  - Environment_SpriteSheet_5
+  - Environment_SpriteSheet_11
+  - Environment_SpriteSheet_10
+  - Environment_SpriteSheet_13
+  - Environment_SpriteSheet_12
+  - Environment_SpriteSheet_15
+  - Environment_SpriteSheet_14
+  - Environment_SpriteSheet_17
+  - Environment_SpriteSheet_16
+  - Environment_SpriteSheet_19
+  - Environment_SpriteSheet_18
   - cmrd0i5f_40
   - cmrd0i5f_41
   - cmrd0i5f_42
