@@ -60,6 +60,7 @@ public class WaveSpawner : MonoBehaviour
                 skipWaveButton.gameObject.SetActive(false); //Hides Skip Button
                 spawning = true;
                 GameManager.Instance.AudioManager.Play(roundStartSound, false);
+                GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("fight", 1f);
                 spawnWaveCoroutine = StartCoroutine(SpawnNextWave());
             }
             else
@@ -71,6 +72,7 @@ public class WaveSpawner : MonoBehaviour
 
                 if (!endWaveActionsMade && waveIndex >= 0) //Does end wave actions
                 {
+                    GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("fight", 0f);
                     OnWaveEnd();
                 }
             }
@@ -180,7 +182,11 @@ public class WaveSpawner : MonoBehaviour
 
     void OnWaveEnd()
     {
-        activeSwarm = false;
+        if (activeSwarm)
+        {
+            GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("swarm_event", 0f);
+            activeSwarm = false;
+        }
 
         if(currentSwarm != null)
         {

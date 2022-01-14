@@ -53,6 +53,7 @@ public class SwarmController : MonoBehaviour
                     _swarmLayer.SetActive(true);
                 }
             }
+            GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("swarm_event", 1f);
             swarmTimer.SetActive(true);
             timerIsRunning = true;
         }

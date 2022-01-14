@@ -34257,6 +34257,41 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5430212993266342265, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
   m_PrefabInstance: {fileID: 571351254}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1855324107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4124628835098169358, guid: 9da9033ab74bb3b43aa01d5b9d5e40a6, type: 3}
+  m_PrefabInstance: {fileID: 734895947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855324108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855324107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 602613735
+      Data2: 1133283563
+      Data3: -912829772
+      Data4: 161474841
+    Path: event:/Build,fight Event
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1870047248
 PrefabInstance:
   m_ObjectHideFlags: 0
