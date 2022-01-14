@@ -18,6 +18,7 @@ public class Tower : MonoBehaviour
 
     [Header("Tower Selection")]
     [SerializeField] private ActionBar actionBar;
+    [SerializeField] private SelectionInfo selectionInfo;
 
     [Header("Tower Settings")]
     [SerializeField] protected Transform turret;
@@ -41,6 +42,7 @@ public class Tower : MonoBehaviour
     protected Animator animator;
 
     public ActionBar ActionBar { get { return actionBar; } }
+    public SelectionInfo SelectionInfo { get { return selectionInfo; } }
 
     private void Start()
     {

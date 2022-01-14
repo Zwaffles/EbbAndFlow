@@ -20,10 +20,11 @@ public class BuffManager : MonoBehaviour
     private bool[] speedModifierStageAdded;
     private bool[] damageModifierStageAdded;
 
-    private float globalHealthModifier;
-    private float globalSpeedModifier;
+    [Header("Debug")]
+    [SerializeField] private float globalHealthModifier;
+    [SerializeField] private float globalSpeedModifier;
     [SerializeField] private float globalDamageModifier;
-    private int currencyModifier;
+    [SerializeField] private int currencyModifier;
 
     public void IncreaseInfectionScore()
     {

@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField] private Tower selectedTower;
-    [SerializeField] private TowerUpgrades towerUpgrades;
-    [SerializeField] private LayerMask towerLayer;
 
+    [Header("Setup")]
+    [SerializeField] private SelectionPanel selectionPanel;
+    [SerializeField] private LayerMask selectionLayer;
+    
+    [Header("Debug")]
+    [SerializeField] private Tower selectedTower;
+    [SerializeField] private Enemy selectedEnemy;
+    [SerializeField] private TowerUpgrades towerUpgrades;
+
+    public SelectionPanel SelectionPanel { get { return selectionPanel; } set { selectionPanel = value; } }
     public Tower SelectedTower { get { return selectedTower; } }
+    public Enemy SelectedEnemy { get { return selectedEnemy; } }
     public TowerUpgrades TowerUpgrades { get { return towerUpgrades; } }
 
     private void Update()
@@ -22,33 +31,51 @@ public class SelectionManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Utilities.GetMouseWorldPosition(), transform.forward, Mathf.Infinity, towerLayer);
+            RaycastHit2D hit = Physics2D.Raycast(Utilities.GetMouseWorldPosition(), transform.forward, Mathf.Infinity, selectionLayer);
 
             if (hit.collider != null)
             {
+                /* Tower Selected */
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
                 {
-                    UnselectTower();
+                    DeselectTower();
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
                     towerUpgrades = selectedTower.GetComponent<TowerUpgrades>();
                     if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
                     {
                         selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
                     }
+                    selectionPanel.UpdateSelectionPanel(selectedTower.SelectionInfo);
                     UpdateActionBarPanel(selectedTower.ActionBar);
                 }
+                /* Enemy Selected */
+                else if (hit.transform.gameObject.GetComponent<Enemy>() != null)
+                {
+                    DeselectEnemy(); 
+                    DefaultActionBarPanel();
+                    selectedEnemy = hit.transform.gameObject.GetComponent<Enemy>();
+                    selectedEnemy.SelectionOutline.enabled = true;
+                }
             }
+            /* Nothing Selected */
             else
             {
+                /* Deselect Tower */
                 if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    UnselectTower();
+                    DeselectTower();
                 }
+                if (selectedEnemy != null && !EventSystem.current.IsPointerOverGameObject())
+                {
+                    DeselectEnemy();
+                }
+                DefaultActionBarPanel();
+                selectionPanel.DisableSelectionPanel();
             }
         }
     }
 
-    public void UnselectTower()
+    public void DeselectTower()
     {
         if(selectedTower != null)
         {
@@ -58,12 +85,22 @@ public class SelectionManager : MonoBehaviour
             }
         }
         selectedTower = null;
-        DefaultActionBarPanel();
+        
+    }
+
+    public void DeselectEnemy()
+    {
+        if (selectedEnemy != null)
+        {
+            selectedEnemy.SelectionOutline.enabled = false;
+        }
+        selectedEnemy = null;
     }
 
     void UpdateActionBarPanel(ActionBar actionBar)
     {
         GameManager.Instance.ActionBarManager.UpdateActionBar(actionBar);
+        
     }
 
     void DefaultActionBarPanel()

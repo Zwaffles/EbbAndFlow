@@ -11,19 +11,25 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageMultiplier = 1.0f;
     [SerializeField] private float minMoveSpeed = 0.25f;
     [SerializeField] private float moveSpeed = 3.0f;
-    
+    [SerializeField] private SelectionInfo selectionInfo;
+
+    private SpriteRenderer selectionOutline;
     private Image healthBar;
-    private AIPath path;
     private Animator animator;
+    private AIPath path;
+
     private bool speedDebuff;
     private float globalSpeedModifier;
-
+    
     public bool SpeedDebuff { get; set; }
     public float MoveSpeed { get; }
+    public SelectionInfo SelectionInfo { get { return selectionInfo; } }
     public float DamageMultiplier { get { return damageMultiplier; } set { damageMultiplier = value; } }
+    public SpriteRenderer SelectionOutline { get { return selectionOutline; } set { selectionOutline = value; } }
 
     private void Awake()
     {
+        selectionOutline = transform.GetChild(1).GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         path = GetComponent<AIPath>();
         path.maxSpeed = moveSpeed;

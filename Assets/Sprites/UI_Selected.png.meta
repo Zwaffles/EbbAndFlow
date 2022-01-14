@@ -1,22 +1,13 @@
 fileFormatVersion: 2
-guid: 892ae548171a8fb40b80e4bf105b45a2
+guid: 824d7bb4160c2fc459a7ea8f2d628665
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 127798155406108777
-    second: UI_Icon_Range
+      213: -6699118874731877279
+    second: UI_Selected_0
   - first:
-      213: 5150583523307718820
-    second: UI_Icon_Damage
-  - first:
-      213: 4673503075410863156
-    second: UI_Icon_Attackspeed
-  - first:
-      213: 8494320417710964229
-    second: UI_Icon_Sell
-  - first:
-      213: -5214620469579322617
-    second: UI_Icon_Upgrade
+      213: -1848760280291119887
+    second: UI_Selected_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Icon_Range
+      name: UI_Selected_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,98 +105,35 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9686ee7ceb706c100800000000000000
-      internalID: 127798155406108777
+      spriteID: 16ced7b70e2f703a0800000000000000
+      internalID: -6699118874731877279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Icon_Damage
+      name: UI_Selected_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 37
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a88cbcec6c8a7740800000000000000
-      internalID: 5150583523307718820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Icon_Attackspeed
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4346f8a294e9bd040800000000000000
-      internalID: 4673503075410863156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Icon_Sell
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50e72024a63e1e570800000000000000
-      internalID: 8494320417710964229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Icon_Upgrade
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70b6e38af42f1a7b0800000000000000
-      internalID: -5214620469579322617
+      spriteID: 1fc656af152e756e0800000000000000
+      internalID: -1848760280291119887
       vertices: []
       indices: 
       edges: []
