@@ -11,7 +11,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private float timeBetweenWaves = 15f;
     [SerializeField] private int globalCurrencyUpgradeInfectedCost = 10;
+    [SerializeField] private int globalCurrencyUpgradeCost = 10;
     [SerializeField] private int globalCurrencyUpgradeNormalBonus = 3;
+    [SerializeField] private int globalCurrencyUpgradeInfectedBonus = 3;
 
 
     [Header("Path")]
@@ -39,6 +41,7 @@ public class WaveSpawner : MonoBehaviour
     private bool spawnerActive = true;
     private bool endWaveActionsMade;
     private int normalCurrencyBonus = 0;
+    private int infectedCurrencyBonus = 0;
     private bool activeSwarm;
 
     void Update()
@@ -155,12 +158,21 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public void GlobalCurrencyUpgrade()
+    public void GlobalInfectedCurrencyUpgrade()
     {
         if(GameManager.Instance.PlayerCurrency.InfectedCanBuy(globalCurrencyUpgradeInfectedCost))
         {
-            Debug.Log("bonus");
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(globalCurrencyUpgradeInfectedCost);
+            infectedCurrencyBonus = globalCurrencyUpgradeInfectedBonus;
+            globalCurrencyUpgradeInfectedBonus += globalCurrencyUpgradeInfectedBonus;
+        }
+    }
+
+    public void GlobalCurrencyUpgrade()
+    {
+        if(GameManager.Instance.PlayerCurrency.CanBuy(globalCurrencyUpgradeCost))
+        {
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(globalCurrencyUpgradeCost);
             normalCurrencyBonus = globalCurrencyUpgradeNormalBonus;
             globalCurrencyUpgradeNormalBonus += globalCurrencyUpgradeNormalBonus;
         }
