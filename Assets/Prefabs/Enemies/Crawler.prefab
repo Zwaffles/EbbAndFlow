@@ -512,6 +512,7 @@ MonoBehaviour:
   damageMultiplier: 1
   minMoveSpeed: 0.25
   moveSpeed: 1.8
+  deathSound: {fileID: 8300000, guid: 06855966903d0ea4e83f268146eb537f, type: 3}
 --- !u!114 &-6625471109485211561
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class AttackTower : Tower
     [SerializeField] float damage = 3f;
     [SerializeField] float splashRadius = 0f;
     [SerializeField] float splashDamage = 0f;
+    [SerializeField] AudioClip attackSound;
     public int numberOfTargets = 2;
 
     private TowerTargeting towerTargeting;
@@ -69,6 +70,7 @@ public class AttackTower : Tower
     void Shoot() //tower goes pew pew
     {
         cooldown = fireRate;
+        GameManager.Instance.AudioManager.Play(attackSound, true);
         GameObject projectileGO = (GameObject)Instantiate(projectilePrefab, turret.position, turret.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
 

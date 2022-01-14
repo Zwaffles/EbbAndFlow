@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageMultiplier = 1.0f;
     [SerializeField] private float minMoveSpeed = 0.25f;
     [SerializeField] private float moveSpeed = 3.0f;
+
+    [SerializeField] private AudioClip deathSound;
     
     private Image healthBar;
     private AIPath path;
@@ -56,6 +58,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            GameManager.Instance.AudioManager.Play(deathSound, true);
             GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
             GameManager.Instance.StatisticsManager.IncreaseKillCount();
             Destroy(gameObject);
@@ -70,12 +73,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Die()
-    {
-        currentHealth = 0;
-        GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
-        Destroy(gameObject);
-    }
+    //public void Die()
+    //{
+    //    currentHealth = 0;
+    //    GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
+    //    Destroy(gameObject);
+    //}
 
     //private void Update()
     //{

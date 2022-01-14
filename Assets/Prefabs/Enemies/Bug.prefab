@@ -512,11 +512,7 @@ MonoBehaviour:
   damageMultiplier: 1
   minMoveSpeed: 0.25
   moveSpeed: 3
-  minDamageMultiplier: 0.1
-  maxDamageMultiplier: 0.1
-  damageBuffMultiplier: 1
-  damageDebuffMultiplier: 1
-  damageModifiers: []
+  deathSound: {fileID: 8300000, guid: 4e76f0937f9ebd446a8e3ab15a37fb47, type: 3}
 --- !u!114 &2146811825820449876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,3 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d52a42060b3204cad17b92f75a5496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIncreaseMultiplier: 1
+  damageDecreaseMultiplier: 1
+  minDamageMultiplier: -0.1
+  maxDamageMultiplier: 5

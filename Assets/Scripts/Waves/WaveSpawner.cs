@@ -23,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveTimerText;
     [SerializeField] private Button skipWaveButton;
 
+    [SerializeField] private AudioClip roundStartSound;
+
     private List<GameObject> currentWaveEnemies = new List<GameObject>();
     private List<GameObject> additionalEnemies = new List<GameObject>();
     private List<GameObject> swarmEnemies = new List<GameObject>();
@@ -54,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
                 waveTimerText.gameObject.SetActive(false); //Hides Timer
                 skipWaveButton.gameObject.SetActive(false); //Hides Skip Button
                 spawning = true;
+                GameManager.Instance.AudioManager.Play(roundStartSound, false);
                 spawnWaveCoroutine = StartCoroutine(SpawnNextWave());
             }
             else

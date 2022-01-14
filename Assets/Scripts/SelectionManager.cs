@@ -29,6 +29,7 @@ public class SelectionManager : MonoBehaviour
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
                 {
                     UnselectTower();
+                    //GameManager.Instance.AudioManager.Play(selectSound, true);
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
                     towerUpgrades = selectedTower.GetComponent<TowerUpgrades>();
                     if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)

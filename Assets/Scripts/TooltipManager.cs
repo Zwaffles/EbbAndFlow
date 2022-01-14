@@ -90,5 +90,4 @@ public class TooltipManager : MonoBehaviour
     {
         tooltipPanel.gameObject.SetActive(false);
     }
-
 }

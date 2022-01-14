@@ -72,7 +72,8 @@ public class InfectionManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool drawPoints;
 
-
+    [SerializeField] private AudioClip infectedSound;
+    [SerializeField] private AudioClip pushbackSound;
 
     private List<InfectionPoint> infectionPoints = new List<InfectionPoint>();
 
@@ -166,6 +167,7 @@ public class InfectionManager : MonoBehaviour
             float speed = -temporarySpreadPushbackSpeed;
             pushbackTimer = 0;
             ChangeSlowInfectionSpeed(temporaryInfectionPushbackTime, speed);
+            GameManager.Instance.AudioManager.Play(pushbackSound, false);
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(pushbackInfectionCost);
         }
     }
@@ -456,6 +458,7 @@ public class InfectionManager : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
+            GameManager.Instance.AudioManager.Play(infectedSound, true);
             collision.gameObject.GetComponent<Tower>().InfectTower();
         }
 
