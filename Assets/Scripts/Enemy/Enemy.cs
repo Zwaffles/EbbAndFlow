@@ -55,12 +55,11 @@ public class Enemy : MonoBehaviour
             {
                 case StatInfo.StatType.MovementSpeed:
                     selectionInfo.StatInfo[i].BaseStat = baseMoveSpeed;
-                    selectionInfo.StatInfo[i].CurrentStat = moveSpeed + globalSpeedModifier;
+                    selectionInfo.StatInfo[i].CurrentStat = path.maxSpeed;
                     break;
                 case StatInfo.StatType.Health:
                     selectionInfo.StatInfo[i].BaseStat = baseHealth;
-                    Debug.Log("Current Stat: " + currentHealth);
-                    selectionInfo.StatInfo[i].CurrentStat = currentHealth;
+                    selectionInfo.StatInfo[i].CurrentStat = enemyHealth;
                     break;
                 case StatInfo.StatType.Armor:
                     selectionInfo.StatInfo[i].BaseStat = 1.0f;

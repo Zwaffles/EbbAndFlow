@@ -31,7 +31,11 @@ public class SelectionManager : MonoBehaviour
     {
         if(selectedEnemy != null)
         {
-            //selectionPanel.UpdateSelectionPanel(selectedEnemy.GetSelectionInfo());
+            selectionPanel.UpdateSelectionPanel(selectedEnemy.GetSelectionInfo());
+        }
+        if(selectedTower != null)
+        {
+            selectionPanel.UpdateSelectionPanel(selectedTower.GetSelectionInfo());
         }
     }
 
@@ -46,6 +50,7 @@ public class SelectionManager : MonoBehaviour
                 /* Tower Selected */
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
                 {
+                    DeselectEnemy(); 
                     DeselectTower();
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
                     towerUpgrades = selectedTower.GetComponent<TowerUpgrades>();
@@ -59,6 +64,7 @@ public class SelectionManager : MonoBehaviour
                 /* Enemy Selected */
                 else if (hit.transform.gameObject.GetComponent<Enemy>() != null)
                 {
+                    DeselectTower();
                     DeselectEnemy();
                     selectedEnemy = hit.transform.gameObject.GetComponent<Enemy>();
                     selectedEnemy.SelectionOutline.enabled = true; 
