@@ -15,8 +15,13 @@ public class CurrencyTower : Tower
         {
             switch (SelectionInfo.StatInfo[i].Stat)
             {
+                case StatInfo.StatType.Currency:
+                    SelectionInfo.StatInfo[i].BaseStat = currencyPerWave;
+                    SelectionInfo.StatInfo[i].CurrentStat = currencyPerWave;
+                    break;
                 case StatInfo.StatType.InfectionScore:
                     SelectionInfo.StatInfo[i].BaseStat = InfectionScore;
+                    SelectionInfo.StatInfo[i].CurrentStat = InfectionScore;
                     break;
                 default:
                     Debug.Log("No Method for " + SelectionInfo.StatInfo[i].Stat + " implemented!");

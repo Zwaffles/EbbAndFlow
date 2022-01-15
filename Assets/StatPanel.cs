@@ -80,6 +80,24 @@ public class StatPanel : MonoBehaviour
                 text = (statInfo.BaseStat + difference).ToString() + " +[" + difference.ToString("F3") + "]";
                 tooltip.UpdateTooltip(statInfo.Stat.ToString() + ": " + (statInfo.BaseStat + difference).ToString());
             }
+            else if (statInfo.Stat == StatInfo.StatType.Health)
+            {
+                float difference = Mathf.Abs(statInfo.BaseStat - statInfo.CurrentStat);
+                difference = FormatToDecimals(difference);
+
+                /* Health Increase */
+                if (statInfo.CurrentStat > statInfo.BaseStat)
+                {
+                    text = statInfo.CurrentStat.ToString() + " +[" + FormatToDecimals(difference).ToString("F2") + "]";
+                    tooltip.UpdateTooltip(statInfo.Stat.ToString() + ": " + statInfo.CurrentStat.ToString());
+                }
+                /* Health Decrease */
+                else
+                {
+                    text = statInfo.CurrentStat.ToString() + " -[" + FormatToDecimals(difference).ToString("F2") + "]";
+                    tooltip.UpdateTooltip(statInfo.Stat.ToString() + ": " + statInfo.CurrentStat.ToString());
+                }
+            }
             else
             {
                 text = statInfo.CurrentStat.ToString() + " +[" + FormatToDecimals((statInfo.CurrentStat - statInfo.BaseStat)).ToString("F2") + "]";

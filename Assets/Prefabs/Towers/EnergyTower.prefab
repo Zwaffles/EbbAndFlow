@@ -462,7 +462,7 @@ MonoBehaviour:
       infected and corrupt.'
     statInfo:
     - stat: 3
-      statIcon: {fileID: 21300000, guid: c186762bfb7c6394582f54a61a727cbf, type: 3}
+      statIcon: {fileID: -342378296970299146, guid: c186762bfb7c6394582f54a61a727cbf, type: 3}
     - stat: 4
       statIcon: {fileID: 21300000, guid: 9d3d6a9bd8e93e24ea2ff4e05fb94078, type: 3}
   turret: {fileID: 0}
