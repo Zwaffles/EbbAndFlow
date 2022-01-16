@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UtilityUpgradesActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: e5f03bcd13cee614a9abbe00805779d9, type: 2}
-  - {fileID: 11400000, guid: ede8a2d7ae6044f44b615cb394e19361, type: 2}
+  - {fileID: 11400000, guid: 6d9495eb9f053e145bf8e90c9ef494ec, type: 2}
+  - {fileID: 11400000, guid: 34a5c58a4c57091449784b85173213c4, type: 2}
   - {fileID: 11400000, guid: af4264d46bdd7c743afeeb3c5f7c7e8f, type: 2}
   - {fileID: 11400000, guid: 4ef43fe9f704c62438d8bb50e90f1cd3, type: 2}

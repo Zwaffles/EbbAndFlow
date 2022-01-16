@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: UpgradeInfectedUtility
   m_EditorClassIdentifier: 
   actionBarOrder: 1
-  actionIcon: {fileID: 0}
+  actionIcon: {fileID: -7173486217719208732, guid: 14c241026fbb1b047b593dbb26816a10, type: 3}
   actionTooltip: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua.

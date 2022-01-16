@@ -160,8 +160,10 @@ public class WaveSpawner : MonoBehaviour
 
     public void GlobalInfectedCurrencyUpgrade()
     {
+        Debug.Log("Infected currency upgrade attempt");
         if(GameManager.Instance.PlayerCurrency.InfectedCanBuy(globalCurrencyUpgradeInfectedCost))
         {
+            Debug.Log("Bought Infected currency upgrade!");
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(globalCurrencyUpgradeInfectedCost);
             infectedCurrencyBonus = globalCurrencyUpgradeInfectedBonus;
             globalCurrencyUpgradeInfectedBonus += globalCurrencyUpgradeInfectedBonus;
