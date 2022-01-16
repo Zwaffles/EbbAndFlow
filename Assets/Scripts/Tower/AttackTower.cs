@@ -48,6 +48,36 @@ public class AttackTower : Tower
         turret = this.transform;
     }
 
+    public override SelectionInfo GetSelectionInfo()
+    {
+        for (int i = 0; i < SelectionInfo.StatInfo.Count; i++)
+        {
+            switch (SelectionInfo.StatInfo[i].Stat)
+            {
+                case StatInfo.StatType.Damage:
+                    SelectionInfo.StatInfo[i].BaseStat = baseDamage;
+                    SelectionInfo.StatInfo[i].CurrentStat = damage;
+                    break;
+                case StatInfo.StatType.Range:
+                    SelectionInfo.StatInfo[i].BaseStat = baseRange;
+                    SelectionInfo.StatInfo[i].CurrentStat = towerTargeting.towerRange;
+                    break;
+                case StatInfo.StatType.AttackSpeed:
+                    SelectionInfo.StatInfo[i].BaseStat = baseFireRate;
+                    SelectionInfo.StatInfo[i].CurrentStat = fireRate;
+                    break;
+                case StatInfo.StatType.InfectionScore:
+                    SelectionInfo.StatInfo[i].BaseStat = InfectionScore;
+                    SelectionInfo.StatInfo[i].CurrentStat = InfectionScore;
+                    break;
+                default:
+                    Debug.Log("No Method for " + SelectionInfo.StatInfo[i].Stat + " implemented!");
+                    break;
+            }
+        }
+        return SelectionInfo;
+    }
+
     void Update() 
     {
         if(!isInfected)

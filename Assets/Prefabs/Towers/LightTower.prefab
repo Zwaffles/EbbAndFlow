@@ -318,6 +318,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionBar: {fileID: 11400000, guid: d917ef980f3bd454aa69ca2c8ac41716, type: 2}
+  selectionInfo:
+    selectionIcon: {fileID: 21300000, guid: 9f2bbbd98167ef64ba23c6c987109734, type: 3}
+    selectionHeaderText: Light Tower
+    selectionDescriptionText: "The Light Tower is a single target tower with high
+      damage.\nDecreases enemy HP when infected and Increases enemy \nHP when corrupted."
+    statInfo:
+    - stat: 0
+      statIcon: {fileID: 5150583523307718820, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+    - stat: 2
+      statIcon: {fileID: 127798155406108777, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+    - stat: 1
+      statIcon: {fileID: 4673503075410863156, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+    - stat: 4
+      statIcon: {fileID: 21300000, guid: 9d3d6a9bd8e93e24ea2ff4e05fb94078, type: 3}
   turret: {fileID: 0}
   fireRate: 0.8
   towerType: 2

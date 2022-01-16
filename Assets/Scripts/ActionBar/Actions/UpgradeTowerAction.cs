@@ -16,9 +16,16 @@ public class UpgradeTowerAction : Action
 
     public override bool Interactable()
     {
-        if (GameManager.Instance.SelectionManager.TowerUpgrades.CanUpgrade())
+        if (GameManager.Instance.SelectionManager.SelectedTower != null)
         {
-            return true;
+            if (GameManager.Instance.SelectionManager.TowerUpgrades.CanUpgrade() && !GameManager.Instance.SelectionManager.SelectedTower.CheckTowerInfected())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
