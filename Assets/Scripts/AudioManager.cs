@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+	public FMOD.Studio.Bus MasterBus;
+
 	private AudioSource[] audioSources;
 
 	public float lowPitchRange = .95f;
@@ -11,6 +13,8 @@ public class AudioManager : MonoBehaviour
 
 	public void Awake()
 	{
+		MasterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
+
 		audioSources = GetComponentsInChildren<AudioSource>();
 	}
 

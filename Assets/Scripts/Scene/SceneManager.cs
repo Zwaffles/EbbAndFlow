@@ -73,6 +73,7 @@ public class SceneManager : MonoBehaviour
         }
 
         fadeInCoroutine = null;
+        GameManager.Instance.AudioManager.MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
     }
 
