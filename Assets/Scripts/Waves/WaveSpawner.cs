@@ -57,7 +57,6 @@ public class WaveSpawner : MonoBehaviour
             if (waveSpawnCounter <= 0)
             {
                 waveTimerText.gameObject.SetActive(false); //Hides Timer
-                skipWaveButton.gameObject.SetActive(false); //Hides Skip Button
                 spawning = true;
                 GameManager.Instance.AudioManager.Play(roundStartSound, false);
                 GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("fight", 1f);
@@ -66,7 +65,6 @@ public class WaveSpawner : MonoBehaviour
             else
             {
                 waveTimerText.gameObject.SetActive(true);
-                skipWaveButton.gameObject.SetActive(true);
                 waveSpawnCounter -= Time.deltaTime; //Starts countdown to next wave
                 waveTimerText.text = ("Next Wave: " + (waveSpawnCounter.ToString("F0")));
 

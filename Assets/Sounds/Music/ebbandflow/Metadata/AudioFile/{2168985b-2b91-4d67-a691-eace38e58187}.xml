@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{2168985b-2b91-4d67-a691-eace38e58187}">
+		<property name="assetPath">
+			<value>swarm_transission.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.0718367346938784</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6880725f-8cce-4d43-92e6-8fb75058f096}</destination>
+		</relationship>
+	</object>
+</objects>

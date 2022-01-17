@@ -344,8 +344,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: C:/Users/anter/Desktop/Bugs/ebbandflow/ebbandflow.fspro
-  sourceBankPath: C:/Users/anter/Desktop/Bugs/ebbandflow/Build
+  sourceProjectPath: Assets/Sounds/Music/ebbandflow/ebbandflow.fspro
+  sourceBankPath: Assets/Sounds/Music/ebbandflow/Build
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 0
+      Value: 1
       HasValue: 1
     Logging:
       Value: 0
