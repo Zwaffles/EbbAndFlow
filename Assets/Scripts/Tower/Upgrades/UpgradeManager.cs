@@ -19,6 +19,37 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<LightningTowerUpgrades> lightningTowers = new List<LightningTowerUpgrades>();
     [SerializeField] private List<PulsarTowerUpgrades> pulsarTowers = new List<PulsarTowerUpgrades>();
 
+
+    [Header("Max Allowed Upgrades")]
+    public int lightTowerMaxDamage = 5;
+    public int lightTowerMaxRange = 5;
+    public int lightTowerMaxAttackSpeed = 5;
+    [Space]
+    public int lightningTowerMaxDamage = 5;
+    public int lightningTowerMaxRange = 5;
+    public int lightningTowerMaxAttackSpeed = 5;
+    [Space]
+    public int pulsarTowerMaxDamage = 5;
+    public int pulsarTowerMaxRange = 5;
+    public int pulsarTowerMaxAttackSpeed = 5;
+    [Space]
+    public int energyTowerMaxCurrency = 5;
+
+    [Header("Debug Fields")]
+    public int lightTowerDamage = 0;
+    public int lightTowerRange = 0;
+    public int lightTowerAttackSpeed = 0;
+
+    public int lightningTowerDamage = 0;
+    public int lightningTowerRange = 0;
+    public int lightningTowerAttackSpeed = 0;
+
+    public int pulsarTowerDamage = 0;
+    public int pulsarTowerRange = 0;
+    public int pulsarTowerAttackSpeed = 0;
+
+    public int energyTowerCurrency = 0;
+
     public EnergyTowerUpgrade PermanentEnergyTowerUpgrades { get { return permanentEnergyTowerUpgrades; } set { permanentEnergyTowerUpgrades = value; } }
     public LightTowerUpgrade PermanentLightTowerUpgrades { get { return permanentLightTowerUpgrades; } set { permanentLightTowerUpgrades = value; } }
     public LightningTowerUpgrade PermanentLightningTowerUpgrades { get { return permanentLightningTowerUpgrades; } set { permanentLightningTowerUpgrades = value; } }
@@ -39,6 +70,64 @@ public class UpgradeManager : MonoBehaviour
         permanentPulsarTowerUpgrades.DamageIncrease = 0;
         permanentPulsarTowerUpgrades.RangeIncrease = 0;
         permanentPulsarTowerUpgrades.FireRateIncrease = 0;
+    }
+
+    public bool UpgradeAllowed(Tower.TowerType towerType, PermanentTowerUpgradeAction.Upgrade upgrade)
+    {
+        switch (upgrade)
+        {
+            case PermanentTowerUpgradeAction.Upgrade.Damage:
+                switch (towerType)
+                {
+                    case Tower.TowerType.LightTower:
+                        if (lightTowerDamage + 1 <= lightTowerMaxDamage) { return true; } else { return false; }
+                    case Tower.TowerType.LightningTower:
+                        if (lightningTowerDamage + 1 <= lightningTowerMaxDamage) { return true; } else { return false; }
+                    case Tower.TowerType.PulsarTower:
+                        if (pulsarTowerDamage + 1 <= pulsarTowerMaxDamage) { return true; } else { return false; }
+                    default:
+                        Debug.Log("UpgradeAllowed(): Case not defined!");
+                        return false;
+                }
+            case PermanentTowerUpgradeAction.Upgrade.Range:
+                switch (towerType)
+                {
+                    case Tower.TowerType.LightTower:
+                        if (lightTowerRange + 1 <= lightTowerMaxRange) { return true; } else { return false; }
+                    case Tower.TowerType.LightningTower:
+                        if (lightningTowerRange + 1 <= lightningTowerMaxRange) { return true; } else { return false; }
+                    case Tower.TowerType.PulsarTower:
+                        if (pulsarTowerRange + 1 <= pulsarTowerMaxRange) { return true; } else { return false; }
+                    default:
+                        Debug.Log("UpgradeAllowed(): Case not defined!");
+                        return false;
+                }
+            case PermanentTowerUpgradeAction.Upgrade.Speed:
+                switch (towerType)
+                {
+                    case Tower.TowerType.LightTower:
+                        if (lightTowerAttackSpeed + 1 <= lightTowerMaxAttackSpeed) { return true; } else { return false; }
+                    case Tower.TowerType.LightningTower:
+                        if (lightningTowerAttackSpeed + 1 <= lightningTowerMaxAttackSpeed) { return true; } else { return false; }
+                    case Tower.TowerType.PulsarTower:
+                        if (pulsarTowerAttackSpeed + 1 <= pulsarTowerMaxAttackSpeed) { return true; } else { return false; }
+                    default:
+                        Debug.Log("UpgradeAllowed(): Case not defined!");
+                        return false;
+                }
+            case PermanentTowerUpgradeAction.Upgrade.Currency:
+                switch (towerType)
+                {
+                    case Tower.TowerType.EnergyTower:
+                        if (energyTowerCurrency + 1 <= energyTowerMaxCurrency) { return true; } else { return false; }
+
+                    default:
+                        return false;
+                }
+            default:
+                Debug.Log("UpgradeAllowed(): Case not defined!");
+                return false;
+        }
     }
 
     public void AddTower(TowerUpgrades towerUpgrades, Tower.TowerType towerType)
@@ -153,6 +242,7 @@ public class UpgradeManager : MonoBehaviour
         switch (towerType)
         {
             case Tower.TowerType.EnergyTower:
+                energyTowerCurrency++;
                 permanentEnergyTowerUpgrades.CurrencyPerWave += Mathf.RoundToInt(value);
 
                 break;
@@ -167,14 +257,17 @@ public class UpgradeManager : MonoBehaviour
         switch (towerType)
         {
             case Tower.TowerType.LightTower:
+                lightTowerDamage++;
                 permanentLightTowerUpgrades.DamageIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
             case Tower.TowerType.LightningTower:
+                lightningTowerDamage++;
                 permanentLightningTowerUpgrades.DamageIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
             case Tower.TowerType.PulsarTower:
+                pulsarTowerDamage++;
                 permanentPulsarTowerUpgrades.DamageIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
@@ -189,14 +282,17 @@ public class UpgradeManager : MonoBehaviour
         switch (towerType)
         {
             case Tower.TowerType.LightTower:
+                lightTowerRange++;
                 permanentLightTowerUpgrades.RangeIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
             case Tower.TowerType.LightningTower:
+                lightningTowerRange++;
                 permanentLightningTowerUpgrades.RangeIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
             case Tower.TowerType.PulsarTower:
+                pulsarTowerRange++;
                 permanentPulsarTowerUpgrades.RangeIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
@@ -211,14 +307,17 @@ public class UpgradeManager : MonoBehaviour
         switch (towerType)
         {
             case Tower.TowerType.LightTower:
+                lightTowerAttackSpeed++;
                 permanentLightTowerUpgrades.FireRateIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
             case Tower.TowerType.LightningTower:
+                lightningTowerAttackSpeed++;
                 permanentLightningTowerUpgrades.FireRateIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;
             case Tower.TowerType.PulsarTower:
+                pulsarTowerAttackSpeed++;
                 permanentPulsarTowerUpgrades.FireRateIncrease += value;
                 UpdateTowerUpgrades(towerType);
                 break;

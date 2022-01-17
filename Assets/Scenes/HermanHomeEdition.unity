@@ -10631,6 +10631,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400473325}
     m_Modifications:
+    - target: {fileID: 605980283, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 372729633749251904, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
       propertyPath: pauseMenuUI
       value: 
@@ -10690,6 +10694,10 @@ PrefabInstance:
     - target: {fileID: 372729633749251907, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
       propertyPath: m_Name
       value: SceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709215494423153055, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a8c630cb2301eb45a9fa1f91b4e2c71, type: 3}
@@ -17777,6 +17785,10 @@ PrefabInstance:
     - target: {fileID: 190581049751690912, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190581049751690915, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
+      propertyPath: m_text
+      value: 'Next Wave: 20'
       objectReference: {fileID: 0}
     - target: {fileID: 1079073549200325776, guid: ad65ceada4692864087a4708a9f5a749, type: 3}
       propertyPath: m_AnchorMax.y
@@ -25150,6 +25162,7 @@ GameObject:
   - component: {fileID: 791600997}
   - component: {fileID: 791600999}
   - component: {fileID: 791600998}
+  - component: {fileID: 791601000}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -25214,6 +25227,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791600996}
   m_CullTransparentMesh: 1
+--- !u!223 &791601000
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791600996}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &818635635
 GameObject:
   m_ObjectHideFlags: 0
@@ -32841,6 +32875,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 836896500}
     - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
+      propertyPath: spawnerActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 892853435959685809, guid: f8797a37952fabf44ab7a1cffa2ac21c, type: 3}
       propertyPath: startPosition
       value: 
       objectReference: {fileID: 1645797357}
@@ -34225,6 +34263,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: lightTowerRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: lightTowerDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: pulsarTowerRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: pulsarTowerDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: energyTowerCurrency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: lightningTowerRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: lightningTowerDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: lightTowerAttackSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: pulsarTowerAttackSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252317787486245873, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
+      propertyPath: lightningTowerAttackSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1252317787486245875, guid: ec155cea2b600ac428771372d41dc0eb, type: 3}
       propertyPath: m_Name
       value: UpgradeManager
@@ -35596,7 +35674,7 @@ MonoBehaviour:
     SHIFT can be held down allowing you to SHIFT-CLICK
     or SHIFT-CLICK Drag to place multiplie towers
 
-    
+
 
     Good luck!'
   m_isRightToLeft: 0
@@ -35888,7 +35966,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1001 &1936326297
 PrefabInstance:

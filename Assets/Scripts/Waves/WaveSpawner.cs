@@ -28,6 +28,9 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] private AudioClip roundStartSound;
 
+    [Header("Debug")]
+    [SerializeField] private bool spawnerActive = true;
+
     private List<GameObject> currentWaveEnemies = new List<GameObject>();
     private List<GameObject> additionalEnemies = new List<GameObject>();
     private List<GameObject> swarmEnemies = new List<GameObject>();
@@ -38,11 +41,12 @@ public class WaveSpawner : MonoBehaviour
     private float swarmInterval = 1f;
     private int waveIndex = -1;
     private bool spawning;
-    private bool spawnerActive = true;
     private bool endWaveActionsMade;
     private int normalCurrencyBonus = 0;
     private int infectedCurrencyBonus = 0;
     private bool activeSwarm;
+
+    public bool SpawnerActive { get { return spawnerActive; } set { spawnerActive = value; } }
 
     void Update()
     {

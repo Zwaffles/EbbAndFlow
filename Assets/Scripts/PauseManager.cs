@@ -32,6 +32,7 @@ public class PauseManager : MonoBehaviour
 
     private Resolution[] resolutions;
 
+    private float timeScale;
     private bool isPaused;
     public bool canPause;
 
@@ -71,7 +72,7 @@ public class PauseManager : MonoBehaviour
                 /* UnPause */
                 else
                 {
-                    Time.timeScale = 1;
+                    Time.timeScale = timeScale;
                     isPaused = false;
                     pauseMenuPanel.SetActive(false);
                 }
@@ -79,6 +80,7 @@ public class PauseManager : MonoBehaviour
             /* Pause */
             else
             {
+                timeScale = Time.timeScale;
                 Time.timeScale = 0;
                 isPaused = true;
                 pauseMenuPanel.SetActive(true);

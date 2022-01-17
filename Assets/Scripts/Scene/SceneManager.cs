@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
 {
     [Header("Fade In Settings")]
     [Range(0.1f, 5.0f)]
+    [SerializeField] private bool fadeIn;
     [SerializeField] private float fadeInSpeed = 1.0f;
     [SerializeField] private Color fadeInColor = new Color(0.1f, 0.1f, 0.1f, 1);
 
@@ -31,7 +32,10 @@ public class SceneManager : MonoBehaviour
     {
         MasterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
         fadeBackground = GetComponentInChildren<Image>();
-        fadeInCoroutine = StartCoroutine(FadeIn());
+        if (fadeIn)
+        {
+            FadeIn();
+        }
     }
 
     public void FadeLoadScene(int index)
@@ -40,12 +44,24 @@ public class SceneManager : MonoBehaviour
 
         if (!fadingOut)
         {
-            StopCoroutine(fadeInCoroutine);
+            if(fadeInCoroutine != null)
+            {
+                StopCoroutine(fadeInCoroutine);
+            }
             fadeInCoroutine = StartCoroutine(FadeOut(index));
         }
     }
 
-    private IEnumerator FadeIn()
+    public void FadeIn()
+    {
+        if(fadeOutCoroutine != null)
+        {
+            StopCoroutine(fadeOutCoroutine);
+        }
+        fadeInCoroutine = StartCoroutine(FadeInCoroutine());
+    }
+
+    private IEnumerator FadeInCoroutine()
     {
         fadingIn = true;
         fadeBackground.color = fadeInColor;

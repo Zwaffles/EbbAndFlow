@@ -19,7 +19,7 @@ public class PermanentTowerUpgradeAction : Action
     public override void UseAction()
     {
         base.UseAction();
-        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost))
+        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost) && GameManager.Instance.UpgradeManager.UpgradeAllowed(towerType, upgradeType))
         {
             GameManager.Instance.UpgradeManager.UpgradeTowerType(towerType, upgradeType, percentageValue);
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(upgradeCost);
@@ -31,7 +31,7 @@ public class PermanentTowerUpgradeAction : Action
     {
         if(GameManager.Instance.SelectionManager.SelectedTower != null)
         {
-            if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost) && !GameManager.Instance.SelectionManager.SelectedTower.CheckTowerInfected())
+            if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost) && !GameManager.Instance.SelectionManager.SelectedTower.CheckTowerInfected() && GameManager.Instance.UpgradeManager.UpgradeAllowed(towerType, upgradeType))
             {
                 return true;
             }
@@ -42,7 +42,7 @@ public class PermanentTowerUpgradeAction : Action
         }
         else
         {
-            if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost))
+            if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost) && GameManager.Instance.UpgradeManager.UpgradeAllowed(towerType, upgradeType))
             {
                 return true;
             }
