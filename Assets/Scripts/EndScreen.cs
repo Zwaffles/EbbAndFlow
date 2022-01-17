@@ -36,6 +36,8 @@ public class EndScreen : MonoBehaviour
 
         if (!activated)
         {
+            GameManager.Instance.TimeScaleManager.SetTimeScale(1.0f);
+
             /* Player Lost */
             if (gameOver)
             {
