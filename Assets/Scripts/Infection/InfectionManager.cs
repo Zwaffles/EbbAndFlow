@@ -146,25 +146,27 @@ public class InfectionManager : MonoBehaviour
                 stopButton.interactable = true;
             }
         }
-
-        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(pushbackInfectionCost))
+        if(GameManager.Instance != null && GameManager.Instance.PlayerCurrency != null)
         {
-            pushbackButton.interactable = true;
+            if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(pushbackInfectionCost))
+            {
+                pushbackButton.interactable = true;
 
-        }
-        else
-        {
-            pushbackButton.interactable = false;
-        }
+            }
+            else
+            {
+                pushbackButton.interactable = false;
+            }
 
-        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(stopInfectionCost))
-        {
-            stopButton.interactable = true;
+            if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(stopInfectionCost))
+            {
+                stopButton.interactable = true;
 
-        }
-        else
-        {
-            stopButton.interactable = false;
+            }
+            else
+            {
+                stopButton.interactable = false;
+            }
         }
     }
 
