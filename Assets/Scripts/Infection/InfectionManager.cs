@@ -458,8 +458,11 @@ public class InfectionManager : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
-            GameManager.Instance.AudioManager.Play(infectedSound, true);
             collision.gameObject.GetComponent<Tower>().InfectTower();
+
+            if(collision.gameObject.GetComponent<Tower>().GetTowerType() == 0) { return; }
+
+            GameManager.Instance.AudioManager.Play(infectedSound, true);
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Cyst"))

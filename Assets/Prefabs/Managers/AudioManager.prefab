@@ -680,6 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264493599784586514}
   - component: {fileID: 4679031793399232211}
+  - component: {fileID: 1855324108}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -718,6 +719,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowPitchRange: 0.95
   highPitchRange: 1.05
+--- !u!114 &1855324108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124628835098169358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 602613735
+      Data2: 1133283563
+      Data3: -912829772
+      Data4: 161474841
+    Path: event:/Build,fight Event
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5344896302292007693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1333,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fa41898a6dc08fa4c926b1b7cde0ffd2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.819
+  m_Volume: 0.118
   m_Pitch: 1
   Loop: 0
   Mute: 0
