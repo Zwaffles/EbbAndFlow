@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2278de7e68d42b14088e050c72b112e7, type: 3}
-  m_Name: DefaultActionBar
+  m_Name: PulsarTowerPermanentUpgradesActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 2d88548aac252be4ba451dd1ebb8762c, type: 2}
-  - {fileID: 11400000, guid: b8cf600d2f6102b4a9bd857abaca35e9, type: 2}
-  - {fileID: 11400000, guid: ee6aac791548b5649aeaf3e9c736a513, type: 2}
+  - {fileID: 11400000, guid: cb2b0372ce99efa4d8cab4e73dd8c993, type: 2}
+  - {fileID: 11400000, guid: 7bf3748db6cdf1a419a3fc2f77b01796, type: 2}
+  - {fileID: 11400000, guid: f633cc78d5140ca49a3f4a5c5f45548c, type: 2}
+  - {fileID: 11400000, guid: eb61de6a366ed594cb5caf91663e11ff, type: 2}
