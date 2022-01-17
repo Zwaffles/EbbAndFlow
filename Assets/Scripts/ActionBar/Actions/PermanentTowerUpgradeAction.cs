@@ -29,7 +29,7 @@ public class PermanentTowerUpgradeAction : Action
 
     public override bool Interactable()
     {
-        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost))
+        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(upgradeCost) && !GameManager.Instance.SelectionManager.SelectedTower.CheckTowerInfected())
         {
             return true;
         }

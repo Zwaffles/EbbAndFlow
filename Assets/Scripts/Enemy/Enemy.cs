@@ -11,34 +11,69 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageMultiplier = 1.0f;
     [SerializeField] private float minMoveSpeed = 0.25f;
     [SerializeField] private float moveSpeed = 3.0f;
+    [SerializeField] private SelectionInfo selectionInfo;
+
+    private SpriteRenderer selectionOutline;
 
     [SerializeField] private AudioClip deathSound;
     
     private Image healthBar;
-    private AIPath path;
     private Animator animator;
-    private bool speedDebuff;
-    private float globalSpeedModifier;
+    private AIPath path;
 
+    private bool speedDebuff;
+    private float baseHealth;
+    private float baseMoveSpeed;
+    private float globalSpeedModifier;
+    
     public bool SpeedDebuff { get; set; }
     public float MoveSpeed { get; }
     public float DamageMultiplier { get { return damageMultiplier; } set { damageMultiplier = value; } }
+    public SpriteRenderer SelectionOutline { get { return selectionOutline; } set { selectionOutline = value; } }
 
     private void Awake()
     {
+        selectionOutline = transform.GetChild(1).GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         path = GetComponent<AIPath>();
         path.maxSpeed = moveSpeed;
+        baseMoveSpeed = moveSpeed;
+        baseHealth = enemyHealth;
     }
 
     public void Initialize(float healthModifier, float speedModifier)
     {
-        
         enemyHealth += healthModifier;
         currentHealth = enemyHealth;
         globalSpeedModifier = speedModifier;
         path.maxSpeed = moveSpeed + globalSpeedModifier;
         healthBar = transform.GetChild(0).GetChild(1).GetComponent<Image>();
+    }
+
+    public SelectionInfo GetSelectionInfo()
+    {
+        for (int i = 0; i < selectionInfo.StatInfo.Count; i++)
+        {
+            switch (selectionInfo.StatInfo[i].Stat)
+            {
+                case StatInfo.StatType.MovementSpeed:
+                    selectionInfo.StatInfo[i].BaseStat = baseMoveSpeed;
+                    selectionInfo.StatInfo[i].CurrentStat = path.maxSpeed;
+                    break;
+                case StatInfo.StatType.Health:
+                    selectionInfo.StatInfo[i].BaseStat = baseHealth;
+                    selectionInfo.StatInfo[i].CurrentStat = enemyHealth;
+                    break;
+                case StatInfo.StatType.Armor:
+                    selectionInfo.StatInfo[i].BaseStat = 1.0f;
+                    selectionInfo.StatInfo[i].CurrentStat = damageMultiplier * GameManager.Instance.BuffManager.GetGlobalDamageModifier();
+                    break;
+                default:
+                    Debug.Log("No Method for " + selectionInfo.StatInfo[i].Stat + " implemented!");
+                    break;
+            }
+        }
+        return selectionInfo;
     }
 
     public void ModifyMoveSpeed(float value)

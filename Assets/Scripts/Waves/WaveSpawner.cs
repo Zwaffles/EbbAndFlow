@@ -13,6 +13,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private int globalCurrencyUpgradeInfectedCost = 10;
     [SerializeField] private int globalCurrencyUpgradeCost = 10;
     [SerializeField] private int globalCurrencyUpgradeNormalBonus = 3;
+    [SerializeField] private float waveSpawnCounter = 35f;
     [SerializeField] private int globalCurrencyUpgradeInfectedBonus = 3;
 
 
@@ -33,9 +34,8 @@ public class WaveSpawner : MonoBehaviour
 
     private SwarmController currentSwarm = null;
     private Coroutine spawnWaveCoroutine = null;
-    private float waveSpawnCounter = 35f;
+    
     private float swarmInterval = 1f;
-
     private int waveIndex = -1;
     private bool spawning;
     private bool spawnerActive = true;

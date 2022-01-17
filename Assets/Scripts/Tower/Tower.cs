@@ -18,6 +18,7 @@ public class Tower : MonoBehaviour
 
     [Header("Tower Selection")]
     [SerializeField] private ActionBar actionBar;
+    [SerializeField] private SelectionInfo selectionInfo;
 
     [Header("Tower Settings")]
     [SerializeField] protected Transform turret;
@@ -41,10 +42,29 @@ public class Tower : MonoBehaviour
     protected Animator animator;
 
     public ActionBar ActionBar { get { return actionBar; } }
+    public SelectionInfo SelectionInfo { get { return selectionInfo; } }
+    public int InfectionScore { get { return infectionScore; } }
 
     private void Start()
     {
         GameManager.Instance.UpgradeManager.AddTower(GetComponent<TowerUpgrades>(), towerType);
+    }
+
+    public virtual SelectionInfo GetSelectionInfo()
+    {
+        for (int i = 0; i < SelectionInfo.StatInfo.Count; i++)
+        {
+            switch (SelectionInfo.StatInfo[i].Stat)
+            {
+                case StatInfo.StatType.InfectionScore:
+                    SelectionInfo.StatInfo[i].BaseStat = InfectionScore;
+                    break;
+                default:
+                    Debug.Log("No Method for " + SelectionInfo.StatInfo[i].Stat + " implemented!");
+                    break;
+            }
+        }
+        return SelectionInfo;
     }
 
     public ModifierType GetModifierType()
