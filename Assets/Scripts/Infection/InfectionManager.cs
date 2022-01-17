@@ -46,7 +46,7 @@ public class InfectionManager : MonoBehaviour
     [SerializeField] private int pushbackInfectionCost;
     [SerializeField] private float pushbackCooldown = 15f;
     [SerializeField] protected float pushbackTimer;
-    [SerializeField] private Image pushbackButton;
+    [SerializeField] private MultiImageButton pushbackButton;
 
     [Header("Infection Stop")]
     [SerializeField] private int temporaryInfectionPauseTime;
@@ -54,7 +54,7 @@ public class InfectionManager : MonoBehaviour
     private float infectionSpreadNormalSpeed;
     [SerializeField] private float stopCooldown = 15f;
     [SerializeField] protected float stopTimer;
-    [SerializeField] private Image stopButton;
+    [SerializeField] private MultiImageButton stopButton;
 
     [Header("On Lives Lost Infection Speed Increase")]
     [SerializeField] [Range(0, 10)] float tempSpeedToIncrease;
@@ -102,6 +102,7 @@ public class InfectionManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Spread();
@@ -122,31 +123,48 @@ public class InfectionManager : MonoBehaviour
         {
             SetSpreadSpeed(constantSpreadSpeed += 0.1f);
         }
+        */
         ConstantGrowth();
         FastInfectionSpeedChanger();
+
+        
 
         if(pushbackTimer < pushbackCooldown)
         {
             pushbackTimer += Time.deltaTime;
-            pushbackButton.color = new Color(255, 255, 255, 150);
-            pushbackButton.fillAmount = pushbackTimer / pushbackCooldown;
-            if(pushbackTimer >= pushbackCooldown)
+            if(pushbackTimer >= pushbackCooldown && GameManager.Instance.PlayerCurrency.InfectedCanBuy(pushbackInfectionCost))
             {
-                pushbackButton.color = Color.white;
-                pushbackButton.fillAmount = 1f;
+                pushbackButton.interactable = true;
             }
         }
 
         if (stopTimer < stopCooldown)
         {
             stopTimer += Time.deltaTime;
-            stopButton.color = new Color(255, 255, 255, 150);
-            stopButton.fillAmount = stopTimer / stopCooldown;
-            if (stopTimer >= stopCooldown)
+            if (stopTimer >= stopCooldown && GameManager.Instance.PlayerCurrency.InfectedCanBuy(stopInfectionCost))
             {
-                stopButton.color = Color.white;
-                stopButton.fillAmount = 1f;
+                stopButton.interactable = true;
             }
+        }
+
+        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(pushbackInfectionCost))
+        {
+            pushbackButton.interactable = true;
+
+        }
+        else
+        {
+            pushbackButton.interactable = false;
+        }
+
+        if (GameManager.Instance.PlayerCurrency.InfectedCanBuy(stopInfectionCost))
+        {
+            stopButton.interactable = true;
+
+        }
+        else
+        {
+            stopButton.interactable = false;
         }
     }
 
@@ -154,6 +172,7 @@ public class InfectionManager : MonoBehaviour
     {
         if(stopInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency && stopTimer >= stopCooldown)
         {
+            stopButton.interactable = false;
             stopTimer = 0;
             ChangeSlowInfectionSpeed(temporaryInfectionPauseTime, -1f);
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(stopInfectionCost);
@@ -164,6 +183,7 @@ public class InfectionManager : MonoBehaviour
     {
         if (pushbackInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency && pushbackTimer >= pushbackCooldown)
         {
+            pushbackButton.interactable = false;
             float speed = -temporarySpreadPushbackSpeed;
             pushbackTimer = 0;
             ChangeSlowInfectionSpeed(temporaryInfectionPushbackTime, speed);
