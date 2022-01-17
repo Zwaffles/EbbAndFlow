@@ -4367,7 +4367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 80, y: 0}
   floatDirection: 3
-  tooltip: Sets the current game-speed to normal speed.
+  tooltip: (F1) Sets the current game-speed to normal speed.
 --- !u!1 &3105844224257393968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4716,7 +4716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 80, y: 0}
   floatDirection: 3
-  tooltip: Sets the current game-speed to x5 the normal speed.
+  tooltip: (F3) Sets the current game-speed to x5 the normal speed.
 --- !u!1 &3105844224596352344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 80, y: 0}
   floatDirection: 3
-  tooltip: Sets the current game-speed to x2 the normal speed.
+  tooltip: (F2) Sets the current game-speed to x2 the normal speed.
 --- !u!1 &3105844224876005144
 GameObject:
   m_ObjectHideFlags: 0
