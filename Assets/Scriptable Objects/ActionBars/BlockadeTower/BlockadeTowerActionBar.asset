@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: BlockadeTowerActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: b1324d609ea5f6742ab6f421b1e9557a, type: 2}
   - {fileID: 11400000, guid: c36b91e8ae70f1341b25c57794fd12fe, type: 2}

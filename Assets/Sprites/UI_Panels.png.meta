@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: c186762bfb7c6394582f54a61a727cbf
+guid: 00f4039297d48ed48a1b804ce9f28646
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -342378296970299146
-    second: UI_money_0
+      213: -7251448284123139919
+    second: UI_Panels_0
   - first:
-      213: -4719271946898566870
-    second: UI_money_1
+      213: 6004428518324474835
+    second: UI_Panels_1
+  - first:
+      213: -3220855529288572528
+    second: UI_Panels_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,43 +100,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_money_0
+      name: UI_Panels_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 32
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 0, z: 7, w: 7}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f8384eb0c0af3bf0800000000000000
-      internalID: -342378296970299146
+      spriteID: 1b079b5943ead5b90800000000000000
+      internalID: -7251448284123139919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_money_1
+      name: UI_Panels_1
       rect:
         serializedVersion: 2
         x: 37
         y: 0
         width: 32
-        height: 32
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 0, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2115a60b27c18eb0800000000000000
-      internalID: -4719271946898566870
+      spriteID: 3d394f1bce3045350800000000000000
+      internalID: 6004428518324474835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Panels_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 0, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091e6eff5f83d43d0800000000000000
+      internalID: -3220855529288572528
       vertices: []
       indices: 
       edges: []

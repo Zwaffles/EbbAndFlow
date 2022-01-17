@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2278de7e68d42b14088e050c72b112e7, type: 3}
-  m_Name: DefaultActionBar
+  m_Name: LightTowerPermanentUpgradesActionBar
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 2d88548aac252be4ba451dd1ebb8762c, type: 2}
-  - {fileID: 11400000, guid: b8cf600d2f6102b4a9bd857abaca35e9, type: 2}
-  - {fileID: 11400000, guid: ee6aac791548b5649aeaf3e9c736a513, type: 2}
+  - {fileID: 11400000, guid: e965c5d17eb2e41488acaed44f751237, type: 2}
+  - {fileID: 11400000, guid: adc9f9d997db5064b97ac9ae53ba85a6, type: 2}
+  - {fileID: 11400000, guid: f2b5d3f9673030147a9e8c1307df245a, type: 2}
+  - {fileID: 11400000, guid: eb61de6a366ed594cb5caf91663e11ff, type: 2}
