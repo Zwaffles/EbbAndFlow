@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5232647710557341958}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1736,7 +1736,7 @@ RectTransform:
   - {fileID: 1928546323172665709}
   - {fileID: 3105844223424433261}
   m_Father: {fileID: 5232647710557341958}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 145}
+  offset: {x: 32.5, y: 155}
   floatDirection: 1
   tooltip: 'Briefly stop infection spread
 
@@ -4379,6 +4379,7 @@ GameObject:
   - component: {fileID: 3105844224257393975}
   - component: {fileID: 3105844224257393974}
   - component: {fileID: 276691961}
+  - component: {fileID: 276691959}
   m_Layer: 5
   m_Name: EnergyPanel
   m_TagString: Untagged
@@ -4434,6 +4435,21 @@ MonoBehaviour:
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!114 &276691961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105844224257393968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 75, y: -55}
+  floatDirection: 5
+  tooltip: Energy
+--- !u!114 &276691959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5190,6 +5206,7 @@ GameObject:
   - component: {fileID: 3105844224987452285}
   - component: {fileID: 3105844224987452284}
   - component: {fileID: 254880072}
+  - component: {fileID: 254880070}
   m_Layer: 5
   m_Name: CorruptedEnergyPanel
   m_TagString: Untagged
@@ -5245,6 +5262,21 @@ MonoBehaviour:
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!114 &254880072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105844224987452286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 75, y: -55}
+  floatDirection: 5
+  tooltip: Corrupt Energy
+--- !u!114 &254880070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10491,9 +10523,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5232647710557341958}
-  - component: {fileID: 5232647710557341953}
   - component: {fileID: 144307449}
   - component: {fileID: 144307448}
+  - component: {fileID: 5232647710557341953}
   m_Layer: 5
   m_Name: InfectionActionPanel
   m_TagString: Untagged
@@ -10512,9 +10544,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 629058858}
   - {fileID: 3236071800134475062}
   - {fileID: 7136365124941638741}
-  - {fileID: 629058858}
   m_Father: {fileID: 8394082420351005986}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10523,32 +10555,6 @@ RectTransform:
   m_AnchoredPosition: {x: 127.5, y: 77.5}
   m_SizeDelta: {x: 255, y: 155}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5232647710557341953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5232647710557341959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 10
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!222 &144307449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10587,6 +10593,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5232647710557341953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5232647710557341959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &5320914709407264285
 GameObject:
   m_ObjectHideFlags: 0
@@ -13826,7 +13858,7 @@ RectTransform:
   - {fileID: 4478231604233123039}
   - {fileID: 3105844223535803430}
   m_Father: {fileID: 5232647710557341958}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13883,7 +13915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf2d6854a5cd0a4d90711bc405f18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 145}
+  offset: {x: 32.5, y: 155}
   floatDirection: 1
   tooltip: 'Push back infection
 
