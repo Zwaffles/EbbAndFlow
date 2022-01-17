@@ -19,6 +19,7 @@ public class SceneManager : MonoBehaviour
 
     [Header("Setup Fields")]
     [SerializeField] private Image fadeBackground;
+    public FMOD.Studio.Bus MasterBus;
 
     private bool fadingIn;
     private bool fadingOut;
@@ -28,6 +29,7 @@ public class SceneManager : MonoBehaviour
 
     private void Start()
     {
+        MasterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
         fadeBackground = GetComponentInChildren<Image>();
         fadeInCoroutine = StartCoroutine(FadeIn());
     }
@@ -73,7 +75,8 @@ public class SceneManager : MonoBehaviour
         }
 
         fadeInCoroutine = null;
-        GameManager.Instance.AudioManager.MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         UnityEngine.SceneManagement.SceneManager.LoadScene(index);
     }
 
