@@ -615,7 +615,6 @@ MonoBehaviour:
   damageMultiplier: 1
   minMoveSpeed: 0.25
   moveSpeed: 1.8
-  deathSound: {fileID: 8300000, guid: 06855966903d0ea4e83f268146eb537f, type: 3}
   selectionInfo:
     selectionIcon: {fileID: -8762227857148749906, guid: 2e513e65bdc910a418fab33e55ee62d2, type: 3}
     selectionHeaderText: Crawler
@@ -628,6 +627,7 @@ MonoBehaviour:
       statIcon: {fileID: 21300000, guid: e71100ea9a32cf048af272274e9a73e2, type: 3}
     - stat: 5
       statIcon: {fileID: 21300000, guid: 47ef2b0d5427ba94c99b6e21ee94dc35, type: 3}
+  deathSound: {fileID: 8300000, guid: 98aa4c3a04c52cc4ab4979a0c25b5b21, type: 3}
 --- !u!114 &-6625471109485211561
 MonoBehaviour:
   m_ObjectHideFlags: 0
