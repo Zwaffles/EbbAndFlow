@@ -15,6 +15,8 @@ public class TimeScaleManager : MonoBehaviour
     [SerializeField] private GameObject timeScaleButtonTwo;
     [SerializeField] private GameObject timeScaleButtonFive;
 
+    public bool canChangeTimeScale;
+
     private void Start()
     {
         SelectButton(timeScaleButtonOne);
@@ -23,7 +25,10 @@ public class TimeScaleManager : MonoBehaviour
 
     private void Update()
     {
-        TimeScaleHotkeys();
+        if (canChangeTimeScale)
+        {
+            TimeScaleHotkeys();
+        }
     }
 
     private void TimeScaleHotkeys()

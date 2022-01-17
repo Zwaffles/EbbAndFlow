@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionBarOrder: 0
   actionIcon: {fileID: 0}
-  actionTooltip: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  actionTooltip: 
   towerType: 1
   upgradeType: 3
   percentageValue: 1

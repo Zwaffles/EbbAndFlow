@@ -33,6 +33,7 @@ public class PauseManager : MonoBehaviour
     private Resolution[] resolutions;
 
     private bool isPaused;
+    public bool canPause;
 
     private void Start()
     {
@@ -57,28 +58,31 @@ public class PauseManager : MonoBehaviour
 
     public void PauseUnpause()
     {
-        /* UnPause */
-        if (isPaused)
+        if (canPause)
         {
-            /* Backtrack thing */
-            if (optionsMenu.activeSelf)
-            {
-                ToggleOptionsMenu();
-            }
             /* UnPause */
+            if (isPaused)
+            {
+                /* Backtrack thing */
+                if (optionsMenu.activeSelf)
+                {
+                    ToggleOptionsMenu();
+                }
+                /* UnPause */
+                else
+                {
+                    Time.timeScale = 1;
+                    isPaused = false;
+                    pauseMenuPanel.SetActive(false);
+                }
+            }
+            /* Pause */
             else
             {
-                Time.timeScale = 1;
-                isPaused = false;
-                pauseMenuPanel.SetActive(false);
+                Time.timeScale = 0;
+                isPaused = true;
+                pauseMenuPanel.SetActive(true);
             }
-        }
-        /* Pause */
-        else
-        {
-            Time.timeScale = 0;
-            isPaused = true;
-            pauseMenuPanel.SetActive(true);
         }
     }
 

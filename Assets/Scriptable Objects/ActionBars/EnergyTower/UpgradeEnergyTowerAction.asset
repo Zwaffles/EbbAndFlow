@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionBarOrder: 3
   actionIcon: {fileID: -5214620469579322617, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
-  actionTooltip: "Upgrade this tower \nIncome after every round +1\nCost: 3 (Increased
-    by 3 for each upgrade)"
+  actionTooltip: "Upgrade this tower \nIncome after every round +1\nCost: 3 Energy
+    (Increased by 3 for each upgrade)"

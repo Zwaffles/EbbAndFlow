@@ -17,7 +17,7 @@ MonoBehaviour:
   actionTooltip: 'Permanently increase attack speed for all light towers by 10%
 
     Cost:
-    10 corrupt energy'
+    10 Corrupt Energy'
   towerType: 2
   upgradeType: 2
   percentageValue: 0.1
