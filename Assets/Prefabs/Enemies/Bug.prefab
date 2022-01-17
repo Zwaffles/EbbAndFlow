@@ -626,6 +626,7 @@ MonoBehaviour:
       statIcon: {fileID: 21300000, guid: e71100ea9a32cf048af272274e9a73e2, type: 3}
     - stat: 5
       statIcon: {fileID: 21300000, guid: 47ef2b0d5427ba94c99b6e21ee94dc35, type: 3}
+  deathSound: {fileID: 8300000, guid: 7d75db6d5ceab71498406c7bc000165b, type: 3}
 --- !u!114 &2146811825820449876
 MonoBehaviour:
   m_ObjectHideFlags: 0
