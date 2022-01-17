@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
   fireRate: 0
-  modifierType: 3
+  modifierType: 4
   baseCost: 1
   sellPrice: 1
   isInfected: 0

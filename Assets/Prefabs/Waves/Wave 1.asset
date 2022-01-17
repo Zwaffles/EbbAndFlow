@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd027d73e8e403949ace7068b2fa7e33, type: 3}
   m_Name: Wave 1
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
-  - {fileID: 3800213037063682495, guid: 2572b7bc1a5c19f4785264974d135f8c, type: 3}
-  - {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+  enemyEntries:
+  - enemy: {fileID: 3800213037063682495, guid: 37e2f7b2ba5eb8d4eb717129528bd32e, type: 3}
+    amount: 1
+  - enemy: {fileID: 3800213037063682495, guid: 512245cc8781e4a48b43027a7fdc10cd, type: 3}
+    amount: 2
   enemySpawnInterval: 0.5
   waveNormalCurrencyReward: 15

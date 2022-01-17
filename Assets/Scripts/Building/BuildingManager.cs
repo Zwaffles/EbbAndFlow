@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 
 public class BuildingManager : MonoBehaviour
 {
-    public static BuildingManager Instance { get { return instance; } }
-    private static BuildingManager instance;
-
     [Header("Build Settings")]
     [SerializeField] private int maxBuildLength = 10;
     [SerializeField] private LayerMask groundLayer;
@@ -37,20 +34,6 @@ public class BuildingManager : MonoBehaviour
     private Vector3 startDragPosition;
     private Vector3 currentDragPosition;
     private Vector3 currentGridPosition;
-
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
 
     private void Start()
     {
@@ -120,7 +103,7 @@ public class BuildingManager : MonoBehaviour
     {
         if(currentGridPosition != buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition()))
         {
-            CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject);
+            GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
         }
         currentGridPosition = buildingGrid.RoundToGridPosition(Utilities.GetMouseWorldPosition());
     }
@@ -198,17 +181,21 @@ public class BuildingManager : MonoBehaviour
             towerInstance.transform.position = buildingGrid.RoundToGridPosition(buildMarkers[0].transform.position);
 
             /* Remove currency from Player */
-            PlayerCurrency.Instance.RemovePlayerNormalCurrency(buildCostTotal);
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(buildCostTotal);
 
             /* Mark Grid Cell as occupied */
             buildingGrid.SetValue(buildMarkers[0].transform.position, 1);
+
+            /* Increase Counter in the StatisticsManager */
+            GameManager.Instance.StatisticsManager.IncreaseTowersBuiltCount();
 
             /* Cancel Building */
             building = false;
             currentTowerBuilder = null;
 
             ScanGraph();
-            DeactivateBuildMarkers(); 
+            DeactivateBuildMarkers();
+            GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
         }
     }
 
@@ -226,11 +213,14 @@ public class BuildingManager : MonoBehaviour
 
                 /* Mark Grid Cell as occupied */
                 buildingGrid.SetValue(buildMarkers[i].transform.position, 1);
+
+                /* Increase Counter in the StatisticsManager */
+                GameManager.Instance.StatisticsManager.IncreaseTowersBuiltCount();
             }
         }
 
         /* Remove currency from Player */
-        PlayerCurrency.Instance.RemovePlayerNormalCurrency(buildCostTotal);
+        GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(buildCostTotal);
 
         /* Only stop building if we are drag building while Shift is held down */
         if (activeBuildMarkers > 1)
@@ -246,6 +236,7 @@ public class BuildingManager : MonoBehaviour
 
         ScanGraph();
         DeactivateBuildMarkers();
+        GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
     }
 
     private void ScanGraph()
@@ -253,6 +244,12 @@ public class BuildingManager : MonoBehaviour
         /* Scan A* Graph */
         var graphToScan = AstarPath.active.data.gridGraph;
         AstarPath.active.Scan(graphToScan);
+    }
+
+    public void UpdateGraph()
+    {
+        GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
+        ScanGraph();
     }
 
     private void BuildMarkerScan()
@@ -275,7 +272,7 @@ public class BuildingManager : MonoBehaviour
         RaycastHit2D boxCast = Physics2D.BoxCast(buildMarker.transform.position, new Vector2(buildingGrid.GetCellRadius() * 0.9f, buildingGrid.GetCellRadius() * 0.9f), 0.0f, Vector3.zero, 1.0f, buildObstacleLayer);
 
         /*  No Obstacle                 No Tower Occupying Grid Cell Position                         Not Hovering over any UI-element                  Can afford buildCostTotal                         Nothing blocking path */
-        if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && PlayerCurrency.Instance.CanBuy(buildCostTotal) && CheatDetection.Instance.CheckForObstacles(buildMarkerParent.gameObject))
+        if (boxCast.collider == null && buildingGrid.GetValue(buildMarker.transform.position) == 0 && !EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.PlayerCurrency.CanBuy(buildCostTotal) && GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject))
         {
             buildMarker.CanBuild();
             return true;
@@ -387,15 +384,6 @@ public class BuildingManager : MonoBehaviour
         activeBuildMarkers = 0;
     }
 
-    private void CancelPlacement()
-    {
-        building = false;
-        currentTowerBuilder = null;
-
-        CancelDrag();
-        DeactivateBuildMarkers();
-    }
-
     private void CancelDrag()
     {
         /* Reset Drag Positions */
@@ -410,7 +398,17 @@ public class BuildingManager : MonoBehaviour
             CancelPlacement();
         }
     }
-  
+
+    private void CancelPlacement()
+    {
+        building = false;
+        currentTowerBuilder = null;
+
+        CancelDrag();
+        DeactivateBuildMarkers();
+        GameManager.Instance.CheatDetection.CheckForObstacles(buildMarkerParent.gameObject);
+    }
+
     private void HotkeyManager(int key)
     {
         if(key > 0 && key <= towerBuilders.Count)

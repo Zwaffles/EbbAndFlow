@@ -9,6 +9,7 @@ public class TowerBuilder : MonoBehaviour
     [Tooltip("The 'Actual' Tower GameObject that will be placed on the Grid.")]
     [SerializeField] private GameObject towerPrefab;
 
+    private MultiImageButton button;
     private Tower tower;
     private int towerCost;
 
@@ -19,20 +20,31 @@ public class TowerBuilder : MonoBehaviour
     private void Awake()
     {
         tower = towerPrefab.GetComponent<Tower>();
+        button = GetComponent<MultiImageButton>();
         towerCost = tower.baseCost;
     }
 
     public void PlaceTower()
     {
         /* Can afford Tower */
-        if (PlayerCurrency.Instance.CanBuy(towerCost))
+        if (GameManager.Instance.PlayerCurrency.CanBuy(towerCost))
         {
-            BuildingManager.Instance.PlaceTower(this);
+            GameManager.Instance.BuildingManager.PlaceTower(this);
         }
         /* Cant afford Tower */
         else
         {
             Debug.Log("Cant afford Tower!");
         } 
+    }
+
+    public void Enable()
+    {
+        button.interactable = true;
+    }
+
+    public void Disable()
+    {
+        button.interactable = false;
     }
 }

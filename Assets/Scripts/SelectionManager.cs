@@ -1,69 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class SelectionManager : MonoBehaviour
 {
-    public static SelectionManager Instance { get { return instance; } }
-    private static SelectionManager instance;
 
-    [SerializeField] Tower selectedTower;
-    [SerializeField] private LayerMask towerLayer;
-    [SerializeField] GameObject towerUI;
-    PlayerCurrency playerCurrency;
+    [Header("Setup")]
+    [SerializeField] private SelectionPanel selectionPanel;
+    [SerializeField] private LayerMask selectionLayer;
+    
+    [Header("Debug")]
+    [SerializeField] private Tower selectedTower;
+    [SerializeField] private Enemy selectedEnemy;
+    [SerializeField] private TowerUpgrades towerUpgrades;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
+    public SelectionPanel SelectionPanel { get { return selectionPanel; } set { selectionPanel = value; } }
+    public Tower SelectedTower { get { return selectedTower; } }
+    public Enemy SelectedEnemy { get { return selectedEnemy; } }
+    public TowerUpgrades TowerUpgrades { get { return towerUpgrades; } }
 
-    private void Start()
-    {
-        playerCurrency = FindObjectOfType<PlayerCurrency>();
-    }
     private void Update()
     {
-        SelectTower();
+        Select();
     }
-    void SelectTower()
+
+    private void FixedUpdate()
+    {
+        if(selectedEnemy != null)
+        {
+            selectionPanel.UpdateSelectionPanel(selectedEnemy.GetSelectionInfo());
+        }
+        if(selectedTower != null)
+        {
+            selectionPanel.UpdateSelectionPanel(selectedTower.GetSelectionInfo());
+        }
+    }
+
+    void Select()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Utilities.GetMouseWorldPosition(), transform.forward, Mathf.Infinity, towerLayer);
-            Debug.DrawRay(Utilities.GetMouseWorldPosition(), transform.forward, Color.red, 10.0f);
+            RaycastHit2D hit = Physics2D.Raycast(Utilities.GetMouseWorldPosition(), transform.forward, Mathf.Infinity, selectionLayer);
+
             if (hit.collider != null)
             {
+                /* Tower Selected */
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
                 {
-                    UnselectTower();
+                    DeselectEnemy(); 
+                    DeselectTower();
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
+                    towerUpgrades = selectedTower.GetComponent<TowerUpgrades>();
                     if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
                     {
                         selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
                     }
-                    OpenTowerUI();
+                    selectionPanel.UpdateSelectionPanel(selectedTower.GetSelectionInfo());
+                    UpdateActionBarPanel(selectedTower.ActionBar);
+                }
+                /* Enemy Selected */
+                else if (hit.transform.gameObject.GetComponent<Enemy>() != null)
+                {
+                    DeselectTower();
+                    DeselectEnemy();
+                    selectedEnemy = hit.transform.gameObject.GetComponent<Enemy>();
+                    selectedEnemy.SelectionOutline.enabled = true; 
+                    selectionPanel.UpdateSelectionPanel(selectedEnemy.GetSelectionInfo());
+                    DefaultActionBarPanel();
                 }
             }
+            /* Nothing Selected */
             else
             {
+                /* Deselect Tower */
                 if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    UnselectTower();
+                    DeselectTower();
                 }
+                if (selectedEnemy != null && !EventSystem.current.IsPointerOverGameObject())
+                {
+                    DeselectEnemy();
+                } 
             }
         }
     }
 
-    public void UnselectTower()
+    public void DeselectTower()
     {
         if(selectedTower != null)
         {
@@ -72,28 +97,51 @@ public class SelectionManager : MonoBehaviour
                 selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 0);
             }
         }
+        selectionPanel.DisableSelectionPanel();
+        DefaultActionBarPanel();
         selectedTower = null;
-        CloseTowerUI();
+        
     }
 
-    void OpenTowerUI()
+    public void DeselectEnemy()
     {
-        towerUI.gameObject.SetActive(true);
+        if (selectedEnemy != null)
+        {
+            selectedEnemy.SelectionOutline.enabled = false;
+        }
+        selectionPanel.DisableSelectionPanel();
+        DefaultActionBarPanel();
+        selectedEnemy = null;
     }
 
-    void CloseTowerUI()
+    void UpdateActionBarPanel(ActionBar actionBar)
     {
-        towerUI.gameObject.SetActive(false);
+        GameManager.Instance.ActionBarManager.UpdateActionBar(actionBar);
+        
+    }
+
+    void DefaultActionBarPanel()
+    {
+        GameManager.Instance.ActionBarManager.DefaultActionBar();
     }
 
     public void SellTower()
     {
-        if (selectedTower != null)
-        {
-            playerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice);
-            InfectionManager.Instance.RemoveTowerFromList(selectedTower);
-            BuildingManager.Instance.RemoveBuilding(selectedTower.gameObject);            
-            CloseTowerUI();
-        }
+        if (selectedTower == null) { return; }
+        if (selectedTower.CheckTowerInfected()) { return; }
+        selectedTower.RemoveTower();
+        /* Decrease Counter in the StatisticsManager */
+        GameManager.Instance.StatisticsManager.DecreaseTowersBuiltCount();
+        GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice);
+        GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
+        GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
+        GameManager.Instance.BuildingManager.UpdateGraph();
+        DefaultActionBarPanel();
+    }
+
+    public bool CanSellTower()
+    {
+        if(selectedTower == null) { return false; }
+        return selectedTower.sellTimer <= 0 ? false : true;
     }
 }

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class InfectionManager : MonoBehaviour
 {
-    public static InfectionManager Instance { get { return instance; } }
-    private static InfectionManager instance;
-
     public enum SpreadSetting
     {
         Constant, Intervals
@@ -42,15 +40,21 @@ public class InfectionManager : MonoBehaviour
     [Range(0.0f, 5.0f)]
     [SerializeField] private float randomOffset = 1.0f;
 
-    [Header("Infection Pushback Speed")]
+    [Header("Infection Pushback")]
     [SerializeField] private int temporaryInfectionPushbackTime;
     [SerializeField] private float temporarySpreadPushbackSpeed;
-    [SerializeField] private int costToBuy;
+    [SerializeField] private int pushbackInfectionCost;
+    [SerializeField] private float pushbackCooldown = 15f;
+    [SerializeField] protected float pushbackTimer;
+    [SerializeField] private Image pushbackButton;
 
     [Header("Infection Stop")]
     [SerializeField] private int temporaryInfectionPauseTime;
-    [SerializeField] private int _costToBuy;
+    [SerializeField] private int stopInfectionCost;
     private float infectionSpreadNormalSpeed;
+    [SerializeField] private float stopCooldown = 15f;
+    [SerializeField] protected float stopTimer;
+    [SerializeField] private Image stopButton;
 
     [Header("On Lives Lost Infection Speed Increase")]
     [SerializeField] [Range(0, 10)] float tempSpeedToIncrease;
@@ -87,24 +91,11 @@ public class InfectionManager : MonoBehaviour
 
     [SerializeField] private SpawnPoint spawnPoint;
 
-
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
-
     private void Start()
     {
         infectionSpreadNormalSpeed = constantSpreadSpeed;
+        pushbackTimer = pushbackCooldown;
+        stopTimer = stopCooldown;
         InitializeSpriteShape();
     }
 
@@ -132,22 +123,50 @@ public class InfectionManager : MonoBehaviour
         }
         ConstantGrowth();
         FastInfectionSpeedChanger();
+
+        if(pushbackTimer < pushbackCooldown)
+        {
+            pushbackTimer += Time.deltaTime;
+            pushbackButton.color = new Color(255, 255, 255, 150);
+            pushbackButton.fillAmount = pushbackTimer / pushbackCooldown;
+            if(pushbackTimer >= pushbackCooldown)
+            {
+                pushbackButton.color = Color.white;
+                pushbackButton.fillAmount = 1f;
+            }
+        }
+
+        if (stopTimer < stopCooldown)
+        {
+            stopTimer += Time.deltaTime;
+            stopButton.color = new Color(255, 255, 255, 150);
+            stopButton.fillAmount = stopTimer / stopCooldown;
+            if (stopTimer >= stopCooldown)
+            {
+                stopButton.color = Color.white;
+                stopButton.fillAmount = 1f;
+            }
+        }
     }
 
     public void StopInfection()
     {
-        if (_costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if(stopInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency && stopTimer >= stopCooldown)
         {
+            stopTimer = 0;
             ChangeSlowInfectionSpeed(temporaryInfectionPauseTime, -1f);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(stopInfectionCost);
         }
     }
 
     public void PushBackInfection()
     {
-        if (costToBuy <= PlayerCurrency.Instance.playerInfectedCurrency)
+        if (pushbackInfectionCost <= GameManager.Instance.PlayerCurrency.playerInfectedCurrency && pushbackTimer >= pushbackCooldown)
         {
             float speed = -temporarySpreadPushbackSpeed;
+            pushbackTimer = 0;
             ChangeSlowInfectionSpeed(temporaryInfectionPushbackTime, speed);
+            GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(pushbackInfectionCost);
         }
     }
 
@@ -437,7 +456,6 @@ public class InfectionManager : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
-            Debug.Log("aaaahh!!! da performance hiadhoaidhas");
             collision.gameObject.GetComponent<Tower>().InfectTower();
         }
 

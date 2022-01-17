@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1894824103181417026}
   - component: {fileID: 1894824103181417027}
-  - component: {fileID: 1894824103181417030}
-  - component: {fileID: 1894824103181417032}
   - component: {fileID: 1894824103181417025}
   - component: {fileID: 4377995514747100838}
+  - component: {fileID: 1894824103181417030}
+  - component: {fileID: 1894824103181417032}
   - component: {fileID: 4443643862011117749}
+  - component: {fileID: -5825864515148485070}
   m_Layer: 7
   m_Name: PulsarTower
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 1567923401
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6594300003049683822, guid: bae483c3cf39a2a41bdb2b25d984dce5, type: 3}
+  m_Sprite: {fileID: 2315099711232129893, guid: 64907d38bebe09e4a8b4cdaacc22ac66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,47 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1894824103181417030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894824103181417033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd1989cfee06804588c6b743cd85312, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rangeCollider: {fileID: 4096642115988748615}
-  towerRange: 5
---- !u!114 &1894824103181417032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894824103181417033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 0}
-  fireRate: 1.5
-  modifierType: 1
-  baseCost: 8
-  sellPrice: 3
-  isInfected: 0
-  infectionScore: 0
-  infectionScoreUI: {fileID: 5475668045344713534}
-  infectionScoreText: {fileID: 374948996840742997}
-  scoreRequiredForCorruption: 1
-  projectilePrefab: {fileID: 7077911764423161174, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
-  damage: 30
-  splashRadius: 3
-  splashDamage: 25
-  numberOfTargets: 1
 --- !u!95 &1894824103181417025
 Animator:
   serializedVersion: 3
@@ -166,6 +126,72 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1894824103181417030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894824103181417033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd1989cfee06804588c6b743cd85312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeCollider: {fileID: 4096642115988748615}
+  towerRange: 5
+--- !u!114 &1894824103181417032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894824103181417033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26f2755cffaaa34ca887f241001c723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionBar: {fileID: 11400000, guid: 432d7b0745f64444ab37b68299461168, type: 2}
+  selectionInfo:
+    selectionIcon: {fileID: 21300000, guid: 3dd529023cc68b94aafb170df13f4541, type: 3}
+    selectionHeaderText: Pulsar Tower
+    selectionDescriptionText: 'The Pulsar Tower deals splash damage around a single
+      target.
+
+      Decreases enemy movement speed within range when infected
+
+      and
+      Increases enemy movement speed globally when corrupted.'
+    statInfo:
+    - stat: 0
+      statIcon: {fileID: 5150583523307718820, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+    - stat: 2
+      statIcon: {fileID: 127798155406108777, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+    - stat: 1
+      statIcon: {fileID: 4673503075410863156, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+    - stat: 4
+      statIcon: {fileID: 21300000, guid: 9d3d6a9bd8e93e24ea2ff4e05fb94078, type: 3}
+  turret: {fileID: 0}
+  fireRate: 1.5
+  towerType: 4
+  modifierType: 2
+  baseCost: 8
+  sellPrice: 4
+  infectionScoreUI: {fileID: 5475668045344713534}
+  infectionScoreText: {fileID: 374948996840742997}
+  scoreRequiredForCorruption: 5
+  isInfected: 0
+  infectionScore: 0
+  sellTimer: 10
+  projectilePrefab: {fileID: 7543107520254223616, guid: a8c0888a45e92814d96821db62d2dfbc, type: 3}
+  damage: 30
+  splashRadius: 3
+  splashDamage: 25
+  numberOfTargets: 1
+  baseDamage: 0
+  baseRange: 0
+  baseFireRate: 0
 --- !u!114 &4443643862011117749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +205,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 2455825870989433894}
+--- !u!114 &-5825864515148485070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894824103181417033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c45e2491827d840b84588f4fe410f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulsarTowerUpgrades:
+  - upgrade: Upgrade 1
+    upgradeCost: 5
+    damageIncrease: 0.1
+    rangeIncrease: 0.1
+    fireRateIncrease: 0.1
+    splashRadius: 0
+    splashDamage: 0
+  - upgrade: Upgrade 2
+    upgradeCost: 5
+    damageIncrease: 0.2
+    rangeIncrease: 0.2
+    fireRateIncrease: 0.1
+    splashRadius: 0.1
+    splashDamage: 0.1
+  - upgrade: Upgrade 3
+    upgradeCost: 5
+    damageIncrease: 0.3
+    rangeIncrease: 0.3
+    fireRateIncrease: 0.2
+    splashRadius: 0.2
+    splashDamage: 0.2
+  - upgrade: Upgrade 4
+    upgradeCost: 5
+    damageIncrease: 0.4
+    rangeIncrease: 0.4
+    fireRateIncrease: 0.3
+    splashRadius: 0.3
+    splashDamage: 0.3
+  - upgrade: Upgrade 5
+    upgradeCost: 5
+    damageIncrease: 0.5
+    rangeIncrease: 0.5
+    fireRateIncrease: 0.4
+    splashRadius: 0.3
+    splashDamage: 0.3
 --- !u!1 &4192528932975907368
 GameObject:
   m_ObjectHideFlags: 0

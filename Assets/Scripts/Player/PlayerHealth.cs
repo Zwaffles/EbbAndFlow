@@ -12,32 +12,44 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI livesText;
 
-    InfectionManager infectionManager;
+    private bool alive = true;
+
+    public bool Alive { get { return alive; } }
 
     private void Start()
     {
-        infectionManager = FindObjectOfType<InfectionManager>();
         livesText.text = ("Lives: " + playerLives.ToString());
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (alive)
         {
-            if (playerLives <= 1)
+            if (collision.CompareTag("Enemy"))
             {
-                Debug.Log("Game Over!");
+                /* Game Over */
+                if (playerLives <= 1)
+                {
+                    alive = false; 
+                    playerLives = 0;
+                    GameManager.Instance.EndScreen.ActivateEndScreen(true);
+                }
+                else
+                {
+                    playerLives -= 1;
+                    GameManager.Instance.InfectionManager.IncreaseInfectionSpeed();
+                }
+                GameManager.Instance.WaveSpawner.RemoveEnemy(collision.gameObject);
+                Destroy(collision.gameObject);
+                livesText.text = ("Lives: " + playerLives.ToString());
+            }
+            /* Game Over */
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Infection"))
+            {
+                alive = false;
                 playerLives = 0;
+                GameManager.Instance.EndScreen.ActivateEndScreen(true);
             }
-            else
-            {
-                playerLives -= 1;
-                infectionManager.IncreaseInfectionSpeed();
-            }
-            WaveSpawner.Instance.RemoveEnemy(collision.gameObject);
-            Destroy(collision.gameObject);
-            livesText.text = ("Lives: " + playerLives.ToString());
         }
     }
-
-
 }

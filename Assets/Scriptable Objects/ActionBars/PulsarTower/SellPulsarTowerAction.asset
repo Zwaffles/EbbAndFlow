@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6207bd7309ed08745a790e590bf09139, type: 3}
+  m_Name: SellPulsarTowerAction
+  m_EditorClassIdentifier: 
+  actionBarOrder: 4
+  actionIcon: {fileID: 8494320417710964229, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
+  actionTooltip: Sell this tower for 50% of build cost

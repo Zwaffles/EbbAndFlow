@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6269418321606653296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3518691760054999368}
+  - component: {fileID: 892853435959685809}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3518691760054999368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269418321606653296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7130613, y: 2.0155795, z: 3.3985293}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &892853435959685809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6269418321606653296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c858e7ddde930c47b17a4d39ebece4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 11400000, guid: 91df48c0650bb7f4bb99e3d8ab21e7d4, type: 2}
+  - {fileID: 11400000, guid: fc13578b1cfcc8a41a9ad008a81e3148, type: 2}
+  - {fileID: 11400000, guid: e87180571e6d5284d954be5c10336ebc, type: 2}
+  - {fileID: 11400000, guid: 82524ea1a0dcf0d438908a9eb3a76708, type: 2}
+  - {fileID: 11400000, guid: fc16477c834d57047a7d6ddb4ed5eaf8, type: 2}
+  - {fileID: 11400000, guid: 333a6fccb0a76624f85fbe867f4db2e2, type: 2}
+  - {fileID: 11400000, guid: 53e6c03268cdd4c43ac4ad0f150690b5, type: 2}
+  - {fileID: 11400000, guid: d7b9efb48b0e2f14cbe36b0d8d7b58e4, type: 2}
+  - {fileID: 11400000, guid: bcabf28e1c1059340b14ccd127f6fa6f, type: 2}
+  - {fileID: 11400000, guid: 3d605651a4388e4408cbe0130b4cf61d, type: 2}
+  - {fileID: 11400000, guid: 2bfccfb2c80b65041ba1b8e9079b7169, type: 2}
+  - {fileID: 11400000, guid: 6f0ecf4cf10762b4f86b6d11c956b6a6, type: 2}
+  - {fileID: 11400000, guid: bf8500e7a79cea24ea31f2373c5c52c3, type: 2}
+  - {fileID: 11400000, guid: 68831e14e516a9646a23ff0cc9b9643e, type: 2}
+  - {fileID: 11400000, guid: 9c6af85cd1ac15a42b530123bd13a2af, type: 2}
+  - {fileID: 11400000, guid: 375b82c42be917c4cb4f0a04ceccc884, type: 2}
+  - {fileID: 11400000, guid: 1f62b06878f77254aa387ec0f3bbecb1, type: 2}
+  - {fileID: 11400000, guid: ad0d41a7f0d75c045a8f79187f757852, type: 2}
+  - {fileID: 11400000, guid: f48fe5f3b0b4f154d8ae86ebbeb7e468, type: 2}
+  - {fileID: 11400000, guid: 84505b9ec85442a4ea1e5b7349467a10, type: 2}
+  - {fileID: 11400000, guid: 766bf28b0df842647bee66d6e703d161, type: 2}
+  - {fileID: 11400000, guid: e2c87c8e564502e4ab7a9655a2947526, type: 2}
+  - {fileID: 11400000, guid: 1273cc1c8f993644d9e0ee3f176bb5f2, type: 2}
+  - {fileID: 11400000, guid: 74cc69af7d6b4574da0529ca74364a2c, type: 2}
+  - {fileID: 11400000, guid: 071081d084239654588fc420c0d06e92, type: 2}
+  timeBetweenWaves: 10
+  globalCurrencyUpgradeInfectedCost: 10
+  globalCurrencyUpgradeNormalBonus: 3
+  startPosition: {fileID: 0}
+  endPosition: {fileID: 0}
+  currentWaveText: {fileID: 0}
+  waveTimerText: {fileID: 0}
+  skipWaveButton: {fileID: 0}
