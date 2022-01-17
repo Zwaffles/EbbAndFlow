@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -626,6 +626,7 @@ MonoBehaviour:
       statIcon: {fileID: 21300000, guid: e71100ea9a32cf048af272274e9a73e2, type: 3}
     - stat: 5
       statIcon: {fileID: 21300000, guid: 47ef2b0d5427ba94c99b6e21ee94dc35, type: 3}
+  deathSound: {fileID: 8300000, guid: bdc3923773832e742a590d07402f4cde, type: 3}
 --- !u!114 &-3505021278176663712
 MonoBehaviour:
   m_ObjectHideFlags: 0

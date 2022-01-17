@@ -348,6 +348,7 @@ MonoBehaviour:
   damage: 40
   splashRadius: 0
   splashDamage: 0
+  attackSound: {fileID: 8300000, guid: 009243636fdbd534581fa30424b68b53, type: 3}
   numberOfTargets: 1
   baseDamage: 0
   baseRange: 0

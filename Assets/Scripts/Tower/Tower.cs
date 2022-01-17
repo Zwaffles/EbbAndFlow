@@ -72,6 +72,11 @@ public class Tower : MonoBehaviour
         return modifierType;
     }
 
+    public TowerType GetTowerType()
+    {
+        return towerType;
+    }
+
     public void IncreaseInfectionScore(int value)
     {
         infectionScore += value;

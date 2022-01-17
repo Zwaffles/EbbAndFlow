@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
+    [SerializeField] Color cystInfectedColor = Color.red;
+
     private List<GameObject> cysts = new List<GameObject>();
 
     public void AddNewSpawn(GameObject cyst) //adds a new cyst to the list of cysts
     {
-        cyst.GetComponent<SpriteRenderer>().color = Color.red;
+        cyst.GetComponent<SpriteRenderer>().color = cystInfectedColor;
         cysts.Add(cyst);
         GameManager.Instance.CheatDetection.IncreaseCystIndex();
         SetSpawn();

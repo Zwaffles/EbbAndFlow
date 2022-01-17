@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI livesText;
 
+    [SerializeField] AudioClip increaseInfectionSound;
+
     private bool alive = true;
 
     public bool Alive { get { return alive; } }
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
                 else
                 {
                     playerLives -= 1;
+                    GameManager.Instance.AudioManager.Play(increaseInfectionSound, false);
                     GameManager.Instance.InfectionManager.IncreaseInfectionSpeed();
                 }
                 GameManager.Instance.WaveSpawner.RemoveEnemy(collision.gameObject);

@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -615,6 +615,7 @@ MonoBehaviour:
   damageMultiplier: 1
   minMoveSpeed: 0.25
   moveSpeed: 1.8
+  deathSound: {fileID: 8300000, guid: 06855966903d0ea4e83f268146eb537f, type: 3}
   selectionInfo:
     selectionIcon: {fileID: -8762227857148749906, guid: 2e513e65bdc910a418fab33e55ee62d2, type: 3}
     selectionHeaderText: Crawler

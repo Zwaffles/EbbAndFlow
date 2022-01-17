@@ -32,6 +32,7 @@ public class EndScreen : MonoBehaviour
 
     public void ActivateEndScreen(bool gameOver)
     {
+        GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("death", 1f);
 
         if (!activated)
         {

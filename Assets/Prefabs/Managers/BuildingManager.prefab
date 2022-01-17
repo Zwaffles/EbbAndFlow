@@ -111,6 +111,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  buildSound: {fileID: 8300000, guid: fa41898a6dc08fa4c926b1b7cde0ffd2, type: 3}
   buildMarkerParent: {fileID: 4664120479396417423}
   buildMarkerPrefab: {fileID: 563112408190199971, guid: 60dc0268eab768a46b502431c6d948f4, type: 3}
   buildObstacleLayer:

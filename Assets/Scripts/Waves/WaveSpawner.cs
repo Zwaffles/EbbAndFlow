@@ -11,8 +11,11 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private float timeBetweenWaves = 15f;
     [SerializeField] private int globalCurrencyUpgradeInfectedCost = 10;
+    [SerializeField] private int globalCurrencyUpgradeCost = 10;
     [SerializeField] private int globalCurrencyUpgradeNormalBonus = 3;
     [SerializeField] private float waveSpawnCounter = 35f;
+    [SerializeField] private int globalCurrencyUpgradeInfectedBonus = 3;
+
 
     [Header("Path")]
     [SerializeField] private Transform startPosition;
@@ -21,7 +24,9 @@ public class WaveSpawner : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI currentWaveText;
     [SerializeField] private TextMeshProUGUI waveTimerText;
-    //[SerializeField] private Button skipWaveButton;
+    [SerializeField] private Button skipWaveButton;
+
+    [SerializeField] private AudioClip roundStartSound;
 
     private List<GameObject> currentWaveEnemies = new List<GameObject>();
     private List<GameObject> additionalEnemies = new List<GameObject>();
@@ -36,6 +41,7 @@ public class WaveSpawner : MonoBehaviour
     private bool spawnerActive = true;
     private bool endWaveActionsMade;
     private int normalCurrencyBonus = 0;
+    private int infectedCurrencyBonus = 0;
     private bool activeSwarm;
 
     void Update()
@@ -51,19 +57,20 @@ public class WaveSpawner : MonoBehaviour
             if (waveSpawnCounter <= 0)
             {
                 waveTimerText.gameObject.SetActive(false); //Hides Timer
-                //skipWaveButton.gameObject.SetActive(false); //Hides Skip Button
                 spawning = true;
+                GameManager.Instance.AudioManager.Play(roundStartSound, false);
+                GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("fight", 1f);
                 spawnWaveCoroutine = StartCoroutine(SpawnNextWave());
             }
             else
             {
                 waveTimerText.gameObject.SetActive(true);
-               //skipWaveButton.gameObject.SetActive(true);
                 waveSpawnCounter -= Time.deltaTime; //Starts countdown to next wave
                 waveTimerText.text = ("Next Wave: " + (waveSpawnCounter.ToString("F0")));
 
                 if (!endWaveActionsMade && waveIndex >= 0) //Does end wave actions
                 {
+                    GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("fight", 0f);
                     OnWaveEnd();
                 }
             }
@@ -151,12 +158,21 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public void GlobalCurrencyUpgrade()
+    public void GlobalInfectedCurrencyUpgrade()
     {
         if(GameManager.Instance.PlayerCurrency.InfectedCanBuy(globalCurrencyUpgradeInfectedCost))
         {
-            Debug.Log("bonus");
             GameManager.Instance.PlayerCurrency.RemovePlayerInfectedCurrency(globalCurrencyUpgradeInfectedCost);
+            infectedCurrencyBonus = globalCurrencyUpgradeInfectedBonus;
+            globalCurrencyUpgradeInfectedBonus += globalCurrencyUpgradeInfectedBonus;
+        }
+    }
+
+    public void GlobalCurrencyUpgrade()
+    {
+        if(GameManager.Instance.PlayerCurrency.CanBuy(globalCurrencyUpgradeCost))
+        {
+            GameManager.Instance.PlayerCurrency.RemovePlayerNormalCurrency(globalCurrencyUpgradeCost);
             normalCurrencyBonus = globalCurrencyUpgradeNormalBonus;
             globalCurrencyUpgradeNormalBonus += globalCurrencyUpgradeNormalBonus;
         }
@@ -164,7 +180,11 @@ public class WaveSpawner : MonoBehaviour
 
     void OnWaveEnd()
     {
-        activeSwarm = false;
+        if (activeSwarm)
+        {
+            GameManager.Instance.AudioManager.GetComponent<FMODUnity.StudioEventEmitter>().SetParameter("swarm_event", 0f);
+            activeSwarm = false;
+        }
 
         if(currentSwarm != null)
         {

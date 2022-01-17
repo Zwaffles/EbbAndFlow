@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private TooltipManager tooltipManager;
     private SceneManager sceneManagement;
     private BuffManager buffManager;
+    private AudioManager audioManager;
 
     private PlayerCurrency playerCurrency;
     private CheatDetection cheatDetection;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public TooltipManager TooltipManager { get { return tooltipManager; } }
     public SceneManager SceneManagement { get { return sceneManagement; } }
     public BuffManager BuffManager { get { return buffManager; } }
+    public AudioManager AudioManager { get { return audioManager; } }
 
     public PlayerCurrency PlayerCurrency { get { return playerCurrency; } }
     public CheatDetection CheatDetection { get { return cheatDetection; } }
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
         tooltipManager = FindObjectOfType<TooltipManager>();
         sceneManagement = FindObjectOfType<SceneManager>();
         buffManager = FindObjectOfType<BuffManager>();
+        audioManager = FindObjectOfType<AudioManager>();
 
         playerCurrency = FindObjectOfType<PlayerCurrency>();
         cheatDetection = FindObjectOfType<CheatDetection>();

@@ -9,6 +9,7 @@ public class BuildingManager : MonoBehaviour
     [Header("Build Settings")]
     [SerializeField] private int maxBuildLength = 10;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private AudioClip buildSound;
 
     [Header("Build Marker")]
     [SerializeField] private Transform buildMarkerParent;
@@ -177,6 +178,7 @@ public class BuildingManager : MonoBehaviour
         if (BuildMarkerCheck(buildMarkers[0]))
         {
             /* Instantiate Tower */
+            GameManager.Instance.AudioManager.Play(buildSound, true);
             GameObject towerInstance = Instantiate(currentTowerBuilder.TowerPrefab, towerParent);
             towerInstance.transform.position = buildingGrid.RoundToGridPosition(buildMarkers[0].transform.position);
 
@@ -208,6 +210,7 @@ public class BuildingManager : MonoBehaviour
             if (BuildMarkerCheck(buildMarkers[i]))
             {
                 /* Instantiate Tower */
+                GameManager.Instance.AudioManager.Play(buildSound, true);
                 GameObject towerInstance = Instantiate(currentTowerBuilder.TowerPrefab, towerParent);
                 towerInstance.transform.position = buildingGrid.RoundToGridPosition(buildMarkers[i].transform.position);
 

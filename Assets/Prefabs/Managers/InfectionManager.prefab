@@ -415,12 +415,20 @@ MonoBehaviour:
   temporaryInfectionPushbackTime: 5
   temporarySpreadPushbackSpeed: 2
   pushbackInfectionCost: 0
+  pushbackCooldown: 15
+  pushbackTimer: 0
+  pushbackButton: {fileID: 0}
   temporaryInfectionPauseTime: 5
   stopInfectionCost: 0
+  stopCooldown: 15
+  stopTimer: 0
+  stopButton: {fileID: 0}
   tempSpeedToIncrease: 5
   tempTimeForIncrease: 2
   infectionStatsUI: {fileID: 0}
   drawPoints: 0
+  infectedSound: {fileID: 8300000, guid: ce491d7b63ff9ec4da071ae79b41b517, type: 3}
+  pushbackSound: {fileID: 8300000, guid: 199ccd829fc09134e9f091ae6fc50988, type: 3}
   constantGrowth: 1
   spawnPoint: {fileID: 0}
 --- !u!50 &473611647

@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private SelectionInfo selectionInfo;
 
     private SpriteRenderer selectionOutline;
+
+    [SerializeField] private AudioClip deathSound;
+    
     private Image healthBar;
     private Animator animator;
     private AIPath path;
@@ -90,6 +93,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            GameManager.Instance.AudioManager.Play(deathSound, true);
             GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
             GameManager.Instance.StatisticsManager.IncreaseKillCount();
             Destroy(gameObject);
@@ -104,12 +108,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Die()
-    {
-        currentHealth = 0;
-        GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
-        Destroy(gameObject);
-    }
+    //public void Die()
+    //{
+    //    currentHealth = 0;
+    //    GameManager.Instance.WaveSpawner.RemoveEnemy(gameObject);
+    //    Destroy(gameObject);
+    //}
 
     //private void Update()
     //{

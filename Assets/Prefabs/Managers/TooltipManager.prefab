@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7848904374608228750}
   - component: {fileID: 7848904374608228751}
+  - component: {fileID: 4182900323015351281}
   m_Layer: 0
   m_Name: TooltipManager
   m_TagString: Untagged
@@ -44,3 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipPanel: {fileID: 0}
+--- !u!114 &4182900323015351281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7848904374608228737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5313614858903f34dbfe33a5f054d5f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 892d47e016ce3334a9b38f148d74c417, type: 3}
