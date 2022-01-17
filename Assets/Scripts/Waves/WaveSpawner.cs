@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI currentWaveText;
     [SerializeField] private TextMeshProUGUI waveTimerText;
-    [SerializeField] private Button skipWaveButton;
+    //[SerializeField] private Button skipWaveButton;
 
     private List<GameObject> currentWaveEnemies = new List<GameObject>();
     private List<GameObject> additionalEnemies = new List<GameObject>();
@@ -51,14 +51,14 @@ public class WaveSpawner : MonoBehaviour
             if (waveSpawnCounter <= 0)
             {
                 waveTimerText.gameObject.SetActive(false); //Hides Timer
-                skipWaveButton.gameObject.SetActive(false); //Hides Skip Button
+                //skipWaveButton.gameObject.SetActive(false); //Hides Skip Button
                 spawning = true;
                 spawnWaveCoroutine = StartCoroutine(SpawnNextWave());
             }
             else
             {
                 waveTimerText.gameObject.SetActive(true);
-                skipWaveButton.gameObject.SetActive(true);
+               //skipWaveButton.gameObject.SetActive(true);
                 waveSpawnCounter -= Time.deltaTime; //Starts countdown to next wave
                 waveTimerText.text = ("Next Wave: " + (waveSpawnCounter.ToString("F0")));
 

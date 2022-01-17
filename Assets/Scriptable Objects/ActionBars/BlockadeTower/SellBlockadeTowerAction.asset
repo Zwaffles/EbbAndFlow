@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionBarOrder: 4
   actionIcon: {fileID: 8494320417710964229, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
-  actionTooltip: SELLS THIS TOWER FOR 'VALUE' 'CURRENCY NAME'.
+  actionTooltip: Sell this tower for 100% of build cost.
