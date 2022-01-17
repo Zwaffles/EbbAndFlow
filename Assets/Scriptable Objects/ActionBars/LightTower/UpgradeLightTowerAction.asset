@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionBarOrder: 3
   actionIcon: {fileID: -5214620469579322617, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
-  actionTooltip: USE 'VALUE' 'CURRENCY NAME' TO UPGRADES THIS TOWER, INCREASING ITS
-    'STATS' BY 'VALUE'.
+  actionTooltip: 'Upgrade this tower
+
+    Damage, attack speed, range +10%
+
+    Cost:
+    5 corrupt energy'

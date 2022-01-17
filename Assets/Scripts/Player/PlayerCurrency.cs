@@ -21,8 +21,8 @@ public class PlayerCurrency : MonoBehaviour
     private void Start()
     {
         towerBuilders = FindObjectsOfType<TowerBuilder>().ToList();
-        normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
-        infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+        normalCurrencyText.text = playerNormalCurrency.ToString();
+        infectedCurrencyText.text = playerInfectedCurrency.ToString();
         TowerBuildCheck();
     }
 
@@ -46,7 +46,7 @@ public class PlayerCurrency : MonoBehaviour
     public void AddPlayerNormalCurrency(int amount)
     {
         playerNormalCurrency += amount;
-        normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
+        normalCurrencyText.text = playerNormalCurrency.ToString();
         GameManager.Instance.ActionBarManager.UpdateButtonStates();
         TowerBuildCheck();
     }
@@ -54,7 +54,7 @@ public class PlayerCurrency : MonoBehaviour
     public void RemovePlayerNormalCurrency(int amount)
     {
         playerNormalCurrency -= amount;
-        normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
+        normalCurrencyText.text = playerNormalCurrency.ToString();
         GameManager.Instance.ActionBarManager.UpdateButtonStates();
         TowerBuildCheck();
     }
@@ -62,7 +62,7 @@ public class PlayerCurrency : MonoBehaviour
     public void AddPlayerInfectedCurrency(int amount)
     {
         playerInfectedCurrency += amount;
-        infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+        infectedCurrencyText.text = playerInfectedCurrency.ToString();
         GameManager.Instance.ActionBarManager.UpdateButtonStates();
         TowerBuildCheck();
     }
@@ -70,7 +70,7 @@ public class PlayerCurrency : MonoBehaviour
     public void RemovePlayerInfectedCurrency(int amount)
     {
         playerInfectedCurrency -= amount;
-        infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+        infectedCurrencyText.text = playerInfectedCurrency.ToString();
         GameManager.Instance.ActionBarManager.UpdateButtonStates();
         TowerBuildCheck();
     }

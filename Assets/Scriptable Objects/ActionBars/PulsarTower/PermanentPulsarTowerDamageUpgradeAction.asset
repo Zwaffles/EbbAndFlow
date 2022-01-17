@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionBarOrder: 0
   actionIcon: {fileID: 5150583523307718820, guid: 892ae548171a8fb40b80e4bf105b45a2, type: 3}
-  actionTooltip: USE 'VALUE' 'CURRENCY NAME' TO PERMANENTLY UPGRADES THIS TOWER-TYPE,
-    INCREASING ITS 'DAMAGE' BY 'VALUE'.
+  actionTooltip: 'Permanently increase damage for all pulsar towers by 10%
+
+    Cost:
+    10 corrupt energy'
   towerType: 4
   upgradeType: 0
+  percentageValue: 0.1
+  upgradeCost: 10

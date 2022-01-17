@@ -177,7 +177,7 @@ MonoBehaviour:
   towerType: 4
   modifierType: 2
   baseCost: 8
-  sellPrice: 3
+  sellPrice: 4
   infectionScoreUI: {fileID: 5475668045344713534}
   infectionScoreText: {fileID: 374948996840742997}
   scoreRequiredForCorruption: 5
@@ -235,14 +235,14 @@ MonoBehaviour:
     splashDamage: 0.1
   - upgrade: Upgrade 3
     upgradeCost: 5
-    damageIncrease: 0.2
+    damageIncrease: 0.3
     rangeIncrease: 0.3
     fireRateIncrease: 0.2
     splashRadius: 0.2
     splashDamage: 0.2
   - upgrade: Upgrade 4
     upgradeCost: 5
-    damageIncrease: 0.3
+    damageIncrease: 0.4
     rangeIncrease: 0.4
     fireRateIncrease: 0.3
     splashRadius: 0.3

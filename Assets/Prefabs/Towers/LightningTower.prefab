@@ -316,7 +316,7 @@ MonoBehaviour:
   towerType: 3
   modifierType: 3
   baseCost: 10
-  sellPrice: 3
+  sellPrice: 5
   infectionScoreUI: {fileID: 8188251127653013830}
   infectionScoreText: {fileID: 4570008168370623021}
   scoreRequiredForCorruption: 5
