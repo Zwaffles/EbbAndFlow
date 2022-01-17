@@ -427,8 +427,8 @@ MonoBehaviour:
   tempTimeForIncrease: 2
   infectionStatsUI: {fileID: 0}
   drawPoints: 0
-  infectedSound: {fileID: 8300000, guid: ce491d7b63ff9ec4da071ae79b41b517, type: 3}
-  pushbackSound: {fileID: 8300000, guid: 199ccd829fc09134e9f091ae6fc50988, type: 3}
+  infectedSound: {fileID: 8300000, guid: 297a72e27ec6e5c4ea0cc23ec931d5a7, type: 3}
+  pushbackSound: {fileID: 8300000, guid: f208126f38762af47aba9d01415c68aa, type: 3}
   constantGrowth: 1
   spawnPoint: {fileID: 0}
 --- !u!50 &473611647
