@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,6 +19,9 @@ public class BuildingManager : MonoBehaviour
 
     [Header("Tower Parent")]
     [SerializeField] private Transform towerParent;
+
+    [Header("Build UI")]
+    [SerializeField] private Transform buildingPanel;
 
     private List<TowerBuilder> towerBuilders = new List<TowerBuilder>();
     private List<BuildMarker> buildMarkers = new List<BuildMarker>();
@@ -43,11 +47,7 @@ public class BuildingManager : MonoBehaviour
 
         InstantiateBuildMarkers();
 
-        foreach (TowerBuilder towerBuilder in FindObjectsOfType<TowerBuilder>())
-        {
-            towerBuilders.Add(towerBuilder);
-        }
-        towerBuilders.Reverse();
+        towerBuilders = GameObject.FindObjectsOfType<TowerBuilder>().OrderBy(m => m.transform.GetSiblingIndex()).ToList();
     }
 
     private void Update()
