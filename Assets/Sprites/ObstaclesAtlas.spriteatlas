@@ -45,11 +45,15 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
     - {fileID: 2800000, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
+    - {fileID: 2800000, guid: 2da5646aac8fe02488cbdcea8822a671, type: 3}
+    - {fileID: 2800000, guid: fb9bc880e76e1834398a7be94a5740d8, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -7178822172636158603, guid: fb9bc880e76e1834398a7be94a5740d8, type: 3}
+  - {fileID: -5948397084529994588, guid: fb9bc880e76e1834398a7be94a5740d8, type: 3}
   - {fileID: 1972776977474178327, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: -4552940506928854387, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: -2965148868974029500, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
@@ -145,6 +149,8 @@ SpriteAtlas:
   - {fileID: -4517305837086498198, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: -4158684601492685560, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
   - {fileID: 8840618053319713365, guid: 267109b0b2a199e438264e275f256e2c, type: 3}
+  - {fileID: 716929634459042934, guid: 2da5646aac8fe02488cbdcea8822a671, type: 3}
+  - {fileID: -7779772245507925811, guid: 2da5646aac8fe02488cbdcea8822a671, type: 3}
   - {fileID: 6627649763376337232, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   - {fileID: -5983045922377713702, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   - {fileID: 3952087346101536742, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
@@ -152,6 +158,8 @@ SpriteAtlas:
   - {fileID: 8536086885815309252, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   - {fileID: 7940306436916436892, guid: 080b8a3eac18b8749a0c5001215c10ac, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Borders_Corrupt_1
+  - Borders_Corrupt_0
   - Environment_SpriteSheet_20
   - Environment_SpriteSheet_21
   - Environment_SpriteSheet_22
@@ -247,6 +255,8 @@ SpriteAtlas:
   - cmrd0i5f_38
   - cmrd0i5f_68
   - cmrd0i5f_69
+  - Borders_1
+  - Borders_0
   - Grass_alt 1_5
   - Grass_alt 1_4
   - Grass_alt 1_3
