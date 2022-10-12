@@ -16,21 +16,27 @@ public class PlayerHealth : MonoBehaviour
     {
         livesText.text = ("Lives: " + playerLives.ToString());
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            if (playerLives < 2)
+            if (playerLives <= 1)
             {
-                Debug.Log("Game Over!");
                 playerLives = 0;
+                GameManager.Instance.EndScreen.ActivateEndScreen(true);
             }
             else
             {
                 playerLives -= 1;
 
+                GameManager.Instance.InfectionManager.IncreaseInfectionSpeed();
             }
+            GameManager.Instance.WaveSpawner.RemoveEnemy(collision.gameObject);
+            Destroy(collision.gameObject);
             livesText.text = ("Lives: " + playerLives.ToString());
         }
     }
+
+
 }

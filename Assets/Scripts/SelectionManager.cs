@@ -5,35 +5,15 @@ using UnityEngine.EventSystems;
 
 public class SelectionManager : MonoBehaviour
 {
-    public static SelectionManager Instance { get { return instance; } }
-    private static SelectionManager instance;
-
     [SerializeField] Tower selectedTower;
     [SerializeField] private LayerMask towerLayer;
     [SerializeField] GameObject towerUI;
-    PlayerCurrency playerCurrency;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-    }
-
-    private void Start()
-    {
-        playerCurrency = FindObjectOfType<PlayerCurrency>();
-    }
     private void Update()
     {
         SelectTower();
     }
+
     void SelectTower()
     {
         if (Input.GetMouseButtonDown(0))
@@ -44,13 +24,18 @@ public class SelectionManager : MonoBehaviour
             {
                 if (hit.transform.gameObject.GetComponent<Tower>() != null)
                 {
+                    UnselectTower();
                     selectedTower = hit.transform.gameObject.GetComponent<Tower>();
+                    if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
+                    {
+                        selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 255);
+                    }
                     OpenTowerUI();
                 }
             }
             else
             {
-                if (!EventSystem.current.IsPointerOverGameObject())
+                if (selectedTower != null && !EventSystem.current.IsPointerOverGameObject())
                 {
                     UnselectTower();
                 }
@@ -60,6 +45,13 @@ public class SelectionManager : MonoBehaviour
 
     public void UnselectTower()
     {
+        if(selectedTower != null)
+        {
+            if (selectedTower.gameObject.GetComponent<TowerRangeOutline>() != null)
+            {
+                selectedTower.gameObject.GetComponent<TowerRangeOutline>().outline.color = new Color(255, 255, 255, 0);
+            }
+        }
         selectedTower = null;
         CloseTowerUI();
     }
@@ -78,8 +70,9 @@ public class SelectionManager : MonoBehaviour
     {
         if (selectedTower != null)
         {
-            playerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice);
-            BuildingManager.Instance.RemoveTower(selectedTower.gameObject);
+            GameManager.Instance.PlayerCurrency.AddPlayerNormalCurrency(selectedTower.sellPrice); 
+            GameManager.Instance.InfectionManager.RemoveTowerFromList(selectedTower);
+            GameManager.Instance.BuildingManager.RemoveBuilding(selectedTower.gameObject);
             CloseTowerUI();
         }
     }

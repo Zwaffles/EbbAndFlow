@@ -1,95 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Pathfinding;
-using UnityEngine.Tilemaps;
 
 public class CheatDetection : MonoBehaviour
 {
-    public static CheatDetection Instance { get { return instance; } }
-    private static CheatDetection instance;
+    [SerializeField] List<CheatDetector> cheatDetectors = new List<CheatDetector>();
+    private int currentCystIndex = -1;
 
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] Transform goalPoint;
-
-    //GraphNode node1;
-    //GraphNode node2;
-    GraphMask mask1;
-    GraphMask mask2;
-
-    NNConstraint buildingConstraint = new NNConstraint();
-    
-
-    //GraphUpdateObject guo = new GraphUpdateObject();
-
-    //Seeker seeker;
-
-    //private float remainingDistance;
-
-    private void Awake()
+    public void IncreaseCystIndex()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            DontDestroyOnLoad(this);
-            instance = this;
-        }
-
-        //seeker = GetComponent<Seeker>();
-
-        mask1 = GraphMask.FromGraphName("Detection Graph");
-        mask2 = GraphMask.FromGraphName("Enemy Graph");
-
-        buildingConstraint = NNConstraint.Default;
-        buildingConstraint.graphMask = mask1;
-
-        //var guo = new GraphUpdateObject(FindObjectOfType<TilemapCollider2D>().bounds);
-
-        //node1 = AstarPath.active.GetNearest(transform.position, buildingConstraint).node;
-        //node2 = AstarPath.active.GetNearest(GetComponent<AIDestinationSetter>().target.position, buildingConstraint).node;
+        currentCystIndex++;
     }
 
-    //private void Start()
-    //{
-    //    spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-    //    goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
-    //}
-
-    //    void OnPathCalculated(Path path)
-    //    {
-
-    //        if (path.error)
-    //        {
-    //            Debug.Log("ahhh!!");
-    //            return;
-    //        }
-
-    //        float pathLength = path.GetTotalLength();
-    //}
-
-    //    private void Update()
-    //    {
-    //        GetComponent<AIPath>().SearchPath();
-    //        Debug.Log(GraphUpdateUtilities.UpdateGraphsNoBlock(guo, node1, node2, false));
-    //    }
-
-    public bool CheckForObstacles() //method name kinda self explanatory innit?
+    public void DecreaseCystIndex()
     {
-        var guo = new GraphUpdateObject(GetComponent<Collider2D>().bounds);
-        var spawnPointNode = AstarPath.active.GetNearest(spawnPoint.position, buildingConstraint).node;
-        var goalNode = AstarPath.active.GetNearest(goalPoint.position, buildingConstraint).node;
+        currentCystIndex--;
+    }
 
-        if (GraphUpdateUtilities.UpdateGraphsNoBlock(guo, spawnPointNode, goalNode, false)) //updates the graph while checking for blocking elements, if nothing blocks it returns true
+    public bool CheckForObstacles(GameObject buildMarker)
+    {
+        Collider2D buildMarkerCollider = buildMarker.GetComponent<CompositeCollider2D>();
+
+        bool isPathValid;
+
+        if(currentCystIndex == 0)
         {
-            return true;
+            //Debug.Log("checking for index: " + currentCystIndex + " & " + (currentCystIndex + 1));
+            isPathValid = cheatDetectors[0].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
+            return isPathValid;
+        }
+        else if(currentCystIndex == cheatDetectors.Count - 1)
+        {
+            //Debug.Log("checking for index: " + (currentCystIndex - 1) + " & " + currentCystIndex);
+            isPathValid = cheatDetectors[cheatDetectors.Count - 2].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[cheatDetectors.Count - 1].CheckForObstacles(buildMarkerCollider) ? true : false : false;
+            return isPathValid;
         }
         else
         {
-            return false;
+            //Debug.Log("checking for index: " + (currentCystIndex - 1) + ", " + currentCystIndex + " & " + (currentCystIndex + 1));
+            isPathValid = cheatDetectors[currentCystIndex - 1].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex].CheckForObstacles(buildMarkerCollider) ? cheatDetectors[currentCystIndex + 1].CheckForObstacles(buildMarkerCollider) ? true : false : false : false;
+            return isPathValid;
         }
     }
 }

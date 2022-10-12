@@ -9,18 +9,17 @@ public class PlayerCurrency : MonoBehaviour
 {
     [Header("Currency")]
     public int playerNormalCurrency = 50;
-    [SerializeField] int playerInfectedCurrency = 0;
+    public int playerInfectedCurrency = 0;
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI normalCurrencyText;
     [SerializeField] TextMeshProUGUI infectedCurrencyText;
 
-    private void Awake()
+    private void Start()
     {
         normalCurrencyText.text = ("Norm Curr: " + playerNormalCurrency.ToString());
         infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
     }
-
 
     public void AddPlayerNormalCurrency(int amount)
     {
@@ -44,5 +43,17 @@ public class PlayerCurrency : MonoBehaviour
     {
         playerInfectedCurrency -= amount;
         infectedCurrencyText.text = ("Inf Curr: " + playerInfectedCurrency.ToString());
+    }
+
+    public bool CanBuy(int cost)
+    {
+        if (cost <= playerNormalCurrency)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
